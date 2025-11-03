@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vista de Red - Ley 21.600</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Librerías para la visualización de red -->
+  <link href="https://unpkg.com/vis-network@latest/styles/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://unpkg.com/vis-network@latest/standalone/umd/vis-network.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    #graph-container {
+      width: 100%;
+      height: 100vh;
+      background-color: #f9fafb;
+    }
+    .dark #graph-container {
+      background-color: #111827;
+    }
+    #graph-info-panel {
+      position: absolute;
+      top: 4rem;
+      left: 1rem;
+      z-index: 10;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 20rem;
+      max-height: 60vh;
+      overflow-y: auto;
+      transition: all 0.3s ease;
+    }
+    .dark #graph-info-panel {
+      background-color: #1f2937;
+      color: #f3f4f6;
+    }
+    .hidden {
+      display: none;
+    }
+    #control-panel {
+      position: absolute;
+      top: 4rem;
+      right: 1rem;
+      z-index: 10;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 20rem;
+      max-height: 80vh;
+      overflow-y: auto;
+      transition: all 0.3s ease;
+    }
+    .dark #control-panel {
+      background-color: #1f2937;
+      color: #f3f4f6;
+    }
+    #legend-panel {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 10;
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .dark #legend-panel {
+      background-color: #1f2937;
+      color: #f3f4f6;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+    .legend-shape {
+      width: 16px;
+      height: 16px;
+      margin-right: 0.5rem;
+      display: inline-block;
+    }
+    .shape-circle {
+      border-radius: 50%;
+    }
+    .shape-square {
+      border-radius: 2px;
+    }
+    .shape-diamond {
+      transform: rotate(45deg);
+      border-radius: 2px;
+    }
+    .stats-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .dark .stats-item {
+      border-bottom-color: #4b5563;
+    }
+    .filter-section {
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .dark .filter-section {
+      border-bottom-color: #4b5563;
+    }
+    .filter-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.3rem;
+    }
+    .checkbox-container input {
+      margin-right: 0.5rem;
+    }
+    .slider-container {
+      margin-top: 0.5rem;
+    }
+    .slider-container input {
+      width: 100%;
+    }
+    .search-container {
+      margin-bottom: 0.5rem;
+    }
+    .search-container input {
+      width: 100%;
+      padding: 0.3rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.25rem;
+    }
+    .dark .search-container input {
+      background-color: #374151;
+      border-color: #4b5563;
+      color: #f3f4f6;
+    }
+    .button-container {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .button-container button {
+      flex: 1;
+      padding: 0.3rem;
+      border-radius: 0.25rem;
+      font-size: 0.8rem;
+    }
+    .layout-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.5rem;
+    }
+    .layout-buttons button {
+      padding: 0.3rem;
+      border-radius: 0.25rem;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+  <!-- Header -->
+  <header class="bg-emerald-700 dark:bg-emerald-800 text-white shadow-lg sticky top-0 z-40">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
+        <i class="fas fa-project-diagram"></i> Vista de Red - Ley 21.600
+      </h1>
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-emerald-600 transition" aria-label="Cambiar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="index.html" class="px-4 py-2 bg-white text-emerald-700 rounded-lg font-medium hover:bg-gray-100 transition">
+          <i class="fas fa-arrow-left"></i> Volver
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenedor principal -->
+  <div class="relative w-full h-full">
+    <!-- Panel de información -->
+    <div id="graph-info-panel" class="hidden">
+      <h3 id="graph-info-title" class="font-bold text-lg mb-2"></h3>
+      <div id="graph-info-content" class="text-sm text-gray-600 dark:text-gray-300"></div>
+    </div>
+    
+    <!-- Panel de control -->
+    <div id="control-panel">
+      <h3 class="font-bold text-lg mb-2">Panel de Control</h3>
+      
+      <!-- Estadísticas -->
+      <div class="filter-section">
+        <div class="filter-title">Estadísticas</div>
+        <div class="stats-item">
+          <span>Artículos:</span>
+          <span id="stats-articles">0</span>
+        </div>
+        <div class="stats-item">
+          <span>Instituciones:</span>
+          <span id="stats-institutions">0</span>
+        </div>
+        <div class="stats-item">
+          <span>Leyes:</span>
+          <span id="stats-laws">0</span>
+        </div>
+        <div class="stats-item">
+          <span>Conexiones:</span>
+          <span id="stats-connections">0</span>
+        </div>
+      </div>
+      
+      <!-- Filtros por tipo -->
+      <div class="filter-section">
+        <div class="filter-title">Filtrar por tipo</div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="filter-articles" checked>
+          <label for="filter-articles">Artículos</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="filter-institutions" checked>
+          <label for="filter-institutions">Instituciones</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="filter-laws" checked>
+          <label for="filter-laws">Leyes relacionadas</label>
+        </div>
+      </div>
+      
+      <!-- Filtro por conexiones -->
+      <div class="filter-section">
+        <div class="filter-title">Conexiones mínimas</div>
+        <div class="slider-container">
+          <input type="range" id="filter-connections" min="0" max="10" value="0">
+          <div class="flex justify-between text-xs">
+            <span>0</span>
+            <span id="filter-connections-value">0</span>
+            <span>10+</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Buscador -->
+      <div class="filter-section">
+        <div class="filter-title">Buscar</div>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Buscar nodo...">
+        </div>
+      </div>
+      
+      <!-- Botones de reset -->
+      <div class="filter-section">
+        <div class="button-container">
+          <button id="reset-filters" class="bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600">
+            <i class="fas fa-undo"></i> Resetear
+          </button>
+        </div>
+      </div>
+      
+      <!-- Controles de física -->
+      <div class="filter-section">
+        <div class="filter-title">Controles de Física</div>
+        <div class="button-container">
+          <button id="toggle-physics" class="bg-blue-500 hover:bg-blue-600 text-white">
+            <i class="fas fa-pause"></i> Pausar
+          </button>
+          <button id="fit-network" class="bg-green-500 hover:bg-green-600 text-white">
+            <i class="fas fa-compress"></i> Zoom Fit
+          </button>
+        </div>
+        <div class="slider-container mt-2">
+          <label for="node-distance">Distancia entre nodos:</label>
+          <input type="range" id="node-distance" min="50" max="500" value="230">
+        </div>
+      </div>
+      
+      <!-- Layouts -->
+      <div class="filter-section">
+        <div class="filter-title">Layout</div>
+        <div class="layout-buttons">
+          <button id="layout-force" class="bg-purple-500 hover:bg-purple-600 text-white">Fuerza</button>
+          <button id="layout-hierarchical" class="bg-purple-500 hover:bg-purple-600 text-white">Jerárquico</button>
+          <button id="layout-radial" class="bg-purple-500 hover:bg-purple-600 text-white">Radial</button>
+        </div>
+      </div>
+      
+      <!-- Exportación -->
+      <div class="filter-section">
+        <div class="filter-title">Exportar</div>
+        <div class="button-container">
+          <button id="export-png" class="bg-yellow-500 hover:bg-yellow-600 text-white">
+            <i class="fas fa-image"></i> PNG
+          </button>
+          <button id="export-json" class="bg-indigo-500 hover:bg-indigo-600 text-white">
+            <i class="fas fa-file-code"></i> JSON
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Panel de leyenda -->
+    <div id="legend-panel">
+      <h3 class="font-bold mb-2">Leyenda</h3>
+      <div class="legend-item">
+        <div class="legend-color shape-circle" style="background-color: #4F46E5;"></div>
+        <span>Artículos</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color shape-square" style="background-color: #10B981;"></div>
+        <span>Instituciones</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color shape-diamond" style="background-color: #F59E0B;"></div>
+        <span>Leyes relacionadas</span>
+      </div>
+    </div>
+    
+    <!-- Contenedor de la red -->
+    <div id="graph-container"></div>
+  </div>
+
+  <!-- Script con datos -->
+  <script src="base.js"></script>
+
+  <!-- Scripts -->
+  <script>
+    // Variables globales
+    let data;
+    let network = null;
+    let nodes, edges;
+    let physicsEnabled = true;
+    let currentLayout = 'force';
+
+    // Función para cargar datos
+    async function loadData() {
+      try {
+        data = mockDataResponse;
+        return true;
+      } catch (error) {
+        console.error("Error al cargar los datos:", error);
+        return false;
+      }
+    }
+
+    // Función para procesar datos de la red
+    function processGraphData() {
+      const nodesArray = [];
+      const edgesArray = [];
+      const nodeMap = new Map();
+      
+      // Palabras clave para instituciones
+      const institutionKeywords = [
+        "UNESCO", "Servicio de Biodiversidad", "SBAP", "Ministerio del Medio Ambiente", 
+        "SAG", "Sernapesca", "CONAF", "Ministerio de Agricultura", "Ministerio de Economía",
+        "Ministerio de Hacienda", "Ministerio de Bienes Nacionales", "Ministerio de Defensa Nacional",
+        "Subsecretaría de Pesca", "Subsecretaría de Turismo", "Subsecretaría para las Fuerzas Armadas",
+        "Servicio Nacional de Pesca y Acuicultura", "Corporación Nacional Forestal",
+        "Superintendencia del Medio Ambiente", "Tribunal Ambiental", "Corte Suprema",
+        "Corte de Apelaciones", "Contraloría General de la República",
+        "Consejo de Ministros para la Sustentabilidad", "Comité Científico Asesor",
+        "Comité Técnico", "Dirección Regional", "Director Nacional", "Director Regional",
+        "Guardaparques", "Fondo Nacional de la Biodiversidad", "Oficina de Autorizaciones Sectoriales",
+        "Servicio Agrícola y Ganadero", "Subsecretaría de Pesca y Acuicultura",
+        "Ministerio de las Culturas, las Artes y el Patrimonio", "Ministerio de Desarrollo Social y Familia",
+        "Ministerio de Ciencia, Tecnología, Conocimiento e Innovación", "Ministerio de Educación",
+        "Tesorería General de la República", "Conservador de Bienes Raíces",
+        "Corporación Nacional de Desarrollo Indígena", "Comisión de Desarrollo de Isla de Pascua",
+        "Organización Internacional del Trabajo", "Unión Internacional para la Conservación de la Naturaleza",
+        "UICN", "Convenio sobre la Diversidad Biológica", "Programa del Hombre y la Biósfera",
+        "Red Mundial de Reservas de la Biósfera", "Convenio sobre la Conservación de Especies Migratorias",
+        "Armada de Chile", "Carabineros de Chile", "Policía de Investigaciones",
+        "Asociación de Guías y Scouts de Chile", "Comunidades indígenas", "Pueblo Rapa Nui",
+        "Organizaciones Representativas de Pueblos Indígenas"
+      ];
+      
+      // Palabras clave para leyes
+      const lawKeywords = [
+        "ley N° 19.300", "Ley General de Pesca", "Ley sobre Caza", "Ley de Bosque Nativo",
+        "Código del Trabajo", "ley N° 18.575", "ley N° 20.880", "ley N° 19.882",
+        "ley N° 18.892", "ley N° 20.256", "ley N° 4.601", "ley N° 20.283", "ley N° 17.288",
+        "ley N° 20.417", "ley N° 20.600", "ley N° 19.253", "ley N° 18.834", "decreto ley N° 249",
+        "decreto ley N° 1.939", "decreto ley N° 1.263", "Código de Minería",
+        "Ley Marco de Autorizaciones Sectoriales", "Ley sobre Pesca Recreativa",
+        "Ley sobre Recuperación del Bosque Nativo", "Convenio N° 169", "Sistema de Alta Dirección Pública",
+        "Estatuto Administrativo", "Ley de Presupuestos", "Tribunales Ambientales",
+        "Superintendencia del Medio Ambiente", "Consejo de Ministros para la Sustentabilidad"
+      ];
+
+      // Crear nodos para cada artículo
+      data.articulos.forEach(article => {
+        const nodeId = `art-${article.id}`;
+        nodeMap.set(nodeId, {
+          id: nodeId,
+          label: `Art. ${article.numero}`,
+          group: 'article',
+          articleId: article.id,
+          title: `Artículo ${article.numero}`,
+          description: article.nombre || '',
+          connections: 0
+        });
+      });
+
+      // Procesar conexiones entre artículos y con instituciones/leyes
+      data.articulos.forEach(article => {
+        const fromNodeId = `art-${article.id}`;
+        const text = article.texto_completo.toLowerCase();
+        
+        // Conexiones entre artículos
+        const articleMentionRegex = /artículo\s+(\d+[°º]?)/gi;
+        let match;
+        
+        while ((match = articleMentionRegex.exec(article.texto_completo)) !== null) {
+          const mentionedArtNum = match[1].replace('°', '').replace('º', '');
+          const mentionedArticle = data.articulos.find(a => a.numero === mentionedArtNum);
+          
+          if (mentionedArticle) {
+            const toNodeId = `art-${mentionedArticle.id}`;
+            edgesArray.push({
+              from: fromNodeId,
+              to: toNodeId,
+              label: 'menciona'
+            });
+            
+            // Incrementar contador de conexiones
+            if (nodeMap.has(fromNodeId)) {
+              nodeMap.get(fromNodeId).connections++;
+            }
+            if (nodeMap.has(toNodeId)) {
+              nodeMap.get(toNodeId).connections++;
+            }
+          }
+        }
+        
+        // Conexiones con instituciones
+        institutionKeywords.forEach(inst => {
+          if (text.includes(inst.toLowerCase())) {
+            const instNodeId = `inst-${inst.replace(/\s+/g, '-')}`;
+            
+            if (!nodeMap.has(instNodeId)) {
+              nodeMap.set(instNodeId, {
+                id: instNodeId,
+                label: inst,
+                group: 'institution',
+                description: `Institución mencionada en la ley.`,
+                connections: 0
+              });
+            }
+            
+            edgesArray.push({
+              from: fromNodeId,
+              to: instNodeId,
+              label: 'menciona'
+            });
+            
+            // Incrementar contador de conexiones
+            if (nodeMap.has(fromNodeId)) {
+              nodeMap.get(fromNodeId).connections++;
+            }
+            if (nodeMap.has(instNodeId)) {
+              nodeMap.get(instNodeId).connections++;
+            }
+          }
+        });
+        
+        // Conexiones con otras leyes
+        lawKeywords.forEach(law => {
+          if (text.includes(law.toLowerCase())) {
+            const lawNodeId = `law-${law.replace(/\s+/g, '-')}`;
+            
+            if (!nodeMap.has(lawNodeId)) {
+              nodeMap.set(lawNodeId, {
+                id: lawNodeId,
+                label: law,
+                group: 'law',
+                description: `Otra norma legal mencionada.`,
+                connections: 0
+              });
+            }
+            
+            edgesArray.push({
+              from: fromNodeId,
+              to: lawNodeId,
+              label: 'se relaciona'
+            });
+            
+            // Incrementar contador de conexiones
+            if (nodeMap.has(fromNodeId)) {
+              nodeMap.get(fromNodeId).connections++;
+            }
+            if (nodeMap.has(lawNodeId)) {
+              nodeMap.get(lawNodeId).connections++;
+            }
+          }
+        });
+      });
+
+      // Convertir el mapa a un array de nodos
+      nodesArray.push(...Array.from(nodeMap.values()));
+      
+      return { nodes: nodesArray, edges: edgesArray };
+    }
+
+    // Función para mostrar información del nodo
+    function showNodeInfo(nodeData) {
+      const panel = document.getElementById('graph-info-panel');
+      const titleEl = document.getElementById('graph-info-title');
+      const contentEl = document.getElementById('graph-info-content');
+      
+      titleEl.textContent = nodeData.label;
+      
+      if (nodeData.group === 'article') {
+        const article = data.articulos.find(a => a.id === nodeData.articleId);
+        contentEl.innerHTML = `
+          <strong>Artículo ${article.numero}</strong>
+          <p class="mt-2">${article.nombre || ''}</p>
+          <p class="mt-2 text-xs">${article.texto_completo.substring(0, 200)}...</p>
+          <p class="mt-2 text-xs">Conexiones: ${nodeData.connections}</p>
+        `;
+      } else {
+        contentEl.innerHTML = `
+          <p>${nodeData.description || 'Entidad mencionada en la ley.'}</p>
+          <p class="mt-2 text-xs">Conexiones: ${nodeData.connections}</p>
+        `;
+      }
+      
+      panel.classList.remove('hidden');
+    }
+
+    // Función para inicializar la red
+    function initializeGraph() {
+      const container = document.getElementById('graph-container');
+      const graphData = processGraphData();
+      
+      nodes = new vis.DataSet(graphData.nodes);
+      edges = new vis.DataSet(graphData.edges);
+      
+      const data = {
+        nodes: nodes,
+        edges: edges
+      };
+      
+      const options = {
+        nodes: {
+          shape: 'dot',
+          size: 15,
+          font: {
+            size: 14,
+            color: '#333'
+          },
+          borderWidth: 2,
+          shadow: true,
+          color: {
+            highlight: {
+              border: '#2D3748',
+              background: '#CBD5E0'
+            },
+            hover: {
+              border: '#2D3748',
+              background: '#CBD5E0'
+            }
+          }
+        },
+        edges: {
+          width: 2,
+          color: {
+            inherit: 'from'
+          },
+          smooth: {
+            type: 'continuous'
+          },
+          arrows: {
+            to: {
+              enabled: true,
+              scaleFactor: 0.5
+            }
+          },
+          color: {
+            highlight: '#4F46E5',
+            hover: '#4F46E5'
+          }
+        },
+        physics: {
+          forceAtlas2Based: {
+            gravitationalConstant: -26,
+            centralGravity: 0.005,
+            springLength: 230,
+            springConstant: 0.18
+          },
+          maxVelocity: 146,
+          solver: 'forceAtlas2Based',
+          timestep: 0.35,
+          stabilization: {
+            iterations: 150
+          }
+        },
+        interaction: {
+          hover: true,
+          tooltipDelay: 200,
+          hoverConnectedEdges: true,
+          selectConnectedEdges: true
+        }
+      };
+
+      network = new vis.Network(container, data, options);
+      
+      // Aplicar estilos iniciales a los nodos según su tipo
+      updateNodeStyles();
+      
+      // Actualizar estadísticas
+      updateStatistics();
+      
+      // Evento para mostrar información al hacer clic en un nodo
+      network.on("click", function (params) {
+        if (params.nodes.length > 0) {
+          const nodeId = params.nodes[0];
+          const nodeData = nodes.get(nodeId);
+          showNodeInfo(nodeData);
+        }
+      });
+      
+      // Evento para ocultar el panel al hacer clic en el fondo
+      network.on("deselectNode", function () {
+        document.getElementById('graph-info-panel').classList.add('hidden');
+      });
+      
+      // Evento para resaltar conexiones al pasar el mouse
+      network.on("hoverNode", function (params) {
+        const nodeId = params.node;
+        const connectedNodes = network.getConnectedNodes(nodeId);
+        const connectedEdges = network.getConnectedEdges(nodeId);
+        
+        // Resaltar nodos conectados
+        nodes.update([
+          { id: nodeId, color: { background: '#4F46E5', border: '#2D3748' } },
+          ...connectedNodes.map(id => ({ 
+            id, 
+            color: { background: '#A5B4FC', border: '#4F46E5' } 
+          }))
+        ]);
+        
+        // Resaltar aristas conectadas
+        edges.update(connectedEdges.map(id => ({ 
+          id, 
+          color: { color: '#4F46E5', highlight: '#4F46E5' } 
+        })));
+      });
+      
+      network.on("blurNode", function () {
+        // Restaurar estilos originales
+        updateNodeStyles();
+      });
+    }
+
+    // Función para actualizar estilos de nodos
+    function updateNodeStyles() {
+      const allNodes = nodes.get();
+      const updates = [];
+      
+      allNodes.forEach(node => {
+        let color, shape;
+        
+        switch(node.group) {
+          case 'article':
+            color = '#4F46E5'; // Indigo
+            shape = 'dot';
+            break;
+          case 'institution':
+            color = '#10B981'; // Emerald
+            shape = 'square';
+            break;
+          case 'law':
+            color = '#F59E0B'; // Amber
+            shape = 'diamond';
+            break;
+          default:
+            color = '#6B7280'; // Gray
+            shape = 'dot';
+        }
+        
+        // Tamaño proporcional a las conexiones
+        const size = 15 + Math.min(node.connections * 2, 20);
+        
+        updates.push({
+          id: node.id,
+          color: { background: color, border: '#2D3748' },
+          shape: shape,
+          size: size
+        });
+      });
+      
+      nodes.update(updates);
+    }
+
+    // Función para actualizar estadísticas
+    function updateStatistics() {
+      const allNodes = nodes.get();
+      const allEdges = edges.get();
+      
+      const articles = allNodes.filter(n => n.group === 'article').length;
+      const institutions = allNodes.filter(n => n.group === 'institution').length;
+      const laws = allNodes.filter(n => n.group === 'law').length;
+      const connections = allEdges.length;
+      
+      document.getElementById('stats-articles').textContent = articles;
+      document.getElementById('stats-institutions').textContent = institutions;
+      document.getElementById('stats-laws').textContent = laws;
+      document.getElementById('stats-connections').textContent = connections;
+    }
+
+    // Función para aplicar filtros
+    function applyFilters() {
+      const showArticles = document.getElementById('filter-articles').checked;
+      const showInstitutions = document.getElementById('filter-institutions').checked;
+      const showLaws = document.getElementById('filter-laws').checked;
+      const minConnections = parseInt(document.getElementById('filter-connections').value);
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+      
+      const allNodes = nodes.get();
+      const allEdges = edges.get();
+      
+      // Filtrar nodos
+      const filteredNodes = allNodes.filter(node => {
+        // Filtrar por tipo
+        if (node.group === 'article' && !showArticles) return false;
+        if (node.group === 'institution' && !showInstitutions) return false;
+        if (node.group === 'law' && !showLaws) return false;
+        
+        // Filtrar por conexiones mínimas
+        if (node.connections < minConnections) return false;
+        
+        // Filtrar por término de búsqueda
+        if (searchTerm && !node.label.toLowerCase().includes(searchTerm)) return false;
+        
+        return true;
+      });
+      
+      // Filtrar aristas (solo mostrar si ambos nodos están visibles)
+      const filteredNodeIds = new Set(filteredNodes.map(n => n.id));
+      const filteredEdges = allEdges.filter(edge => 
+        filteredNodeIds.has(edge.from) && filteredNodeIds.has(edge.to)
+      );
+      
+      // Actualizar la red
+      network.setData({
+        nodes: new vis.DataSet(filteredNodes),
+        edges: new vis.DataSet(filteredEdges)
+      });
+      
+      // Actualizar estilos
+      updateNodeStyles();
+    }
+
+    // Función para cambiar el tema
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("dark", isDark);
+      const themeBtn = document.getElementById("theme-toggle");
+      themeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+
+    // Función para configurar el tema inicial
+    function setupTheme() {
+      const isDark = localStorage.getItem("dark") === "true";
+      document.documentElement.classList.toggle("dark", isDark);
+      const themeBtn = document.getElementById("theme-toggle");
+      themeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+
+    // Función para cambiar el layout
+    function changeLayout(layout) {
+      currentLayout = layout;
+      let options;
+      
+      switch(layout) {
+        case 'hierarchical':
+          options = {
+            layout: {
+              hierarchical: {
+                direction: 'UD',
+                sortMethod: 'directed',
+                levelSeparation: 150,
+                nodeSpacing: 200
+              }
+            },
+            physics: {
+              enabled: false
+            }
+          };
+          break;
+        case 'radial':
+          options = {
+            layout: {
+              randomSeed: 2
+            },
+            physics: {
+              enabled: true,
+              barnesHut: {
+                gravitationalConstant: -8000,
+                springConstant: 0.04,
+                springLength: 95
+              }
+            }
+          };
+          break;
+        default: // force
+          options = {
+            physics: {
+              forceAtlas2Based: {
+                gravitationalConstant: -26,
+                centralGravity: 0.005,
+                springLength: parseInt(document.getElementById('node-distance').value),
+                springConstant: 0.18
+              },
+              maxVelocity: 146,
+              solver: 'forceAtlas2Based',
+              timestep: 0.35,
+              stabilization: {
+                iterations: 150
+              }
+            }
+          };
+      }
+      
+      network.setOptions(options);
+    }
+
+    // Función para exportar como PNG
+    function exportAsPNG() {
+      const canvas = document.getElementById('graph-container').querySelector('canvas');
+      const image = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.href = image;
+      link.download = 'red-ley-21600.png';
+      link.click();
+    }
+
+    // Función para exportar como JSON
+    function exportAsJSON() {
+      const allNodes = nodes.get();
+      const allEdges = edges.get();
+      
+      const data = {
+        nodes: allNodes,
+        edges: allEdges
+      };
+      
+      const json = JSON.stringify(data, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'red-ley-21600.json';
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Inicialización de la aplicación
+    async function initializeApp() {
+      setupTheme();
+      
+      const dataLoaded = await loadData();
+      if (!dataLoaded) {
+        document.getElementById('graph-container').innerHTML = `
+          <div class="flex items-center justify-center h-full">
+            <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-md">
+              <i class="fas fa-exclamation-triangle text-red-500 text-4xl mb-4"></i>
+              <h2 class="text-xl font-bold mb-2">Error al cargar datos</h2>
+              <p>No se pudo cargar el contenido de la ley. Verifique que el archivo base.js esté disponible.</p>
+            </div>
+          </div>
+        `;
+        return;
+      }
+      
+      initializeGraph();
+      
+      // Configurar evento para el botón de tema
+      document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+      
+      // Configurar eventos para filtros
+      document.getElementById('filter-articles').addEventListener('change', applyFilters);
+      document.getElementById('filter-institutions').addEventListener('change', applyFilters);
+      document.getElementById('filter-laws').addEventListener('change', applyFilters);
+      
+      // Configurar evento para slider de conexiones
+      const connectionsSlider = document.getElementById('filter-connections');
+      connectionsSlider.addEventListener('input', function() {
+        document.getElementById('filter-connections-value').textContent = this.value;
+        applyFilters();
+      });
+      
+      // Configurar evento para buscador
+      document.getElementById('search-input').addEventListener('input', applyFilters);
+      
+      // Configurar evento para botón de reset
+      document.getElementById('reset-filters').addEventListener('click', function() {
+        document.getElementById('filter-articles').checked = true;
+        document.getElementById('filter-institutions').checked = true;
+        document.getElementById('filter-laws').checked = true;
+        document.getElementById('filter-connections').value = 0;
+        document.getElementById('filter-connections-value').textContent = '0';
+        document.getElementById('search-input').value = '';
+        applyFilters();
+      });
+      
+      // Configurar evento para toggle de física
+      document.getElementById('toggle-physics').addEventListener('click', function() {
+        physicsEnabled = !physicsEnabled;
+        network.setOptions({ physics: { enabled: physicsEnabled } });
+        this.innerHTML = physicsEnabled ? 
+          '<i class="fas fa-pause"></i> Pausar' : 
+          '<i class="fas fa-play"></i> Reanudar';
+      });
+      
+      // Configurar evento para zoom fit
+      document.getElementById('fit-network').addEventListener('click', function() {
+        network.fit();
+      });
+      
+      // Configurar evento para slider de distancia
+      document.getElementById('node-distance').addEventListener('input', function() {
+        if (currentLayout === 'force') {
+          network.setOptions({
+            physics: {
+              forceAtlas2Based: {
+                springLength: parseInt(this.value)
+              }
+            }
+          });
+        }
+      });
+      
+      // Configurar eventos para layouts
+      document.getElementById('layout-force').addEventListener('click', function() {
+        changeLayout('force');
+      });
+      document.getElementById('layout-hierarchical').addEventListener('click', function() {
+        changeLayout('hierarchical');
+      });
+      document.getElementById('layout-radial').addEventListener('click', function() {
+        changeLayout('radial');
+      });
+      
+      // Configurar eventos para exportación
+      document.getElementById('export-png').addEventListener('click', exportAsPNG);
+      document.getElementById('export-json').addEventListener('click', exportAsJSON);
+    }
+
+    // Iniciar la aplicación cuando el DOM esté cargado
+    document.addEventListener("DOMContentLoaded", initializeApp);
+  </script>
+</body>
+</html>
