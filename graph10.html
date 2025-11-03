@@ -560,6 +560,7 @@
     let currentSearchTerm = '';
     let isSearchActive = false;
     let searchResults = [];
+    let searchTimeout = null;
 
     // Función para cargar datos
     async function loadData() {
@@ -1087,16 +1088,21 @@
       const searchTerm = document.getElementById('search-input').value.trim();
       const advancedSearchTerm = document.getElementById('advanced-search-input').value.trim();
       
-      // Actualizar término de búsqueda actual
-      currentSearchTerm = searchTerm || advancedSearchTerm;
+      // Combinar términos de búsqueda
+      const combinedSearchTerm = searchTerm || advancedSearchTerm;
       
-      // Si hay un término de búsqueda, buscar en los artículos
-      if (currentSearchTerm) {
-        isSearchActive = true;
+      // Determinar si hay búsqueda activa
+      isSearchActive = combinedSearchTerm.length > 0;
+      
+      // Si hay búsqueda activa
+      if (isSearchActive) {
+        currentSearchTerm = combinedSearchTerm;
         searchResults = searchInArticles(currentSearchTerm);
+        
+        // Mostrar resultados de búsqueda
         showSearchResults(currentSearchTerm, searchResults);
         
-        // Filtrar nodos para mostrar solo los relacionados con los resultados
+        // Filtrar nodos según resultados de búsqueda
         const articleIds = searchResults.map(r => `art-${r.id}`);
         const filteredNodes = originalNodes.filter(node => {
           // Mostrar artículos que coincidan con la búsqueda
@@ -1106,7 +1112,6 @@
           
           // Mostrar instituciones y leyes relacionadas con los artículos encontrados
           if (node.group === 'institution' || node.group === 'law') {
-            // Verificar si está conectado a algún artículo encontrado
             return originalEdges.some(edge => 
               articleIds.includes(edge.from) && edge.to === node.id ||
               articleIds.includes(edge.to) && edge.from === node.id
@@ -1116,10 +1121,8 @@
           return false;
         });
         
-        // Obtener IDs de nodos filtrados
-        const filteredNodeIds = new Set(filteredNodes.map(node => node.id));
-        
         // Filtrar aristas
+        const filteredNodeIds = new Set(filteredNodes.map(node => node.id));
         const filteredEdges = originalEdges.filter(edge => {
           return filteredNodeIds.has(edge.from) && filteredNodeIds.has(edge.to);
         });
@@ -1136,13 +1139,13 @@
         // Mostrar feedback
         showFilterFeedback(filteredNodes.length, originalNodes.length);
         
-        // Verificar si hay filtros activos
+        // Verificar si hay filtros activos (además de la búsqueda)
         filtersActive = !showArticles || !showInstitutions || !showLaws || 
-                       minConnections > 0 || searchTerm || advancedSearchTerm;
+                       minConnections > 0;
         
         // Mostrar/ocultar botón de limpiar filtros
         const clearButton = document.getElementById('clear-filters');
-        if (filtersActive) {
+        if (filtersActive || isSearchActive) {
           clearButton.classList.remove('hidden');
         } else {
           clearButton.classList.add('hidden');
@@ -1151,14 +1154,14 @@
         return;
       }
       
-      // Si no hay término de búsqueda pero la búsqueda estaba activa, mantener el estado
-      if (isSearchActive && searchResults.length > 0) {
-        showSearchResults(currentSearchTerm, searchResults);
-        return;
-      }
+      // Si no hay búsqueda activa
+      currentSearchTerm = '';
+      searchResults = [];
       
-      // Si no hay término de búsqueda, aplicar filtros normales
-      isSearchActive = false;
+      // Volver a la vista de filtros
+      backToFilters();
+      
+      // Aplicar filtros normales
       const filteredNodes = originalNodes.filter(node => {
         // Filtrar por tipo
         if (node.group === 'article' && !showArticles) return false;
@@ -1171,10 +1174,8 @@
         return true;
       });
       
-      // Obtener IDs de nodos filtrados
-      const filteredNodeIds = new Set(filteredNodes.map(node => node.id));
-      
       // Filtrar aristas
+      const filteredNodeIds = new Set(filteredNodes.map(node => node.id));
       const filteredEdges = originalEdges.filter(edge => {
         return filteredNodeIds.has(edge.from) && filteredNodeIds.has(edge.to);
       });
@@ -1193,7 +1194,7 @@
       
       // Verificar si hay filtros activos
       filtersActive = !showArticles || !showInstitutions || !showLaws || 
-                     minConnections > 0 || searchTerm || advancedSearchTerm;
+                     minConnections > 0;
       
       // Mostrar/ocultar botón de limpiar filtros
       const clearButton = document.getElementById('clear-filters');
@@ -1201,11 +1202,6 @@
         clearButton.classList.remove('hidden');
       } else {
         clearButton.classList.add('hidden');
-      }
-      
-      // Volver a la vista de filtros si no hay término de búsqueda
-      if (!currentSearchTerm && !isSearchActive) {
-        backToFilters();
       }
     }
 
@@ -1293,10 +1289,8 @@
       document.getElementById('min-connections-value').textContent = 0;
       document.getElementById('search-input').value = '';
       document.getElementById('advanced-search-input').value = '';
-      currentSearchTerm = '';
-      isSearchActive = false;
-      searchResults = [];
       
+      // Aplicar filtros después de resetear
       applyFilters();
     }
 
@@ -1304,6 +1298,7 @@
     function clearAllFilters() {
       resetFilters();
       document.getElementById('clear-filters').classList.add('hidden');
+      backToFilters();
     }
 
     // Inicialización de la aplicación
@@ -1336,9 +1331,7 @@
       document.getElementById('back-to-filters-from-search').addEventListener('click', function() {
         // Limpiar la búsqueda y volver a filtros
         document.getElementById('search-input').value = '';
-        currentSearchTerm = '';
-        isSearchActive = false;
-        searchResults = [];
+        document.getElementById('advanced-search-input').value = '';
         backToFilters();
         applyFilters();
       });
@@ -1351,9 +1344,23 @@
         });
       });
       
-      // Eventos para búsqueda
-      document.getElementById('search-input').addEventListener('input', applyFilters);
-      document.getElementById('advanced-search-input').addEventListener('input', applyFilters);
+      // Eventos para búsqueda con debounce
+      const searchInput = document.getElementById('search-input');
+      const advancedSearchInput = document.getElementById('advanced-search-input');
+      
+      searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          applyFilters();
+        }, 300);
+      });
+      
+      advancedSearchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+          applyFilters();
+        }, 300);
+      });
       
       // Eventos para filtros avanzados
       document.getElementById('min-connections').addEventListener('input', function() {
