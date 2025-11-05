@@ -25,7 +25,7 @@
     }
     #graph-container {
       width: 100%;
-      height: calc(100vh - 180px); /* Ajustar altura para dejar espacio para header y barra de búsqueda */
+      height: calc(100vh - 180px);
       background-color: #1e293b;
       position: relative;
     }
@@ -37,11 +37,11 @@
       background-color: #1e293b;
       padding: 1rem;
       border-radius: 0.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       width: 20rem;
       max-height: calc(100vh - 200px);
       overflow-y: auto;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       border: 1px solid #334155;
       color: #f1f5f9;
     }
@@ -56,7 +56,7 @@
       background-color: rgba(30, 41, 59, 0.9);
       padding: 0.75rem;
       border-radius: 0.5rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       border: 1px solid #334155;
       color: #f1f5f9;
       max-width: 12rem;
@@ -167,7 +167,7 @@
       border-radius: 0.375rem;
       cursor: pointer;
       font-size: 0.875rem;
-      transition: all 0.2s;
+      transition: background-color 0.2s;
       display: flex;
       align-items: center;
       gap: 0.25rem;
@@ -206,7 +206,7 @@
       padding: 1rem;
       border-bottom: 1px solid #334155;
       position: sticky;
-      top: 4rem; /* Altura del header */
+      top: 4rem;
       z-index: 40;
     }
     .filter-chip {
@@ -218,7 +218,7 @@
       background-color: #334155;
       color: #f1f5f9;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: background-color 0.2s;
       font-size: 0.875rem;
     }
     .filter-chip.active {
@@ -242,7 +242,7 @@
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-bottom: 2px solid transparent;
-      transition: all 0.2s;
+      transition: color 0.2s;
     }
     .tab.active {
       border-bottom-color: #3b82f6;
@@ -267,11 +267,11 @@
       padding: 0.5rem 1rem;
       cursor: pointer;
       font-size: 0.875rem;
-      transition: all 0.2s;
+      transition: background-color 0.2s;
       display: flex;
       align-items: center;
       gap: 0.25rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
     .clear-filters-button:hover {
       background-color: #dc2626;
@@ -285,7 +285,7 @@
       background-color: rgba(30, 41, 59, 0.9);
       padding: 0.5rem 1rem;
       border-radius: 0.375rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       border: 1px solid #334155;
       color: #f1f5f9;
       font-size: 0.875rem;
@@ -307,7 +307,7 @@
       background-color: #1e293b;
       border: 1px solid #334155;
       border-radius: 0.5rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
       width: 16rem;
       z-index: 20;
       display: none;
@@ -351,6 +351,184 @@
       text-align: center;
       padding: 1rem;
       color: #94a3b8;
+    }
+    .filter-dropdown {
+      position: relative;
+      display: inline-block;
+      margin: 0.25rem;
+    }
+    .filter-dropdown-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.375rem;
+      background-color: #334155;
+      color: #f1f5f9;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      font-size: 0.875rem;
+      border: 1px solid #475569;
+    }
+    .filter-dropdown-button:hover {
+      background-color: #4b5563;
+    }
+    .filter-dropdown-button.active {
+      background-color: #3b82f6;
+    }
+    .filter-dropdown-button i {
+      margin-right: 0.5rem;
+    }
+    .filter-dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      width: 16rem;
+      max-height: 12rem;
+      overflow-y: auto;
+      z-index: 20;
+      display: none;
+      margin-top: 0.25rem;
+    }
+    .filter-dropdown-content.show {
+      display: block;
+    }
+    .filter-dropdown-item {
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+    .filter-dropdown-item:hover {
+      background-color: #334155;
+    }
+    .filter-dropdown-item input {
+      margin-right: 0.5rem;
+      accent-color: #60a5fa;
+    }
+    .filter-dropdown-search {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #475569;
+      border-radius: 0.375rem;
+      background-color: #334155;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
+    }
+    .filter-dropdown-footer {
+      padding: 0.5rem;
+      border-top: 1px solid #334155;
+      display: flex;
+      justify-content: space-between;
+    }
+    .filter-dropdown-button-small {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 0.25rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .filter-dropdown-button-small:hover {
+      background-color: #2563eb;
+    }
+    .filter-dropdown-button-small.secondary {
+      background-color: #64748b;
+    }
+    .filter-dropdown-button-small.secondary:hover {
+      background-color: #475569;
+    }
+    .connection-strength-indicator {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .connection-strength-bar {
+      flex-grow: 1;
+      height: 6px;
+      background-color: #4b5563;
+      border-radius: 3px;
+      margin: 0 0.5rem;
+      overflow: hidden;
+    }
+    .connection-strength-fill {
+      height: 100%;
+      background-color: #3b82f6;
+    }
+    .context-history-item {
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      margin-bottom: 0.5rem;
+      background-color: #334155;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      font-size: 0.875rem;
+    }
+    .context-history-item:hover {
+      background-color: #4b5563;
+    }
+    .context-history-item.active {
+      background-color: #3b82f6;
+    }
+    .filter-contradiction-warning {
+      background-color: rgba(239, 68, 68, 0.2);
+      border: 1px solid #ef4444;
+      border-radius: 0.375rem;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: #fca5a5;
+    }
+    .filter-contradiction-warning i {
+      margin-right: 0.5rem;
+    }
+    .role-filter-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .role-filter-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      background-color: #334155;
+      color: #f1f5f9;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      font-size: 0.75rem;
+    }
+    .role-filter-chip.active {
+      background-color: #8b5cf6;
+    }
+    .role-filter-chip:hover {
+      background-color: #4b5563;
+    }
+    .role-filter-chip.active:hover {
+      background-color: #7c3aed;
+    }
+    .connection-layer-selector {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+    .connection-layer-selector label {
+      margin-right: 0.5rem;
+      font-size: 0.875rem;
+    }
+    .connection-layer-selector select {
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      background-color: #334155;
+      color: #f1f5f9;
+      border: 1px solid #475569;
     }
   </style>
 </head>
@@ -407,11 +585,29 @@
           <div class="filter-chip active" data-type="articles">
             <i class="fas fa-file-alt"></i> Artículos
           </div>
-          <div class="filter-chip active" data-type="institutions">
-            <i class="fas fa-building"></i> Instituciones
+          
+          <!-- Dropdown para Instituciones -->
+          <div class="filter-dropdown" id="institutions-dropdown">
+            <button class="filter-dropdown-button" id="institutions-button">
+              <i class="fas fa-building"></i> Instituciones
+              <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+            <div class="filter-dropdown-content" id="institutions-content">
+              <input type="text" class="filter-dropdown-search" id="institutions-search" placeholder="Buscar instituciones...">
+              <div id="institutions-list"></div>
+            </div>
           </div>
-          <div class="filter-chip active" data-type="laws">
-            <i class="fas fa-gavel"></i> Leyes
+          
+          <!-- Dropdown para Leyes -->
+          <div class="filter-dropdown" id="laws-dropdown">
+            <button class="filter-dropdown-button" id="laws-button">
+              <i class="fas fa-gavel"></i> Leyes
+              <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+            <div class="filter-dropdown-content" id="laws-content">
+              <input type="text" class="filter-dropdown-search" id="laws-search" placeholder="Buscar leyes...">
+              <div id="laws-list"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -440,6 +636,7 @@
         <div class="tab-container">
           <div class="tab active" data-tab="basic">Básico</div>
           <div class="tab" data-tab="advanced">Avanzado</div>
+          <div class="tab" data-tab="context">Contexto</div>
         </div>
         
         <!-- Contenido de la pestaña Básico -->
@@ -461,6 +658,45 @@
             </div>
             <canvas id="stats-chart" class="stats-chart"></canvas>
           </div>
+          
+          <!-- Filtros por rol de entidad -->
+          <div class="filter-section">
+            <div class="filter-title">Roles de Institución</div>
+            <div class="role-filter-container">
+              <div class="role-filter-chip" data-role="regulator">
+                <i class="fas fa-balance-scale"></i> Regulador
+              </div>
+              <div class="role-filter-chip" data-role="executor">
+                <i class="fas fa-cogs"></i> Ejecutor
+              </div>
+              <div class="role-filter-chip" data-role="supervisor">
+                <i class="fas fa-search"></i> Supervisor
+              </div>
+              <div class="role-filter-chip" data-role="advisor">
+                <i class="fas fa-lightbulb"></i> Asesor
+              </div>
+            </div>
+          </div>
+          
+          <!-- Filtros por fuerza de conexión -->
+          <div class="filter-section">
+            <div class="filter-title">Fuerza de Conexión</div>
+            <div class="slider-container">
+              <input type="range" id="connection-strength" class="slider" min="0" max="100" value="0">
+              <div class="flex justify-between text-sm">
+                <span>Débil</span>
+                <span id="connection-strength-value" class="font-medium">0%</span>
+                <span>Fuerte</span>
+              </div>
+            </div>
+            <div class="connection-strength-indicator">
+              <span>0%</span>
+              <div class="connection-strength-bar">
+                <div class="connection-strength-fill" style="width: 0%"></div>
+              </div>
+              <span>100%</span>
+            </div>
+          </div>
         </div>
         
         <!-- Contenido de la pestaña Avanzado -->
@@ -478,11 +714,54 @@
             </div>
           </div>
           
+          <!-- Filtro por capas de relación -->
+          <div class="filter-section">
+            <div class="filter-title">Capas de Relación</div>
+            <div class="connection-layer-selector">
+              <label for="connection-layers">Mostrar conexiones:</label>
+              <select id="connection-layers">
+                <option value="1">Directas (1er grado)</option>
+                <option value="2">Directas e indirectas (2do grado)</option>
+                <option value="3">Todas (hasta 3er grado)</option>
+              </select>
+            </div>
+          </div>
+          
           <!-- Búsqueda avanzada -->
           <div class="filter-section">
-            <div class="filter-title">Búsqueda avanzada</div>
+            <div class="filter-title">Búsqueda Semántica</div>
             <div class="search-container">
-              <input type="text" id="advanced-search-input" class="search-input" placeholder="Buscar en contenido...">
+              <input type="text" id="advanced-search-input" class="search-input" placeholder="Buscar conceptos relacionados...">
+            </div>
+          </div>
+          
+          <!-- Alerta de contradicción de filtros -->
+          <div id="filter-contradiction-warning" class="filter-contradiction-warning hidden">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Los filtros seleccionados pueden generar resultados contradictorios</span>
+          </div>
+        </div>
+        
+        <!-- Contenido de la pestaña Contexto -->
+        <div id="context-tab" class="tab-content">
+          <!-- Historial de contexto -->
+          <div class="filter-section">
+            <div class="filter-title">Historial de Contexto</div>
+            <div id="context-history-list">
+              <div class="context-history-item active">
+                <i class="fas fa-home mr-2"></i> Vista inicial
+              </div>
+            </div>
+          </div>
+          
+          <!-- Recomendaciones de filtros -->
+          <div class="filter-section">
+            <div class="filter-title">Recomendaciones</div>
+            <div id="filter-recommendations">
+              <div class="search-result-item">
+                <div class="search-result-title">Filtrar por instituciones relacionadas</div>
+                <div class="search-result-excerpt">Basado en tu búsqueda actual</div>
+              </div>
             </div>
           </div>
         </div>
@@ -559,6 +838,89 @@
     let searchResults = [];
     let searchTimeout = null;
     let isHovering = false;
+    let selectedInstitutions = [];
+    let selectedLaws = [];
+    let allInstitutions = [];
+    let allLaws = [];
+    let currentContextInstitutions = [];
+    let currentContextLaws = [];
+    let contextHistory = [];
+    let selectedRoles = [];
+    let connectionStrengthThreshold = 0;
+    let connectionLayers = 1;
+    
+    // Diccionario semántico para búsqueda mejorada
+    const semanticDictionary = {
+      "minería": ["extracción", "recursos minerales", "minerales", "yacimientos", "exploración"],
+      "biodiversidad": ["especies", "ecosistemas", "fauna", "flora", "hábitat", "conservación"],
+      "medio ambiente": ["ecología", "ambiental", "naturaleza", "contaminación", "sostenibilidad"],
+      "áreas protegidas": ["reservas", "parques nacionales", "conservación", "patrimonio natural"],
+      "pesca": ["recursos pesqueros", "acuicultura", "especies marinas", "captura"],
+      "bosque": ["forestal", "árboles", "vegetación", "silvicultura", "deforestación"],
+      "agua": ["recursos hídricos", "cuerpos de agua", "ríos", "lagos", "acuíferos"],
+      "energía": ["energías renovables", "electricidad", "generación", "recursos energéticos"],
+      "residuos": ["basura", "desechos", "reciclaje", "tratamiento", "contaminación"],
+      "cambio climático": ["calentamiento global", "emisiones", "gases efecto invernadero", "mitigación"]
+    };
+    
+    // Roles de instituciones
+    const institutionRoles = {
+      "UNESCO": "advisor",
+      "Servicio de Biodiversidad": "executor",
+      "SBAP": "executor",
+      "Ministerio del Medio Ambiente": "regulator",
+      "SAG": "supervisor",
+      "Sernapesca": "supervisor",
+      "CONAF": "executor",
+      "Ministerio de Agricultura": "regulator",
+      "Ministerio de Economía": "regulator",
+      "Ministerio de Hacienda": "regulator",
+      "Ministerio de Bienes Nacionales": "regulator",
+      "Ministerio de Defensa Nacional": "regulator",
+      "Subsecretaría de Pesca": "regulator",
+      "Subsecretaría de Turismo": "regulator",
+      "Subsecretaría para las Fuerzas Armadas": "regulator",
+      "Servicio Nacional de Pesca y Acuicultura": "supervisor",
+      "Corporación Nacional Forestal": "executor",
+      "Superintendencia del Medio Ambiente": "supervisor",
+      "Tribunal Ambiental": "supervisor",
+      "Corte Suprema": "supervisor",
+      "Corte de Apelaciones": "supervisor",
+      "Contraloría General de la República": "supervisor",
+      "Consejo de Ministros para la Sustentabilidad": "advisor",
+      "Comité Científico Asesor": "advisor",
+      "Comité Técnico": "advisor",
+      "Dirección Regional": "executor",
+      "Director Nacional": "executor",
+      "Director Regional": "executor",
+      "Guardaparques": "executor",
+      "Fondo Nacional de la Biodiversidad": "executor",
+      "Oficina de Autorizaciones Sectoriales": "executor",
+      "Servicio Agrícola y Ganadero": "supervisor",
+      "Subsecretaría de Pesca y Acuicultura": "regulator",
+      "Ministerio de las Culturas, las Artes y el Patrimonio": "regulator",
+      "Ministerio de Desarrollo Social y Familia": "regulator",
+      "Ministerio de Ciencia, Tecnología, Conocimiento e Innovación": "regulator",
+      "Ministerio de Educación": "regulator",
+      "Tesorería General de la República": "executor",
+      "Conservador de Bienes Raíces": "executor",
+      "Corporación Nacional de Desarrollo Indígena": "executor",
+      "Comisión de Desarrollo de Isla de Pascua": "advisor",
+      "Organización Internacional del Trabajo": "advisor",
+      "Unión Internacional para la Conservación de la Naturaleza": "advisor",
+      "UICN": "advisor",
+      "Convenio sobre la Diversidad Biológica": "advisor",
+      "Programa del Hombre y la Biósfera": "advisor",
+      "Red Mundial de Reservas de la Biósfera": "advisor",
+      "Convenio sobre la Conservación de Especies Migratorias": "advisor",
+      "Armada de Chile": "executor",
+      "Carabineros de Chile": "executor",
+      "Policía de Investigaciones": "executor",
+      "Asociación de Guías y Scouts de Chile": "executor",
+      "Comunidades indígenas": "executor",
+      "Pueblo Rapa Nui": "executor",
+      "Organizaciones Representativas de Pueblos Indígenas": "executor"
+    };
 
     // Función para cargar datos
     async function loadData() {
@@ -626,7 +988,8 @@
           title: `Artículo ${article.numero}`,
           description: article.nombre || '',
           connections: 0,
-          content: article.texto_completo || ''
+          content: article.texto_completo || '',
+          role: null
         });
       });
 
@@ -648,7 +1011,8 @@
             edgesArray.push({
               from: fromNodeId,
               to: toNodeId,
-              label: 'menciona'
+              label: 'menciona',
+              strength: 0.9 // Conexión fuerte entre artículos
             });
             
             // Incrementar contador de conexiones
@@ -672,14 +1036,20 @@
                 label: inst,
                 group: 'institution',
                 description: `Institución mencionada en la ley.`,
-                connections: 0
+                connections: 0,
+                role: institutionRoles[inst] || null
               });
             }
+            
+            // Calcular fuerza de conexión basada en menciones
+            const mentions = (text.match(new RegExp(inst.toLowerCase(), 'g')) || []).length;
+            const strength = Math.min(0.3 + (mentions * 0.1), 0.9);
             
             edgesArray.push({
               from: fromNodeId,
               to: instNodeId,
-              label: 'menciona'
+              label: 'menciona',
+              strength: strength
             });
             
             // Incrementar contador de conexiones
@@ -703,14 +1073,20 @@
                 label: law,
                 group: 'law',
                 description: `Otra norma legal mencionada.`,
-                connections: 0
+                connections: 0,
+                role: null
               });
             }
+            
+            // Calcular fuerza de conexión basada en menciones
+            const mentions = (text.match(new RegExp(law.toLowerCase(), 'g')) || []).length;
+            const strength = Math.min(0.3 + (mentions * 0.1), 0.9);
             
             edgesArray.push({
               from: fromNodeId,
               to: lawNodeId,
-              label: 'se relaciona'
+              label: 'se relaciona',
+              strength: strength
             });
             
             // Incrementar contador de conexiones
@@ -727,7 +1103,170 @@
       // Convertir el mapa a un array de nodos
       nodesArray.push(...Array.from(nodeMap.values()));
       
+      // Extraer instituciones y leyes únicas para los dropdowns
+      allInstitutions = [...new Set(nodesArray
+        .filter(node => node.group === 'institution')
+        .map(node => node.label)
+      )].sort();
+      
+      allLaws = [...new Set(nodesArray
+        .filter(node => node.group === 'law')
+        .map(node => node.label)
+      )].sort();
+      
+      // Inicializar el contexto actual con todas las instituciones y leyes
+      currentContextInstitutions = [...allInstitutions];
+      currentContextLaws = [...allLaws];
+      
+      // Guardar estado inicial en historial de contexto
+      contextHistory.push({
+        nodes: [...nodesArray],
+        edges: [...edgesArray],
+        name: "Vista inicial",
+        timestamp: new Date()
+      });
+      
       return { nodes: nodesArray, edges: edgesArray };
+    }
+
+    // Función para obtener instituciones relacionadas con los artículos actualmente visibles
+    function getRelatedInstitutions() {
+      // Obtener los IDs de los artículos actualmente visibles
+      const visibleArticleIds = filteredNodes
+        .filter(node => node.group === 'article')
+        .map(node => node.id);
+
+      // Obtener las instituciones conectadas a estos artículos
+      const relatedInstitutions = new Set();
+      originalEdges.forEach(edge => {
+        if (visibleArticleIds.includes(edge.from) && edge.to.startsWith('inst-')) {
+          const instNode = originalNodes.find(node => node.id === edge.to);
+          if (instNode) {
+            relatedInstitutions.add(instNode.label);
+          }
+        }
+      });
+
+      return Array.from(relatedInstitutions).sort();
+    }
+
+    // Función para obtener leyes relacionadas con los artículos actualmente visibles
+    function getRelatedLaws() {
+      // Obtener los IDs de los artículos actualmente visibles
+      const visibleArticleIds = filteredNodes
+        .filter(node => node.group === 'article')
+        .map(node => node.id);
+
+      // Obtener las leyes conectadas a estos artículos
+      const relatedLaws = new Set();
+      originalEdges.forEach(edge => {
+        if (visibleArticleIds.includes(edge.from) && edge.to.startsWith('law-')) {
+          const lawNode = originalNodes.find(node => node.id === edge.to);
+          if (lawNode) {
+            relatedLaws.add(lawNode.label);
+          }
+        }
+      });
+
+      return Array.from(relatedLaws).sort();
+    }
+
+    // Función para poblar los dropdowns de filtros
+    function populateFilterDropdowns() {
+      // Poblar dropdown de instituciones
+      const institutionsList = document.getElementById('institutions-list');
+      institutionsList.innerHTML = '';
+      
+      currentContextInstitutions.forEach(inst => {
+        const item = document.createElement('div');
+        item.className = 'filter-dropdown-item';
+        const checkboxId = `inst-${inst.replace(/\s+/g, '-')}`;
+        const isChecked = selectedInstitutions.includes(inst);
+        item.innerHTML = `
+          <input type="checkbox" id="${checkboxId}" value="${inst}" ${isChecked ? 'checked' : ''}>
+          <label for="${checkboxId}">${inst}</label>
+        `;
+        institutionsList.appendChild(item);
+        
+        // Añadir evento change al checkbox
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        checkbox.addEventListener('change', function() {
+          // Actualizar la lista de instituciones seleccionadas
+          if (this.checked) {
+            if (!selectedInstitutions.includes(this.value)) {
+              selectedInstitutions.push(this.value);
+            }
+          } else {
+            selectedInstitutions = selectedInstitutions.filter(inst => inst !== this.value);
+          }
+          updateDropdownButtonState('institutions');
+          applyFilters();
+        });
+      });
+      
+      // Poblar dropdown de leyes
+      const lawsList = document.getElementById('laws-list');
+      lawsList.innerHTML = '';
+      
+      currentContextLaws.forEach(law => {
+        const item = document.createElement('div');
+        item.className = 'filter-dropdown-item';
+        const checkboxId = `law-${law.replace(/\s+/g, '-')}`;
+        const isChecked = selectedLaws.includes(law);
+        item.innerHTML = `
+          <input type="checkbox" id="${checkboxId}" value="${law}" ${isChecked ? 'checked' : ''}>
+          <label for="${checkboxId}">${law}</label>
+        `;
+        lawsList.appendChild(item);
+        
+        // Añadir evento change al checkbox
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        checkbox.addEventListener('change', function() {
+          // Actualizar la lista de leyes seleccionadas
+          if (this.checked) {
+            if (!selectedLaws.includes(this.value)) {
+              selectedLaws.push(this.value);
+            }
+          } else {
+            selectedLaws = selectedLaws.filter(law => law !== this.value);
+          }
+          updateDropdownButtonState('laws');
+          applyFilters();
+        });
+      });
+    }
+
+    // Función para actualizar el contexto de los filtros
+    function updateFilterContext() {
+      // Actualizar el contexto de instituciones y leyes según los filtros activos
+      if (isSearchActive || filtersActive) {
+        currentContextInstitutions = getRelatedInstitutions();
+        currentContextLaws = getRelatedLaws();
+      } else {
+        currentContextInstitutions = [...allInstitutions];
+        currentContextLaws = [...allLaws];
+      }
+      
+      // Limpiar las selecciones de instituciones y leyes que ya no están en el contexto
+      selectedInstitutions = selectedInstitutions.filter(inst => 
+        currentContextInstitutions.includes(inst)
+      );
+      selectedLaws = selectedLaws.filter(law => 
+        currentContextLaws.includes(law)
+      );
+      
+      // Actualizar los dropdowns
+      populateFilterDropdowns();
+      
+      // Actualizar el estado visual de los botones de dropdown
+      updateDropdownButtonState('institutions');
+      updateDropdownButtonState('laws');
+      
+      // Actualizar recomendaciones de filtros
+      updateFilterRecommendations();
+      
+      // Verificar contradicciones en filtros
+      checkFilterContradictions();
     }
 
     // Función para mostrar información del nodo
@@ -761,7 +1300,19 @@
           </div>
         `;
       } else {
+        let roleInfo = '';
+        if (nodeData.role) {
+          const roleNames = {
+            'regulator': 'Regulador',
+            'executor': 'Ejecutor',
+            'supervisor': 'Supervisor',
+            'advisor': 'Asesor'
+          };
+          roleInfo = `<div class="text-xs mb-1">Rol: ${roleNames[nodeData.role]}</div>`;
+        }
+        
         contentEl.innerHTML = `
+          ${roleInfo}
           <div class="mb-2">
             <p>${nodeData.description || 'Entidad mencionada en la ley.'}</p>
           </div>
@@ -954,12 +1505,21 @@
           }
         },
         edges: {
-          width: 3,                          // Aumentado el grosor de las aristas
+          width: function(edge) {
+            // Ajustar grosor según fuerza de conexión
+            const baseWidth = 3;
+            const strengthMultiplier = edge.strength || 0.5;
+            return baseWidth * (0.5 + strengthMultiplier);
+          },
           color: { 
             color: '#f8fafc',                // Blanco brillante para mayor contraste
             highlight: '#ffffff',            // Blanco puro al resaltar
             hover: '#ffffff',                // Blanco puro al hover
-            opacity: 0.9                     // Mayor opacidad para mejor visibilidad
+            opacity: function(edge) {
+              // Ajustar opacidad según fuerza de conexión
+              const strength = edge.strength || 0.5;
+              return 0.5 + (strength * 0.5);
+            }
           },
           smooth: { 
             enabled: true,
@@ -1072,13 +1632,6 @@
           }
         }, 100);                             // Pequeño delay para evitar parpadeos
       });
-
-      // Añadir indicador de carga
-      network.on("stabilizationProgress", function(params) {
-        const progress = Math.round((params.iterations / params.total) * 100);
-        // Puedes mostrar un indicador de progreso aquí
-        console.log(`Estabilizando: ${progress}%`);
-      });
     }
 
     // Función para actualizar estadísticas
@@ -1153,20 +1706,44 @@
       ctx.fill();
     }
 
-    // Función para buscar en el contenido de los artículos
+    // Función para buscar en el contenido de los artículos (mejorada con búsqueda semántica)
     function searchInArticles(searchTerm) {
       if (!searchTerm) return [];
       
       const results = [];
       const term = searchTerm.toLowerCase();
       
+      // Expandir términos de búsqueda usando el diccionario semántico
+      const expandedTerms = [term];
+      for (const [key, synonyms] of Object.entries(semanticDictionary)) {
+        if (term.includes(key) || key.includes(term)) {
+          expandedTerms.push(...synonyms);
+        }
+      }
+      
       data.articulos.forEach(article => {
         const content = article.texto_completo.toLowerCase();
         const title = `Artículo ${article.numero}: ${article.nombre || ''}`;
         
-        if (content.includes(term)) {
+        // Buscar coincidencias con términos expandidos
+        let found = false;
+        for (const expandedTerm of expandedTerms) {
+          if (content.includes(expandedTerm)) {
+            found = true;
+            break;
+          }
+        }
+        
+        if (found) {
           // Encontrar la posición del término para crear un extracto
-          const index = content.indexOf(term);
+          let index = -1;
+          for (const expandedTerm of expandedTerms) {
+            const termIndex = content.indexOf(expandedTerm);
+            if (termIndex !== -1 && (index === -1 || termIndex < index)) {
+              index = termIndex;
+            }
+          }
+          
           const start = Math.max(0, index - 50);
           const end = Math.min(content.length, index + 100);
           const excerpt = '...' + content.substring(start, end) + '...';
@@ -1185,8 +1762,6 @@
     // Función para aplicar filtros
     function applyFilters() {
       const showArticles = document.querySelector('.filter-chip[data-type="articles"]').classList.contains('active');
-      const showInstitutions = document.querySelector('.filter-chip[data-type="institutions"]').classList.contains('active');
-      const showLaws = document.querySelector('.filter-chip[data-type="laws"]').classList.contains('active');
       const minConnections = parseInt(document.getElementById('min-connections').value);
       const searchTerm = document.getElementById('search-input').value.trim();
       const advancedSearchTerm = document.getElementById('advanced-search-input').value.trim();
@@ -1230,6 +1805,9 @@
           return filteredNodeIds.has(edge.from) && filteredNodeIds.has(edge.to);
         });
         
+        // Aplicar filtros adicionales
+        applyAdditionalFilters();
+        
         // Actualizar datasets
         nodes.clear();
         edges.clear();
@@ -1243,8 +1821,8 @@
         showFilterFeedback(filteredNodes.length, originalNodes.length);
         
         // Verificar si hay filtros activos (además de la búsqueda)
-        filtersActive = !showArticles || !showInstitutions || !showLaws || 
-                       minConnections > 0;
+        filtersActive = !showArticles || selectedInstitutions.length > 0 || selectedLaws.length > 0 || 
+                       minConnections > 0 || selectedRoles.length > 0 || connectionStrengthThreshold > 0;
         
         // Mostrar/ocultar botón de limpiar filtros
         const clearButton = document.getElementById('clear-filters');
@@ -1253,6 +1831,12 @@
         } else {
           clearButton.classList.add('hidden');
         }
+        
+        // Guardar estado en historial de contexto
+        saveContextToHistory("Búsqueda: " + currentSearchTerm);
+        
+        // Actualizar el contexto de los filtros
+        updateFilterContext();
         
         return;
       }
@@ -1264,18 +1848,86 @@
       // Volver a la vista de filtros
       backToFilters();
       
-      // Aplicar filtros normales
-      filteredNodes = originalNodes.filter(node => {
-        // Filtrar por tipo
-        if (node.group === 'article' && !showArticles) return false;
-        if (node.group === 'institution' && !showInstitutions) return false;
-        if (node.group === 'law' && !showLaws) return false;
+      // Si no hay instituciones ni leyes seleccionadas, aplicamos el filtro normal
+      if (selectedInstitutions.length === 0 && selectedLaws.length === 0) {
+        filteredNodes = originalNodes.filter(node => {
+          // Filtrar por tipo
+          if (node.group === 'article' && !showArticles) return false;
+          
+          // Filtrar por conexiones mínimas
+          if (node.connections < minConnections) return false;
+          
+          // Filtrar por rol
+          if (node.group === 'institution' && selectedRoles.length > 0 && !selectedRoles.includes(node.role)) {
+            return false;
+          }
+          
+          return true;
+        });
+      } else {
+        // Si hay instituciones o leyes seleccionadas, aplicamos la intersección
+        // Primero, obtenemos los artículos que cumplen con las instituciones y leyes seleccionadas
+        const articlesThatMatchInstitutions = selectedInstitutions.length > 0 ? 
+          originalNodes
+            .filter(node => node.group === 'institution' && selectedInstitutions.includes(node.label))
+            .map(instNode => {
+              // Obtener los artículos conectados a esta institución
+              return originalEdges
+                .filter(edge => edge.to === instNode.id && edge.from.startsWith('art-'))
+                .map(edge => edge.from);
+            })
+            .flat() : [];
         
-        // Filtrar por conexiones mínimas
-        if (node.connections < minConnections) return false;
+        const articlesThatMatchLaws = selectedLaws.length > 0 ?
+          originalNodes
+            .filter(node => node.group === 'law' && selectedLaws.includes(node.label))
+            .map(lawNode => {
+              // Obtener los artículos conectados a esta ley
+              return originalEdges
+                .filter(edge => edge.to === lawNode.id && edge.from.startsWith('art-'))
+                .map(edge => edge.from);
+            })
+            .flat() : [];
         
-        return true;
-      });
+        // Ahora, necesitamos la intersección de los artículos que coinciden con instituciones y leyes
+        let articleIdsToShow = [];
+        
+        if (selectedInstitutions.length > 0 && selectedLaws.length > 0) {
+          // Intersección: artículos que están en ambos conjuntos
+          articleIdsToShow = articlesThatMatchInstitutions.filter(id => articlesThatMatchLaws.includes(id));
+        } else if (selectedInstitutions.length > 0) {
+          articleIdsToShow = articlesThatMatchInstitutions;
+        } else if (selectedLaws.length > 0) {
+          articleIdsToShow = articlesThatMatchLaws;
+        }
+        
+        // Filtrar nodos: solo los artículos que están en articleIdsToShow, y las instituciones y leyes seleccionadas
+        filteredNodes = originalNodes.filter(node => {
+          // Si es un artículo, debe estar en articleIdsToShow y cumplir con el filtro de mostrar artículos y conexiones mínimas
+          if (node.group === 'article') {
+            if (!showArticles) return false;
+            if (node.connections < minConnections) return false;
+            return articleIdsToShow.includes(node.id);
+          }
+          
+          // Si es una institución, debe estar seleccionada y cumplir con el filtro de rol
+          if (node.group === 'institution') {
+            if (!selectedInstitutions.includes(node.label)) return false;
+            if (selectedRoles.length > 0 && !selectedRoles.includes(node.role)) return false;
+            return true;
+          }
+          
+          // Si es una ley, debe estar seleccionada
+          if (node.group === 'law') {
+            return selectedLaws.includes(node.label);
+          }
+          
+          return false;
+        });
+      }
+      
+      // Aplicar filtros adicionales
+      applyAdditionalFilters();
       
       // Filtrar aristas
       const filteredNodeIds = new Set(filteredNodes.map(node => node.id));
@@ -1296,8 +1948,12 @@
       showFilterFeedback(filteredNodes.length, originalNodes.length);
       
       // Verificar si hay filtros activos
-      filtersActive = !showArticles || !showInstitutions || !showLaws || 
-                     minConnections > 0;
+      filtersActive = !showArticles || 
+                     selectedInstitutions.length > 0 || 
+                     selectedLaws.length > 0 || 
+                     minConnections > 0 ||
+                     selectedRoles.length > 0 ||
+                     connectionStrengthThreshold > 0;
       
       // Mostrar/ocultar botón de limpiar filtros
       const clearButton = document.getElementById('clear-filters');
@@ -1305,6 +1961,99 @@
         clearButton.classList.remove('hidden');
       } else {
         clearButton.classList.add('hidden');
+      }
+      
+      // Guardar estado en historial de contexto
+      let contextName = "Filtros aplicados";
+      if (selectedInstitutions.length > 0) contextName += " - Instituciones";
+      if (selectedLaws.length > 0) contextName += " - Leyes";
+      if (selectedRoles.length > 0) contextName += " - Roles";
+      if (connectionStrengthThreshold > 0) contextName += " - Fuerza de conexión";
+      saveContextToHistory(contextName);
+      
+      // Actualizar el contexto de los filtros
+      updateFilterContext();
+    }
+
+    // Función para aplicar filtros adicionales (fuerza de conexión y capas)
+    function applyAdditionalFilters() {
+      // Filtrar por fuerza de conexión
+      if (connectionStrengthThreshold > 0) {
+        filteredEdges = filteredEdges.filter(edge => {
+          const strength = edge.strength || 0.5;
+          return strength >= (connectionStrengthThreshold / 100);
+        });
+        
+        // Actualizar nodos para mantener solo aquellos con conexiones que cumplen el umbral
+        const connectedNodeIds = new Set();
+        filteredEdges.forEach(edge => {
+          connectedNodeIds.add(edge.from);
+          connectedNodeIds.add(edge.to);
+        });
+        
+        filteredNodes = filteredNodes.filter(node => connectedNodeIds.has(node.id));
+      }
+      
+      // Filtrar por capas de relación
+      if (connectionLayers > 1) {
+        // Obtener nodos de primer grado
+        const firstDegreeNodes = new Set(filteredNodes.map(node => node.id));
+        
+        // Obtener conexiones de primer grado
+        const firstDegreeEdges = [...filteredEdges];
+        
+        // Para capas adicionales, buscar nodos y conexiones indirectas
+        if (connectionLayers >= 2) {
+          const secondDegreeNodes = new Set();
+          const secondDegreeEdges = [];
+          
+          // Buscar nodos conectados a los de primer grado
+          originalEdges.forEach(edge => {
+            if (firstDegreeNodes.has(edge.from) && !firstDegreeNodes.has(edge.to)) {
+              secondDegreeNodes.add(edge.to);
+              secondDegreeEdges.push(edge);
+            } else if (firstDegreeNodes.has(edge.to) && !firstDegreeNodes.has(edge.from)) {
+              secondDegreeNodes.add(edge.from);
+              secondDegreeEdges.push(edge);
+            }
+          });
+          
+          // Añadir nodos y conexiones de segundo grado
+          secondDegreeNodes.forEach(nodeId => {
+            const node = originalNodes.find(n => n.id === nodeId);
+            if (node && !filteredNodes.find(n => n.id === nodeId)) {
+              filteredNodes.push(node);
+            }
+          });
+          
+          filteredEdges.push(...secondDegreeEdges);
+        }
+        
+        if (connectionLayers >= 3) {
+          const thirdDegreeNodes = new Set();
+          const thirdDegreeEdges = [];
+          
+          // Buscar nodos conectados a los de segundo grado
+          originalEdges.forEach(edge => {
+            if (secondDegreeNodes.has(edge.from) && !firstDegreeNodes.has(edge.to) && !secondDegreeNodes.has(edge.to)) {
+              thirdDegreeNodes.add(edge.to);
+              thirdDegreeEdges.push(edge);
+            } else if (secondDegreeNodes.has(edge.to) && !firstDegreeNodes.has(edge.from) && !secondDegreeNodes.has(edge.from)) {
+              thirdDegreeNodes.add(edge.from);
+              thirdDegreeEdges.push(edge);
+            }
+          });
+          
+          // Añadir nodos y conexiones de tercer grado
+          thirdDegreeNodes.forEach(nodeId => {
+            const node = originalNodes.find(n => n.id === nodeId);
+            if (node && !filteredNodes.find(n => n.id === nodeId)) {
+              filteredNodes.push(node);
+            }
+          });
+          
+          filteredEdges.push(...thirdDegreeEdges);
+        }
       }
     }
 
@@ -1392,6 +2141,40 @@
       document.getElementById('min-connections-value').textContent = 0;
       document.getElementById('search-input').value = '';
       document.getElementById('advanced-search-input').value = '';
+      document.getElementById('connection-strength').value = 0;
+      document.getElementById('connection-strength-value').textContent = '0%';
+      document.querySelector('.connection-strength-fill').style.width = '0%';
+      document.getElementById('connection-layers').value = '1';
+      
+      // Resetear roles seleccionados
+      selectedRoles = [];
+      document.querySelectorAll('.role-filter-chip').forEach(chip => {
+        chip.classList.remove('active');
+      });
+      
+      // Resetear fuerza de conexión y capas
+      connectionStrengthThreshold = 0;
+      connectionLayers = 1;
+      
+      // Limpiar selecciones de instituciones y leyes
+      selectedInstitutions = [];
+      selectedLaws = [];
+      
+      // Actualizar estado visual de los dropdowns
+      document.querySelectorAll('#institutions-list input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+      });
+      
+      document.querySelectorAll('#laws-list input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+      });
+      
+      // Actualizar botones de dropdown
+      updateDropdownButtonState('institutions');
+      updateDropdownButtonState('laws');
+      
+      // Actualizar el contexto de los filtros
+      updateFilterContext();
       
       // Aplicar filtros después de resetear
       applyFilters();
@@ -1402,6 +2185,228 @@
       resetFilters();
       document.getElementById('clear-filters').classList.add('hidden');
       backToFilters();
+    }
+
+    // Función para actualizar el estado visual del botón de dropdown
+    function updateDropdownButtonState(type) {
+      const button = document.getElementById(`${type}-button`);
+      const selectedItems = type === 'institutions' ? selectedInstitutions : selectedLaws;
+      
+      if (selectedItems.length > 0) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    }
+
+    // Función para filtrar elementos en un dropdown
+    function filterDropdownItems(type, searchTerm) {
+      const list = document.getElementById(`${type}-list`);
+      const items = list.querySelectorAll('.filter-dropdown-item');
+      
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(searchTerm.toLowerCase())) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Función para guardar el estado actual en el historial de contexto
+    function saveContextToHistory(name) {
+      // Limitar el historial a 10 elementos
+      if (contextHistory.length >= 10) {
+        contextHistory.shift();
+      }
+      
+      contextHistory.push({
+        nodes: [...filteredNodes],
+        edges: [...filteredEdges],
+        name: name,
+        timestamp: new Date()
+      });
+      
+      // Actualizar la UI del historial
+      updateContextHistoryUI();
+    }
+
+    // Función para actualizar la UI del historial de contexto
+    function updateContextHistoryUI() {
+      const historyList = document.getElementById('context-history-list');
+      historyList.innerHTML = '';
+      
+      contextHistory.forEach((context, index) => {
+        const item = document.createElement('div');
+        item.className = 'context-history-item';
+        if (index === contextHistory.length - 1) {
+          item.classList.add('active');
+        }
+        
+        // Formatear la hora
+        const time = context.timestamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        item.innerHTML = `
+          <i class="fas fa-history mr-2"></i> ${context.name} (${time})
+        `;
+        
+        item.addEventListener('click', () => {
+          // Restaurar el contexto seleccionado
+          filteredNodes = [...context.nodes];
+          filteredEdges = [...context.edges];
+          
+          // Actualizar datasets
+          nodes.clear();
+          edges.clear();
+          nodes.add(filteredNodes);
+          edges.add(filteredEdges);
+          
+          // Actualizar estadísticas
+          updateStats();
+          
+          // Actualizar UI del historial
+          document.querySelectorAll('.context-history-item').forEach(i => {
+            i.classList.remove('active');
+          });
+          item.classList.add('active');
+        });
+        
+        historyList.appendChild(item);
+      });
+    }
+
+    // Función para actualizar las recomendaciones de filtros
+    function updateFilterRecommendations() {
+      const recommendationsContainer = document.getElementById('filter-recommendations');
+      recommendationsContainer.innerHTML = '';
+      
+      // Si hay búsqueda activa, recomendar instituciones y leyes relacionadas
+      if (isSearchActive && searchResults.length > 0) {
+        const articleIds = searchResults.map(r => `art-${r.id}`);
+        
+        // Obtener instituciones relacionadas
+        const relatedInstitutions = new Set();
+        originalEdges.forEach(edge => {
+          if (articleIds.includes(edge.from) && edge.to.startsWith('inst-')) {
+            const instNode = originalNodes.find(node => node.id === edge.to);
+            if (instNode) {
+              relatedInstitutions.add(instNode.label);
+            }
+          }
+        });
+        
+        // Obtener leyes relacionadas
+        const relatedLaws = new Set();
+        originalEdges.forEach(edge => {
+          if (articleIds.includes(edge.from) && edge.to.startsWith('law-')) {
+            const lawNode = originalNodes.find(node => node.id === edge.to);
+            if (lawNode) {
+              relatedLaws.add(lawNode.label);
+            }
+          }
+        });
+        
+        // Mostrar recomendaciones de instituciones
+        if (relatedInstitutions.size > 0) {
+          const instRec = document.createElement('div');
+          instRec.className = 'search-result-item';
+          instRec.innerHTML = `
+            <div class="search-result-title">Filtrar por instituciones relacionadas</div>
+            <div class="search-result-excerpt">Se encontraron ${relatedInstitutions.size} instituciones relacionadas</div>
+          `;
+          
+          instRec.addEventListener('click', () => {
+            // Seleccionar todas las instituciones relacionadas
+            selectedInstitutions = Array.from(relatedInstitutions);
+            
+            // Actualizar estado visual de los checkboxes
+            document.querySelectorAll('#institutions-list input[type="checkbox"]').forEach(cb => {
+              cb.checked = selectedInstitutions.includes(cb.value);
+            });
+            
+            // Actualizar botón de dropdown
+            updateDropdownButtonState('institutions');
+            
+            // Aplicar filtros
+            applyFilters();
+          });
+          
+          recommendationsContainer.appendChild(instRec);
+        }
+        
+        // Mostrar recomendaciones de leyes
+        if (relatedLaws.size > 0) {
+          const lawRec = document.createElement('div');
+          lawRec.className = 'search-result-item';
+          lawRec.innerHTML = `
+            <div class="search-result-title">Filtrar por leyes relacionadas</div>
+            <div class="search-result-excerpt">Se encontraron ${relatedLaws.size} leyes relacionadas</div>
+          `;
+          
+          lawRec.addEventListener('click', () => {
+            // Seleccionar todas las leyes relacionadas
+            selectedLaws = Array.from(relatedLaws);
+            
+            // Actualizar estado visual de los checkboxes
+            document.querySelectorAll('#laws-list input[type="checkbox"]').forEach(cb => {
+              cb.checked = selectedLaws.includes(cb.value);
+            });
+            
+            // Actualizar botón de dropdown
+            updateDropdownButtonState('laws');
+            
+            // Aplicar filtros
+            applyFilters();
+          });
+          
+          recommendationsContainer.appendChild(lawRec);
+        }
+      }
+      
+      // Si no hay recomendaciones, mostrar un mensaje
+      if (recommendationsContainer.children.length === 0) {
+        recommendationsContainer.innerHTML = `
+          <div class="no-results">
+            <i class="fas fa-lightbulb text-2xl mb-2"></i>
+            <p>Realiza una búsqueda o aplica filtros para ver recomendaciones</p>
+          </div>
+        `;
+      }
+    }
+
+    // Función para verificar contradicciones en los filtros
+    function checkFilterContradictions() {
+      const warningContainer = document.getElementById('filter-contradiction-warning');
+      let hasContradiction = false;
+      let message = '';
+      
+      // Verificar si hay instituciones y leyes seleccionadas pero no artículos
+      if (selectedInstitutions.length > 0 && selectedLaws.length > 0 && 
+          !document.querySelector('.filter-chip[data-type="articles"]').classList.contains('active')) {
+        hasContradiction = true;
+        message = 'Has seleccionado instituciones y leyes pero no estás mostrando artículos. Es posible que no haya resultados.';
+      }
+      
+      // Verificar si hay un umbral de conexión muy alto con pocos nodos
+      if (connectionStrengthThreshold > 70 && filteredNodes.length < 5) {
+        hasContradiction = true;
+        message = 'El umbral de fuerza de conexión es muy alto para los nodos disponibles. Prueba reduciéndolo.';
+      }
+      
+      // Verificar si hay roles seleccionados pero no instituciones
+      if (selectedRoles.length > 0 && selectedInstitutions.length === 0) {
+        hasContradiction = true;
+        message = 'Has seleccionado roles de institución pero no ninguna institución. Selecciona instituciones para aplicar el filtro de roles.';
+      }
+      
+      // Mostrar u ocultar la advertencia
+      if (hasContradiction) {
+        warningContainer.querySelector('span').textContent = message;
+        warningContainer.classList.remove('hidden');
+      } else {
+        warningContainer.classList.add('hidden');
+      }
     }
 
     // Inicialización de la aplicación
@@ -1421,6 +2426,7 @@
       }
       
       initializeGraph();
+      populateFilterDropdowns();
       
       // Asegurar que la vista de filtros esté activa y los filtros aplicados
       backToFilters();
@@ -1475,6 +2481,38 @@
         applyFilters();
       });
       
+      // Eventos para filtro de fuerza de conexión
+      document.getElementById('connection-strength').addEventListener('input', function() {
+        connectionStrengthThreshold = parseInt(this.value);
+        document.getElementById('connection-strength-value').textContent = this.value + '%';
+        document.querySelector('.connection-strength-fill').style.width = this.value + '%';
+        applyFilters();
+      });
+      
+      // Eventos para filtro de capas de relación
+      document.getElementById('connection-layers').addEventListener('change', function() {
+        connectionLayers = parseInt(this.value);
+        applyFilters();
+      });
+      
+      // Eventos para filtros de roles
+      document.querySelectorAll('.role-filter-chip').forEach(chip => {
+        chip.addEventListener('click', function() {
+          const role = this.getAttribute('data-role');
+          this.classList.toggle('active');
+          
+          if (this.classList.contains('active')) {
+            if (!selectedRoles.includes(role)) {
+              selectedRoles.push(role);
+            }
+          } else {
+            selectedRoles = selectedRoles.filter(r => r !== role);
+          }
+          
+          applyFilters();
+        });
+      });
+      
       // Eventos para pestañas
       document.querySelectorAll('.tab').forEach(tab => {
         tab.addEventListener('click', function() {
@@ -1498,6 +2536,34 @@
       // Cerrar menú desplegable al hacer clic fuera
       document.addEventListener('click', function() {
         document.getElementById('settings-dropdown').classList.remove('show');
+      });
+      
+      // Eventos para dropdowns de filtros
+      document.getElementById('institutions-button').addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.getElementById('institutions-content').classList.toggle('show');
+        document.getElementById('laws-content').classList.remove('show');
+      });
+      
+      document.getElementById('laws-button').addEventListener('click', function(e) {
+        e.stopPropagation();
+        document.getElementById('laws-content').classList.toggle('show');
+        document.getElementById('institutions-content').classList.remove('show');
+      });
+      
+      // Eventos para búsqueda en dropdowns
+      document.getElementById('institutions-search').addEventListener('input', function() {
+        filterDropdownItems('institutions', this.value);
+      });
+      
+      document.getElementById('laws-search').addEventListener('input', function() {
+        filterDropdownItems('laws', this.value);
+      });
+      
+      // Cerrar dropdowns al hacer clic fuera
+      document.addEventListener('click', function() {
+        document.getElementById('institutions-content').classList.remove('show');
+        document.getElementById('laws-content').classList.remove('show');
       });
     }
 

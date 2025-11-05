@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema RAG Híbrido - Ley de Biodiversidad</title>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #queryInput {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .filter-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .result-item {
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            border-radius: 0 4px 4px 0;
+        }
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .result-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .result-score {
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        .result-content {
+            margin-top: 10px;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .error {
+            color: #e74c3c;
+            background-color: #fadbd8;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema RAG Híbrido - Ley de Biodiversidad y Áreas Protegidas de Chile</h1>
+        
+        <div class="search-container">
+            <input type="text" id="queryInput" placeholder="Ingrese su consulta sobre la ley...">
+            <button id="searchButton">Buscar</button>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="search">Búsqueda</div>
+            <div class="tab" data-tab="filters">Filtros</div>
+            <div class="tab" data-tab="results">Resultados</div>
+        </div>
+        
+        <div id="searchTab" class="tab-content active">
+            <div class="loading" id="loadingMessage">Cargando sistema RAG...</div>
+        </div>
+        
+        <div id="filtersTab" class="tab-content">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="tituloFilter">Título:</label>
+                    <select id="tituloFilter">
+                        <option value="">Todos los títulos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="parrafoFilter">Párrafo:</label>
+                    <select id="parrafoFilter">
+                        <option value="">Todos los párrafos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="categoriaFilter">Categoría:</label>
+                    <select id="categoriaFilter">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="tipoArticuloFilter">Tipo de Artículo:</label>
+                    <select id="tipoArticuloFilter">
+                        <option value="">Todos los tipos</option>
+                    </select>
+                </div>
+            </div>
+            <button id="applyFilters">Aplicar Filtros</button>
+        </div>
+        
+        <div id="resultsTab" class="tab-content">
+            <div class="results" id="resultsContainer">
+                <p>Realice una consulta para ver resultados.</p>
+            </div>
+        </div>
+    </div>
+    <script src="base.js"></script>
+
+    <script>
+        // Simulación de datos mock - en un escenario real esto vendría de base.js
+       
+
+        // Implementación del sistema RAG en JavaScript
+        class HybridRAGSystem {
+            constructor(mockData) {
+                this.titulos = mockData.titulos;
+                this.parrafos = mockData.parrafos;
+                this.articulos = mockData.articulos;
+                this.categorias = mockData.categorias;
+                this.articulos_categorias = mockData.articulos_categorias;
+                this.definiciones = mockData.definiciones;
+                
+                this.enrichArticulosMetadata();
+                this.createSearchIndices();
+                this.initVectorizer();
+            }
+            
+            enrichArticulosMetadata() {
+                // Enriquecer artículos con información de títulos y párrafos
+                this.articulos = this.articulos.map(articulo => {
+                    const parrafo = this.parrafos.find(p => p.id === articulo.parrafo_id);
+                    const titulo = parrafo ? this.titulos.find(t => t.id === parrafo.titulo_id) : null;
+                    
+                    // Obtener categorías del artículo
+                    const categoriasRel = this.articulos_categorias.filter(ac => ac.articulo_id === articulo.id);
+                    const categoriasInfo = {
+                        categorias: categoriasRel.map(cr => {
+                            const cat = this.categorias.find(c => c.id === cr.categoria_id);
+                            return cat ? cat.nombre : '';
+                        }).filter(n => n),
+                        tipos_categoria: categoriasRel.map(cr => {
+                            const cat = this.categorias.find(c => c.id === cr.categoria_id);
+                            return cat ? cat.tipo : '';
+                        }).filter(n => n),
+                        grupos_categoria: categoriasRel.map(cr => {
+                            const cat = this.categorias.find(c => c.id === cr.categoria_id);
+                            return cat ? cat.grupo : '';
+                        }).filter(n => n)
+                    };
+                    
+                    return {
+                        ...articulo,
+                        titulo_id: parrafo ? parrafo.titulo_id : null,
+                        titulo_nombre: titulo ? titulo.nombre : '',
+                        titulo_numero: titulo ? titulo.numero : '',
+                        parrafo_nombre: parrafo ? parrafo.nombre : '',
+                        parrafo_numero: parrafo ? parrafo.numero : '',
+                        categorias_info: categoriasInfo
+                    };
+                });
+            }
+            
+            createSearchIndices() {
+                this.tituloIndex = {};
+                this.titulos.forEach(titulo => {
+                    this.tituloIndex[titulo.id] = titulo;
+                });
+                
+                this.parrafoIndex = {};
+                this.parrafos.forEach(parrafo => {
+                    this.parrafoIndex[parrafo.id] = parrafo;
+                });
+                
+                this.categoriaIndex = {};
+                this.categorias.forEach(categoria => {
+                    this.categoriaIndex[categoria.id] = categoria;
+                });
+            }
+            
+            initVectorizer() {
+                // Implementación simplificada de vectorización
+                this.vocabulary = new Set();
+                this.documentVectors = {};
+                
+                // Construir vocabulario
+                this.articulos.forEach(articulo => {
+                    const words = this.tokenize(articulo.texto_completo);
+                    words.forEach(word => this.vocabulary.add(word));
+                });
+                
+                // Crear vectores de documento
+                this.articulos.forEach(articulo => {
+                    this.documentVectors[articulo.id] = this.createDocumentVector(articulo.texto_completo);
+                });
+            }
+            
+            tokenize(text) {
+                // Tokenización simple: convertir a minúsculas y extraer palabras
+                return text.toLowerCase()
+                          .replace(/[^\w\s]/g, '')
+                          .split(/\s+/)
+                          .filter(word => word.length > 2);
+            }
+            
+            createDocumentVector(text) {
+                const words = this.tokenize(text);
+                const vector = {};
+                
+                // Contar frecuencia de palabras
+                words.forEach(word => {
+                    vector[word] = (vector[word] || 0) + 1;
+                });
+                
+                // Normalizar vector
+                const magnitude = Math.sqrt(Object.values(vector).reduce((sum, val) => sum + val * val, 0));
+                if (magnitude > 0) {
+                    Object.keys(vector).forEach(word => {
+                        vector[word] = vector[word] / magnitude;
+                    });
+                }
+                
+                return vector;
+            }
+            
+            filterByMetadata(filters) {
+                let filtered = [...this.articulos];
+                
+                if (filters.titulo_id) {
+                    filtered = filtered.filter(a => a.titulo_id == filters.titulo_id);
+                }
+                
+                if (filters.parrafo_id) {
+                    filtered = filtered.filter(a => a.parrafo_id == filters.parrafo_id);
+                }
+                
+                if (filters.tipo_articulo) {
+                    filtered = filtered.filter(a => a.tipo_articulo === filters.tipo_articulo);
+                }
+                
+                if (filters.categoria_id) {
+                    filtered = filtered.filter(a => 
+                        a.categorias_info.categorias.includes(
+                            this.categorias.find(c => c.id == filters.categoria_id)?.nombre
+                        )
+                    );
+                }
+                
+                if (filters.grupo_categoria) {
+                    filtered = filtered.filter(a => 
+                        a.categorias_info.grupos_categoria.includes(filters.grupo_categoria)
+                    );
+                }
+                
+                if (filters.tipo_categoria) {
+                    filtered = filtered.filter(a => 
+                        a.categorias_info.tipos_categoria.includes(filters.tipo_categoria)
+                    );
+                }
+                
+                return filtered;
+            }
+            
+            semanticSearch(query, filteredArticles, topK = 5) {
+                if (filteredArticles.length === 0) return [];
+                
+                const queryVector = this.createDocumentVector(query);
+                const results = [];
+                
+                filteredArticles.forEach(article => {
+                    const docVector = this.documentVectors[article.id];
+                    const similarity = this.cosineSimilarity(queryVector, docVector);
+                    
+                    results.push({
+                        ...article,
+                        similarity_score: similarity
+                    });
+                });
+                
+                // Ordenar por similitud y devolver los topK
+                return results
+                    .sort((a, b) => b.similarity_score - a.similarity_score)
+                    .slice(0, topK);
+            }
+            
+            cosineSimilarity(vecA, vecB) {
+                let dotProduct = 0;
+                let magnitudeA = 0;
+                let magnitudeB = 0;
+                
+                // Calcular producto punto y magnitudes
+                Object.keys(vecA).forEach(key => {
+                    dotProduct += vecA[key] * (vecB[key] || 0);
+                    magnitudeA += vecA[key] * vecA[key];
+                });
+                
+                Object.keys(vecB).forEach(key => {
+                    magnitudeB += vecB[key] * vecB[key];
+                });
+                
+                magnitudeA = Math.sqrt(magnitudeA);
+                magnitudeB = Math.sqrt(magnitudeB);
+                
+                // Evitar división por cero
+                if (magnitudeA === 0 || magnitudeB === 0) return 0;
+                
+                return dotProduct / (magnitudeA * magnitudeB);
+            }
+            
+            keywordSearch(query, filteredArticles, topK = 5) {
+                if (filteredArticles.length === 0) return [];
+                
+                const queryTerms = this.tokenize(query);
+                const results = [];
+                
+                filteredArticles.forEach(article => {
+                    const text = article.texto_completo.toLowerCase();
+                    let score = 0;
+                    
+                    queryTerms.forEach(term => {
+                        if (text.includes(term)) {
+                            score += 1;
+                        }
+                    });
+                    
+                    if (score > 0) {
+                        results.push({
+                            ...article,
+                            keyword_score: score
+                        });
+                    }
+                });
+                
+                // Ordenar por puntuación y devolver los topK
+                return results
+                    .sort((a, b) => b.keyword_score - a.keyword_score)
+                    .slice(0, topK);
+            }
+            
+            retrieveRelevantArticles(query, filters = null, topK = 5) {
+                const filteredArticles = filters ? this.filterByMetadata(filters) : [...this.articulos];
+                
+                // Búsqueda semántica
+                const semanticResults = this.semanticSearch(query, filteredArticles, topK * 2);
+                
+                // Búsqueda por palabras clave
+                const keywordResults = this.keywordSearch(query, filteredArticles, topK * 2);
+                
+                // Combinar resultados
+                const combinedResults = {};
+                
+                // Agregar resultados semánticos
+                semanticResults.forEach(result => {
+                    combinedResults[result.id] = {
+                        ...result,
+                        keyword_score: 0
+                    };
+                });
+                
+                // Agregar resultados de palabras clave
+                keywordResults.forEach(result => {
+                    if (combinedResults[result.id]) {
+                        combinedResults[result.id].keyword_score = result.keyword_score;
+                    } else {
+                        combinedResults[result.id] = {
+                            ...result,
+                            similarity_score: 0
+                        };
+                    }
+                });
+                
+                // Calcular puntuación combinada
+                Object.keys(combinedResults).forEach(id => {
+                    const result = combinedResults[id];
+                    const semanticScore = result.similarity_score || 0;
+                    const keywordScore = result.keyword_score || 0;
+                    
+                    // Normalizar puntuaciones
+                    const maxSemantic = Math.max(...semanticResults.map(r => r.similarity_score || 0));
+                    const maxKeyword = Math.max(...keywordResults.map(r => r.keyword_score || 0));
+                    
+                    const normalizedSemantic = maxSemantic > 0 ? semanticScore / maxSemantic : 0;
+                    const normalizedKeyword = maxKeyword > 0 ? keywordScore / maxKeyword : 0;
+                    
+                    // Ponderación: 70% semántica, 30% palabras clave
+                    result.combined_score = 0.7 * normalizedSemantic + 0.3 * normalizedKeyword;
+                });
+                
+                // Ordenar por puntuación combinada y devolver los topK
+                return Object.values(combinedResults)
+                    .sort((a, b) => b.combined_score - a.combined_score)
+                    .slice(0, topK);
+            }
+            
+            generatePrompt(query, relevantArticles) {
+                const context = relevantArticles.map(art => 
+                    `Artículo ${art.numero} - ${art.nombre}:\n${art.texto_completo}`
+                ).join('\n\n');
+                
+                return `
+Actúa como un experto en la Ley de Biodiversidad y Áreas Protegidas de Chile. 
+Basado en los siguientes artículos de la ley, responde la consulta del usuario de manera precisa y completa.
+
+CONTEXTO RELEVANTE:
+ ${context}
+
+CONSULTA DEL USUARIO:
+ ${query}
+
+INSTRUCCIONES:
+1. Responde únicamente basándote en el contexto proporcionado.
+2. Si el contexto no contiene información suficiente, indica que no puedes responder con los datos disponibles.
+3. Cita los artículos específicos en los que basas tu respuesta.
+4. Proporciona una respuesta clara y concisa.
+                `;
+            }
+            
+            query(userQuery, filters = null, topK = 5) {
+                const relevantArticles = this.retrieveRelevantArticles(userQuery, filters, topK);
+                const prompt = this.generatePrompt(userQuery, relevantArticles);
+                
+                // Simular respuesta del LLM
+                const simulatedResponse = this.simulateLLMResponse(prompt, relevantArticles);
+                
+                return {
+                    query: userQuery,
+                    response: simulatedResponse,
+                    relevant_articles: relevantArticles,
+                    prompt: prompt
+                };
+            }
+            
+            simulateLLMResponse(prompt, relevantArticles) {
+                if (relevantArticles.length === 0) {
+                    return "No se encontraron artículos relevantes para responder tu consulta.";
+                }
+                
+                // Respuesta simulada basada en los artículos más relevantes
+                const topArticle = relevantArticles[0];
+                return `Según el Artículo ${topArticle.numero} (${topArticle.nombre}): ${topArticle.texto_completo.substring(0, 200)}...`;
+            }
+        }
+
+        // Inicialización del sistema
+        let ragSystem;
+        let activeFilters = {};
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializar el sistema RAG
+            ragSystem = new HybridRAGSystem(mockDataResponse);
+            
+            // Configurar pestañas
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Ocultar todos los contenidos de pestañas
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Desactivar todas las pestañas
+                    document.querySelectorAll('.tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    
+                    // Activar la pestaña seleccionada
+                    const tabName = tab.getAttribute('data-tab');
+                    document.getElementById(`${tabName}Tab`).classList.add('active');
+                    tab.classList.add('active');
+                });
+            });
+            
+            // Configurar filtros
+            populateFilters();
+            
+            // Configurar botones
+            document.getElementById('searchButton').addEventListener('click', performSearch);
+            document.getElementById('applyFilters').addEventListener('click', applyFilters);
+            
+            // Permitir búsqueda con Enter
+            document.getElementById('queryInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // Ocultar mensaje de carga
+            document.getElementById('loadingMessage').style.display = 'none';
+        });
+        
+        function populateFilters() {
+            // Poblar filtro de títulos
+            const tituloSelect = document.getElementById('tituloFilter');
+            ragSystem.titulos.forEach(titulo => {
+                const option = document.createElement('option');
+                option.value = titulo.id;
+                option.textContent = `${titulo.numero}. ${titulo.nombre}`;
+                tituloSelect.appendChild(option);
+            });
+            
+            // Poblar filtro de párrafos
+            const parrafoSelect = document.getElementById('parrafoFilter');
+            ragSystem.parrafos.forEach(parrafo => {
+                const option = document.createElement('option');
+                option.value = parrafo.id;
+                option.textContent = `Párrafo ${parrafo.numero}: ${parrafo.nombre}`;
+                parrafoSelect.appendChild(option);
+            });
+            
+            // Poblar filtro de categorías
+            const categoriaSelect = document.getElementById('categoriaFilter');
+            ragSystem.categorias.forEach(categoria => {
+                const option = document.createElement('option');
+                option.value = categoria.id;
+                option.textContent = categoria.nombre;
+                categoriaSelect.appendChild(option);
+            });
+            
+            // Poblar filtro de tipo de artículo
+            const tipoArticuloSelect = document.getElementById('tipoArticuloFilter');
+            const tiposArticulo = [...new Set(ragSystem.articulos.map(a => a.tipo_articulo))];
+            tiposArticulo.forEach(tipo => {
+                const option = document.createElement('option');
+                option.value = tipo;
+                option.textContent = tipo;
+                tipoArticuloSelect.appendChild(option);
+            });
+        }
+        
+        function applyFilters() {
+            activeFilters = {
+                titulo_id: document.getElementById('tituloFilter').value || null,
+                parrafo_id: document.getElementById('parrafoFilter').value || null,
+                categoria_id: document.getElementById('categoriaFilter').value || null,
+                tipo_articulo: document.getElementById('tipoArticuloFilter').value || null
+            };
+            
+            // Cambiar a la pestaña de búsqueda
+            document.querySelector('[data-tab="search"]').click();
+            
+            // Mostrar mensaje de filtros aplicados
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = '<div class="loading">Filtros aplicados. Realice una consulta para ver resultados.</div>';
+            
+            // Cambiar a la pestaña de resultados
+            document.querySelector('[data-tab="results"]').click();
+        }
+        
+        function performSearch() {
+            const query = document.getElementById('queryInput').value.trim();
+            if (!query) {
+                showError('Por favor ingrese una consulta');
+                return;
+            }
+            
+            // Cambiar a la pestaña de resultados
+            document.querySelector('[data-tab="results"]').click();
+            
+            // Mostrar indicador de carga
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = '<div class="loading">Buscando artículos relevantes...</div>';
+            
+            // Simular tiempo de procesamiento
+            setTimeout(() => {
+                try {
+                    // Realizar consulta
+                    const results = ragSystem.query(query, activeFilters);
+                    
+                    // Mostrar resultados
+                    displayResults(results);
+                } catch (error) {
+                    console.error('Error en la búsqueda:', error);
+                    showError('Ocurrió un error al procesar su consulta. Por favor intente nuevamente.');
+                }
+            }, 800);
+        }
+        
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            if (results.relevant_articles.length === 0) {
+                resultsContainer.innerHTML = '<p>No se encontraron artículos relevantes para su consulta.</p>';
+                return;
+            }
+            
+            let html = `
+                <div class="result-item">
+                    <div class="result-header">
+                        <div class="result-title">Respuesta Generada</div>
+                    </div>
+                    <div class="result-content">
+                        <p>${results.response}</p>
+                    </div>
+                </div>
+                <h3>Artículos Relevantes:</h3>
+            `;
+            
+            results.relevant_articles.forEach(article => {
+                const scorePercent = Math.round(article.combined_score * 100);
+                html += `
+                    <div class="result-item">
+                        <div class="result-header">
+                            <div class="result-title">Artículo ${article.numero}: ${article.nombre}</div>
+                            <div class="result-score">${scorePercent}% relevante</div>
+                        </div>
+                        <div class="result-content">
+                            <p><strong>Título:</strong> ${article.titulo_numero}. ${article.titulo_nombre}</p>
+                            <p><strong>Párrafo:</strong> ${article.parrafo_numero}. ${article.parrafo_nombre}</p>
+                            <p><strong>Tipo:</strong> ${article.tipo_articulo}</p>
+                            <p><strong>Categorías:</strong> ${article.categorias_info.categorias.join(', ') || 'Ninguna'}</p>
+                            <p><strong>Contenido:</strong> ${article.texto_completo.substring(0, 300)}...</p>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            resultsContainer.innerHTML = html;
+        }
+        
+        function showError(message) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = `<div class="error">${message}</div>`;
+            
+            // Cambiar a la pestaña de resultados
+            document.querySelector('[data-tab="results"]').click();
+        }
+    </script>
+</body>
+</html>
