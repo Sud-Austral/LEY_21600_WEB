@@ -1804,5 +1804,13 @@ const mockDataResponse = { /* ... (Mismo objeto de datos de la versión anterior
                         "termino": "Turismo ambientalmente responsable",
                         "definicion": "aquel que se desarrolla en una modalidad de bajo impacto sobre el entorno natural y sociocultural, con respeto de los objetivos de la categoría del área protegida respectiva, su plan de manejo, el respectivo programa de uso público y las comunidades locales y comunidades indígenas que integran su territorio."
                     }
-                    ]
+                    
+                    ],
+       definiciones2:[{
+                        "id": 35,
+                        "articulo_id": 3,
+                        "numero": "35)",
+                        "termino": "Marismas",
+                        "definicion": " humedales costeros o cercanos a ríos que se inundan periódicamente con agua, generalmente salobre, y están dominadas por pastos, juncos y otras plantas herbáceas, no por árboles."
+                    }]
     };
