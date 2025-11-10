@@ -176,3 +176,103 @@ async function obtenerRespuesta(pregunta) {
 // obtenerRespuesta("¿Cuál es el límite de velocidad en zona urbana en Chile?")
 //   .then(console.log)
 //   .catch(console.error);
+
+
+async function obtenerExplicacionJSON(jsonLey) {
+  console.log(jsonLey)
+  const promptBase = `
+  Quiero que actúes como un experto en Derecho Administrativo y Ambiental chileno, especializado en la Ley N° 21.600.
+  Tu tarea es analizar y explicar de forma estructurada y didáctica el contenido del siguiente JSON, el cual representa una visualización de grafos sobre dicha ley.
+
+  🎯 Objetivo
+
+  Tu respuesta debe interpretar el significado jurídico y funcional del grafo, mostrando cómo la Ley 21.600 se articula con otras instituciones, normas y principios ambientales del sistema chileno.
+
+  No te centres en describir artículos de forma aislada.
+  Solo menciónalos si sirven para explicar relaciones relevantes o jerarquías normativas.
+
+  🔍 Enfócate en responder:
+
+  Vínculos institucionales y normativos:
+  ¿Qué instituciones, organismos públicos o leyes externas se relacionan con los artículos de la Ley 21.600?
+
+  Coordinación y jerarquías:
+  ¿Cómo se coordinan entre sí esas normas e instituciones?
+  ¿Qué dependencias, jerarquías o mecanismos de fiscalización se observan?
+
+  Efectos jurídicos y administrativos:
+  ¿Qué consecuencias produce esta red de relaciones en la gestión ambiental, la administración pública y la protección de la biodiversidad?
+
+  🧩 Estructura esperada de la respuesta
+
+  Organiza tu explicación de forma ordenada y pedagógica, por ejemplo:
+
+  Marco institucional general
+  Explica qué instituciones se crean, cuáles se coordinan y bajo qué principios operan.
+
+  Red de relaciones normativas
+  Describe cómo los artículos de la Ley 21.600 se vinculan entre sí y con otras leyes, decretos o tratados internacionales.
+
+  Efectos y consecuencias
+  Analiza las implicancias jurídicas, administrativas y ambientales de dichas relaciones, destacando cambios en gobernanza, fiscalización, planificación o participación ciudadana.
+
+  🧠 Estilo de redacción
+
+  Utiliza un tono técnico, riguroso y académico, pero accesible y comprensible para personas sin estudios universitarios.
+
+  Evita la jerga excesiva o las citas textuales.
+
+  No repitas el texto del JSON; interpreta, resume y explica su contenido de manera conceptual.
+
+  Prioriza la claridad, la coherencia sistémica y la utilidad práctica de la información.
+
+  
+  📦 JSON a analizar:
+  ${JSON.stringify(jsonLey, null, 0)}
+  `;
+
+    const requestBody = {
+      model: "glm-4.5-flash",
+      messages: [
+        { role: "user", content: promptBase }
+      ],
+      temperature: 0.7,
+      max_tokens: 2000
+    };
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 300000000);
+
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Error en la petición: ${response.status} ${response.statusText}`);
+      }
+
+      const dataResp = await response.json();
+
+      if (dataResp?.choices?.[0]?.message?.content) {
+        return dataResp.choices[0].message.content.trim();
+      } else {
+        throw new Error("Respuesta inesperada de la API");
+      }
+    } catch (error) {
+      console.error("Error al obtener explicación:", error);
+      if (error.name === "AbortError") {
+        throw new Error("La solicitud ha excedido el tiempo de espera. Por favor, intenta nuevamente.");
+      }
+      throw error;
+    }
+  }
+
