@@ -181,50 +181,42 @@ async function obtenerRespuesta(pregunta) {
 async function obtenerExplicacionJSON(jsonLey) {
   console.log(jsonLey)
   const promptBase = `
-  Quiero que actúes como un experto en Derecho Administrativo y Ambiental chileno, especializado en la Ley N° 21.600.
-  Tu tarea es analizar y explicar de forma estructurada y didáctica el contenido del siguiente JSON, el cual representa una visualización de grafos sobre dicha ley.
 
-  🎯 Objetivo
+  Rol:
+  Actúa como un experto en Derecho Administrativo y Ambiental chileno, especializado en la Ley N° 21.600.
+  Analiza e interpreta el JSON que representa una red de relaciones (grafo) sobre dicha ley.
 
-  Tu respuesta debe interpretar el significado jurídico y funcional del grafo, mostrando cómo la Ley 21.600 se articula con otras instituciones, normas y principios ambientales del sistema chileno.
+  🎯 Objetivo:
+  Entregar un análisis sistémico y crítico, que muestre cómo la Ley 21.600 se articula con el marco normativo e institucional ambiental chileno, pero con síntesis conceptual y enfoque evaluativo, no descriptivo.
 
-  No te centres en describir artículos de forma aislada.
-  Solo menciónalos si sirven para explicar relaciones relevantes o jerarquías normativas.
+  📘 Estructura obligatoria de la respuesta (solo dos secciones):
 
-  🔍 Enfócate en responder:
+  1. Definiciones
+  Expón de manera breve y cohesionada las estructuras institucionales, principios y relaciones normativas esenciales que emergen del grafo.
 
-  Vínculos institucionales y normativos:
-  ¿Qué instituciones, organismos públicos o leyes externas se relacionan con los artículos de la Ley 21.600?
+  Prioriza lo estructural (instituciones, jerarquías, principios de gestión).
 
-  Coordinación y jerarquías:
-  ¿Cómo se coordinan entre sí esas normas e instituciones?
-  ¿Qué dependencias, jerarquías o mecanismos de fiscalización se observan?
+  Evita enumerar artículos o reproducir contenido textual.
 
-  Efectos jurídicos y administrativos:
-  ¿Qué consecuencias produce esta red de relaciones en la gestión ambiental, la administración pública y la protección de la biodiversidad?
+  Resume el sentido funcional del sistema creado por la Ley 21.600.
 
-  🧩 Estructura esperada de la respuesta
+  2. Alcances
+  Desarrolla una evaluación crítica y sintética de las limitaciones, riesgos y efectos reales del modelo institucional descrito.
 
-  Organiza tu explicación de forma ordenada y pedagógica, por ejemplo:
+  Enfócate en eficacia administrativa, coordinación interinstitucional, y viabilidad práctica.
 
-  Marco institucional general
-  Explica qué instituciones se crean, cuáles se coordinan y bajo qué principios operan.
+  Formula conclusiones interpretativas breves y claras.
 
-  Red de relaciones normativas
-  Describe cómo los artículos de la Ley 21.600 se vinculan entre sí y con otras leyes, decretos o tratados internacionales.
+  🧠 Estilo:
 
-  Efectos y consecuencias
-  Analiza las implicancias jurídicas, administrativas y ambientales de dichas relaciones, destacando cambios en gobernanza, fiscalización, planificación o participación ciudadana.
+  Tono técnico y riguroso, pero comprensible.
 
-  🧠 Estilo de redacción
+  Extensión máxima: 6 párrafos sustantivos en total.
 
-  Utiliza un tono técnico, riguroso y académico, pero accesible y comprensible para personas sin estudios universitarios.
+  Prioriza la coherencia sistémica y el juicio interpretativo sobre el detalle normativo.
 
-  Evita la jerga excesiva o las citas textuales.
-
-  No repitas el texto del JSON; interpreta, resume y explica su contenido de manera conceptual.
-
-  Prioriza la claridad, la coherencia sistémica y la utilidad práctica de la información.
+  No incluyas citas ni numeración de artículos salvo si son esenciales para la lógica institucional.
+    
 
   
   📦 JSON a analizar:
