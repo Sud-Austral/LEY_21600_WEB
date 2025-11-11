@@ -1806,11 +1806,3805 @@ const mockDataResponse = { /* ... (Mismo objeto de datos de la versión anterior
                     }
                     
                     ],
-       definiciones2:[{
+       definicionesAlt:[{
                         "id": 35,
                         "articulo_id": 3,
                         "numero": "35)",
                         "termino": "Marismas",
                         "definicion": " humedales costeros o cercanos a ríos que se inundan periódicamente con agua, generalmente salobre, y están dominadas por pastos, juncos y otras plantas herbáceas, no por árboles."
-                    }]
+                    },
+  // Conceptos nuevos (excluyendo los 35 ya existentes en mockDataResponse.definiciones)
+  {"id": 36, "articulo_id": 1, "termino": "Objeto de la Ley", "definicion": "La ley tiene por objeto la conservación de la biodiversidad y la protección del patrimonio natural de Chile mediante preservación, restauración y uso sustentable de genes, especies y ecosistemas."},
+  {"id": 37, "articulo_id": 2, "termino": "Principios Rectores", "definicion": "Establece 10 principios fundamentales que guían todas las acciones bajo esta ley, destacando el Principio de Jerarquía (evitar-mitigar-reparar-compensar) y el Principio de Precaución."},
+  {"id": 38, "articulo_id": 4, "termino": "Creación del Servicio", "definicion": "Créase el Servicio de Biodiversidad y Áreas Protegidas (SBAP) como organismo descentralizado con personalidad jurídica y patrimonio propio, sujeto a supervigilancia del Presidente a través del Ministerio del Medio Ambiente."},
+  {"id": 39, "articulo_id": 5, "termino": "Funciones y Atribuciones", "definicion": "El SBAP tiene 21 funciones principales, incluyendo gestión del SNAP, elaboración de planes de recuperación, restauración ecológica y fiscalización de actividades en áreas protegidas."},
+  {"id": 40, "articulo_id": 6, "termino": "Dirección Superior", "definicion": "La administración del SBAP estará a cargo de un Director Nacional designado mediante el Sistema de Alta Dirección Pública (ley 19.882). Un reglamento determinará la organización interna del Servicio."},
+  {"id": 41, "articulo_id": 7, "termino": "Atribuciones del Director", "definicion": "Al Director Nacional corresponde designar personal, representar al SBAP, delegar funciones y crear comités asesores, entre otras atribuciones."},
+  {"id": 42, "articulo_id": 8, "termino": "Direcciones Regionales", "definicion": "El SBAP se desconcentrará territorialmente mediante Direcciones Regionales. Cada región tendrá un Director Regional afecto al Sistema de Alta Dirección Pública."},
+  {"id": 43, "articulo_id": 9, "termino": "Comité Científico Asesor", "definicion": "Créase un Comité Científico Asesor de 9 miembros integrados por representantes de instituciones académicas y científicas, con al menos 6 integrantes fuera de la Región Metropolitana."},
+  {"id": 44, "articulo_id": 10, "termino": "Patrimonio del Servicio", "definicion": "El patrimonio del SBAP se conforma por asignaciones presupuestarias, bienes transferidos, donaciones (exentas de impuestos) e ingresos por tarifas y concesiones en áreas protegidas."},
+  {"id": 45, "articulo_id": 11, "termino": "Régimen Laboral", "definicion": "El personal se regirá por el Código del Trabajo y disposiciones especiales, aplicando el decreto ley 249 de 1973 (escala única de sueldos)."},
+  {"id": 46, "articulo_id": 12, "termino": "Distribución de Jornada", "definicion": "Trabajadores en zonas apartadas o de riesgo podrán tener jornadas especiales reguladas por el Director Nacional mediante resolución, con posibilidad de jornada bisemanal."},
+  {"id": 47, "articulo_id": 13, "termino": "Normas de Probidad", "definicion": "El personal está sujeto a normas de probidad administrativa (leyes 18.575 y 20.880), con responsabilidad administrativa, civil y penal por actos en ejercicio de funciones."},
+  {"id": 48, "articulo_id": 14, "termino": "Ingreso al Servicio", "definicion": "El personal se seleccionará mediante concurso público, con excepciones para contratos a plazo fijo en áreas protegidas. Los contratos serán suscritos por el Director Nacional."},
+  {"id": 49, "articulo_id": 15, "termino": "Sistema de Evaluación", "definicion": "El personal estará sujeto a un sistema de evaluación de desempeño reglamentado por el Ministerio del Medio Ambiente, que servirá para capacitación, desarrollo de carrera y remoción."},
+  {"id": 50, "articulo_id": 16, "termino": "Destinación y Subrogación", "definicion": "El Director Nacional podrá aplicar normas de destinación y subrogación según el Estatuto Administrativo, con viáticos pagaderos según normativa específica."},
+  {"id": 51, "articulo_id": 17, "termino": "Capacitación", "definicion": "El Director Nacional aprobará anualmente programas de capacitación ajustados a recursos de la Ley de Presupuestos, considerados para desarrollo de carrera funcionaria."},
+  {"id": 52, "articulo_id": 18, "termino": "Servicio de Bienestar", "definicion": "El personal tiene derecho a afiliarse a servicios de bienestar. Personal traspasado mantiene derecho a afiliación en servicio de origen con aportes respectivos."},
+  {"id": 53, "articulo_id": 19, "termino": "Responsabilidad Disciplinaria", "definicion": "La responsabilidad disciplinaria se hará efectiva según procedimiento del Estatuto Administrativo, aplicable a infracciones a leyes públicas o Código del Trabajo."},
+  {"id": 54, "articulo_id": 20, "termino": "Infracciones y Sanciones", "definicion": "Sanciones por infracciones a deberes y prohibiciones: Censura, Multa, Suspensión (30 días a 3 meses) y Remoción (por vulneración grave de probidad)."},
+  {"id": 55, "articulo_id": 21, "termino": "Término de Relación Laboral", "definicion": "Termina por causales del Código del Trabajo. Evaluación deficiente: causal de artículo 160 número 7. Director Nacional fundamentará terminación por buen funcionamiento."},
+  {"id": 56, "articulo_id": 22, "termino": "Reglamento de Concursos", "definicion": "Un reglamento del Ministerio del Medio Ambiente regulará objetividad, transparencia y no discriminación en concursos de ingreso y promoción."},
+  {"id": 57, "articulo_id": 23, "termino": "Instrumentos de Conservación", "definicion": "El SBAP diseñará, implementará y dará seguimiento a instrumentos de conservación, incluyendo el SNAP bajo un enfoque ecosistémico en todo el territorio."},
+  {"id": 58, "articulo_id": 24, "termino": "Sistema de Información", "definicion": "El SBAP administrará un Sistema de Información de la Biodiversidad con inventarios de ecosistemas, especies y datos georreferenciados, de acceso público con excepciones para especies en riesgo."},
+  {"id": 59, "articulo_id": 25, "termino": "Monitoreo de Biodiversidad", "definicion": "El SBAP implementará programas de monitoreo de ecosistemas y especies, considerando conocimiento científico y tradicional de comunidades indígenas, pudiendo encomendar a instituciones académicas."},
+  {"id": 60, "articulo_id": 26, "termino": "Requerimiento de Información", "definicion": "El SBAP podrá requerir información a órganos de la Administración del Estado y a privados (si generada con fondos públicos)."},
+  {"id": 61, "articulo_id": 27, "termino": "Informes sobre Biodiversidad", "definicion": "El SBAP colaborará con el Ministerio del Medio Ambiente en la elaboración del informe cuatrienal y reporte anual sobre biodiversidad."},
+  {"id": 62, "articulo_id": 28, "termino": "Planificación Ecológica", "definicion": "El Ministerio del Medio Ambiente elaborará planificación ecológica con identificación de sitios prioritarios, usos del territorio, procesos con efectos perjudiciales y buenas prácticas para conservación."},
+  {"id": 63, "articulo_id": 29, "termino": "Sitios Prioritarios", "definicion": "Los sitios prioritarios serán categorizados con criterios técnico-científicos. El SBAP mantendrá un registro espacial actualizado. Declaración mediante decreto supremo del Ministerio del Medio Ambiente."},
+  {"id": 64, "articulo_id": 30, "termino": "Clasificación de Ecosistemas", "definicion": "El SBAP evaluará y propondrá clasificación de ecosistemas según estado de conservación. Un reglamento establecerá categorías y procedimiento, considerando pronunciamiento del Comité Científico Asesor y UICN."},
+  {"id": 65, "articulo_id": 31, "termino": "Planes de Manejo para Ecosistemas", "definicion": "El SBAP elaborará planes de manejo para ecosistemas amenazados, de cumplimiento obligatorio para servicios públicos. Podrán afectar proyectos con RCA (procedimiento artículo 25 quinquies)."},
+  {"id": 66, "articulo_id": 32, "termino": "Áreas Degradadas", "definicion": "El SBAP podrá declarar áreas degradadas mediante resolución. Un reglamento establecerá criterios científico-técnicos para identificación."},
+  {"id": 67, "articulo_id": 33, "termino": "Planes de Restauración", "definicion": "El SBAP elaborará planes de restauración ecológica para áreas degradadas, con medidas, metas, ubicación y monitoreo. Requerirán participación de comunidad local y órganos públicos."},
+  {"id": 68, "articulo_id": 34, "termino": "Iniciativas Privadas de Conservación", "definicion": "El SBAP prestará apoyo técnico a iniciativas en ecosistemas marinos para concesiones o destinaciones por Ministerio de Defensa Nacional con objetivos de conservación."},
+  {"id": 69, "articulo_id": 35, "termino": "Paisajes de Conservación", "definicion": "Las municipalidades podrán solicitar reconocimiento de paisajes de conservación con informe técnico sobre valores naturales, culturales y paisajísticos. Reconocido mediante resolución del SBAP con plan de manejo aprobado."},
+  {"id": 70, "articulo_id": 36, "termino": "Reservas de la Biósfera", "definicion": "El SBAP promoverá uso sustentable en reservas de la biósfera (UNESCO). Elaborará planes de gestión actualizados cada 5 años y podrá conformar comités de gestión con representantes públicos y comunitarios."},
+  {"id": 71, "articulo_id": 37, "termino": "Humedales Ramsar", "definicion": "Los sitios Ramsar serán acogidos a categorías de protección mediante decreto supremo. Requiere informe técnico del SBAP y consentimiento del propietario si es privado."},
+  {"id": 72, "articulo_id": 38, "termino": "Compensaciones de Biodiversidad", "definicion": "Un reglamento definirá criterios para compensaciones en evaluación ambiental. Medidas consistirán en acciones de restauración ecológica. Excepcionalmente: preservación con criterio de adicionalidad."},
+  {"id": 73, "articulo_id": 39, "termino": "Inventario de Humedales", "definicion": "El SBAP llevará un inventario nacional de humedales con localización georreferenciada, límites, superficie y tipo."},
+  {"id": 74, "articulo_id": 40, "termino": "Criterios para Humedales", "definicion": "El SBAP establecerá criterios para uso sustentable de humedales para resguardar características ecológicas y régimen hidrológico. Deberán ser reconocidos en instrumentos de ordenamiento territorial."},
+  {"id": 75, "articulo_id": 41, "termino": "Permiso para Alteración", "definicion": "Prohibición de alteración física de humedales que constituyan sitios prioritarios. Otros humedales inventariados requieren permiso previo del SBAP para evitar modificaciones permanentes de estructura y funciones."},
+  {"id": 76, "articulo_id": 42, "termino": "Planes de Recuperación de Especies", "definicion": "El SBAP elaborará planes de recuperación, conservación y gestión de especies clasificadas. Un reglamento establecerá categorías aplicables y contenido de los planes."},
+  {"id": 77, "articulo_id": 43, "termino": "Contenido de Planes de Especies", "definicion": "Los planes considerarán diagnóstico del estado de la especie, determinación de hábitat y amenazas, acciones de recuperación y metas medibles."},
+  {"id": 78, "articulo_id": 44, "termino": "Monumentos Naturales", "definicion": "El Ministerio del Medio Ambiente podrá declarar monumentos naturales a especies. Prohibición de intimidar, capturar, extraer o dañar especies declaradas, con excepciones para investigación científica."},
+  {"id": 79, "articulo_id": 45, "termino": "Especies Exóticas Invasoras", "definicion": "El SBAP podrá proponer nómina de especies exóticas invasoras, elaborar planes de prevención y control, ejecutar acciones urgentes y establecer barreras de bioseguridad."},
+  {"id": 80, "articulo_id": 46, "termino": "Fondo Nacional de Biodiversidad", "definicion": "Créase el Fondo Nacional de la Biodiversidad destinado a financiar proyectos de conservación fuera de áreas protegidas, incluyendo investigación, capacitación y restauración."},
+  {"id": 81, "articulo_id": 47, "termino": "Beneficiarios del Fondo", "definicion": "Podrán beneficiarse personas naturales y personas jurídicas sin fines de lucro."},
+  {"id": 82, "articulo_id": 48, "termino": "Administración del Fondo", "definicion": "El Fondo será administrado por el SBAP. Su funcionamiento se regulará mediante resolución y podrá establecer líneas de financiamiento según prioridades."},
+  {"id": 83, "articulo_id": 49, "termino": "Patrimonio del Fondo", "definicion": "El Fondo se conformará por donaciones, herencias y legados (exentos de impuestos), recursos de Ley de Presupuestos y aportes de entidades públicas o privadas."},
+  {"id": 84, "articulo_id": 50, "termino": "Prácticas Sustentables", "definicion": "El SBAP promoverá prácticas sustentables mediante certificación, contratos de retribución por servicios ecosistémicos, criterios ambientales para subsidios y acuerdos de producción limpia."},
+  {"id": 85, "articulo_id": 51, "termino": "Sistema de Certificación", "definicion": "Créase el Sistema de Certificación de Biodiversidad y Servicios Ecosistémicos para certificar actividades, prácticas o sitios por su contribución a la conservación. Administrado por el SBAP y reglamentado por el Ministerio del Medio Ambiente."},
+  {"id": 86, "articulo_id": 52, "termino": "Contratos de Retribución", "definicion": "El contrato de retribución obliga a preservar o restaurar ecosistemas a cambio de una contraprestación por servicios ecosistémicos mantenidos. El SBAP llevará un registro de contratos que cumplan criterios mínimos."},
+  {"id": 87, "articulo_id": 53, "termino": "Sistema Nacional de Áreas Protegidas", "definicion": "Créase el Sistema Nacional de Áreas Protegidas (SNAP) constituido por áreas protegidas estatales y privadas, terrestres y acuáticas. Gestionado por el SBAP para conservar biodiversidad y patrimonio natural."},
+  {"id": 88, "articulo_id": 54, "termino": "Objetivos del SNAP", "definicion": "El SNAP tiene 9 objetivos, entre ellos asegurar conservación permanente de biodiversidad, mantener servicios ecosistémicos, integrar áreas en planes de desarrollo y promover participación ciudadana."},
+  {"id": 89, "articulo_id": 55, "termino": "Gestión del SNAP", "definicion": "La gestión del SNAP corresponde al SBAP. Elaborará un plan estratégico con revisión de planificación, programa de financiamiento, fortalecimiento de capacidades y participación comunitaria."},
+  {"id": 90, "articulo_id": 56, "termino": "Categorías de Áreas Protegidas", "definicion": "El SNAP comprende 6 categorías: Reserva de Región Virgen, Parque Nacional, Monumento Natural, Reserva Nacional, Área de Conservación de Múltiples Usos y Área de Conservación de Pueblos Indígenas."},
+  {"id": 91, "articulo_id": 57, "termino": "Reserva de Región Virgen", "definicion": "Área con condiciones primitivas naturales, no perturbadas. Objetivo: preservación estricta de integridad ecológica. Prohibición de explotación comercial de recursos."},
+  {"id": 92, "articulo_id": 58, "termino": "Parque Nacional", "definicion": "Área con diversos ambientes únicos o representativos. Objetivo: preservación del patrimonio natural con valor escénico. Prohibición de explotación comercial de recursos."},
+  {"id": 93, "articulo_id": 59, "termino": "Monumento Natural", "definicion": "Área reducida con componentes naturales específicos relevantes. Objetivo: preservación de elementos de valor excepcional. Prohibición de explotación comercial de recursos."},
+  {"id": 94, "articulo_id": 60, "termino": "Reserva Nacional", "definicion": "Área con comunidades biológicas relevantes para protección de especies. Objetivo: conservación mediante gestión activa. Permite actividades de uso sustentable sin poner en riesgo servicios ecosistémicos."},
+  {"id": 95, "articulo_id": 61, "termino": "Área de Múltiples Usos", "definicion": "Área con interacción tradicional entre humanos y naturaleza. Objetivo: asegurar uso sustentable mediante manejo integrado. Permite diversas actividades de uso sustentable."},
+  {"id": 96, "articulo_id": 62, "termino": "Área de Pueblos Indígenas", "definicion": "Área en tierras indígenas o espacios costeros de pueblos originarios. Objetivo: conservación de hábitats, especies y valores culturales asociados. Permite usos ancestrales y actividades sustentables."},
+  {"id": 97, "articulo_id": 63, "termino": "Proyectos en Áreas Protegidas", "definicion": "Todo proyecto en áreas protegidas debe respetar la categoría y objeto de protección, ser compatible con el plan de manejo y excluir explotación de recursos con fines comerciales."},
+  {"id": 98, "articulo_id": 64, "termino": "Creación de Áreas Protegidas", "definicion": "Las áreas protegidas del Estado se crean mediante decreto supremo del MMA, con firma de Ministros de Bienes Nacionales y Defensa (según corresponda). El decreto debe contener categoría, superficie, ubicación y objetos de protección."},
+  {"id": 99, "articulo_id": 65, "termino": "Procedimiento de Creación", "definicion": "Las áreas pueden crearse de oficio o a solicitud de personas/comunidades. Requiere informe técnico del SBAP y consulta a comunidades indígenas. Un reglamento establecerá procedimiento con participación ciudadana."},
+  {"id": 100, "articulo_id": 66, "termino": "Modificación y Desafectación", "definicion": "La modificación o desafectación requiere procedimiento similar a creación, informe favorable del Comité Científico Asesor y es excepcional sin detrimento a objetivos del SNAP. Parques Nacionales y Reservas de Región Virgen solo por ley."},
+  {"id": 101, "articulo_id": 67, "termino": "Administración de Áreas", "definicion": "La administración de áreas protegidas del Estado corresponde al SBAP, incluyendo elaboración e implementación de planes de manejo, uso público, otorgamiento de permisos, concesiones y convenios de gestión."},
+  {"id": 102, "articulo_id": 68, "termino": "Participación en Gestión", "definicion": "El SBAP podrá celebrar convenios de gestión con autoridades u organizaciones locales y comunidades indígenas. Los convenios contendrán estructura, derechos, obligaciones y beneficios."},
+  {"id": 103, "articulo_id": 69, "termino": "Administrador de Área", "definicion": "Cada área protegida contará con un administrador (funcionario del SBAP) responsable de dar cumplimiento al plan de manejo, supervisar personal, aplicar medidas y reportar eventos relevantes."},
+  {"id": 104, "articulo_id": 70, "termino": "Tarifas de Ingreso", "definicion": "El SBAP fijará tarifas por ingreso a áreas protegidas y servicios, considerando residencia, edad, tipo y calidad de instalaciones. Exenciones para comunidades indígenas en usos ancestrales, estudiantes y guías/scouts."},
+  {"id": 105, "articulo_id": 71, "termino": "Planes de Manejo", "definicion": "Toda área protegida debe contar con plan de manejo obligatorio que constituye marco regulatorio para gestión y actividades permitidas. Podrá dividirse en programas específicos (conservación, uso público, etc.)."},
+  {"id": 106, "articulo_id": 72, "termino": "Contenido de Planes de Manejo", "definicion": "Los planes deben contener objeto(s) de protección, diagnóstico de presiones y amenazas, plan de monitoreo con metas e indicadores, zonificación y definición de zona de amortiguación."},
+  {"id": 107, "articulo_id": 73, "termino": "Aprobación de Planes", "definicion": "El plan de manejo será elaborado y aprobado por el SBAP mediante resolución. Plazo máximo: 2 años desde creación del área. Revisión al menos cada 5 años."},
+  {"id": 108, "articulo_id": 74, "termino": "Reglamento de Planes", "definicion": "Un reglamento del MMA establecerá procedimiento para elaboración de planes, contenidos específicos por categoría, participación de comunidades e indígenas, y consulta a Subsecretarías de Pesca y Turismo."},
+  {"id": 109, "articulo_id": 75, "termino": "Cuerpo de Guardaparques", "definicion": "El SBAP contará con un cuerpo de guardaparques como autoridad competente para manejo y fiscalización de áreas protegidas del Estado."},
+  {"id": 110, "articulo_id": 76, "termino": "Funciones de Guardaparques", "definicion": "Corresponde a los guardaparques apoyar elaboración y aplicación de planes, instruir y exigir cumplimiento de normas, monitorear biodiversidad, educar a visitantes y comunidad local."},
+  {"id": 111, "articulo_id": 77, "termino": "Funciones de Fiscalización", "definicion": "El Director Nacional designará guardaparques para funciones de fiscalización que cumplan requisitos: licencia enseñanza media, 2 años como guardaparque y cursos de formación. Podrán ejercer funciones en áreas privadas previo requerimiento."},
+  {"id": 112, "articulo_id": 78, "termino": "Formación de Guardaparques", "definicion": "El SBAP tendrá programas de formación y capacitación para guardaparques considerando cosmovisión de pueblos originarios. Podrá reconocer cursos o programas distintos a los del SBAP."},
+  {"id": 113, "articulo_id": 79, "termino": "Concesiones en Áreas", "definicion": "El SBAP podrá otorgar concesiones solo para investigación científica, educación o turismo (que requiera infraestructura permanente). Duración máxima: 30 años."},
+  {"id": 114, "articulo_id": 80, "termino": "Criterios para Concesiones", "definicion": "En otorgamiento se considerará categoría y objeto de protección del área, consulta a pueblos indígenas (Convenio 169), respeto a usos ancestrales y turismo ambientalmente responsable y accesible."},
+  {"id": 115, "articulo_id": 81, "termino": "Comité Técnico", "definicion": "Créase un Comité Técnico consultivo para otorgamiento de concesiones, integrado por Director Nacional (presidente) y representantes de MMA, Turismo, Educación, Ciencias, Culturas, Desarrollo Social y Bienes Nacionales."},
+  {"id": 116, "articulo_id": 82, "termino": "Renta Concesional", "definicion": "La renta será fijada por el SBAP según renta bruta anual del servicio, monto de inversión y factibilidad económica. Destino: gestión del SNAP y monitoreo."},
+  {"id": 117, "articulo_id": 83, "termino": "Concesiones Gratuitas", "definicion": "Excepcionalmente, el SBAP podrá otorgar concesiones gratuitas para investigación científica o educación a favor de municipalidades, organismos estatales o entidades sin fines de lucro. Podrán extinguirse por voluntad del SBAP."},
+  {"id": 118, "articulo_id": 84, "termino": "Concesionario", "definicion": "El SBAP solo otorgará concesiones a personas jurídicas. Para concesiones turísticas: rol único tributario exclusivo."},
+  {"id": 119, "articulo_id": 85, "termino": "Procedimiento de Otorgamiento", "definicion": "Las concesiones se otorgarán mediante licitación pública (obligatoria para turismo), licitación privada o directamente (solo gratuitas y fundadas)."},
+  {"id": 120, "articulo_id": 86, "termino": "Bases de Licitación", "definicion": "Corresponde al SBAP confeccionar bases de licitación que deberán ajustarse a categoría, objeto de protección y plan de manejo del área, pudiendo contemplar restricciones a la actividad."},
+  {"id": 121, "articulo_id": 87, "termino": "Adjudicación", "definicion": "La adjudicación se efectuará mediante resolución del SBAP. Requiere suscripción de contrato en escritura pública y remisión de copia a Ministerio de Bienes Nacionales o Defensa."},
+  {"id": 122, "articulo_id": 88, "termino": "Transferencia de Concesión", "definicion": "El concesionario podrá transferir la concesión totalmente con aprobación del SBAP y cumplimiento de requisitos. El SBAP llevará un registro de transferencias."},
+  {"id": 123, "articulo_id": 89, "termino": "Extinción de Concesión", "definicion": "Causales de extinción: vencimiento de plazo, mutuo acuerdo, pérdida de requisitos, incumplimiento de obligaciones, imposibilidad de objeto o cancelación de personalidad jurídica."},
+  {"id": 124, "articulo_id": 90, "termino": "Mejoras", "definicion": "A falta de estipulación contrario, todo lo edificado y plantado por el concesionario pasará a dominio del Fisco sin indemnización una vez extinguida la concesión."},
+  {"id": 125, "articulo_id": 91, "termino": "Otros Permisos", "definicion": "La adjudicación de concesión no libera de obtener otros permisos necesarios para el desarrollo del proyecto según legislación vigente."},
+  {"id": 126, "articulo_id": 92, "termino": "Concesiones Sectoriales", "definicion": "Concesiones para fines distintos requieren área con plan de manejo, actividad compatible con categoría y objeto, e informe favorable del SBAP."},
+  {"id": 127, "articulo_id": 93, "termino": "Prohibición de Concesiones", "definicion": "Prohibición de concesiones sectoriales para explotación comercial en Reservas de Región Virgen, Parques Nacionales y Monumentos Naturales."},
+  {"id": 128, "articulo_id": 94, "termino": "Permiso para Actividades", "definicion": "Actividades transitorias o sin infraestructura requieren permiso del SBAP. Duración máxima: 1 año (renovable). El SBAP podrá establecer obligaciones o retribuciones."},
+  {"id": 129, "articulo_id": 95, "termino": "Acceso a Recursos Genéticos", "definicion": "El SBAP regulará condiciones de acceso a recursos genéticos en áreas protegidas mediante convenios con solicitantes que establezcan beneficios derivados."},
+  {"id": 130, "articulo_id": 96, "termino": "Fiscalización de Concesiones", "definicion": "El SBAP verificará y exigirá cumplimiento de obligaciones en contratos de concesión o permisos."},
+  {"id": 131, "articulo_id": 97, "termino": "Áreas Protegidas Privadas", "definicion": "Las áreas protegidas privadas forman parte del SNAP y deben acogerse a alguna de las 6 categorías establecidas. Un reglamento regulará procedimiento de creación, modificación y desafectación."},
+  {"id": 132, "articulo_id": 98, "termino": "Solicitud de Creación", "definicion": "Procedimiento se inicia con solicitud voluntaria del propietario al Director Regional con información sobre ubicación, propiedad, características ecológicas, categoría propuesta y objetos de protección."},
+  {"id": 133, "articulo_id": 99, "termino": "Creación de Áreas Privadas", "definicion": "La creación se realiza mediante decreto supremo del MMA. El propietario debe reducir el decreto a escritura pública e inscribirlo."},
+  {"id": 134, "articulo_id": 100, "termino": "Modificación y Desafectación", "definicion": "Se regirá por reglamento del artículo 97. En desafectación: restitución total de beneficios obtenidos. Parques Nacionales y Reservas de Región Virgen solo por ley."},
+  {"id": 135, "articulo_id": 101, "termino": "Transferencia de Dominio", "definicion": "La transferencia no altera el carácter de área protegida. El acto debe señalarlo expresamente bajo nulidad si no lo hace. El propietario debe informar al SBAP sobre transferencia."},
+  {"id": 136, "articulo_id": 102, "termino": "Administración y Supervisión", "definicion": "Las áreas privadas serán administradas por propietarios o designados. La supervisión corresponde al SBAP, que podrá requerir antecedentes y fiscalizadores podrán ingresar para inspección."},
+  {"id": 137, "articulo_id": 103, "termino": "Planes de Manejo Privados", "definicion": "Los planes serán elaborados por propietarios u organizaciones y aprobados por el SBAP. Deberán contener lo dispuesto en artículo 72 y reglamento del artículo 97."},
+  {"id": 138, "articulo_id": 104, "termino": "Apoyo Técnico", "definicion": "El SBAP podrá prestar apoyo técnico a administradores, elaborando formato tipo de plan de manejo y programas de capacitación. Fomentará cooperación con instituciones públicas o privadas."},
+  {"id": 139, "articulo_id": 105, "termino": "Incentivos para Áreas Privadas", "definicion": "Las áreas protegidas privadas gozarán de exención del impuesto territorial (mientras cumplan plan de manejo), exención del impuesto a la herencia, participación gratuita en capacitación y bonificaciones en Fondo Nacional."},
+  {"id": 140, "articulo_id": 106, "termino": "Integración de Áreas", "definicion": "Forman parte de las áreas protegidas: suelo, subsuelo, fondo marino, porciones de mar, terrenos de playa, glaciares, ríos, lagos, lagunas, estuarios y humedales dentro de su perímetro."},
+  {"id": 141, "articulo_id": 107, "termino": "Áreas Libres de Transgénicos", "definicion": "Las áreas protegidas del SNAP serán declaradas áreas libres de organismos genéticamente modificados."},
+  {"id": 142, "articulo_id": 108, "termino": "Prohibiciones en Áreas", "definicion": "Prohibiciones para toda persona ajena a la administración: remover tierra/turba/rocas, intimidar/capturar fauna nativa, destruir nidos, cortar flora nativa, introducir especies exóticas/transgénicas, entre otras."},
+  {"id": 143, "articulo_id": 109, "termino": "Alcance de la Fiscalización", "definicion": "El SBAP fiscalizará cumplimiento de planes de manejo, obligaciones de propietarios/administradores, contratos de concesión/permisos, y planes de restauración/control de especies invasoras."},
+  {"id": 144, "articulo_id": 110, "termino": "Ministros de Fe", "definicion": "Los fiscalizadores tendrán calidad de ministros de fe respecto de hechos constitutivos de infracciones. Los hechos establecidos constituyen presunción legal de infracción."},
+  {"id": 145, "articulo_id": 111, "termino": "Convenios de Fiscalización", "definicion": "El SBAP podrá realizar funciones de fiscalización fuera de áreas mediante convenios de encomendamiento con servicio competente. Los convenios señalarán tareas y asignación de recursos."},
+  {"id": 146, "articulo_id": 112, "termino": "Alcance de Infracciones", "definicion": "Las sanciones son sin perjuicio de responsabilidad civil o penal."},
+  {"id": 147, "articulo_id": 113, "termino": "Responsabilidad Solidaria", "definicion": "Si no es posible determinar grado de participación, la responsabilidad será solidaria."},
+  {"id": 148, "articulo_id": 114, "termino": "Potestad Sancionadora", "definicion": "Las infracciones serán sancionadas administrativamente por el SBAP."},
+  {"id": 149, "articulo_id": 115, "termino": "Infracciones en Áreas", "definicion": "Constituyen infracciones: contravenir prohibiciones del artículo 108, incumplir planes de manejo, incumplir obligaciones de concesiones, realizar actividades sin permiso requerido, entre otras."},
+  {"id": 150, "articulo_id": 116, "termino": "Infracciones Fuera de Áreas", "definicion": "Constituyen infracciones: alterar significativamente características ecológicas en sitios prioritarios, incumplir planes de restauración, alterar físicamente humedales sin permiso, contravenir prohibiciones sobre monumentos naturales."},
+  {"id": 151, "articulo_id": 117, "termino": "Concurso de Infracciones", "definicion": "Si una conducta constituye infracción en esta y otra ley, se aplica la de mayor entidad. Excepción: infracciones a RCA (competencia exclusiva de Superintendencia del Medio Ambiente)."},
+  {"id": 152, "articulo_id": 118, "termino": "Categorías de Infracciones", "definicion": "Infracciones gravísimas: daño ambiental irreparable o afectación grave de servicios ecosistémicos. Graves: daño reparable o afectación sin compromiso grave. Leves: contravenciones no incluidas en anteriores."},
+  {"id": 153, "articulo_id": 119, "termino": "Prescripción", "definicion": "Las infracciones prescriben a los 3 años desde su comisión o manifestación de efectos. Se interrumpe con notificación de formulación de cargos."},
+  {"id": 154, "articulo_id": 120, "termino": "Sanciones", "definicion": "Para gravísimas: multa hasta 15.000 UTM, restitución de beneficios, extinción de concesión, prohibición de ingreso 5-15 años. Para graves: multa hasta 10.000 UTM, restitución parcial, suspensión de concesión, prohibición 5-10 años. Para leves: multa hasta 1.000 UTM, prestación de servicios."},
+  {"id": 155, "articulo_id": 121, "termino": "Pago de Multa", "definicion": "Las multas se pagan en Tesorería General de la República dentro de 10 días. Las resoluciones tienen mérito ejecutivo."},
+  {"id": 156, "articulo_id": 122, "termino": "Acta de Fiscalización", "definicion": "Los fiscalizadores levantarán acta de fiscalización describiendo hechos objetivamente. Con el acta podrá iniciarse procedimiento sancionador."},
+  {"id": 157, "articulo_id": 123, "termino": "Denuncias", "definicion": "Cualquier persona podrá denunciar infracciones por escrito al SBAP con individualización del denunciante, descripción de hechos, lugar, fecha y presunto infractor."},
+  {"id": 158, "articulo_id": 124, "termino": "Admisión del Acta o Denuncia", "definicion": "El procedimiento se inicia con comunicación del fiscalizador al Director Regional o denuncia (si tiene seriedad y mérito suficiente). En caso contrario, se realiza fiscalización o se archiva."},
+  {"id": 159, "articulo_id": 125, "termino": "Medidas Provisionales", "definicion": "El fiscalizador podrá solicitar medidas provisionales al Director Regional: medidas de corrección/seguridad, retención de elementos/vehículos, aposición de sellos, clausura temporal de instalaciones, entre otras."},
+  {"id": 160, "articulo_id": 126, "termino": "Cese de Medidas Provisionales", "definicion": "Las medidas durarán mientras subsista la necesidad. El Director Regional deberá confirmar, modificar o levantar al inicio del procedimiento. Podrán alzarse durante tramitación."},
+  {"id": 161, "articulo_id": 127, "termino": "Medidas Correctivas", "definicion": "Frente a infracciones flagrantes, el SBAP podrá ordenar restablecimiento de legalidad en plazo máximo 5 días."},
+  {"id": 162, "articulo_id": 128, "termino": "Incumplimientos Menores", "definicion": "El SBAP podrá determinar disconformidades para incumplimientos menores. Deben subsanarse en máximo 10 días. Si no se subsana, se cursa infracción."},
+  {"id": 163, "articulo_id": 129, "termino": "Inicio de Procedimiento", "definicion": "El Director Regional dará inicio a la instrucción mediante resolución con formulación de cargos. Plazo para descargos: 15 días. Si infractor no es habido, se publica extracto en diario."},
+  {"id": 164, "articulo_id": 130, "termino": "Examen de Antecedentes", "definicion": "Recibidos los descargos, el instructor examinará mérito y ordenará diligencias probatorias. Plazo máximo: 30 días."},
+  {"id": 165, "articulo_id": 131, "termino": "Medios de Prueba", "definicion": "Los hechos podrán acreditarse por cualquier medio de prueba admisible. Se presume veracidad de hechos constatados por fiscalizadores en acta."},
+  {"id": 166, "articulo_id": 132, "termino": "Expediente", "definicion": "El instructor dejará constancia de todo lo obrado en expediente (escrito o electrónico) con orden de ingreso de documentos y actuaciones."},
+  {"id": 167, "articulo_id": 133, "termino": "Informe y Resolución", "definicion": "El instructor evacuará informe con individualización de infractores, hechos investigados y propuesta de sanción. El Director Regional resolverá en 10 días mediante resolución fundada."},
+  {"id": 168, "articulo_id": 134, "termino": "Reclamación", "definicion": "Podrán reclamarse ante Tribunales Ambientales: resoluciones que impongan sanciones, aprueben planes de manejo/restauración, decretos que creen/modifiquen/desafecten áreas, resoluciones que otorguen/denieguen concesiones/permisos."},
+  {"id": 169, "articulo_id": 135, "termino": "Competencia", "definicion": "Competencia del Tribunal Ambiental según acto reclamado: sanciones (lugar de infracción), planes (lugar de aplicación), concesiones/permisos (cualquier persona afectada o directamente afectada)."},
+  {"id": 170, "articulo_id": 136, "termino": "Legitimación Activa", "definicion": "Tienen legitimación para reclamar: para sanciones (persona sancionada y denunciante), para planes (cualquier persona perjudicada), para concesiones/permisos (cualquier persona o directamente afectada)."},
+  {"id": 171, "articulo_id": 137, "termino": "Plazo para Reclamar", "definicion": "Plazo para interponer reclamación: 30 días hábiles desde notificación o publicación."},
+  {"id": 172, "articulo_id": 138, "termino": "Procedimiento de Reclamación", "definicion": "Se regirá por el Párrafo 2° del Título III de la ley 20.600 (Tribunales Ambientales)."},
+  {"id": 173, "articulo_id": 139, "termino": "Recursos contra Resolución", "definicion": "Contra resoluciones del Tribunal Ambiental procede apelación (para inadmisibilidad, recepción a prueba, término de proceso) y casación en el fondo (contra sentencia definitiva)."},
+  {"id": 174, "articulo_id": 140, "termino": "Registro de Sanciones", "definicion": "El SBAP mantendrá un registro público de sanciones aplicadas con nombre de responsables, naturaleza de infracciones y sanciones. Se publicará en sitio electrónico del SBAP."},
+  {"id": 175, "articulo_id": 141, "termino": "Plan de Corrección", "definicion": "El presunto infractor podrá presentar voluntariamente un plan de corrección. Desde aprobación, se suspende prescripción de artículo 119. Costos de implementación serán cargo del infractor."},
+  {"id": 176, "articulo_id": 142, "termino": "Regla Supletoria", "definicion": "En lo no previsto, se aplica supletoriamente la ley 19.880 (procedimientos administrativos)."},
+  {"id": 177, "articulo_id": 143, "termino": "Derogación Ley 18.362", "definicion": "Derógase la ley 18.362 que creaba el Sistema Nacional de Áreas Silvestres Protegidas del Estado."},
+  {"id": 178, "articulo_id": 144, "termino": "Modificaciones a Ley 19.300", "definicion": "Modificaciones a Ley de Bases Generales del Medio Ambiente: reemplaza letra p) artículo 10 (ejecución de obras en áreas protegidas), reemplaza artículo 34 (administración del SNAP por SBAP), modifica artículo 35 (fomento a áreas privadas), reemplaza artículo 37 (clasificación de especies)."},
+  {"id": 179, "articulo_id": 145, "termino": "Modificaciones a Ley 20.417", "definicion": "Modificaciones a Ley de Superintendencia del Medio Ambiente: elimina referencias a planes de manejo en fiscalización y letra i) artículo 35 (atribuciones sobre planes de manejo)."},
+  {"id": 180, "articulo_id": 146, "termino": "Modificaciones a DL 1.939", "definicion": "Modificaciones a Decreto Ley 1.939 (bienes del Estado): deroga artículo 15 y reemplaza artículo 21 (destino de áreas protegidas)."},
+  {"id": 181, "articulo_id": 147, "termino": "Modificaciones a Ley 18.892", "definicion": "Modificaciones a Ley General de Pesca y Acuicultura: reemplaza 'marina' por 'de interés pesquero', elimina referencias a 'Reservas Marinas', incorpora fiscalización por SBAP mediante convenio."},
+  {"id": 182, "articulo_id": 148, "termino": "Modificaciones a Ley 20.256", "definicion": "Modificaciones a Ley de Pesca Recreativa: prohíbe pesca recreativa de especies en peligro, incorpora participación del SBAP en comités, modifica normas sobre áreas protegidas."},
+  {"id": 183, "articulo_id": 149, "termino": "Modificaciones a Ley 4.601", "definicion": "Modificaciones a Ley de Caza: actualiza categorías de conservación de especies, incorpora SBAP en fiscalización y comités, modifica normas sobre áreas protegidas."},
+  {"id": 184, "articulo_id": 150, "termino": "Modificaciones a Ley 20.283", "definicion": "Modificaciones a Ley de Bosque Nativo: actualiza categorías de conservación, incorpora informe favorable del SBAP para intervenciones, agrega al Director Nacional del SBAP en comités."},
+  {"id": 185, "articulo_id": 151, "termino": "Modificaciones a Ley de Bosques", "definicion": "Modificaciones a Decreto Ley 4.363 (Ley de Bosques de 1931): elimina referencias a 'parques nacionales de turismo'."},
+  {"id": 186, "articulo_id": 152, "termino": "Modificaciones a Ley 17.288", "definicion": "Modificaciones a Ley de Monumentos Nacionales: elimina 'santuarios de la naturaleza' de definiciones y deroga artículo 31 (santuarios de la naturaleza)."},
+  {"id": 187, "articulo_id": 153, "termino": "Modificaciones a Ley 20.423", "definicion": "Modificaciones a Ley de Turismo: incorpora Ministro del Medio Ambiente en comité, deroga artículos sobre concesiones en áreas silvestres, establece que turismo en áreas protegidas debe ser compatible."},
+  {"id": 188, "articulo_id": 154, "termino": "Modificaciones a Código de Minería", "definicion": "Suprímese el numeral 2° del artículo 17 del Código de Minería (referente a áreas silvestres protegidas)."},
+  {"id": 189, "articulo_id": 155, "termino": "Facultades del Presidente", "definicion": "Facúltase al Presidente para dictar decretos con fuerza de ley dentro de 1 año: fijar grados de remuneraciones del SBAP, fijar planta de personal de directivos, ordenar traspaso de personal desde CONAF, determinar fecha de entrada en vigencia."},
+  {"id": 190, "articulo_id": 156, "termino": "Primer Presupuesto", "definicion": "El Presidente conformará el primer presupuesto del SBAP mediante decreto, transfiriendo fondos de entidades que traspasan personal o bienes."},
+  {"id": 191, "articulo_id": 157, "termino": "Financiamiento", "definicion": "El mayor gasto fiscal del primer año se financiará con reasignaciones desde Ministerio del Medio Ambiente y partida Tesoro Público. Años siguientes: con recursos de Ley de Presupuestos."},
+  {"id": 192, "articulo_id": 158, "termino": "Áreas Protegidas Existentes", "definicion": "Se entienden incorporadas al SNAP las áreas protegidas existentes: parques marinos/nacionales, monumentos naturales, reservas marinas/nacionales/forestales, santuarios de la naturaleza, bienes nacionales protegidos, humedales Ramsar."},
+  {"id": 193, "articulo_id": 159, "termino": "Reclasificación de Áreas", "definicion": "Las áreas existentes deberán someterse a proceso de homologación a nuevas categorías: reservas marinas (a Reserva de Interés Pesquero o Reserva Nacional), santuarios de la naturaleza (a categoría correspondiente), bienes nacionales protegidos (a categoría aplicable)."},
+  {"id": 194, "articulo_id": 160, "termino": "Concesiones Preexistentes", "definicion": "Las concesiones otorgadas antes de crear un área protegida continuarán vigentes hasta relocalización. Aplica también a contratos de CONAF en áreas silvestres."},
+  {"id": 195, "articulo_id": 161, "termino": "Acuerdos con Pueblos Originarios", "definicion": "Los actos y contratos con pueblo Rapa Nui mantendrán vigencia. Colaboración de Comisión de Desarrollo de Isla de Pascua en administración de Parque Nacional."},
+  {"id": 196, "articulo_id": 162, "termino": "Sitios Prioritarios Existentes", "definicion": "Los sitios prioritarios identificados en estrategias de biodiversidad mantendrán vigencia. El MMA dictará decreto supremo para determinarlos dentro de 5 años."},
+  {"id": 197, "articulo_id": 163, "termino": "Vigencia Gradual de Funciones", "definicion": "Las funciones del SBAP en letra b) artículo 5° entrarán en vigencia dentro del tercer año desde funcionamiento. Aplica para áreas protegidas estatales de categorías Parque Nacional, Reserva Nacional y Monumento Natural."},
+  {"id": 198, "articulo_id": 164, "termino": "Relocalización de Concesiones", "definicion": "Titulares de concesiones de acuicultura en áreas protegidas podrán relocalizar con preferencia, incluso si no hay suspensión de otorgamiento en regiones de Los Lagos y Aysén."},
+  {"id": 199, "articulo_id": 165, "termino": "Excepción para Guardaparques", "definicion": "Estarán exentos del requisito de licencia enseñanza media los guardaparques traspasados desde CONAF."},
+  {"id": 200, "articulo_id": 166, "termino": "Plazo para Reglamentos", "definicion": "Los reglamentos referidos en la ley deberán dictarse dentro de 2 años desde publicación. En elaboración de reglamentos de artículos 15 y 22 se contemplará participación de trabajadores traspasados."}
+],
+        articleSummaries:articleSummaries = {
+  1: { 
+    title: "Objeto de la Ley", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La ley tiene por objeto la <strong>conservación de la biodiversidad</strong> y la protección del patrimonio natural de Chile.</li><li>Se enfoca en tres estrategias clave: <strong>preservación</strong>, <strong>restauración</strong> y <strong>uso sustentable</strong> de genes, especies y ecosistemas.</li><li>Excluye materias como sanidad vegetal/animal y prevención de incendios forestales.</li></ul>` 
+  },
+  2: { 
+    title: "Principios Rectores", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Establece <strong>10 principios fundamentales</strong> que guían todas las acciones bajo esta ley.</li><li>Destacan el <strong>Principio de Jerarquía</strong> (evitar-mitigar-reparar-compensar) y el <strong>Principio de Precaución</strong>.</li><li>Promueve participación ciudadana, responsabilidad y coordinación entre organismos.</li></ul>` 
+  },
+  3: { 
+    title: "Definiciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Define <strong>34 términos clave</strong> para la aplicación de la ley.</li><li>Incluye conceptos fundamentales como: biodiversidad, ecosistema, área protegida, conservación in situ/ex situ.</li><li>Establece definiciones para especies nativas, exóticas, invasoras y servicios ecosistémicos.</li></ul>` 
+  },
+  4: { 
+    title: "Creación del Servicio", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Créase el <strong>Servicio de Biodiversidad y Áreas Protegidas</strong> (SBAP).</li><li>Organismo descentralizado con <strong>personalidad jurídica</strong> y patrimonio propio.</li><li>Sujeto a supervigilancia del Presidente a través del Ministerio del Medio Ambiente.</li></ul>` 
+  },
+  5: { 
+    title: "Funciones y Atribuciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP tiene <strong>21 funciones principales</strong>, entre ellas:</li><li>Gestionar el Sistema Nacional de Áreas Protegidas (SNAP)</li><li>Elaborar planes de recuperación y restauración ecológica</li><li>Fiscalizar actividades en áreas protegidas</li><li>Coordinar con otros organismos públicos</li></ul>` 
+  },
+  6: { 
+    title: "Dirección Superior", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La administración del SBAP estará a cargo de un <strong>Director Nacional</strong>.</li><li>Designado mediante el Sistema de Alta Dirección Pública (ley 19.882).</li><li>Un reglamento determinará la organización interna del Servicio.</li></ul>` 
+  },
+  7: { 
+    title: "Atribuciones del Director", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Al Director Nacional corresponde:</li><li>Designar y contratar personal</li><li>Representar judicial y extrajudicialmente al SBAP</li><li>Delegar funciones (excepto designación de personal)</li><li>Crear comités asesores</li></ul>` 
+  },
+  8: { 
+    title: "Direcciones Regionales", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP se desconcentrará territorialmente mediante <strong>Direcciones Regionales</strong>.</li><li>Cada región tendrá un Director Regional afecto al Sistema de Alta Dirección Pública.</li></ul>` 
+  },
+  9: { 
+    title: "Comité Científico Asesor", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Créase un <strong>Comité Científico Asesor</strong> de 9 miembros.</li><li>Integrado por representantes de instituciones académicas y científicas.</li><li>Al menos 6 integrantes deben desempeñarse fuera de la Región Metropolitana.</li></ul>` 
+  },
+  10: { 
+    title: "Patrimonio del Servicio", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El patrimonio del SBAP se conforma por:</li><li>Asignaciones presupuestarias anuales</li><li>Bienes muebles e inmuebles transferidos</li><li>Donaciones, herencias y legados (exentos de impuestos)</li><li>Ingresos por tarifas y concesiones en áreas protegidas</li></ul>` 
+  },
+  11: { 
+    title: "Régimen Laboral", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El personal se regirá por el <strong>Código del Trabajo</strong> y disposiciones especiales.</li><li>Aplica el decreto ley 249 de 1973 (escala única de sueldos).</li></ul>` 
+  },
+  12: { 
+    title: "Distribución de Jornada", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Trabajadores en zonas apartadas o de riesgo podrán tener <strong>jornadas especiales</strong>.</li><li>El Director Nacional regulará la distribución horaria mediante resolución.</li><li>Posibilidad de jornada bisemanal (artículo 39 Código del Trabajo).</li></ul>` 
+  },
+  13: { 
+    title: "Normas de Probidad", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El personal está sujeto a normas de <strong>probidad administrativa</strong>.</li><li>Aplican leyes 18.575 (Bases Generales) y 20.880 (Probidad Pública).</li><li>Responsabilidad administrativa, civil y penal por actos en ejercicio de funciones.</li></ul>` 
+  },
+  14: { 
+    title: "Ingreso al Servicio", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El personal se seleccionará mediante <strong>concurso público</strong>.</li><li>Excepcionalmente: contratos a plazo fijo para áreas protegidas.</li><li>Los contratos serán suscritos por el Director Nacional o su delegado.</li></ul>` 
+  },
+  15: { 
+    title: "Sistema de Evaluación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El personal estará sujeto a un <strong>sistema de evaluación de desempeño</strong>.</li><li>Reglamentado por el Ministerio del Medio Ambiente (con firma de Ministro de Hacienda).</li><li>Las evaluaciones servirán para capacitación, desarrollo de carrera y remoción.</li></ul>` 
+  },
+  16: { 
+    title: "Destinación y Subrogación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Director Nacional podrá aplicar normas de <strong>destinación</strong> y <strong>subrogación</strong>.</li><li>Aplican artículos del Estatuto Administrativo (decreto con fuerza de ley 29).</li><li>Viáticos pagaderos según normativa específica.</li></ul>` 
+  },
+  17: { 
+    title: "Capacitación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Director Nacional aprobará anualmente <strong>programas de capacitación</strong>.</li><li>Deben ajustarse a recursos de la Ley de Presupuestos.</li><li>Las capacitaciones serán consideradas para desarrollo de carrera funcionaria.</li></ul>` 
+  },
+  18: { 
+    title: "Servicio de Bienestar", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El personal tiene derecho a afiliarse a <strong>servicios de bienestar</strong>.</li><li>Personal traspasado mantiene derecho a afiliación en servicio de origen.</li><li>El SBAP efectuará aportes respectivos sin superar máximo legal.</li></ul>` 
+  },
+  19: { 
+    title: "Responsabilidad Disciplinaria", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La responsabilidad disciplinaria se hará efectiva según <strong>procedimiento del Estatuto Administrativo</strong>.</li><li>Aplica a infracciones a leyes públicas o al Código del Trabajo.</li><li>Procedimientos ante Contraloría y tribunales de justicia.</li></ul>` 
+  },
+  20: { 
+    title: "Infracciones y Sanciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Sanciones por infracciones a deberes y prohibiciones:</li><li><strong>Censura</strong></li><li><strong>Multa</strong></li><li><strong>Suspensión</strong> (30 días a 3 meses)</li><li><strong>Remoción</strong> (por vulneración grave de probidad)</li></ul>` 
+  },
+  21: { 
+    title: "Término de Relación Laboral", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Termina por causales del Código del Trabajo (artículos 159, 160, 161).</li><li>Evaluación deficiente: causal de artículo 160 número 7.</li><li>Director Nacional fundamentará terminación por buen funcionamiento del SBAP.</li></ul>` 
+  },
+  22: { 
+    title: "Reglamento de Concursos", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Un reglamento del Ministerio del Medio Ambiente regulará:</li><li>Objetividad, transparencia y no discriminación en concursos</li><li>Operación de concursos de ingreso y promoción</li></ul>` 
+  },
+  23: { 
+    title: "Instrumentos de Conservación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP diseñará, implementará y dará seguimiento a <strong>instrumentos de conservación</strong>.</li><li>Incluye el SNAP bajo un <strong>enfoque ecosistémico</strong> en todo el territorio.</li></ul>` 
+  },
+  24: { 
+    title: "Sistema de Información", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP administrará un <strong>Sistema de Información de la Biodiversidad</strong>.</li><li>Contendrá inventarios de ecosistemas, especies y datos georreferenciados.</li><li>Información de acceso público, con excepciones para especies en riesgo.</li></ul>` 
+  },
+  25: { 
+    title: "Monitoreo de Biodiversidad", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP implementará <strong>programas de monitoreo</strong> de ecosistemas y especies.</li><li>Considerará conocimiento científico y tradicional de comunidades indígenas.</li><li>Podrá encomendar monitoreos a instituciones académicas calificadas.</li></ul>` 
+  },
+  26: { 
+    title: "Requerimiento de Información", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá requerir información a:</li><li>Órganos de la Administración del Estado</li><li>Privados (si generada con fondos públicos)</li></ul>` 
+  },
+  27: { 
+    title: "Informes sobre Biodiversidad", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP colaborará con el Ministerio del Medio Ambiente en:</li><li>Informe cuatrienal sobre biodiversidad</li><li>Reporte anual</li></ul>` 
+  },
+  28: { 
+    title: "Planificación Ecológica", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Ministerio del Medio Ambiente elaborará <strong>planificación ecológica</strong> que incluirá:</li><li>Identificación de sitios prioritarios</li><li>Usos del territorio</li><li>Procesos con efectos perjudiciales</li><li>Buenas prácticas para conservación</li></ul>` 
+  },
+  29: { 
+    title: "Sitios Prioritarios", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los sitios prioritarios serán categorizados con <strong>criterios técnico-científicos</strong>.</li><li>El SBAP mantendrá un registro espacial actualizado.</li><li>Declaración mediante decreto supremo del Ministerio del Medio Ambiente.</li></ul>` 
+  },
+  30: { 
+    title: "Clasificación de Ecosistemas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP evaluará y propondrá <strong>clasificación de ecosistemas</strong> según estado de conservación.</li><li>Un reglamento establecerá categorías y procedimiento.</li><li>Considerará pronunciamiento del Comité Científico Asesor y UICN.</li></ul>` 
+  },
+  31: { 
+    title: "Planes de Manejo para Ecosistemas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP elaborará <strong>planes de manejo para ecosistemas amenazados</strong>.</li><li>Serán de cumplimiento obligatorio para servicios públicos competentes.</li><li>Podrán afectar proyectos con RCA (procedimiento artículo 25 quinquies).</li></ul>` 
+  },
+  32: { 
+    title: "Áreas Degradadas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá declarar <strong>áreas degradadas</strong> mediante resolución.</li><li>Un reglamento establecerá criterios científico-técnicos para identificación.</li></ul>` 
+  },
+  33: { 
+    title: "Planes de Restauración", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP elaborará <strong>planes de restauración ecológica</strong> para áreas degradadas.</li><li>Contendrán medidas, metas, ubicación, componentes degradados y amenazas.</li><li>Requerirán participación de comunidad local y órganos públicos.</li></ul>` 
+  },
+  34: { 
+    title: "Iniciativas Privadas de Conservación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP prestará <strong>apoyo técnico</strong> a iniciativas en ecosistemas marinos.</li><li>Para concesiones o destinaciones por Ministerio de Defensa Nacional.</li><li>Con objetivos de conservación en instrumentos de manejo.</li></ul>` 
+  },
+  35: { 
+    title: "Paisajes de Conservación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las municipalidades podrán solicitar <strong>reconocimiento de paisajes de conservación</strong>.</li><li>Requieren informe técnico sobre valores naturales, culturales y paisajísticos.</li><li>Reconocido mediante resolución del SBAP con plan de manejo aprobado.</li></ul>` 
+  },
+  36: { 
+    title: "Reservas de la Biósfera", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP promoverá <strong>uso sustentable</strong> en reservas de la biósfera (UNESCO).</li><li>Elaborará planes de gestión actualizados cada 5 años.</li><li>Podrá conformar comités de gestión con representantes públicos y comunitarios.</li></ul>` 
+  },
+  37: { 
+    title: "Humedales Ramsar", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los sitios Ramsar serán acogidos a <strong>categorías de protección</strong> mediante decreto supremo.</li><li>Requiere informe técnico del SBAP y consentimiento del propietario si es privado.</li></ul>` 
+  },
+  38: { 
+    title: "Compensaciones de Biodiversidad", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Un reglamento definirá <strong>criterios para compensaciones</strong> en evaluación ambiental.</li><li>Medidas consistirán en acciones de restauración ecológica.</li><li>Excepcionalmente: preservación con criterio de adicionalidad.</li></ul>` 
+  },
+  39: { 
+    title: "Inventario de Humedales", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP llevará un <strong>inventario nacional de humedales</strong>.</li><li>Contendrá localización georreferenciada, límites, superficie y tipo.</li></ul>` 
+  },
+  40: { 
+    title: "Criterios para Humedales", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP establecerá <strong>criterios para uso sustentable de humedales</strong>.</li><li>Para resguardar características ecológicas y régimen hidrológico.</li><li>Deberán ser reconocidos en instrumentos de ordenamiento territorial.</li></ul>` 
+  },
+  41: { 
+    title: "Permiso para Alteración", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li><strong>Prohibición</strong> de alteración física de humedales que constituyan sitios prioritarios.</li><li>Otros humedales inventariados requieren <strong>permiso previo</strong> del SBAP.</li><li>El permiso busca evitar modificaciones permanentes de estructura y funciones.</li></ul>` 
+  },
+  42: { 
+    title: "Planes de Recuperación de Especies", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP elaborará <strong>planes de recuperación, conservación y gestión</strong> de especies clasificadas.</li><li>Un reglamento establecerá categorías aplicables y contenido de los planes.</li></ul>` 
+  },
+  43: { 
+    title: "Contenido de Planes de Especies", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los planes considerarán:</li><li>Diagnóstico del estado de la especie</li><li>Determinación de hábitat y amenazas</li><li>Acciones de recuperación y metas medibles</li></ul>` 
+  },
+  44: { 
+    title: "Monumentos Naturales", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Ministerio del Medio Ambiente podrá declarar <strong>monumentos naturales</strong> a especies.</li><li><strong>Prohibición</strong> de intimidar, capturar, extraer o dañar especies declaradas.</li><li>Excepción: autorizaciones para investigación científica.</li></ul>` 
+  },
+  45: { 
+    title: "Especies Exóticas Invasoras", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá:</li><li>Proponer nómina de especies exóticas invasoras</li><li>Elaborar y ejecutar planes de prevención y control</li><li>Ejecutar acciones urgentes de control y erradicación</li><li>Establecer barreras de bioseguridad</li></ul>` 
+  },
+  46: { 
+    title: "Fondo Nacional de Biodiversidad", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Créase el <strong>Fondo Nacional de la Biodiversidad</strong>.</li><li>Destinado a financiar proyectos de conservación fuera de áreas protegidas.</li><li>Incluye investigación, capacitación, restauración y prácticas productivas.</li></ul>` 
+  },
+  47: { 
+    title: "Beneficiarios del Fondo", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Podrán beneficiarse:</li><li>Personas naturales</li><li>Personas jurídicas sin fines de lucro</li></ul>` 
+  },
+  48: { 
+    title: "Administración del Fondo", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Fondo será administrado por el <strong>SBAP</strong>.</li><li>Su funcionamiento se regulará mediante resolución.</li><li>Podrá establecer líneas de financiamiento según prioridades.</li></ul>` 
+  },
+  49: { 
+    title: "Patrimonio del Fondo", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Fondo se conformará por:</li><li>Donaciones, herencias y legados (exentos de impuestos)</li><li>Recursos de Ley de Presupuestos</li><li>Aportes de entidades públicas o privadas</li></ul>` 
+  },
+  50: { 
+    title: "Prácticas Sustentables", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP promoverá <strong>prácticas sustentables</strong> mediante:</li><li>Certificación y ecoetiquetado</li><li>Contratos de retribución por servicios ecosistémicos</li><li>Criterios ambientales para subsidios</li><li>Acuerdos de producción limpia</li></ul>` 
+  },
+  51: { 
+    title: "Sistema de Certificación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Créase el <strong>Sistema de Certificación de Biodiversidad</strong> y Servicios Ecosistémicos.</li><li>Para certificar actividades, prácticas o sitios por su contribución a la conservación.</li><li>Administrado por el SBAP y reglamentado por el Ministerio del Medio Ambiente.</li></ul>` 
+  },
+  52: { 
+    title: "Contratos de Retribución", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El <strong>contrato de retribución</strong> obliga a preservar o restaurar ecosistemas.</li><li>A cambio de una contraprestación por servicios ecosistémicos mantenidos.</li><li>El SBAP llevará un registro de contratos que cumplan criterios mínimos.</li></ul>` 
+  },
+  53: { 
+    title: "Sistema Nacional de Áreas Protegidas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Créase el <strong>Sistema Nacional de Áreas Protegidas</strong> (SNAP).</li><li>Constituido por áreas protegidas estatales y privadas, terrestres y acuáticas.</li><li>Gestionado por el SBAP para conservar biodiversidad y patrimonio natural.</li></ul>` 
+  },
+  54: { 
+    title: "Objetivos del SNAP", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SNAP tiene <strong>9 objetivos</strong>, entre ellos:</li><li>Asegurar conservación permanente de biodiversidad</li><li>Mantener servicios ecosistémicos</li><li>Integrar áreas en planes de desarrollo</li><li>Promover participación ciudadana</li></ul>` 
+  },
+  55: { 
+    title: "Gestión del SNAP", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La gestión del SNAP corresponde al <strong>SBAP</strong>.</li><li>Elaborará un plan estratégico con:</li><li>Revisión y actualización de planificación</li><li>Programa de financiamiento</li><li>Programa de fortalecimiento de capacidades</li></ul>` 
+  },
+  56: { 
+    title: "Categorías de Áreas Protegidas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SNAP comprende <strong>6 categorías</strong> de protección:</li><li>Reserva de Región Virgen</li><li>Parque Nacional</li><li>Monumento Natural</li><li>Reserva Nacional</li><li>Área de Conservación de Múltiples Usos</li><li>Área de Conservación de Pueblos Indígenas</li></ul>` 
+  },
+  57: { 
+    title: "Reserva de Región Virgen", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Área con <strong>condiciones primitivas naturales</strong>, no perturbadas.</li><li>Objetivo: preservación estricta de integridad ecológica.</li><li><strong>Prohibición</strong> de explotación comercial de recursos.</li></ul>` 
+  },
+  58: { 
+    title: "Parque Nacional", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Área con <strong>diversos ambientes únicos o representativos</strong>.</li><li>Objetivo: preservación del patrimonio natural con valor escénico.</li><li><strong>Prohibición</strong> de explotación comercial de recursos.</li></ul>` 
+  },
+  59: { 
+    title: "Monumento Natural", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Área <strong>reducida</strong> con componentes naturales específicos relevantes.</li><li>Objetivo: preservación de elementos de valor excepcional.</li><li><strong>Prohibición</strong> de explotación comercial de recursos.</li></ul>` 
+  },
+  60: { 
+    title: "Reserva Nacional", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Área con <strong>comunidades biológicas relevantes</strong> para protección de especies.</li><li>Objetivo: conservación mediante gestión activa.</li><li>Permite actividades de uso sustentable sin poner en riesgo servicios ecosistémicos.</li></ul>` 
+  },
+  61: { 
+    title: "Área de Múltiples Usos", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Área con <strong>interacción tradicional entre humanos y naturaleza</strong>.</li><li>Objetivo: asegurar uso sustentable mediante manejo integrado.</li><li>Permite diversas actividades de uso sustentable.</li></ul>` 
+  },
+  62: { 
+    title: "Área de Pueblos Indígenas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Área en <strong>tierras indígenas o espacios costeros</strong> de pueblos originarios.</li><li>Objetivo: conservación de hábitats, especies y valores culturales asociados.</li><li>Permite usos ancestrales y actividades sustentables.</li></ul>` 
+  },
+  63: { 
+    title: "Proyectos en Áreas Protegidas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Todo proyecto en áreas protegidas debe:</li><li>Respetar la categoría y objeto de protección</li><li>Ser compatible con el plan de manejo</li><li>Excluye explotación de recursos con fines comerciales</li></ul>` 
+  },
+  64: { 
+    title: "Creación de Áreas Protegidas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las áreas protegidas del Estado se crean mediante <strong>decreto supremo</strong> del MMA.</li><li>Requiere firma de Ministros de Bienes Nacionales y Defensa (según corresponda).</li><li>El decreto debe contener categoría, superficie, ubicación y objetos de protección.</li></ul>` 
+  },
+  65: { 
+    title: "Procedimiento de Creación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las áreas pueden crearse <strong>de oficio o a solicitud</strong> de personas/comunidades.</li><li>Requiere informe técnico del SBAP y consulta a comunidades indígenas.</li><li>Un reglamento establecerá procedimiento con participación ciudadana.</li></ul>` 
+  },
+  66: { 
+    title: "Modificación y Desafectación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La modificación o desafectación requiere:</li><li>Procedimiento similar a creación</li><li>Informe favorable del Comité Científico Asesor</li><li>Excepcional y sin detrimento a objetivos del SNAP</li><li><strong>Parques Nacionales y Reservas de Región Virgen</strong> solo por ley</li></ul>` 
+  },
+  67: { 
+    title: "Administración de Áreas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La administración de áreas protegidas del Estado corresponde al <strong>SBAP</strong>.</li><li>Incluye elaboración e implementación de planes de manejo y uso público.</li><li>Otorgamiento de permisos, concesiones y convenios de gestión.</li></ul>` 
+  },
+  68: { 
+    title: "Participación en Gestión", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá celebrar <strong>convenios de gestión</strong> con:</li><li>Autoridades u organizaciones locales</li><li>Asociaciones o comunidades indígenas</li><li>Los convenios contendrán estructura, derechos, obligaciones y beneficios.</li></ul>` 
+  },
+  69: { 
+    title: "Administrador de Área", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Cada área protegida contará con un <strong>administrador</strong> (funcionario del SBAP).</li><li>Funciones: dar cumplimiento al plan de manejo, supervisar personal, aplicar medidas.</li><li>Reportar eventos relevantes y denunciar infracciones.</li></ul>` 
+  },
+  70: { 
+    title: "Tarifas de Ingreso", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP fijará <strong>tarifas por ingreso</strong> a áreas protegidas y servicios.</li><li>Criterios: residencia, edad, tipo y calidad de instalaciones.</li><li><strong>Exenciones</strong>: comunidades indígenas en usos ancestrales, estudiantes, guías y scouts.</li></ul>` 
+  },
+  71: { 
+    title: "Planes de Manejo", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Toda área protegida debe contar con <strong>plan de manejo obligatorio</strong>.</li><li>Constituye marco regulatorio para gestión y actividades permitidas.</li><li>Podrá dividirse en programas específicos (conservación, uso público, etc.).</li></ul>` 
+  },
+  72: { 
+    title: "Contenido de Planes de Manejo", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los planes deben contener:</li><li>Objeto(s) de protección</li><li>Diagnóstico de presiones y amenazas</li><li>Plan de monitoreo con metas e indicadores</li><li>Zonificación y definición de zona de amortiguación</li></ul>` 
+  },
+  73: { 
+    title: "Aprobación de Planes", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El plan de manejo será <strong>elaborado y aprobado por el SBAP</strong> mediante resolución.</li><li>Plazo máximo: 2 años desde creación del área.</li><li>Revisión al menos cada 5 años.</li></ul>` 
+  },
+  74: { 
+    title: "Reglamento de Planes", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Un reglamento del MMA establecerá:</li><li>Procedimiento para elaboración de planes</li><li>Contenidos específicos por categoría</li><li>Participación de comunidades e indígenas</li><li>Consulta a Subsecretarías de Pesca y Turismo</li></ul>` 
+  },
+  75: { 
+    title: "Cuerpo de Guardaparques", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP contará con un <strong>cuerpo de guardaparques</strong>.</li><li>Serán la autoridad competente para manejo y fiscalización de áreas.</li></ul>` 
+  },
+  76: { 
+    title: "Funciones de Guardaparques", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Corresponde a los guardaparques:</li><li>Apoyar elaboración y aplicación de planes</li><li>Instruir y exigir cumplimiento de normas</li><li>Monitorear estado de biodiversidad</li><li>Educar a visitantes y comunidad local</li></ul>` 
+  },
+  77: { 
+    title: "Funciones de Fiscalización", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Director Nacional designará guardaparques para funciones de <strong>fiscalización</strong>.</li><li>Requisitos: licencia enseñanza media, 2 años como guardaparque, cursos de formación.</li><li>Podrán ejercer funciones en áreas privadas previo requerimiento.</li></ul>` 
+  },
+  78: { 
+    title: "Formación de Guardaparques", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP tendrá <strong>programas de formación y capacitación</strong> para guardaparques.</li><li>Considerará cosmovisión de pueblos originarios del territorio.</li><li>Podrá reconocer cursos o programas distintos a los del SBAP.</li></ul>` 
+  },
+  79: { 
+    title: "Concesiones en Áreas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá otorgar <strong>concesiones</strong> solo para:</li><li>Investigación científica</li><li>Educación</li><li>Turismo (que requiera infraestructura permanente)</li><li>Duración máxima: 30 años</li></ul>` 
+  },
+  80: { 
+    title: "Criterios para Concesiones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>En otorgamiento se considerará:</li><li>Categoría y objeto de protección del área</li><li>Consulta a pueblos indígenas (Convenio 169)</li><li>Respeto a usos ancestrales</li><li>Turismo ambientalmente responsable y accesible</li></ul>` 
+  },
+  81: { 
+    title: "Comité Técnico", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Créase un <strong>Comité Técnico consultivo</strong> para otorgamiento de concesiones.</li><li>Integrado por: Director Nacional (presidente), representantes de MMA, Turismo, Educación, Ciencias, Culturas, Desarrollo Social y Bienes Nacionales.</li></ul>` 
+  },
+  82: { 
+    title: "Renta Concesional", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La renta será fijada por el SBAP según:</li><li>Renta bruta anual del servicio</li><li>Monto de inversión a ejecutar</li><li>Factibilidad económica del proyecto</li><li>Destino: gestión del SNAP y monitoreo</li></ul>` 
+  },
+  83: { 
+    title: "Concesiones Gratuitas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Excepcionalmente, el SBAP podrá otorgar concesiones <strong>gratuitas</strong> para:</li><li>Investigación científica o educación</li><li>A favor de municipalidades, organismos estatales o entidades sin fines de lucro</li><li>Podrán extinguirse por voluntad del SBAP</li></ul>` 
+  },
+  84: { 
+    title: "Concesionario", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP solo otorgará concesiones a <strong>personas jurídicas</strong>.</li><li>Para concesiones turísticas: rol único tributario exclusivo.</li></ul>` 
+  },
+  85: { 
+    title: "Procedimiento de Otorgamiento", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las concesiones se otorgarán mediante:</li><li><strong>Licitación pública</strong> (obligatoria para turismo)</li><li>Licitación privada</li><li>Directamente (solo gratuitas y fundadas)</li></ul>` 
+  },
+  86: { 
+    title: "Bases de Licitación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Corresponde al SBAP confeccionar <strong>bases de licitación</strong>.</li><li>Deberán ajustarse a categoría, objeto de protección y plan de manejo.</li><li>Podrán contemplar restricciones a la actividad.</li></ul>` 
+  },
+  87: { 
+    title: "Adjudicación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La adjudicación se efectuará mediante <strong>resolución del SBAP</strong>.</li><li>Requiere suscripción de contrato en escritura pública.</li><li>Remisión de copia a Ministerio de Bienes Nacionales o Defensa.</li></ul>` 
+  },
+  88: { 
+    title: "Transferencia de Concesión", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El concesionario podrá <strong>transferir la concesión</strong> totalmente.</li><li>Requiere aprobación del SBAP y cumplimiento de requisitos.</li><li>El SBAP llevará un registro de transferencias.</li></ul>` 
+  },
+  89: { 
+    title: "Extinción de Concesión", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Causales de extinción:</li><li>Vencimiento de plazo</li><li>Mutuo acuerdo</li><li>Pérdida de requisitos</li><li>Incumplimiento de obligaciones</li><li>Imposibilidad de objeto</li></ul>` 
+  },
+  90: { 
+    title: "Mejoras", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>A falta de estipulación contrario, todo lo edificado y plantado por el concesionario pasará a <strong>dominio del Fisco</strong> sin indemnización.</li></ul>` 
+  },
+  91: { 
+    title: "Otros Permisos", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La adjudicación de concesión <strong>no libera</strong> de obtener otros permisos necesarios.</li></ul>` 
+  },
+  92: { 
+    title: "Concesiones Sectoriales", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Concesiones para fines distintos requieren:</li><li>Área con plan de manejo</li><li>Actividad compatible con categoría y objeto</li><li>Informe favorable del SBAP</li></ul>` 
+  },
+  93: { 
+    title: "Prohibición de Concesiones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li><strong>Prohibición</strong> de concesiones sectoriales para explotación comercial en:</li><li>Reservas de Región Virgen</li><li>Parques Nacionales</li><li>Monumentos Naturales</li></ul>` 
+  },
+  94: { 
+    title: "Permiso para Actividades", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Actividades transitorias o sin infraestructura requieren <strong>permiso del SBAP</strong>.</li><li>Duración máxima: 1 año (renovable)</li><li>El SBAP podrá establecer obligaciones o retribuciones.</li></ul>` 
+  },
+  95: { 
+    title: "Acceso a Recursos Genéticos", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP regulará <strong>condiciones de acceso a recursos genéticos</strong> en áreas protegidas.</li><li>Mediante convenios con solicitantes que establezcan beneficios derivados.</li></ul>` 
+  },
+  96: { 
+    title: "Fiscalización de Concesiones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP verificará y exigirá <strong>cumplimiento de obligaciones</strong> en contratos de concesión o permisos.</li></ul>` 
+  },
+  97: { 
+    title: "Áreas Protegidas Privadas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las áreas protegidas privadas forman parte del <strong>SNAP</strong>.</li><li>Deben acogerse a alguna de las 6 categorías establecidas.</li><li>Un reglamento regulará procedimiento de creación, modificación y desafectación.</li></ul>` 
+  },
+  98: { 
+    title: "Solicitud de Creación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Procedimiento se inicia con <strong>solicitud voluntaria</strong> del propietario al Director Regional.</li><li>Requiere información sobre ubicación, propiedad, características ecológicas, categoría propuesta y objetos de protección.</li></ul>` 
+  },
+  99: { 
+    title: "Creación de Áreas Privadas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La creación se realiza mediante <strong>decreto supremo del MMA</strong>.</li><li>El propietario debe reducir el decreto a escritura pública e inscribirlo.</li></ul>` 
+  },
+  100: { 
+    title: "Modificación y Desafectación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Se regirá por reglamento del artículo 97.</li><li>En desafectación: restitución total de beneficios obtenidos.</li><li><strong>Parques Nacionales y Reservas de Región Virgen</strong> solo por ley.</li></ul>` 
+  },
+  101: { 
+    title: "Transferencia de Dominio", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La transferencia <strong>no altera</strong> el carácter de área protegida.</li><li>El acto debe señalarlo expresamente bajo nulidad si no lo hace.</li><li>El propietario debe informar al SBAP sobre transferencia.</li></ul>` 
+  },
+  102: { 
+    title: "Administración y Supervisión", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las áreas privadas serán administradas por <strong>propietarios o designados</strong>.</li><li>La supervisión corresponde al SBAP, que podrá requerir antecedentes.</li><li>Fiscalizadores podrán ingresar para inspección.</li></ul>` 
+  },
+  103: { 
+    title: "Planes de Manejo Privados", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los planes serán elaborados por <strong>propietarios u organizaciones</strong> y aprobados por el SBAP.</li><li>Deberán contener lo dispuesto en artículo 72 y reglamento del artículo 97.</li></ul>` 
+  },
+  104: { 
+    title: "Apoyo Técnico", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá prestar <strong>apoyo técnico</strong> a administradores.</li><li>Elaborará formato tipo de plan de manejo y programas de capacitación.</li><li>Fomentará cooperación con instituciones públicas o privadas.</li></ul>` 
+  },
+  105: { 
+    title: "Incentivos para Áreas Privadas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las áreas protegidas privadas gozarán de:</li><li><strong>Exención del impuesto territorial</strong> (mientras cumplan plan de manejo)</li><li>Exención del impuesto a la herencia</li><li>Participación gratuita en capacitación de guardaparques</li><li>Bonificaciones en Fondo Nacional de Biodiversidad</li></ul>` 
+  },
+  106: { 
+    title: "Integración de Áreas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Forman parte de las áreas protegidas:</li><li>Suelo, subsuelo y fondo marino</li><li>Porciones de mar, terrenos de playa, glaciares, ríos, lagos, lagunas, estuarios y humedales</li></ul>` 
+  },
+  107: { 
+    title: "Áreas Libres de Transgénicos", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las áreas protegidas del SNAP serán declaradas <strong>áreas libres de organismos genéticamente modificados</strong>.</li></ul>` 
+  },
+  108: { 
+    title: "Prohibiciones en Áreas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li><strong>Prohibiciones</strong> para toda persona ajena a la administración:</li><li>Remover o extraer tierra, turba, rocas, arena</li><li>Intimidar, cazar, capturar, extraer fauna nativa</li><li>Destruir nidos o lugares de reproducción</li><li>Cortar o extraer flora nativa</li><li>Introducir especies exóticas o transgénicas</li></ul>` 
+  },
+  109: { 
+    title: "Alcance de la Fiscalización", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP fiscalizará:</li><li>Cumplimiento de planes de manejo</li><li>Obligaciones de propietarios y administradores</li><li>Contratos de concesión y permisos</li><li>Planes de restauración y control de especies invasoras</li></ul>` 
+  },
+  110: { 
+    title: "Ministros de Fe", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los fiscalizadores tendrán calidad de <strong>ministros de fe</strong> respecto de hechos constitutivos de infracciones.</li><li>Los hechos establecidos constituyen presunción legal de infracción.</li></ul>` 
+  },
+  111: { 
+    title: "Convenios de Fiscalización", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá realizar funciones de fiscalización fuera de áreas mediante <strong>convenios de encomendamiento</strong> con servicio competente.</li><li>Los convenios señalarán tareas y asignación de recursos.</li></ul>` 
+  },
+  112: { 
+    title: "Alcance de Infracciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las sanciones son <strong>sin perjuicio</strong> de responsabilidad civil o penal.</li></ul>` 
+  },
+  113: { 
+    title: "Responsabilidad Solidaria", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Si no es posible determinar grado de participación, la responsabilidad será <strong>solidaria</strong>.</li></ul>` 
+  },
+  114: { 
+    title: "Potestad Sancionadora", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las infracciones serán sancionadas <strong>administrativamente por el SBAP</strong>.</li></ul>` 
+  },
+  115: { 
+    title: "Infracciones en Áreas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Constituyen infracciones:</li><li>Contravenir prohibiciones del artículo 108</li><li>Incumplir planes de manejo</li><li>Incumplir obligaciones de concesiones</li><li>Realizar actividades sin permiso requerido</li></ul>` 
+  },
+  116: { 
+    title: "Infracciones Fuera de Áreas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Constituyen infracciones:</li><li>En sitios prioritarios: alterar significativamente características ecológicas</li><li>Incumplir planes de restauración</li><li>Alterar físicamente humedales sin permiso</li><li>Contravenir prohibiciones sobre monumentos naturales</li></ul>` 
+  },
+  117: { 
+    title: "Concurso de Infracciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Si una conducta constituye infracción en esta y otra ley, se aplica la de <strong>mayor entidad</strong>.</li><li>Excepción: infracciones a RCA (competencia exclusiva de Superintendencia del Medio Ambiente).</li></ul>` 
+  },
+  118: { 
+    title: "Categorías de Infracciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Infracciones <strong>gravísimas</strong>: daño ambiental irreparable, afectación grave de servicios ecosistémicos.</li><li>Infracciones <strong>graves</strong>: daño reparable, afectación sin compromiso grave.</li><li>Infracciones <strong>leves</strong>: contravenciones no incluidas en anteriores.</li></ul>` 
+  },
+  119: { 
+    title: "Prescripción", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las infracciones prescriben a los <strong>3 años</strong> desde su comisión o manifestación de efectos.</li><li>Se interrumpe con notificación de formulación de cargos.</li></ul>` 
+  },
+  120: { 
+    title: "Sanciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Para infracciones <strong>gravísimas</strong>: multa hasta 15.000 UTM, restitución de beneficios, extinción de concesión, prohibición de ingreso 5-15 años.</li><li>Para <strong>graves</strong>: multa hasta 10.000 UTM, restitución parcial, suspensión de concesión, prohibición 5-10 años.</li><li>Para <strong>leves</strong>: multa hasta 1.000 UTM, prestación de servicios.</li></ul>` 
+  },
+  121: { 
+    title: "Pago de Multa", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las multas se pagan en <strong>Tesorería General de la República</strong> dentro de 10 días.</li><li>Las resoluciones tienen mérito ejecutivo.</li></ul>` 
+  },
+  122: { 
+    title: "Acta de Fiscalización", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los fiscalizadores levantarán <strong>acta de fiscalización</strong> describiendo hechos objetivamente.</li><li>Con el acta podrá iniciarse procedimiento sancionador.</li></ul>` 
+  },
+  123: { 
+    title: "Denuncias", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Cualquier persona podrá <strong>denunciar infracciones</strong> por escrito al SBAP.</li><li>Debe contener: individualización del denunciante, descripción de hechos, lugar, fecha y presunto infractor.</li></ul>` 
+  },
+  124: { 
+    title: "Admisión del Acta o Denuncia", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El procedimiento se inicia con:</li><li>Comunicación del fiscalizador al Director Regional</li><li>Denuncia (si tiene seriedad y mérito suficiente)</li><li>En caso contrario, se realiza fiscalización o se archiva.</li></ul>` 
+  },
+  125: { 
+    title: "Medidas Provisionales", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El fiscalizador podrá solicitar <strong>medidas provisionales</strong> al Director Regional:</li><li>Medidas de corrección o seguridad</li><li>Retención de elementos o inmovilización de vehículos</li><li>Aposición de sellos</li><li>Clausura temporal de instalaciones</li></ul>` 
+  },
+  126: { 
+    title: "Cese de Medidas Provisionales", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las medidas durarán mientras subsista la necesidad.</li><li>El Director Regional deberá confirmar, modificar o levantar al inicio del procedimiento.</li><li>Podrán alzarse durante tramitación.</li></ul>` 
+  },
+  127: { 
+    title: "Medidas Correctivas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Frente a infracciones flagrantes, el SBAP podrá ordenar <strong>restablecimiento de legalidad</strong> en plazo máximo 5 días.</li></ul>` 
+  },
+  128: { 
+    title: "Incumplimientos Menores", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP podrá determinar <strong>disconformidades</strong> para incumplimientos menores.</li><li>Deben subsanarse en máximo 10 días.</li><li>Si no se subsana, se cursa infracción.</li></ul>` 
+  },
+  129: { 
+    title: "Inicio de Procedimiento", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Director Regional dará inicio a la instrucción mediante <strong>resolución con formulación de cargos</strong>.</li><li>Plazo para descargos: 15 días.</li><li>Si infractor no es habido, se publica extracto en diario.</li></ul>` 
+  },
+  130: { 
+    title: "Examen de Antecedentes", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Recibidos los descargos, el instructor examinará mérito y ordenará <strong>diligencias probatorias</strong>.</li><li>Plazo máximo: 30 días.</li></ul>` 
+  },
+  131: { 
+    title: "Medios de Prueba", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los hechos podrán acreditarse por <strong>cualquier medio de prueba</strong> admisible.</li><li>Se presume veracidad de hechos constatados por fiscalizadores en acta.</li></ul>` 
+  },
+  132: { 
+    title: "Expediente", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El instructor dejará constancia de todo lo obrado en <strong>expediente</strong> (escrito o electrónico).</li><li>Con orden de ingreso de documentos y actuaciones.</li></ul>` 
+  },
+  133: { 
+    title: "Informe y Resolución", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El instructor evacuará <strong>informe</strong> con individualización de infractores, hechos investigados y propuesta de sanción.</li><li>El Director Regional resolverá en 10 días mediante resolución fundada.</li></ul>` 
+  },
+  134: { 
+    title: "Reclamación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Podrán reclamarse ante <strong>Tribunales Ambientales</strong>:</li><li>Resoluciones que impongan sanciones</li><li>Resoluciones que aprueben planes de manejo o restauración</li><li>Decretos que creen, modifiquen o desafecten áreas</li><li>Resoluciones que otorguen o denieguen concesiones/permisos</li></ul>` 
+  },
+  135: { 
+    title: "Competencia", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Competencia del Tribunal Ambiental según acto reclamado:</li><li>Sanciones: lugar donde se originó infracción</li><li>Planes: lugar donde se aplica el instrumento</li><li>Concesiones/permisos: cualquier persona afectada</li></ul>` 
+  },
+  136: { 
+    title: "Legitimación Activa", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Tienen legitimación para reclamar:</li><li>Para sanciones: persona sancionada y denunciante</li><li>Para planes: cualquier persona perjudicada</li><li>Para concesiones/permisos: cualquier persona o directamente afectada</li></ul>` 
+  },
+  137: { 
+    title: "Plazo para Reclamar", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Plazo para interponer reclamación: <strong>30 días hábiles</strong> desde notificación o publicación.</li></ul>` 
+  },
+  138: { 
+    title: "Procedimiento de Reclamación", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Se regirá por el <strong>Párrafo 2° del Título III de la ley 20.600</strong> (Tribunales Ambientales).</li></ul>` 
+  },
+  139: { 
+    title: "Recursos contra Resolución", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Contra resoluciones del Tribunal Ambiental procede:</li><li><strong>Apelación</strong> (para inadmisibilidad, recepción a prueba, término de proceso)</li><li><strong>Casación en el fondo</strong> (contra sentencia definitiva)</li></ul>` 
+  },
+  140: { 
+    title: "Registro de Sanciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El SBAP mantendrá un <strong>registro público</strong> de sanciones aplicadas.</li><li>Contendrá nombre de responsables, naturaleza de infracciones y sanciones.</li><li>Se publicará en sitio electrónico del SBAP.</li></ul>` 
+  },
+  141: { 
+    title: "Plan de Corrección", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El presunto infractor podrá presentar <strong>voluntariamente</strong> un plan de corrección.</li><li>Desde aprobación, se suspende prescripción de artículo 119.</li><li>Costos de implementación serán cargo del infractor.</li></ul>` 
+  },
+  142: { 
+    title: "Regla Supletoria", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>En lo no previsto, se aplica <strong>supletoriamente la ley 19.880</strong> (procedimientos administrativos).</li></ul>` 
+  },
+  143: { 
+    title: "Derogación Ley 18.362", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li><strong>Derógase la ley 18.362</strong> que creaba el Sistema Nacional de Áreas Silvestres Protegidas del Estado.</li></ul>` 
+  },
+  144: { 
+    title: "Modificaciones a Ley 19.300", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley de Bases Generales del Medio Ambiente</strong>:</li><li>Reemplaza letra p) artículo 10 (ejecución de obras en áreas protegidas)</li><li>Reemplaza artículo 34 (administración del SNAP por SBAP)</li><li>Modifica artículo 35 (fomento a áreas protegidas privadas)</li><li>Reemplaza artículo 37 (clasificación de especies y planes de recuperación)</li></ul>` 
+  },
+  145: { 
+    title: "Modificaciones a Ley 20.417", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley de Superintendencia del Medio Ambiente</strong>:</li><li>Elimina referencias a planes de manejo en fiscalización</li><li>Elimina letra i) artículo 35 (atribuciones sobre planes de manejo)</li></ul>` 
+  },
+  146: { 
+    title: "Modificaciones a DL 1.939", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Decreto Ley 1.939</strong> (bienes del Estado):</li><li>Deroga artículo 15</li><li>Reemplaza artículo 21 (destino de áreas protegidas)</li></ul>` 
+  },
+  147: { 
+    title: "Modificaciones a Ley 18.892", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley General de Pesca y Acuicultura</strong>:</li><li>Reemplaza "marina" por "de interés pesquero"</li><li>Elimina referencias a "Reservas Marinas"</li><li>Incorpora fiscalización por SBAP mediante convenio</li></ul>` 
+  },
+  148: { 
+    title: "Modificaciones a Ley 20.256", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley de Pesca Recreativa</strong>:</li><li>Prohíbe pesca recreativa de especies en peligro</li><li>Incorpora participación del SBAP en comités</li><li>Modifica normas sobre áreas protegidas</li></ul>` 
+  },
+  149: { 
+    title: "Modificaciones a Ley 4.601", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley de Caza</strong>:</li><li>Actualiza categorías de conservación de especies</li><li>Incorpora SBAP en fiscalización y comités</li><li>Modifica normas sobre áreas protegidas</li></ul>` 
+  },
+  150: { 
+    title: "Modificaciones a Ley 20.283", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley de Bosque Nativo</strong>:</li><li>Actualiza categorías de conservación</li><li>Incorpora informe favorable del SBAP para intervenciones</li><li>Agrega al Director Nacional del SBAP en comités</li></ul>` 
+  },
+  151: { 
+    title: "Modificaciones a Ley de Bosques", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Decreto Ley 4.363</strong> (Ley de Bosques de 1931):</li><li>Elimina referencias a "parques nacionales de turismo"</li></ul>` 
+  },
+  152: { 
+    title: "Modificaciones a Ley 17.288", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley de Monumentos Nacionales</strong>:</li><li>Elimina "santuarios de la naturaleza" de definiciones</li><li>Deroga artículo 31 (santuarios de la naturaleza)</li></ul>` 
+  },
+  153: { 
+    title: "Modificaciones a Ley 20.423", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Modificaciones a <strong>Ley de Turismo</strong>:</li><li>Incorpora Ministro del Medio Ambiente en comité</li><li>Deroga artículos sobre concesiones en áreas silvestres</li><li>Establece que turismo en áreas protegidas debe ser compatible</li></ul>` 
+  },
+  154: { 
+    title: "Modificaciones a Código de Minería", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li><strong>Suprímese el numeral 2° del artículo 17</strong> del Código de Minería (referente a áreas silvestres protegidas).</li></ul>` 
+  },
+  155: { 
+    title: "Facultades del Presidente", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Facúltase al Presidente para dictar <strong>decretos con fuerza de ley</strong> dentro de 1 año:</li><li>Fijar grados de remuneraciones del SBAP</li><li>Fijar planta de personal de directivos</li><li>Ordenar traspaso de personal desde CONAF</li><li>Determinar fecha de entrada en vigencia del SBAP</li></ul>` 
+  },
+  156: { 
+    title: "Primer Presupuesto", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Presidente conformará el <strong>primer presupuesto del SBAP</strong> mediante decreto.</li><li>Transferirá fondos de entidades que traspasan personal o bienes.</li></ul>` 
+  },
+  157: { 
+    title: "Financiamiento", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El mayor gasto fiscal del primer año se financiará con:</li><li>Reasignaciones desde Ministerio del Medio Ambiente</li><li>Partida Tesoro Público (lo que falte)</li><li>Años siguientes: con recursos de Ley de Presupuestos</li></ul>` 
+  },
+  158: { 
+    title: "Áreas Protegidas Existentes", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Se entienden incorporadas al SNAP las áreas protegidas existentes:</li><li>Parques marinos, nacionales, monumentos naturales</li><li>Reservas marinas, nacionales, forestales</li><li>Santuarios de la naturaleza, bienes nacionales protegidos</li><li>Humedales Ramsar</li></ul>` 
+  },
+  159: { 
+    title: "Reclasificación de Áreas", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las áreas existentes deberán someterse a <strong>proceso de homologación</strong> a nuevas categorías:</li><li>Reservas marinas: a Reserva de Interés Pesquero o Reserva Nacional</li><li>Santuarios de la naturaleza: a categoría correspondiente</li><li>Bienes nacionales protegidos: a categoría aplicable</li></ul>` 
+  },
+  160: { 
+    title: "Concesiones Preexistentes", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las concesiones otorgadas antes de crear un área protegida <strong>continuarán vigentes</strong> hasta relocalización.</li><li>Aplica también a contratos de CONAF en áreas silvestres.</li></ul>` 
+  },
+  161: { 
+    title: "Acuerdos con Pueblos Originarios", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los actos y contratos con <strong>pueblo Rapa Nui</strong> mantendrán vigencia.</li><li>Colaboración de Comisión de Desarrollo de Isla de Pascua en administración de Parque Nacional.</li></ul>` 
+  },
+  162: { 
+    title: "Sitios Prioritarios Existentes", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los sitios prioritarios identificados en estrategias de biodiversidad <strong>mantendrán vigencia</strong>.</li><li>El MMA dictará decreto supremo para determinarlos dentro de 5 años.</li></ul>` 
+  },
+  163: { 
+    title: "Vigencia Gradual de Funciones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Las funciones del SBAP en letra b) artículo 5° entrarán en vigencia dentro del <strong>tercer año</strong> desde funcionamiento.</li><li>Aplica para áreas protegidas estatales de categorías Parque Nacional, Reserva Nacional y Monumento Natural.</li></ul>` 
+  },
+  164: { 
+    title: "Relocalización de Concesiones", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Titulares de concesiones de acuicultura en áreas protegidas podrán <strong>relocalizar</strong> con preferencia.</li><li>Aplica incluso si no hay suspensión de otorgamiento en regiones de Los Lagos y Aysén.</li></ul>` 
+  },
+  165: { 
+    title: "Excepción para Guardaparques", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Estarán exentos del requisito de licencia enseñanza media los guardaparques <strong>traspasados desde CONAF</strong>.</li></ul>` 
+  },
+  166: { 
+    title: "Plazo para Reglamentos", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>Los reglamentos referidos en la ley deberán dictarse dentro de <strong>2 años</strong> desde publicación.</li><li>En elaboración de reglamentos de artículos 15 y 22 se contemplará participación de trabajadores traspasados.</li></ul>` 
+  },
+  167: { 
+    title: "Primer Director Nacional", 
+    summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>El Presidente podrá nombrar al <strong>primer director nacional</strong> sin sujetarse a Sistema de Alta Dirección Pública.</li><li>Mientras no entre en funcionamiento el SBAP, su remuneración se financiará con presupuesto del MMA.</li></ul>` 
+  }
+}
     };
+
+
+const semanticMap = {
+  "salmon": {
+        explanation: "Entendí que buscas información sobre salmones. Te mostré resultados sobre 'acuicultura' y especies exóticas.",
+        keywords: ["salmón", "acuicultura", "piscicultura", "especie exótica", "cultivo de peces"],
+        articleIds: [3, 5, 6] 
+      },
+      "dañado": {
+        explanation: "Entendí que buscas información sobre áreas dañadas. Te mostré resultados sobre 'áreas degradadas' y 'restauración ecológica'.",
+        keywords: ["degradado", "restauración", "daño", "deterioro", "recuperación"],
+        articleIds: [3, 32, 33]
+      },
+      "especie invasora": {
+        explanation: "Entendí tu consulta sobre especies foráneas. Te mostré resultados sobre 'especies exóticas', 'especies exóticas invasoras' y los planes de control.",
+        keywords: ["especie exótica", "especie exótica invasora", "planes de prevención, control y erradicación"],
+        articleIds: [3, 5]
+      },
+      "humedal": {
+        explanation: "Buscaste la definición y relevancia de los humedales. Te mostré la definición oficial y artículos relacionados.",
+        keywords: ["humedal", "servicios ecosistémicos"],
+        articleIds: [3, 2]
+      },
+      "parque nacional": {
+        explanation: "Entendí que buscas información sobre parques nacionales y áreas protegidas. Te mostré resultados sobre el 'Sistema Nacional de Áreas Protegidas'.",
+        keywords: ["parque nacional", "área protegida", "sistema nacional de áreas protegidas"],
+        articleIds: [4, 5, 23]
+      },
+      "turismo": {
+        explanation: "Entendí que buscas información sobre turismo en áreas naturales. Te mostré resultados sobre 'turismo ambientalmente responsable'.",
+        keywords: ["turismo ambientalmente responsable", "uso sustentable"],
+        articleIds: [3, 34]
+      },
+      "investigación": {
+        explanation: "Entendí que buscas información sobre investigación científica. Te mostré resultados sobre las funciones del Servicio de Biodiversidad.",
+        keywords: ["investigación científica", "monitoreo", "servicio de biodiversidad"],
+        articleIds: [4, 5]
+      },
+      "proyecto inmobiliario": {
+        explanation: "Entendí que buscas información sobre proyectos de construcción. Te mostré resultados sobre el 'Principio de Jerarquía' y evaluación de impacto.",
+        keywords: ["principio de jerarquía", "impacto significativo", "evaluación ambiental"],
+        articleIds: [2, 9]
+      },
+      "conservación": {
+        explanation: "Entendí que buscas información sobre conservación de la biodiversidad. Te mostré resultados sobre el objeto de la ley y los principios.",
+        keywords: ["conservación", "biodiversidad", "patrimonio natural"],
+        articleIds: [1, 2]
+      },
+      "restauración": {
+        explanation: "Entendí que buscas información sobre restauración ecológica. Te mostré resultados sobre los planes de restauración.",
+        keywords: ["restauración ecológica", "planes de restauración", "áreas degradadas"],
+        articleIds: [3, 32, 33]
+      },
+  // 1. CONCEPTOS FUNDAMENTALES
+  "biodiversidad": {
+    explanation: "Variedad de organismos vivos en todos los ecosistemas. Incluye diversidad genética, de especies y de ecosistemas.",
+    keywords: ["diversidad biológica", "ecosistemas", "genes", "especies", "interacciones ecológicas"],
+    articleIds: [1, 3, 23]
+  },
+  "conservación in situ": {
+    explanation: "Conservación de componentes de la biodiversidad en sus hábitats naturales.",
+    keywords: ["hábitat natural", "procción en origen", "ecosistemas nativos"],
+    articleIds: [3, 23]
+  },
+  "conservación ex situ": {
+    explanation: "Conservación de componentes de la biodiversidad fuera de sus hábitats naturales.",
+    keywords: ["jardines botánicos", "bancos de germoplasma", "centros de reproducción"],
+    articleIds: [3, 5, 23]
+  },
+  "servicios ecosistémicos": {
+    explanation: "Contribución directa o indirecta de los ecosistemas al bienestar humano.",
+    keywords: ["beneficios ecosistémicos", "servicios ambientales", "funciones ecológicas"],
+    articleIds: [2, 3, 24, 28]
+  },
+  "uso sustentable": {
+    explanation: "Utilización de componentes de la biodiversidad que no disminuya su capacidad a largo plazo.",
+    keywords: ["manejo sostenible", "explotación responsable", "recursos renovables"],
+    articleIds: [1, 3, 50]
+  },
+  
+  // 2. PRINCIPIOS DE LA LEY
+  "principio de coordinación": {
+    explanation: "Implementación coordinada de instrumentos de conservación entre órganos competentes.",
+    keywords: ["trabajo interinstitucional", "gestión conjunta", "coordinación administrativa"],
+    articleIds: [2]
+  },
+  "principio de jerarquía": {
+    explanation: "Evitar, mitigar, reparar y compensar impactos significativos sobre la biodiversidad.",
+    keywords: ["jerarquía de mitigación", "impactos ambientales", "compensación ecológica"],
+    articleIds: [2, 38]
+  },
+  "principio de no regresión": {
+    explanation: "Prohibición de modificaciones que disminuyan niveles de protección previamente alcanzados.",
+    keywords: ["protección ambiental", "estándares mínimos", "retroceso ecológico"],
+    articleIds: [2]
+  },
+  "principio participativo": {
+    explanation: "Deber del Estado de garantizar participación ciudadana en conservación de biodiversidad.",
+    keywords: ["participación ciudadana", "inclusión social", "gestión compartida"],
+    articleIds: [2, 54]
+  },
+  "principio de precaución": {
+    explanation: "Adoptar medidas ante riesgos de daño grave o irreversible, incluso con incertidumbre científica.",
+    keywords: ["enfoque preventivo", "incertidumbre científica", "daño irreversible"],
+    articleIds: [2]
+  },
+  
+  // 3. INSTRUMENTOS DE CONSERVACIÓN
+  "sistema nacional de áreas protegidas": {
+    explanation: "Conjunto de áreas protegidas del Estado y privadas para conservación de biodiversidad.",
+    keywords: ["SNAP", "red de conservación", "áreas silvestres"],
+    articleIds: [53, 54, 55]
+  },
+  "sitio prioritario": {
+    explanation: "Área de valor ecológico priorizada para conservación por su aporte a la biodiversidad.",
+    keywords: ["área clave", "conservación prioritaria", "sitio ecológico"],
+    articleIds: [29, 116]
+  },
+  "plan de manejo": {
+    explanation: "Instrumento de gestión ambiental con metas, medidas y responsabilidades para biodiversidad.",
+    keywords: ["gestión ambiental", "planificación ecológica", "manejo adaptativo"],
+    articleIds: [20, 31, 71]
+  },
+  "plan de restauración ecológica": {
+    explanation: "Plan para reponer áreas degradadas a condiciones similares a las originales.",
+    keywords: ["recuperación ecológica", "rehabilitación ambiental", "restauración de ecosistemas"],
+    articleIds: [24, 33, 38]
+  },
+  "corredor biológico": {
+    explanation: "Espacio que conecta hábitats facilitando desplazamiento de especies y flujo genético.",
+    keywords: ["conectividad ecológica", "pasos de fauna", "corredores ecológicos"],
+    articleIds: [3, 54]
+  },
+  
+  // 4. ÁREAS PROTEGIDAS
+  "reserva de región virgen": {
+    explanation: "Área con condiciones primitivas naturales no perturbadas por actividades humanas.",
+    keywords: ["área prístina", "ecosistema intacto", "protección estricta"],
+    articleIds: [56, 57]
+  },
+  "parque nacional": {
+    explanation: "Área con diversos ambientes representativos del patrimonio natural de interés educativo y científico.",
+    keywords: ["protección estricta", "patrimonio natural", "conservación de ecosistemas"],
+    articleIds: [56, 58]
+  },
+  "monumento natural": {
+    explanation: "Área reducida con componentes naturales específicos relevantes para la biodiversidad.",
+    keywords: ["protección específica", "elementos únicos", "conservación puntual"],
+    articleIds: [44, 56, 59]
+  },
+  "reserva nacional": {
+    explanation: "Área con comunidades biológicas relevantes para protección de especies y ecosistemas.",
+    keywords: ["manejo activo", "conservación de hábitats", "usos controlados"],
+    articleIds: [56, 60]
+  },
+  "área de conservación de múltiples usos": {
+    explanation: "Área con interacción tradicional entre humanos y naturaleza relevante para conservación.",
+    keywords: ["manejo integrado", "usos múltiples", "conservación con aprovechamiento"],
+    articleIds: [56, 61]
+  },
+  "área de conservación de pueblos indígenas": {
+    explanation: "Área en tierras indígenas con valores culturales asociados a conservación de biodiversidad.",
+    keywords: ["territorio indígena", "conservación cultural", "conocimientos tradicionales"],
+    articleIds: [56, 62]
+  },
+  "zona de amortiguación": {
+    explanation: "Espacio alrededor de áreas protegidas para absorber impactos negativos y fomentar efectos positivos.",
+    keywords: ["zona tampón", "área periférica", "protección perimetral"],
+    articleIds: [33, 72]
+  },
+  
+  // 5. ESPECIES Y ECOSISTEMAS
+  "especie endémica": {
+    explanation: "Especie nativa que se distribuye únicamente en un territorio geográfico determinado.",
+    keywords: ["especie exclusiva", "distribución restringida", "endemismo"],
+    articleIds: [3]
+  },
+  "especie exótica": {
+    explanation: "Especie que se encuentra fuera de su distribución natural.",
+    keywords: ["especie foránea", "organismo no nativo", "especie introducida"],
+    articleIds: [3, 45]
+  },
+  "especie exótica invasora": {
+    explanation: "Especie exótica cuyo establecimiento amenaza ecosistemas, hábitats o especies nativas.",
+    keywords: ["especie invasora", "plaga biológica", "organismo dañino"],
+    articleIds: [3, 45]
+  },
+  "ecosistema amenazado": {
+    explanation: "Ecosistema que presenta riesgos de disminución en extensión o cambios en su composición.",
+    keywords: ["ecosistema vulnerable", "riesgo ecológico", "degradación ecosistémica"],
+    articleIds: [3, 30, 31]
+  },
+  "área degradada": {
+    explanation: "Ecosistema cuyos elementos han sido alterados significativamente con pérdida de biodiversidad.",
+    keywords: ["ecosistema dañado", "deterioro ambiental", "pérdida de biodiversidad"],
+    articleIds: [3, 32, 33]
+  },
+  "humedal": {
+    explanation: "Extensiones de marismas, pantanos y turberas, o superficies cubiertas de aguas permanentes o temporales.",
+    keywords: ["ecosistema acuático", "zona húmeda", "hábitat de aves"],
+    articleIds: [3, 39, 40, 41]
+  },
+  
+  // 6. SERVICIO DE BIODIVERSIDAD
+  "servicio de biodiversidad y áreas protegidas": {
+    explanation: "Organismo encargado de conservar la biodiversidad mediante gestión de áreas protegidas.",
+    keywords: ["SBAP", "institución ambiental", "autoridad de conservación"],
+    articleIds: [4, 5, 6]
+  },
+  "director nacional": {
+    explanation: "Autoridad máxima del Servicio de Biodiversidad y Áreas Protegidas.",
+    keywords: ["jefe del servicio", "autoridad ambiental", "dirección superior"],
+    articleIds: [6, 7]
+  },
+  "direcciones regionales": {
+    explanation: "Desconcentración territorial del Servicio a nivel regional.",
+    keywords: ["descentralización", "representación regional", "gestión territorial"],
+    articleIds: [8]
+  },
+  "comité científico asesor": {
+    explanation: "Organismo asesor en materias científicas y técnicas para el Servicio.",
+    keywords: ["asesoría científica", "expertos técnicos", "evaluación científica"],
+    articleIds: [9, 30, 66]
+  },
+  "guardaparques": {
+    explanation: "Autoridad competente para manejo y fiscalización de áreas protegidas.",
+    keywords: ["vigilantes ambientales", "custodios de parques", "protección de áreas"],
+    articleIds: [75, 76, 77, 78]
+  },
+  
+  // 7. PLANIFICACIÓN Y GESTIÓN
+  "planificación ecológica": {
+    explanation: "Instrumento para definir prioridades de conservación de biodiversidad a nivel nacional.",
+    keywords: ["ordenamiento ecológico", "planificación territorial", "prioridades de conservación"],
+    articleIds: [28]
+  },
+  "sistema de información de la biodiversidad": {
+    explanation: "Sistema que almacena y maneja datos sobre ecosistemas, especies y áreas protegidas.",
+    keywords: ["base de datos ambiental", "información ecológica", "sistema de monitoreo"],
+    articleIds: [24, 26]
+  },
+  "monitoreo de la biodiversidad": {
+    explanation: "Programas sistemáticos para generar información sobre estado de la biodiversidad.",
+    keywords: ["seguimiento ecológico", "evaluación ambiental", "indicadores de biodiversidad"],
+    articleIds: [25, 27]
+  },
+  "inventario de humedales": {
+    explanation: "Registro nacional de humedales con información georreferenciada.",
+    keywords: ["catastro de humedales", "registro de zonas húmedas", "cartografía de humedales"],
+    articleIds: [39]
+  },
+  "clasificación de ecosistemas": {
+    explanation: "Evaluación del estado de conservación de los ecosistemas del país.",
+    keywords: ["categorización ecosistémica", "evaluación de estado", "conservación de ecosistemas"],
+    articleIds: [30]
+  },
+  
+  // 8. ESPECÍFICOS DE ESPECIES
+  "planes de recuperación de especies": {
+    explanation: "Planes para mejorar el estado de conservación de especies clasificadas como amenazadas.",
+    keywords: ["recuperación de fauna", "conservación de especies", "manejo de especies amenazadas"],
+    articleIds: [42, 43]
+  },
+  "monumento natural para especies": {
+    explanation: "Declaración de protección para especies de interés estético, histórico o científico.",
+    keywords: ["protección de especies", "declaración de monumento", "conservación específica"],
+    articleIds: [44]
+  },
+  "prevención de especies exóticas invasoras": {
+    explanation: "Medidas para prevenir, controlar y erradicar especies exóticas invasoras.",
+    keywords: ["control de plagas", "erradicación de invasoras", "bioseguridad"],
+    articleIds: [45]
+  },
+  "polinizadores nativos": {
+    explanation: "Especies que contribuyen a la polinización de plantas nativas y su protección.",
+    keywords: ["polinización", "agentes polinizadores", "servicios de polinización"],
+    articleIds: [5]
+  },
+  "diversidad genética": {
+    explanation: "Variación en la composición genética de individuos dentro de una población o entre especies.",
+    keywords: ["variabilidad genética", "recursos genéticos", "patrimonio genético"],
+    articleIds: [3, 10]
+  },
+  
+  // 9. HUMEDALES Y ECOSISTEMAS ACUÁTICOS
+  "criterios para uso sustentable de humedales": {
+    explanation: "Indicaciones para garantizar uso sostenible de humedales sin alterar sus funciones ecológicas.",
+    keywords: ["manejo de humedales", "uso responsable", "protección de zonas húmedas"],
+    articleIds: [40]
+  },
+  "permiso para alteración de humedales": {
+    explanation: "Autorización requerida para realizar alteraciones físicas en humedales inventariados.",
+    keywords: ["permiso ambiental", "intervención en humedales", "autorización de alteración"],
+    articleIds: [41]
+  },
+  "sitios ramsar": {
+    explanation: "Humedales de importancia internacional declarados bajo la Convención de Humedales.",
+    keywords: ["humedal internacional", "convención ramsar", "conservación global"],
+    articleIds: [37]
+  },
+  "ecosistemas acuáticos": {
+    explanation: "Sistemas acuáticos continentales, marinos o insulares y su biodiversidad asociada.",
+    keywords: ["hábitats acuáticos", "ecosistemas de agua dulce", "ecosistemas marinos"],
+    articleIds: [3, 24, 25]
+  },
+  "ecosistemas marinos": {
+    explanation: "Ecosistemas ubicados en ambientes marinos y su conservación.",
+    keywords: ["hábitats marinos", "conservación marina", "biodiversidad oceánica"],
+    articleIds: [34, 37, 56]
+  },
+  
+  // 10. PARTICIPACIÓN CIUDADANA
+  "participación en áreas protegidas": {
+    explanation: "Mecanismos para involucrar a comunidades en gestión de áreas protegidas.",
+    keywords: ["gestión participativa", "involucramiento comunitario", "conservación local"],
+    articleIds: [54, 68]
+  },
+  "paisajes de conservación": {
+    explanation: "Áreas con valores naturales y culturales gestionadas mediante acuerdo comunitario.",
+    keywords: ["paisaje cultural", "acuerdo local", "gestión compartida"],
+    articleIds: [35]
+  },
+  "reservas de la biósfera": {
+    explanation: "Áreas reconocidas por UNESCO que promueven desarrollo sostenible y conservación.",
+    keywords: ["mab unesco", "desarrollo sostenible", "conservación integrada"],
+    articleIds: [28, 36]
+  },
+  "turismo ambientalmente responsable": {
+    explanation: "Turismo de bajo impacto que respeta objetivos de conservación de áreas protegidas.",
+    keywords: ["ecoturismo", "turismo sostenible", "visitas responsables"],
+    articleIds: [3, 80]
+  },
+  "educación ambiental": {
+    explanation: "Actividades para concienciar sobre valor de la biodiversidad y su conservación.",
+    keywords: ["concienciación ambiental", "formación ecológica", "divulgación científica"],
+    articleIds: [5, 50]
+  },
+  
+  // 11. INSTRUMENTOS ECONÓMICOS
+  "fondo nacional de la biodiversidad": {
+    explanation: "Fondo para financiar proyectos de conservación fuera de áreas protegidas.",
+    keywords: ["financiamiento ambiental", "fondos de conservación", "inversión ecológica"],
+    articleIds: [46, 47, 48, 49]
+  },
+  "sistema de certificación": {
+    explanation: "Sistema para certificar actividades que contribuyan a conservación de biodiversidad.",
+    keywords: ["certificación ambiental", "sello ecológico", "reconocimiento de prácticas"],
+    articleIds: [51]
+  },
+  "contrato de retribución por servicios ecosistémicos": {
+    explanation: "Acuerdo para pagar por servicios ambientales proporcionados por ecosistemas.",
+    keywords: ["pago por servicios ambientales", "compensación ecológica", "incentivos económicos"],
+    articleIds: [52]
+  },
+  "incentivos para áreas protegidas privadas": {
+    explanation: "Beneficios económicos para propietarios que establecen áreas protegidas privadas.",
+    keywords: ["exenciones tributarias", "incentivos fiscales", "apoyo a conservación privada"],
+    articleIds: [105]
+  },
+  "tarifas en áreas protegidas": {
+    explanation: "Cobros por ingreso a áreas protegidas y servicios en ellas.",
+    keywords: ["derechos de ingreso", "financiamiento de parques", "tarifas de conservación"],
+    articleIds: [70]
+  },
+  
+  // 12. CONCESIONES Y PERMISOS
+  "concesiones en áreas protegidas": {
+    explanation: "Autorizaciones para desarrollar actividades de investigación, educación o turismo en áreas protegidas.",
+    keywords: ["concesiones ambientales", "derechos de uso", "explotación de servicios"],
+    articleIds: [79, 80, 81, 82]
+  },
+  "comité técnico de concesiones": {
+    explanation: "Órgano consultivo para proceso de otorgamiento de concesiones en áreas protegidas.",
+    keywords: ["evaluación de concesiones", "comité asesor", "análisis técnico"],
+    articleIds: [81]
+  },
+  "transferencia de concesiones": {
+    explanation: "Proceso para transferir derechos de concesión a terceros.",
+    keywords: ["cesión de derechos", "traspaso de concesiones", "cambio de titular"],
+    articleIds: [88]
+  },
+  "extinción de concesiones": {
+    explanation: "Causales y procedimientos para finalizar una concesión en área protegida.",
+    keywords: ["término de concesión", "caducidad", "fin de derechos"],
+    articleIds: [89]
+  },
+  "permisos temporales": {
+    explanation: "Autorizaciones para actividades transitorias en áreas protegidas.",
+    keywords: ["autorizaciones eventuales", "permisos de corta duración", "actividades temporales"],
+    articleIds: [94]
+  },
+  
+  // 13. FISCALIZACIÓN Y SANCIONES
+  "fiscalización de áreas protegidas": {
+    explanation: "Supervisión del cumplimiento de normas en áreas protegidas.",
+    keywords: ["control ambiental", "vigilancia ecológica", "inspección de áreas"],
+    articleIds: [109, 110, 111]
+  },
+  "infracciones en áreas protegidas": {
+    explanation: "Violaciones a normas que regulan actividades en áreas protegidas.",
+    keywords: ["incumplimientos ambientales", "violaciones ecológicas", "infracciones de conservación"],
+    articleIds: [115]
+  },
+  "infracciones fuera de áreas protegidas": {
+    explanation: "Violaciones a normas de biodiversidad fuera de áreas protegidas.",
+    keywords: ["incumplimientos externos", "violaciones territoriales", "daños a biodiversidad"],
+    articleIds: [116]
+  },
+  "sanciones administrativas": {
+    explanation: "Multas y otras penalizaciones por infracciones a la ley de biodiversidad.",
+    keywords: ["multas ambientales", "sanciones ecológicas", "penalidades administrativas"],
+    articleIds: [118, 120]
+  },
+  "medidas provisionales": {
+    explanation: "Medidas cautelares para prevenir daños durante investigación de infracciones.",
+    keywords: ["medidas cautelares", "prevención de daños", "protección temporal"],
+    articleIds: [125]
+  },
+  
+  // 14. PROCEDIMIENTOS ADMINISTRATIVOS
+  "creación de áreas protegidas": {
+    explanation: "Procedimiento para establecer nuevas áreas protegidas del Estado.",
+    keywords: ["declaratoria de área", "establecimiento de protección", "creación de parques"],
+    articleIds: [64, 65]
+  },
+  "modificación de áreas protegidas": {
+    explanation: "Procedimiento para cambiar límites o categorías de áreas protegidas existentes.",
+    keywords: ["ajuste de límites", "cambio de categoría", "modificación de protección"],
+    articleIds: [66]
+  },
+  "desafectación de áreas protegidas": {
+    explanation: "Procedimiento para eliminar el estatus de protección a un área.",
+    keywords: ["retiro de protección", "desclasificación", "pérdida de estatus"],
+    articleIds: [66, 100]
+  },
+  "áreas protegidas privadas": {
+    explanation: "Procedimiento para reconocimiento de áreas protegidas en propiedad privada.",
+    keywords: ["conservación privada", "áreas privadas protegidas", "reconocimiento oficial"],
+    articleIds: [97, 98, 99]
+  },
+  "planes de manejo de áreas protegidas": {
+    explanation: "Elaboración y aprobación de planes de manejo para áreas protegidas.",
+    keywords: ["elaboración de planes", "aprobación de manejo", "gestión de áreas"],
+    articleIds: [71, 72, 73, 74]
+  },
+  
+  // 15. TEMAS TRANSVERSALES
+  "cambio climático y biodiversidad": {
+    explanation: "Relaciones entre cambio climático y conservación de biodiversidad.",
+    keywords: ["impactos climáticos", "adaptación ecológica", "vulnerabilidad ambiental"],
+    articleIds: [25, 54]
+  },
+  "conocimientos tradicionales": {
+    explanation: "Saberes de comunidades indígenas relevantes para conservación de biodiversidad.",
+    keywords: ["saberes ancestrales", "conocimiento indígena", "tradiciones ecológicas"],
+    articleIds: [2, 62]
+  },
+  "investigación científica": {
+    explanation: "Estudios e investigaciones para mejorar conocimiento sobre biodiversidad.",
+    keywords: ["estudios ecológicos", "investigación ambiental", "generación de conocimiento"],
+    articleIds: [5, 25, 80]
+  },
+  "restauración ecológica": {
+    explanation: "Procesos para recuperar ecosistemas degradados a condiciones originales.",
+    keywords: ["recuperación de ecosistemas", "rehabilitación ambiental", "restauración de hábitats"],
+    articleIds: [24, 33, 38]
+  },
+  "corredores biológicos": {
+    explanation: "Conexiones entre hábitats para facilitar movimiento de especies.",
+    keywords: ["conectividad ecológica", "pasos de fauna", "red ecológica"],
+    articleIds: [3, 54]
+  },
+  
+  // 16. DEFINICIONES TÉCNICAS
+  "hábitat": {
+    explanation: "Lugar o tipo de ambiente donde vive naturalmente un organismo o población.",
+    keywords: ["ambiente natural", "lugar de vida", "territorio ecológico"],
+    articleIds: [3]
+  },
+  "ecosistema": {
+    explanation: "Complejo dinámico de comunidades vegetales, animales y microorganismos con su medio no viviente.",
+    keywords: ["sistema ecológico", "comunidad biológica", "interacciones ecosistémicas"],
+    articleIds: [3]
+  },
+  "recurso genético": {
+    explanation: "Material genético de valor real o potencial.",
+    keywords: ["material genético", "recursos biogenéticos", "patrimonio genético"],
+    articleIds: [3, 10]
+  },
+  "paisaje de conservación": {
+    explanation: "Área con valores naturales y culturales gestionada mediante acuerdo local.",
+    keywords: ["paisaje cultural", "gestión local", "acuerdo comunitario"],
+    articleIds: [35]
+  },
+  "turismo ambientalmente responsable": {
+    explanation: "Turismo de bajo impacto que respeta objetivos de conservación.",
+    keywords: ["ecoturismo", "turismo sostenible", "visitas responsables"],
+    articleIds: [3, 80]
+  },
+  
+  // 17. TEMAS INDÍGENAS
+  "áreas de conservación de pueblos indígenas": {
+    explanation: "Áreas en tierras indígenas con valores culturales asociados a conservación.",
+    keywords: ["territorio indígena", "conservación cultural", "manejo indígena"],
+    articleIds: [56, 62]
+  },
+  "consulta indígena": {
+    explanation: "Proceso de consulta a pueblos indígenas para medidas que les afecten.",
+    keywords: ["participación indígena", "consulta previa", "diálogo intercultural"],
+    articleIds: [65, 80]
+  },
+  "conocimientos tradicionales": {
+    explanation: "Saberes de comunidades indígenas relevantes para conservación.",
+    keywords: ["saberes ancestrales", "conocimiento local", "tradiciones ecológicas"],
+    articleIds: [2, 62]
+  },
+  "usos ancestrales": {
+    explanation: "Prácticas tradicionales de pueblos indígenas en áreas protegidas.",
+    keywords: ["usos tradicionales", "prácticas culturales", "costumbres ancestrales"],
+    articleIds: [62, 108]
+  },
+  "comités de gestión en reservas de biósfera": {
+    explanation: "Comités integrados por comunidades locales para gestión de reservas de biósfera.",
+    keywords: ["gestión participativa", "comités locales", "manejo compartido"],
+    articleIds: [36]
+  },
+  
+  // 18. TEMAS MARINOS Y COSTEROS
+  "iniciativas privadas de conservación marina": {
+    explanation: "Apoyo a proyectos de conservación en ecosistemas marinos costeros.",
+    keywords: ["conservación marina", "iniciativas oceánicas", "protección costera"],
+    articleIds: [34]
+  },
+  "áreas marinas protegidas": {
+    explanation: "Áreas protegidas ubicadas en ambientes marinos.",
+    keywords: ["reservas marinas", "parques marinos", "conservación oceánica"],
+    articleIds: [56, 58, 60]
+  },
+  "ecosistemas marinos": {
+    explanation: "Ecosistemas ubicados en ambientes marinos y su conservación.",
+    keywords: ["hábitats marinos", "biodiversidad oceánica", "conservación marina"],
+    articleIds: [3, 24, 25]
+  },
+  "sitios ramsar": {
+    explanation: "Humedales de importancia internacional declarados bajo Convención de Humedales.",
+    keywords: ["humedal internacional", "convención ramsar", "conservación global"],
+    articleIds: [37]
+  },
+  "isla oceánica": {
+    explanation: "Ecosistemas insulares marinos y su conservación.",
+    keywords: ["islas", "ecosistemas insulares", "conservación insular"],
+    articleIds: [34]
+  },
+  
+  // 19. TEMAS DE RESTAURACIÓN
+  "áreas degradadas": {
+    explanation: "Ecosistemas cuyos elementos han sido alterados significativamente con pérdida de biodiversidad.",
+    keywords: ["ecosistema dañado", "deterioro ambiental", "pérdida de biodiversidad"],
+    articleIds: [3, 32, 33]
+  },
+  "planes de restauración ecológica": {
+    explanation: "Planes para recuperar áreas degradadas a condiciones similares a las originales.",
+    keywords: ["recuperación ecológica", "rehabilitación ambiental", "restauración de ecosistemas"],
+    articleIds: [24, 33, 38]
+  },
+  "restauración activa": {
+    explanation: "Intervenciones directas para acelerar recuperación de ecosistemas degradados.",
+    keywords: ["restauración asistida", "intervención ecológica", "recuperación activa"],
+    articleIds: [33]
+  },
+  "restauración pasiva": {
+    explanation: "Procesos naturales de recuperación de ecosistemas sin intervención directa.",
+    keywords: ["recuperación natural", "regeneración espontánea", "restauración autógena"],
+    articleIds: [33]
+  },
+  "monitoreo de restauración": {
+    explanation: "Seguimiento de avances en proyectos de restauración ecológica.",
+    keywords: ["evaluación de restauración", "seguimiento ecológico", "indicadores de recuperación"],
+    articleIds: [33]
+  },
+  
+  // 20. TEMAS DE ESPECIES EXÓTICAS
+  "especies exóticas invasoras": {
+    explanation: "Especies exóticas cuyo establecimiento amenaza ecosistemas, hábitats o especies nativas.",
+    keywords: ["especie invasora", "plaga biológica", "organismo dañino"],
+    articleIds: [3, 45]
+  },
+  "planes de prevención de invasoras": {
+    explanation: "Planes para prevenir, controlar y erradicar especies exóticas invasoras.",
+    keywords: ["control de plagas", "erradicación de invasoras", "bioseguridad"],
+    articleIds: [45]
+  },
+  "barreras de bioseguridad": {
+    explanation: "Medidas para prevenir ingreso de especies exóticas a territorios vulnerables.",
+    keywords: ["control fronterizo", "prevención de invasiones", "seguridad biológica"],
+    articleIds: [45]
+  },
+  "análisis de riesgo de invasoras": {
+    explanation: "Evaluación de riesgo que representan especies exóticas para biodiversidad nativa.",
+    keywords: ["evaluación de riesgo", "análisis de invasión", "potencial invasor"],
+    articleIds: [45]
+  },
+  "control de especies invasoras": {
+    explanation: "Medidas para controlar poblaciones de especies exóticas invasoras.",
+    keywords: ["erradicación de plagas", "manejo de invasoras", "control biológico"],
+    articleIds: [45]
+  },
+  
+  // 21. TEMAS DE GESTIÓN
+  "gestión adaptativa": {
+    explanation: "Enfoque de gestión que incorpora aprendizaje y ajustes continuos.",
+    keywords: ["manejo adaptativo", "gestión flexible", "aprendizaje organizacional"],
+    articleIds: [20, 71]
+  },
+  "plan estratégico del SNAP": {
+    explanation: "Plan de largo plazo para gestión del Sistema Nacional de Áreas Protegidas.",
+    keywords: ["planificación estratégica", "gestión de SNAP", "directrices de conservación"],
+    articleIds: [55]
+  },
+  "programa de uso público": {
+    explanation: "Planificación de actividades de turismo, educación e investigación en áreas protegidas.",
+    keywords: ["gestión de visitantes", "uso público", "actividades recreativas"],
+    articleIds: [67, 74]
+  },
+  "comités público-privados": {
+    explanation: "Comités consultivos regionales para apoyo a gestión de áreas protegidas.",
+    keywords: ["mesas de trabajo", "comités asesores", "participación público-privada"],
+    articleIds: [55]
+  },
+  "convenios de gestión": {
+    explanation: "Acuerdos entre Servicio y organizaciones para gestión de áreas protegidas.",
+    keywords: ["acuerdos de cooperación", "gestión compartida", "alianzas estratégicas"],
+    articleIds: [68]
+  },
+  
+  // 22. TEMAS DE PERSONAL
+  "régimen laboral": {
+    explanation: "Normativas que rigen relaciones laborales en el Servicio de Biodiversidad.",
+    keywords: ["derechos laborales", "contratación", "relaciones de trabajo"],
+    articleIds: [11, 12, 13, 14, 15]
+  },
+  "código de probidad": {
+    explanation: "Normas de ética y conducta para funcionarios del Servicio.",
+    keywords: ["ética pública", "conducta funcionaria", "probidad administrativa"],
+    articleIds: [13]
+  },
+  "sistema de evaluación de desempeño": {
+    explanation: "Sistema para evaluar rendimiento de funcionarios del Servicio.",
+    keywords: ["evaluación de personal", "rendimiento laboral", "medición de eficiencia"],
+    articleIds: [15]
+  },
+  "capacitación de guardaparques": {
+    explanation: "Programas de formación para guardaparques del Servicio.",
+    keywords: ["formación técnica", "capacitación ambiental", "entrenamiento de personal"],
+    articleIds: [78]
+  },
+  "servicio de bienestar": {
+    explanation: "Sistema de beneficios sociales para funcionarios del Servicio.",
+    keywords: ["beneficios sociales", "bienestar laboral", "servicios sociales"],
+    articleIds: [18]
+  },
+  
+  // 23. TEMAS DE PATRIMONIO
+  "patrimonio del servicio": {
+    explanation: "Bienes y recursos que conforman el patrimonio del Servicio de Biodiversidad.",
+    keywords: ["bienes institucionales", "recursos del servicio", "patrimonio estatal"],
+    articleIds: [10]
+  },
+  "transferencia de bienes": {
+    explanation: "Traspaso de bienes desde otras instituciones al Servicio de Biodiversidad.",
+    keywords: ["traspaso patrimonial", "transferencia de activos", "reasignación de bienes"],
+    articleIds: [155]
+  },
+  "mejoras en concesiones": {
+    explanation: "Construcciones realizadas por concesionarios en áreas protegidas.",
+    keywords: ["infraestructura concesionada", "mejoras en parques", "construcciones en áreas"],
+    articleIds: [90]
+  },
+  "bienes nacionales protegidos": {
+    explanation: "Bienes del Estado con categoría de protección ambiental.",
+    keywords: ["bienes estatales", "patrimonio protegido", "bienes nacionales"],
+    articleIds: [158]
+  },
+  "patrimonio natural": {
+    explanation: "Conjunto de elementos naturales de valor ecológico, cultural y paisajístico.",
+    keywords: ["legado natural", "patrimonio ambiental", "recursos naturales"],
+    articleIds: [1, 53]
+  },
+  
+  // 24. TEMAS DE EVALUACIÓN AMBIENTAL
+  "evaluación de impacto ambiental": {
+    explanation: "Procedimiento para evaluar efectos de proyectos sobre biodiversidad.",
+    keywords: ["EIA", "estudio ambiental", "evaluación de proyectos"],
+    articleIds: [5, 38]
+  },
+  "compensaciones de biodiversidad": {
+    explanation: "Medidas para compensar impactos residuales sobre biodiversidad.",
+    keywords: ["compensación ecológica", "medidas compensatorias", "restauración por impactos"],
+    articleIds: [38]
+  },
+  "línea base de biodiversidad": {
+    explanation: "Estudio inicial del estado de biodiversidad en un área antes de un proyecto.",
+    keywords: ["estado inicial", "diagnóstico ambiental", "línea de base ecológica"],
+    articleIds: [38]
+  },
+  "impactos residuales": {
+    explanation: "Efectos ambientales que persisten después de aplicar medidas de mitigación.",
+    keywords: ["impactos remanentes", "efectos residuales", "consecuencias no mitigadas"],
+    articleIds: [38]
+  },
+  "equivalencia ecológica": {
+    explanation: "Criterio para asegurar que compensaciones sean equivalentes a impactos causados.",
+    keywords: ["equivalencia ambiental", "compensación justa", "medidas equivalentes"],
+    articleIds: [38]
+  },
+  
+  // 25. TEMAS DE ORDENAMIENTO TERRITORIAL
+  "instrumentos de ordenamiento territorial": {
+    explanation: "Herramientas de planificación del territorio que incorporan biodiversidad.",
+    keywords: ["planificación territorial", "ordenamiento ambiental", "gestión del territorio"],
+    articleIds: [28, 40]
+  },
+  "planificación ecológica": {
+    explanation: "Instrumento para definir prioridades de conservación a nivel nacional.",
+    keywords: ["ordenamiento ecológico", "planificación territorial", "prioridades de conservación"],
+    articleIds: [28]
+  },
+  "usos del suelo": {
+    explanation: "Clasificación de territorios según actividades permitidas y restringidas.",
+    keywords: ["clasificación de suelos", "zonificación", "usos permitidos"],
+    articleIds: [28]
+  },
+  "zonificación de áreas protegidas": {
+    explanation: "División de áreas protegidas en zonas con diferentes niveles de protección.",
+    keywords: ["zonificación ecológica", "áreas de manejo", "categorización de zonas"],
+    articleIds: [72]
+  },
+  "conflictos de uso": {
+    explanation: "Disputas entre diferentes usos del territorio en áreas de conservación.",
+    keywords: ["conflictos territoriales", "disputas de uso", "incompatibilidad de usos"],
+    articleIds: [28]
+  },
+  
+  // 26. TEMAS DE MONITOREO
+  "redes de monitoreo": {
+    explanation: "Sistemas coordinados para recolectar información sobre estado de biodiversidad.",
+    keywords: ["sistema de monitoreo", "red de información", "seguimiento ambiental"],
+    articleIds: [25]
+  },
+  "protocolos de monitoreo": {
+    explanation: "Metodologías estandarizadas para recolección de datos en monitoreo de biodiversidad.",
+    keywords: ["metodologías de muestreo", "protocolos estandarizados", "técnicas de monitoreo"],
+    articleIds: [25]
+  },
+  "indicadores de biodiversidad": {
+    explanation: "Parámetros para medir estado y tendencias de biodiversidad.",
+    keywords: ["indicadores ecológicos", "medición de biodiversidad", "parámetros ambientales"],
+    articleIds: [25, 27]
+  },
+  "informes de estado de biodiversidad": {
+    explanation: "Documentos periódicos que reportan situación de biodiversidad en el país.",
+    keywords: ["reporte ambiental", "evaluación nacional", "diagnóstico de biodiversidad"],
+    articleIds: [27]
+  },
+  "sistema de información geográfica": {
+    explanation: "Herramientas para manejar información georreferenciada sobre biodiversidad.",
+    keywords: ["SIG", "información espacial", "cartografía ambiental"],
+    articleIds: [24]
+  },
+  
+  // 27. TEMAS DE ESPECIES AMENAZADAS
+  "especies amenazadas": {
+    explanation: "Especies clasificadas en categorías de riesgo según su estado de conservación.",
+    keywords: ["especies en peligro", "fauna amenazada", "flora vulnerable"],
+    articleIds: [37, 42]
+  },
+  "categorías de conservación": {
+    explanation: "Clasificación de especies según su riesgo de extinción.",
+    keywords: ["clasificación de especies", "categorías UICN", "riesgo de extinción"],
+    articleIds: [37, 42]
+  },
+  "planes de recuperación de especies": {
+    explanation: "Planes para mejorar estado de conservación de especies amenazadas.",
+    keywords: ["recuperación de fauna", "conservación de especies", "manejo de especies amenazadas"],
+    articleIds: [42, 43]
+  },
+  "hábitat crítico": {
+    explanation: "Áreas esenciales para supervivencia y recuperación de especies amenazadas.",
+    keywords: ["hábitat esencial", "áreas críticas", "zonas de supervivencia"],
+    articleIds: [42, 43]
+  },
+  "amenazas a especies": {
+    explanation: "Factores que ponen en riesgo la supervivencia de especies.",
+    keywords: ["riesgos para especies", "amenazas biológicas", "factores de extinción"],
+    articleIds: [42, 43]
+  },
+  
+  // 28. TEMAS DE CONECTIVIDAD
+  "corredores biológicos": {
+    explanation: "Espacios que conectan hábitats para facilitar movimiento de especies.",
+    keywords: ["conectividad ecológica", "pasos de fauna", "red ecológica"],
+    articleIds: [3, 54]
+  },
+  "fragmentación de hábitats": {
+    explanation: "División de hábitats continuos en fragmentos aislados.",
+    keywords: ["fragmentación ecológica", "aislamiento de hábitats", "pérdida de conectividad"],
+    articleIds: [3]
+  },
+  "aislamiento de poblaciones": {
+    explanation: "Separación de poblaciones de especies que dificulta intercambio genético.",
+    keywords: ["aislamiento genético", "poblaciones aisladas", "barreras geográficas"],
+    articleIds: [3]
+  },
+  "flujo genético": {
+    explanation: "Intercambio de genes entre poblaciones de una especie.",
+    keywords: ["intercambio genético", "flujo de genes", "conectividad genética"],
+    articleIds: [3]
+  },
+  "red ecológica": {
+    explanation: "Sistema interconectado de hábitats y corredores biológicos.",
+    keywords: ["red de hábitats", "sistema ecológico", "conectividad territorial"],
+    articleIds: [54]
+  },
+  
+  // 29. TEMAS DE PARTICIPACIÓN
+  "participación ciudadana": {
+    explanation: "Involucramiento de ciudadanos en toma de decisiones sobre biodiversidad.",
+    keywords: ["inclusión social", "participación pública", "democracia ambiental"],
+    articleIds: [2, 54]
+  },
+  "consulta pública": {
+    explanation: "Procesos para recabar opinión ciudadana sobre proyectos y medidas.",
+    keywords: ["participación social", "opinión pública", "diálogo ciudadano"],
+    articleIds: [65, 74]
+  },
+  "comités consultivos": {
+    explanation: "Órganos de asesoría con participación de diversos actores sociales.",
+    keywords: ["mesas de diálogo", "órganos asesores", "participación multiactor"],
+    articleIds: [9, 55, 81]
+  },
+  "educación y sensibilización": {
+    explanation: "Actividades para concienciar sobre importancia de conservar biodiversidad.",
+    keywords: ["concienciación ambiental", "divulgación ecológica", "formación ambiental"],
+    articleIds: [5, 50]
+  },
+  "vinculación comunitaria": {
+    explanation: "Procesos para integrar comunidades locales en gestión de áreas protegidas.",
+    keywords: ["integración local", "participación comunitaria", "gestión compartida"],
+    articleIds: [55, 68]
+  },
+  
+  // 30. TEMAS DE FINANCIAMIENTO
+  "financiamiento de la conservación": {
+    explanation: "Mecanismos económicos para sostener iniciativas de conservación.",
+    keywords: ["economía de la conservación", "financiamiento ambiental", "inversión ecológica"],
+    articleIds: [46, 49]
+  },
+  "fondos de competitividad": {
+    explanation: "Recursos para financiar proyectos de conservación mediante concursos.",
+    keywords: ["fondos concursables", "financiamiento por proyectos", "recursos para conservación"],
+    articleIds: [46]
+  },
+  "cooperación internacional": {
+    explanation: "Apoyo de organismos internacionales para proyectos de conservación.",
+    keywords: ["ayuda internacional", "cooperación ambiental", "apoyo global"],
+    articleIds: [10, 49, 55]
+  },
+  "patrocinios y donaciones": {
+    explanation: "Aportes voluntarios de privados para conservación de biodiversidad.",
+    keywords: ["filantropía ambiental", "donaciones ecológicas", "patrocinios verdes"],
+    articleIds: [10, 49]
+  },
+  "pago por servicios ambientales": {
+    explanation: "Esquemas donde se paga a quienes conservan servicios ecosistémicos.",
+    keywords: ["compensación por servicios", "incentivos ecológicos", "valoración de servicios"],
+    articleIds: [52]
+  },
+  
+  // 31. TEMAS DE TURISMO
+  "turismo en áreas protegidas": {
+    explanation: "Actividades turísticas desarrolladas en áreas protegidas.",
+    keywords: ["visitas a parques", "turismo ecológico", "recreación en naturaleza"],
+    articleIds: [58, 80]
+  },
+  "turismo de baja escala": {
+    explanation: "Turismo con mínimo impacto en áreas naturales protegidas.",
+    keywords: ["turismo mínimo impacto", "visitas controladas", "turismo no masivo"],
+    articleIds: [58]
+  },
+  "concesiones turísticas": {
+    explanation: "Autorizaciones para desarrollar servicios turísticos en áreas protegidas.",
+    keywords: ["servicios turísticos", "operadores en parques", "concesiones de turismo"],
+    articleIds: [79, 80]
+  },
+  "capacidad de carga": {
+    explanation: "Número máximo de visitantes que un área puede soportar sin deteriorarse.",
+    keywords: ["límite de visitantes", "capacidad de acogida", "tolerancia de uso"],
+    articleIds: [72]
+  },
+  "interpretación ambiental": {
+    explanation: "Actividades para educar a visitantes sobre valores naturales y culturales.",
+    keywords: ["educación no formal", "divulgación en parques", "guiado temático"],
+    articleIds: [67, 76]
+  },
+  
+  // 32. TEMAS DE INVESTIGACIÓN
+  "investigación científica": {
+    explanation: "Estudios para generar conocimiento sobre biodiversidad y su conservación.",
+    keywords: ["estudios ecológicos", "investigación ambiental", "generación de conocimiento"],
+    articleIds: [5, 25, 80]
+  },
+  "monitoreo científico": {
+    explanation: "Seguimiento sistemático de variables ecológicas para evaluar estado de biodiversidad.",
+    keywords: ["seguimiento ecológico", "monitoreo ambiental", "evaluación científica"],
+    articleIds: [25]
+  },
+  "inventarios biológicos": {
+    explanation: "Registros sistemáticos de especies y ecosistemas en un territorio.",
+    keywords: ["catastro de especies", "registro biológico", "inventario ecológico"],
+    articleIds: [24]
+  },
+  "investigación participativa": {
+    explanation: "Estudios que involucran a comunidades locales en recolección de datos.",
+    keywords: ["ciencia ciudadana", "investigación colaborativa", "participación en investigación"],
+    articleIds: [25]
+  },
+  "aplicación del conocimiento": {
+    explanation: "Uso de investigación científica para mejorar gestión de biodiversidad.",
+    keywords: ["transferencia de conocimiento", "aplicación práctica", "investigación aplicada"],
+    articleIds: [5, 80]
+  },
+  
+  // 33. TEMAS DE LEGISLACIÓN
+  "marco legal de biodiversidad": {
+    explanation: "Conjunto de normas que regulan conservación y uso de biodiversidad.",
+    keywords: ["legislación ambiental", "marco normativo", "regulación de biodiversidad"],
+    articleIds: [1, 143, 144]
+  },
+  "modificaciones legales": {
+    explanation: "Cambios en legislación para implementar nueva ley de biodiversidad.",
+    keywords: ["reformas legales", "ajustes normativos", "modificaciones legales"],
+    articleIds: [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154]
+  },
+  "derogaciones legales": {
+    explanation: "Leyes que son dejadas sin efecto por nueva normativa de biodiversidad.",
+    keywords: ["derogación de leyes", "normas abrogadas", "legislación derogada"],
+    articleIds: [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154]
+  },
+  "armonización legal": {
+    explanation: "Proceso para coordinar nueva ley con legislación ambiental existente.",
+    keywords: ["coordinación normativa", "armonización legal", "integración de leyes"],
+    articleIds: [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154]
+  },
+  "jerarquía legal": {
+    explanation: "Prevalencia de nueva ley de biodiversidad sobre otras normas.",
+    keywords: ["primacía legal", "jerarquía normativa", "supremacía de ley"],
+    articleIds: [143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154]
+  },
+  
+  // 34. TEMAS DE IMPLEMENTACIÓN
+  "entrada en vigencia": {
+    explanation: "Fecha y condiciones a partir de las cuales comienza a regir la ley.",
+    keywords: ["vigencia de ley", "aplicación normativa", "inicio de efectos"],
+    articleIds: [155, 156, 157]
+  },
+  "reglamentos de la ley": {
+    explanation: "Normativas secundarias que desarrollan aspectos específicos de la ley.",
+    keywords: ["reglamentación", "normas complementarias", "desarrollo reglamentario"],
+    articleIds: [3, 30, 31, 32, 33, 42, 55, 65, 74, 97, 140, 141, 166]
+  },
+  "plazos de implementación": {
+    explanation: "Períodos establecidos para cumplir con disposiciones de la ley.",
+    keywords: ["cronograma de implementación", "plazos legales", "tiempos de ejecución"],
+    articleIds: [155, 156, 157, 158, 159, 163, 166]
+  },
+  "traspaso de funciones": {
+    explanation: "Transferencia de responsabilidades desde otras instituciones al nuevo Servicio.",
+    keywords: ["transferencia de competencias", "reasignación de funciones", "traspaso institucional"],
+    articleIds: [5, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155]
+  },
+  "traspaso de personal": {
+    explanation: "Movimiento de funcionarios desde otras instituciones al nuevo Servicio.",
+    keywords: ["traslado de empleados", "movimiento de personal", "reubicación laboral"],
+    articleIds: [155, 165]
+  },
+  
+  // 35. TEMAS DE EVALUACIÓN
+  "evaluación de impacto": {
+    explanation: "Análisis de efectos de proyectos y actividades sobre biodiversidad.",
+    keywords: ["evaluación ambiental", "análisis de impacto", "estudio de efectos"],
+    articleIds: [5, 38]
+  },
+  "evaluación de efectividad": {
+    explanation: "Medición de resultados de instrumentos de conservación implementados.",
+    keywords: ["eficiencia de medidas", "evaluación de resultados", "análisis de efectividad"],
+    articleIds: [55]
+  },
+  "evaluación de desempeño": {
+    explanation: "Medición de rendimiento de funcionarios y áreas protegidas.",
+    keywords: ["rendimiento institucional", "evaluación de gestión", "medición de eficiencia"],
+    articleIds: [15, 55]
+  },
+  "indicadores de gestión": {
+    explanation: "Parámetros para medir avance en objetivos de conservación.",
+    keywords: ["métricas de gestión", "indicadores de desempeño", "parámetros de evaluación"],
+    articleIds: [55]
+  },
+  "auditorías ambientales": {
+    explanation: "Revisiones independientes de gestión ambiental del Servicio.",
+    keywords: ["evaluación externa", "auditoría ecológica", "revisión de gestión"],
+    articleIds: [55]
+  },
+  
+  // 36. TEMAS DE INNOVACIÓN
+  "tecnologías para conservación": {
+    explanation: "Uso de tecnologías modernas en gestión de biodiversidad.",
+    keywords: ["tecnología ambiental", "innovación ecológica", "herramientas digitales"],
+    articleIds: [24, 25]
+  },
+  "sistemas de información": {
+    explanation: "Plataformas digitales para gestionar datos sobre biodiversidad.",
+    keywords: ["plataformas digitales", "gestión de datos", "sistemas informáticos"],
+    articleIds: [24]
+  },
+  "modelado ecológico": {
+    explanation: "Uso de modelos matemáticos para predecir cambios en ecosistemas.",
+    keywords: ["modelos predictivos", "simulación ecológica", "proyecciones ambientales"],
+    articleIds: [25]
+  },
+  "teledetección": {
+    explanation: "Uso de imágenes satelitales para monitorear ecosistemas.",
+    keywords: ["monitoreo satelital", "imágenes aéreas", "sensores remotos"],
+    articleIds: [24]
+  },
+  "inteligencia artificial": {
+    explanation: "Aplicación de IA en análisis de datos de biodiversidad.",
+    keywords: ["IA ambiental", "análisis automatizado", "machine learning ecológico"],
+    articleIds: [24]
+  },
+  
+  // 37. TEMAS DE CAMBIO CLIMÁTICO
+  "vulnerabilidad al cambio climático": {
+    explanation: "Evaluación de cómo afecta el cambio climático a ecosistemas y especies.",
+    keywords: ["impactos climáticos", "vulnerabilidad ecológica", "adaptación al cambio"],
+    articleIds: [25, 54]
+  },
+  "adaptación de ecosistemas": {
+    explanation: "Medidas para ayudar a ecosistemas a adaptarse al cambio climático.",
+    keywords: ["adaptación ecológica", "resiliencia climática", "ajuste ecosistémico"],
+    articleIds: [54]
+  },
+  "servicios ecosistémicos y clima": {
+    explanation: "Relación entre servicios ecosistémicos y regulación climática.",
+    keywords: ["regulación climática", "servicios climáticos", "funciones ecosistémicas"],
+    articleIds: [2, 54]
+  },
+  "monitoreo climático": {
+    explanation: "Seguimiento de variables climáticas y sus efectos en biodiversidad.",
+    keywords: ["seguimiento climático", "monitoreo atmosférico", "variables climáticas"],
+    articleIds: [25]
+  },
+  "mitigación desde biodiversidad": {
+    explanation: "Contribución de conservación de biodiversidad a mitigación de cambio climático.",
+    keywords: ["mitigación ecológica", "captura de carbono", "soluciones naturales"],
+    articleIds: [54]
+  },
+  
+  // 38. TEMAS DE GÉNERO
+  "enfoque de género": {
+    explanation: "Incorporación de perspectiva de género en gestión de biodiversidad.",
+    keywords: ["igualdad de género", "perspectiva de género", "mujeres y biodiversidad"],
+    articleIds: [54]
+  },
+  "participación de mujeres": {
+    explanation: "Involucramiento de mujeres en toma de decisiones sobre conservación.",
+    keywords: ["liderazgo femenino", "mujeres en conservación", "participación de género"],
+    articleIds: [54]
+  },
+  "impactos diferenciados": {
+    explanation: "Efectos distintos de problemas ambientales en hombres y mujeres.",
+    keywords: ["diferencias de género", "impactos de género", "vulnerabilidad diferenciada"],
+    articleIds: [54]
+  },
+  "equidad en beneficios": {
+    explanation: "Distribución justa de beneficios derivados de conservación de biodiversidad.",
+    keywords: ["justicia ambiental", "equidad distributiva", "beneficios compartidos"],
+    articleIds: [54]
+  },
+  "empoderamiento femenino": {
+    explanation: "Fortalecimiento de rol de mujeres en gestión ambiental.",
+    keywords: ["capacitación femenina", "liderazgo ambiental", "empoderamiento de mujeres"],
+    articleIds: [54]
+  },
+  
+  // 39. TEMAS DE EDUCACIÓN
+  "educación formal": {
+    explanation: "Incorporación de biodiversidad en currículos educativos.",
+    keywords: ["currículo escolar", "educación ambiental formal", "enseñanza ecológica"],
+    articleIds: [5, 50]
+  },
+  "educación no formal": {
+    explanation: "Actividades educativas fuera de sistema formal para concienciar sobre biodiversidad.",
+    keywords: ["educación informal", "divulgación ambiental", "sensibilización ecológica"],
+    articleIds: [5, 50, 76]
+  },
+  "material educativo": {
+    explanation: "Recursos didácticos para enseñanza sobre conservación de biodiversidad.",
+    keywords: ["recursos didácticos", "material pedagógico", "herramientas educativas"],
+    articleIds: [5, 50]
+  },
+  "formación de docentes": {
+    explanation: "Capacitación a profesores para enseñar sobre biodiversidad.",
+    keywords: ["capacitación docente", "formación de educadores", "actualización pedagógica"],
+    articleIds: [5, 50]
+  },
+  "programas escolares": {
+    explanation: "Iniciativas para incorporar educación ambiental en establecimientos educativos.",
+    keywords: ["programas educativos", "iniciativas escolares", "proyectos ecológicos"],
+    articleIds: [5, 50]
+  },
+  
+  // 40. TEMAS DE COMUNICACIÓN
+  "comunicación ambiental": {
+    explanation: "Estrategias para difundir información sobre biodiversidad.",
+    keywords: ["difusión ecológica", "comunicación verde", "estrategias informativas"],
+    articleIds: [5, 50]
+  },
+  "periodismo ambiental": {
+    explanation: "Cobertura mediática de temas relacionados con biodiversidad.",
+    keywords: ["medios de comunicación", "periodismo ecológico", "información ambiental"],
+    articleIds: [5, 50]
+  },
+  "redes sociales": {
+    explanation: "Uso de plataformas digitales para difundir mensajes de conservación.",
+    keywords: ["comunicación digital", "redes sociales", "divulgación online"],
+    articleIds: [5, 50]
+  },
+  "campañas de sensibilización": {
+    explanation: "Iniciativas para concienciar a público sobre importancia de biodiversidad.",
+    keywords: ["campañas ecológicas", "sensibilización pública", "concientización masiva"],
+    articleIds: [5, 50]
+  },
+  "alianzas comunicacionales": {
+    explanation: "Colaboración con medios y comunicadores para difundir mensajes de conservación.",
+    keywords: ["alianzas estratégicas", "colaboración mediática", "redes de comunicación"],
+    articleIds: [5, 50]
+  },
+  
+  // 41. TEMAS DE SALUD
+  "salud y biodiversidad": {
+    explanation: "Relación entre conservación de biodiversidad y salud humana.",
+    keywords: ["salud ambiental", "bienestar humano", "salud ecosistémica"],
+    articleIds: [2]
+  },
+  "servicios ecosistémicos para salud": {
+    explanation: "Contribución de ecosistemas a prevención de enfermedades y bienestar.",
+    keywords: ["servicios de salud", "prevención de enfermedades", "bienestar ecológico"],
+    articleIds: [2]
+  },
+  "biodiversidad y enfermedades": {
+    explanation: "Relación entre pérdida de biodiversidad y emergencia de enfermedades.",
+    keywords: ["enfermedades emergentes", "pérdida de biodiversidad", "salud global"],
+    articleIds: [2]
+  },
+  "medicina tradicional": {
+    explanation: "Uso de recursos naturales con fines medicinales por comunidades locales.",
+    keywords: ["plantas medicinales", "conocimientos tradicionales", "remedios naturales"],
+    articleIds: [2, 62]
+  },
+  "seguridad alimentaria": {
+    explanation: "Relación entre biodiversidad y disponibilidad de alimentos.",
+    keywords: ["alimentación sostenible", "seguridad alimentaria", "diversidad de cultivos"],
+    articleIds: [2]
+  },
+  
+  // 42. TEMAS DE CULTURA
+  "patrimonio cultural asociado": {
+    explanation: "Elementos culturales vinculados a áreas naturales y biodiversidad.",
+    keywords: ["patrimonio cultural", "legado cultural", "valores culturales"],
+    articleIds: [35, 53]
+  },
+  "conservación biocultural": {
+    explanation: "Enfoque que integra conservación de biodiversidad y cultura.",
+    keywords: ["enfoque biocultural", "conservación integral", "naturaleza y cultura"],
+    articleIds: [35, 62]
+  },
+  "identidad territorial": {
+    explanation: "Vínculo entre comunidades y su entorno natural.",
+    keywords: ["identidad local", "pertenencia territorial", "raíces ecológicas"],
+    articleIds: [35, 62]
+  },
+  "manifestaciones culturales": {
+    explanation: "Expresiones culturales relacionadas con biodiversidad.",
+    keywords: ["expresiones culturales", "manifestaciones tradicionales", "folklore ecológico"],
+    articleIds: [35, 62]
+  },
+  "turismo cultural": {
+    explanation: "Actividades turísticas que combinan naturaleza y cultura.",
+    keywords: ["turismo cultural", "visitas culturales", "patrimonio natural y cultural"],
+    articleIds: [35, 80]
+  },
+  
+  // 43. TEMAS DE DESARROLLO
+  "desarrollo sostenible": {
+    explanation: "Modelo de desarrollo que integra conservación de biodiversidad.",
+    keywords: ["desarrollo sustentable", "progreso sostenible", "crecimiento verde"],
+    articleIds: [1, 36]
+  },
+  "economía verde": {
+    explanation: "Modelo económico que valora y conserva capital natural.",
+    keywords: ["economía ecológica", "crecimiento verde", "capital natural"],
+    articleIds: [50, 52]
+  },
+  "empleo verde": {
+    explanation: "Puestos de trabajo generados por actividades de conservación.",
+    keywords: ["trabajos verdes", "empleo ambiental", "ocupaciones ecológicas"],
+    articleIds: [50]
+  },
+  "desarrollo local": {
+    explanation: "Proyectos de desarrollo que involucran a comunidades locales.",
+    keywords: ["desarrollo comunitario", "progresos locales", "iniciativas territoriales"],
+    articleIds: [35, 50]
+  },
+  "inversión sostenible": {
+    explanation: "Asignación de recursos a proyectos que generan beneficios ambientales y sociales.",
+    keywords: ["inversión responsable", "financiamiento sostenible", "capital consciente"],
+    articleIds: [46, 50]
+  },
+  
+  // 44. TEMAS DE GOBERNANZA
+  "gobernanza ambiental": {
+    explanation: "Sistema de toma de decisiones en gestión de biodiversidad.",
+    keywords: ["gobierno ambiental", "toma de decisiones", "gestión pública"],
+    articleIds: [2, 54]
+  },
+  "descentralización": {
+    explanation: "Transferencia de competencias a nivel regional y local.",
+    keywords: ["descentralización política", "gestión regional", "competencias locales"],
+    articleIds: [8, 55]
+  },
+  "coordinación interinstitucional": {
+    explanation: "Trabajo conjunto entre diferentes organismos públicos.",
+    keywords: ["trabajo intersectorial", "coordinación pública", "gestión conjunta"],
+    articleIds: [2, 5]
+  },
+  "rendición de cuentas": {
+    explanation: "Mecanismos para que instituciones rindan cuenta sobre su gestión.",
+    keywords: ["transparencia", "responsabilidad pública", "informes de gestión"],
+    articleIds: [55]
+  },
+  "corresponsabilidad": {
+    explanation: "Compromiso compartido entre Estado, sociedad y sector privado en conservación.",
+    keywords: ["responsabilidad compartida", "compromiso conjunto", "alianzas multiactor"],
+    articleIds: [50, 54]
+  },
+  
+  // 45. TEMAS DE CONFLICTOS
+  "conflictos socioambientales": {
+    explanation: "Disputas relacionadas con uso de recursos naturales y conservación.",
+    keywords: ["conflictos ambientales", "disputas socioambientales", "tensiones territoriales"],
+    articleIds: [28, 63]
+  },
+  "resolución de conflictos": {
+    explanation: "Mecanismos para solucionar disputas relacionadas con biodiversidad.",
+    keywords: ["mediación ambiental", "solución de conflictos", "negociación ecológica"],
+    articleIds: [68]
+  },
+  "partes interesadas": {
+    explanation: "Actores involucrados o afectados por decisiones sobre biodiversidad.",
+    keywords: ["stakeholders", "actores relevantes", "grupos de interés"],
+    articleIds: [65, 74]
+  },
+  "consulta previa": {
+    explanation: "Proceso de consulta a comunidades antes de implementar proyectos.",
+    keywords: ["diálogo previo", "consulta comunitaria", "participación anticipada"],
+    articleIds: [65, 80]
+  },
+  "consentimiento libre informado": {
+    explanation: "Aprobación de comunidades después de recibir información completa.",
+    keywords: ["consentimiento informado", "aprobación comunitaria", "decisión autónoma"],
+    articleIds: [65, 80]
+  },
+  
+  // 46. TEMAS DE MONITOREO Y EVALUACIÓN
+  "monitoreo de la implementación": {
+    explanation: "Seguimiento de avances en aplicación de la ley y sus instrumentos.",
+    keywords: ["seguimiento de políticas", "evaluación de implementación", "monitoreo normativo"],
+    articleIds: [55]
+  },
+  "evaluación de impacto": {
+    explanation: "Análisis de efectos de proyectos y actividades sobre biodiversidad.",
+    keywords: ["evaluación ambiental", "análisis de impacto", "estudio de efectos"],
+    articleIds: [5, 38]
+  },
+  "auditorías ambientales": {
+    explanation: "Revisiones independientes de gestión ambiental del Servicio.",
+    keywords: ["evaluación externa", "auditoría ecológica", "revisión de gestión"],
+    articleIds: [55]
+  },
+  "indicadores de desempeño": {
+    explanation: "Parámetros para medir eficiencia y eficacia de gestión.",
+    keywords: ["métricas de gestión", "indicadores de eficiencia", "parámetros de evaluación"],
+    articleIds: [15, 55]
+  },
+  "sistemas de evaluación": {
+    explanation: "Metodologías para evaluar resultados de conservación.",
+    keywords: ["evaluación sistemática", "metodologías de evaluación", "análisis de resultados"],
+    articleIds: [15, 55]
+  },
+  
+  // 47. TEMAS DE TECNOLOGÍA
+  "tecnologías de información": {
+    explanation: "Uso de TIC en gestión de biodiversidad.",
+    keywords: ["TIC ambiental", "tecnología digital", "informática ecológica"],
+    articleIds: [24]
+  },
+  "sistemas de monitoreo remoto": {
+    explanation: "Uso de sensores y equipos remotos para recolectar datos ambientales.",
+    keywords: ["monitoreo remoto", "sensores ambientales", "teledetección"],
+    articleIds: [24, 25]
+  },
+  "plataformas digitales": {
+    explanation: "Herramientas online para gestión y difusión de información sobre biodiversidad.",
+    keywords: ["plataformas online", "herramientas digitales", "portales ambientales"],
+    articleIds: [24]
+  },
+  "modelos predictivos": {
+    explanation: "Herramientas para predecir cambios en ecosistemas y biodiversidad.",
+    keywords: ["modelos ecológicos", "simulación ambiental", "proyecciones ecosistémicas"],
+    articleIds: [25]
+  },
+  "big data ambiental": {
+    explanation: "Análisis de grandes volúmenes de datos ambientales.",
+    keywords: ["análisis de datos", "macrodatos ambientales", "data science ecológico"],
+    articleIds: [24]
+  },
+  
+  // 48. TEMAS DE RESILIENCIA
+  "resiliencia ecológica": {
+    explanation: "Capacidad de ecosistemas para recuperarse ante perturbaciones.",
+    keywords: ["resistencia ecológica", "recuperación de ecosistemas", "adaptación ecosistémica"],
+    articleIds: [33]
+  },
+  "resiliencia climática": {
+    explanation: "Capacidad de ecosistemas para adaptarse al cambio climático.",
+    keywords: ["adaptación climática", "resistencia al cambio", "resiliencia ecosistémica"],
+    articleIds: [54]
+  },
+  "recuperación de ecosistemas": {
+    explanation: "Procesos para restaurar funciones y estructura de ecosistemas degradados.",
+    keywords: ["restauración ecológica", "recuperación de hábitats", "rehabilitación ambiental"],
+    articleIds: [33]
+  },
+  "manejo adaptativo": {
+    explanation: "Enfoque de gestión que incorpora aprendizaje y ajustes continuos.",
+    keywords: ["gestión flexible", "aprendizaje organizacional", "manejo adaptativo"],
+    articleIds: [20, 71]
+  },
+  "conservación proactiva": {
+    explanation: "Medidas preventivas para evitar degradación de ecosistemas.",
+    keywords: ["prevención de daños", "conservación preventiva", "medidas proactivas"],
+    articleIds: [2, 45]
+  },
+  
+  // 49. TEMAS DE JUSTICIA AMBIENTAL
+  "justicia ambiental": {
+    explanation: "Distribución equitativa de beneficios y cargas ambientales.",
+    keywords: ["equidad ambiental", "justicia ecológica", "distribución justa"],
+    articleIds: [54]
+  },
+  "acceso a la información": {
+    explanation: "Derecho a obtener información sobre biodiversidad y gestión ambiental.",
+    keywords: ["transparencia", "acceso a datos", "información pública"],
+    articleIds: [2, 24]
+  },
+  "participación efectiva": {
+    explanation: "Involucramiento significativo de ciudadanos en decisiones ambientales.",
+    keywords: ["participación real", "inclusión efectiva", "decisión compartida"],
+    articleIds: [2, 54]
+  },
+  "acceso a la justicia": {
+    explanation: "Mecanismos para resolver disputas ambientales.",
+    keywords: ["justicia ambiental", "resolución de conflictos", "tribunales ambientales"],
+    articleIds: [134, 135, 136, 137, 138, 139]
+  },
+  "protección de defensores": {
+    explanation: "Medidas para proteger a personas que defienden biodiversidad.",
+    keywords: ["defensores ambientales", "protección de activistas", "seguridad ecológica"],
+    articleIds: [54]
+  },
+  
+  // 50. TEMAS DE COOPERACIÓN
+  "cooperación internacional": {
+    explanation: "Colaboración entre países para conservación de biodiversidad.",
+    keywords: ["colaboración global", "cooperación ambiental", "acuerdos internacionales"],
+    articleIds: [10, 49, 55]
+  },
+  "convenios internacionales": {
+    explanation: "Acuerdos con organismos internacionales para conservación.",
+    keywords: ["tratados ambientales", "acuerdos globales", "convenios internacionales"],
+    articleIds: [36, 37]
+  },
+  "proyectos binacionales": {
+    explanation: "Iniciativas de conservación entre países fronterizos.",
+    keywords: ["proyectos transfronterizos", "iniciativas binacionales", "cooperación regional"],
+    articleIds: [55]
+  },
+  "intercambio de experiencias": {
+    explanation: "Compartir conocimientos y buenas prácticas entre países.",
+    keywords: ["intercambio técnico", "buenas prácticas", "lecciones aprendidas"],
+    articleIds: [55]
+  },
+  "financiamiento internacional": {
+    explanation: "Recursos de organismos internacionales para proyectos de conservación.",
+    keywords: ["fondos globales", "financiamiento externo", "ayuda internacional"],
+    articleIds: [10, 49]
+  },
+  
+  // 51. TEMAS DE EMERGENCIAS
+  "contingencias ambientales": {
+    explanation: "Situaciones de emergencia que afectan a biodiversidad.",
+    keywords: ["emergencias ecológicas", "contingencias ambientales", "crisis ambientales"],
+    articleIds: [71]
+  },
+  "planes de contingencia": {
+    explanation: "Protocolos para responder a emergencias ambientales.",
+    keywords: ["protocolos de emergencia", "planes de respuesta", "contingencias ecológicas"],
+    articleIds: [71]
+  },
+  "incendios forestales": {
+    explanation: "Fuegos que afectan ecosistemas y medidas para prevenirlos y combatirlos.",
+    keywords: ["incendios", "prevención de incendios", "combate de fuego"],
+    articleIds: [1, 71]
+  },
+  "derrames químicos": {
+    explanation: "Liberación accidental de sustancias que afectan a biodiversidad.",
+    keywords: ["contaminación química", "derrames tóxicos", "emergencias químicas"],
+    articleIds: [108]
+  },
+  "invasiones biológicas": {
+    explanation: "Llegada masiva de especies exóticas que amenazan ecosistemas.",
+    keywords: ["invasiones biológicas", "plagas emergentes", "especies invasoras"],
+    articleIds: [45]
+  },
+  
+  // 52. TEMAS DE RESTAURACIÓN
+  "restauración de ecosistemas": {
+    explanation: "Procesos para recuperar ecosistemas degradados a condiciones originales.",
+    keywords: ["recuperación ecológica", "rehabilitación ambiental", "restauración de hábitats"],
+    articleIds: [24, 33, 38]
+  },
+  "técnicas de restauración": {
+    explanation: "Métodos utilizados para restaurar ecosistemas degradados.",
+    keywords: ["métodos de restauración", "técnicas de rehabilitación", "intervenciones ecológicas"],
+    articleIds: [33]
+  },
+  "monitoreo de restauración": {
+    explanation: "Seguimiento de avances en proyectos de restauración ecológica.",
+    keywords: ["evaluación de restauración", "seguimiento ecológico", "indicadores de recuperación"],
+    articleIds: [33]
+  },
+  "participación comunitaria en restauración": {
+    explanation: "Involucramiento de comunidades locales en proyectos de restauración.",
+    keywords: ["restauración participativa", "comunidades locales", "voluntariado ecológico"],
+    articleIds: [33]
+  },
+  "financiamiento de restauración": {
+    explanation: "Mecanismos económicos para proyectos de restauración ecológica.",
+    keywords: ["fondos de restauración", "inversión ecológica", "financiamiento ambiental"],
+    articleIds: [33, 46]
+  },
+  
+  // 53. TEMAS DE ESPECIES
+  "conservación de especies": {
+    explanation: "Medidas para proteger especies amenazadas y sus hábitats.",
+    keywords: ["protección de especies", "conservación de fauna", "conservación de flora"],
+    articleIds: [42, 43, 44]
+  },
+  "recuperación de poblaciones": {
+    explanation: "Acciones para aumentar poblaciones de especies amenazadas.",
+    keywords: ["repoblamiento", "recuperación de especies", "aumento poblacional"],
+    articleIds: [42, 43]
+  },
+  "manejo de hábitats": {
+    explanation: "Intervenciones para mejorar condiciones de hábitats de especies.",
+    keywords: ["mejora de hábitats", "manejo de ecosistemas", "gestión de ambientes"],
+    articleIds: [42, 43]
+  },
+  "control de amenazas": {
+    explanation: "Medidas para reducir factores que amenazan a especies.",
+    keywords: ["reducción de amenazas", "control de riesgos", "mitigación de peligros"],
+    articleIds: [42, 43, 45]
+  },
+  "monitoreo de especies": {
+    explanation: "Seguimiento de poblaciones y estado de conservación de especies.",
+    keywords: ["seguimiento de especies", "monitoreo poblacional", "evaluación de estado"],
+    articleIds: [25, 42]
+  },
+  
+  // 54. TEMAS DE ÁREAS PROTEGIDAS
+  "categorías de protección": {
+    explanation: "Clasificación de áreas protegidas según objetivos de conservación.",
+    keywords: ["tipos de protección", "categorías de áreas", "niveles de conservación"],
+    articleIds: [56]
+  },
+  "objetos de conservación": {
+    explanation: "Elementos específicos que se busca proteger en un área.",
+    keywords: ["objetivos de protección", "elementos a conservar", "valores a proteger"],
+    articleIds: [64, 72]
+  },
+  "límites de áreas protegidas": {
+    explanation: "Delimitación geográfica de áreas protegidas.",
+    keywords: ["deslindes", "límites geográficos", "perímetros protegidos"],
+    articleIds: [64, 65]
+  },
+  "declaratoria de áreas": {
+    explanation: "Proceso legal para establecer nuevas áreas protegidas.",
+    keywords: ["creación de áreas", "declaratoria oficial", "establecimiento de protección"],
+    articleIds: [64, 65]
+  },
+  "manejo de áreas protegidas": {
+    explanation: "Conjunto de acciones para administrar y conservar áreas protegidas.",
+    keywords: ["gestión de áreas", "administración de parques", "manejo de reservas"],
+    articleIds: [67, 71, 72]
+  },
+  
+  // 55. TEMAS DE PARTICIPACIÓN CIUDADANA
+  "voluntariado ambiental": {
+    explanation: "Participación de ciudadanos en actividades de conservación.",
+    keywords: ["voluntarios ecológicos", "participación ciudadana", "trabajo voluntario"],
+    articleIds: [54]
+  },
+  "ciudadanía ambiental": {
+    explanation: "Formación de ciudadanos comprometidos con conservación de biodiversidad.",
+    keywords: ["ciudadanos ecológicos", "conciencia cívica", "compromiso ambiental"],
+    articleIds: [2, 54]
+  },
+  "observadores ciudadanos": {
+    explanation: "Personas que reportan información sobre estado de biodiversidad.",
+    keywords: ["vigilancia ciudadana", "reportes ambientales", "observadores ecológicos"],
+    articleIds: [25]
+  },
+  "educación no formal": {
+    explanation: "Actividades educativas fuera de sistema formal para concienciar sobre biodiversidad.",
+    keywords: ["educación informal", "divulgación ambiental", "sensibilización ecológica"],
+    articleIds: [5, 50, 76]
+  },
+  "comités comunitarios": {
+    explanation: "Grupos de ciudadanos que participan en gestión de áreas protegidas.",
+    keywords: ["comités locales", "grupos comunitarios", "organizaciones vecinales"],
+    articleIds: [55, 68]
+  },
+  
+  // 56. TEMAS DE TURISMO SOSTENIBLE
+  "capacidad de carga": {
+    explanation: "Número máximo de visitantes que un área puede soportar sin deteriorarse.",
+    keywords: ["límite de visitantes", "capacidad de acogida", "tolerancia de uso"],
+    articleIds: [72]
+  },
+  "turismo de bajo impacto": {
+    explanation: "Turismo con mínimo impacto en áreas naturales protegidas.",
+    keywords: ["turismo mínimo impacto", "visitas controladas", "turismo no masivo"],
+    articleIds: [58]
+  },
+  "guías locales": {
+    explanation: "Personas de comunidades locales que guían a visitantes en áreas protegidas.",
+    keywords: ["guías comunitarios", "turismo local", "interpretación local"],
+    articleIds: [50, 80]
+  },
+  "infraestructura turística": {
+    explanation: "Instalaciones para recibir visitantes en áreas protegidas.",
+    keywords: ["instalaciones turísticas", "infraestructura de parques", "servicios para visitantes"],
+    articleIds: [79, 80]
+  },
+  "gestión de visitantes": {
+    explanation: "Conjunto de acciones para administrar flujo de turistas en áreas protegidas.",
+    keywords: ["manejo de turismo", "administración de visitantes", "gestión de público"],
+    articleIds: [67, 72]
+  },
+  
+  // 57. TEMAS DE INVESTIGACIÓN CIENTÍFICA
+  "líneas de investigación": {
+    explanation: "Temas prioritarios de investigación en biodiversidad.",
+    keywords: ["prioridades de investigación", "temas de estudio", "líneas científicas"],
+    articleIds: [5, 25]
+  },
+  "estudios de biodiversidad": {
+    explanation: "Investigaciones para conocer composición y estado de biodiversidad.",
+    keywords: ["inventarios biológicos", "estudios ecológicos", "investigación de biodiversidad"],
+    articleIds: [24, 25]
+  },
+  "monitoreo científico": {
+    explanation: "Seguimiento sistemático de variables ecológicas para evaluar estado de biodiversidad.",
+    keywords: ["seguimiento ecológico", "monitoreo ambiental", "evaluación científica"],
+    articleIds: [25]
+  },
+  "publicaciones científicas": {
+    explanation: "Difusión de resultados de investigaciones sobre biodiversidad.",
+    keywords: ["divulgación científica", "artículos técnicos", "publicaciones ambientales"],
+    articleIds: [5]
+  },
+  "cooperación científica": {
+    explanation: "Colaboración entre instituciones para investigación en biodiversidad.",
+    keywords: ["colaboración académica", "investigación conjunta", "cooperación técnica"],
+    articleIds: [5, 25]
+  },
+  
+  // 58. TEMAS DE GESTIÓN INTEGRAL
+  "manejo adaptativo": {
+    explanation: "Enfoque de gestión que incorpora aprendizaje y ajustes continuos.",
+    keywords: ["gestión flexible", "aprendizaje organizacional", "manejo adaptativo"],
+    articleIds: [20, 71]
+  },
+  "gestión ecosistémica": {
+    explanation: "Enfoque que considera ecosistemas completos en lugar de especies individuales.",
+    keywords: ["manejo ecosistémico", "gestión integral", "enfoque sistémico"],
+    articleIds: [23]
+  },
+  "planificación estratégica": {
+    explanation: "Definición de objetivos y estrategias a largo plazo para conservación.",
+    keywords: ["planificación a largo plazo", "estrategias de conservación", "visión de futuro"],
+    articleIds: [55]
+  },
+  "evaluación de gestión": {
+    explanation: "Medición de eficiencia y eficacia de acciones de conservación.",
+    keywords: ["evaluación de eficiencia", "medición de resultados", "análisis de gestión"],
+    articleIds: [55]
+  },
+  "retroalimentación de procesos": {
+    explanation: "Mecanismos para aprender de experiencias y mejorar gestión.",
+    keywords: ["aprendizaje organizacional", "mejora continua", "retroalimentación"],
+    articleIds: [55]
+  },
+  
+  // 59. TEMAS DE FINANCIAMIENTO
+  "fondo nacional de biodiversidad": {
+    explanation: "Fondo para financiar proyectos de conservación fuera de áreas protegidas.",
+    keywords: ["financiamiento ambiental", "fondos de conservación", "inversión ecológica"],
+    articleIds: [46, 47, 48, 49]
+  },
+  "incentivos fiscales": {
+    explanation: "Beneficios tributarios para promover conservación de biodiversidad.",
+    keywords: ["exenciones tributarias", "incentivos fiscales", "beneficios impositivos"],
+    articleIds: [105]
+  },
+  "pago por servicios ambientales": {
+    explanation: "Esquemas donde se paga a quienes conservan servicios ecosistémicos.",
+    keywords: ["compensación por servicios", "incentivos ecológicos", "valoración de servicios"],
+    articleIds: [52]
+  },
+  "mercados verdes": {
+    explanation: "Sistemas donde se comercializan productos de biodiversidad sostenible.",
+    keywords: ["comercio ecológico", "mercados sostenibles", "productos verdes"],
+    articleIds: [50]
+  },
+  "inversión privada": {
+    explanation: "Aportes de empresas y particulares a proyectos de conservación.",
+    keywords: ["financiamiento privado", "inversión empresarial", "aportes particulares"],
+    articleIds: [46, 50]
+  },
+  
+  // 60. TEMAS DE TECNOLOGÍA E INNOVACIÓN
+  "tecnologías limpias": {
+    explanation: "Tecnologías con mínimo impacto ambiental para gestión de biodiversidad.",
+    keywords: ["tecnologías verdes", "innovación limpia", "tecnologías sostenibles"],
+    articleIds: [24]
+  },
+  "aplicaciones móviles": {
+    explanation: "Herramientas digitales para monitoreo y educación sobre biodiversidad.",
+    keywords: ["apps ambientales", "aplicaciones móviles", "herramientas digitales"],
+    articleIds: [24]
+  },
+  "sensores ambientales": {
+    explanation: "Dispositivos para recolectar datos ambientales en tiempo real.",
+    keywords: ["monitoreo ambiental", "sensores ecológicos", "dispositivos de medición"],
+    articleIds: [24, 25]
+  },
+  "inteligencia artificial": {
+    explanation: "Aplicación de IA en análisis de datos de biodiversidad.",
+    keywords: ["IA ambiental", "análisis automatizado", "machine learning ecológico"],
+    articleIds: [24]
+  },
+  "blockchain ambiental": {
+    explanation: "Uso de tecnología blockchain para transparencia en gestión ambiental.",
+    keywords: ["cadena de bloques", "transparencia digital", "gestión blockchain"],
+    articleIds: [24]
+  },
+  
+  // 61. TEMAS DE CAMBIO CLIMÁTICO
+  "mitigación climática": {
+    explanation: "Medidas para reducir emisiones de gases de efecto invernadero.",
+    keywords: ["reducción de emisiones", "mitigación de cambio climático", "acciones climáticas"],
+    articleIds: [54]
+  },
+  "adaptación climática": {
+    explanation: "Medidas para adaptarse a impactos del cambio climático.",
+    keywords: ["adaptación al cambio", "resiliencia climática", "ajustes climáticos"],
+    articleIds: [54]
+  },
+  "servicios de regulación climática": {
+    explanation: "Funciones de ecosistemas que regulan clima.",
+    keywords: ["regulación climática", "servicios climáticos", "funciones ecosistémicas"],
+    articleIds: [2, 54]
+  },
+  "vulnerabilidad climática": {
+    explanation: "Evaluación de cómo afecta el cambio climático a ecosistemas y especies.",
+    keywords: ["impactos climáticos", "vulnerabilidad ecológica", "adaptación al cambio"],
+    articleIds: [25, 54]
+  },
+  "soluciones basadas en naturaleza": {
+    explanation: "Acciones que usan ecosistemas para enfrentar desafíos sociales.",
+    keywords: ["soluciones naturales", "enfoques ecosistémicos", "acciones basadas en naturaleza"],
+    articleIds: [54]
+  },
+  
+  // 62. TEMAS DE PARTICIPACIÓN INDÍGENA
+  "consulta indígena": {
+    explanation: "Proceso de consulta a pueblos indígenas para medidas que les afecten.",
+    keywords: ["participación indígena", "consulta previa", "diálogo intercultural"],
+    articleIds: [65, 80]
+  },
+  "consentimiento libre informado": {
+    explanation: "Aprobación de comunidades después de recibir información completa.",
+    keywords: ["consentimiento informado", "aprobación comunitaria", "decisión autónoma"],
+    articleIds: [65, 80]
+  },
+  "conocimientos tradicionales": {
+    explanation: "Saberes de comunidades indígenas relevantes para conservación.",
+    keywords: ["saberes ancestrales", "conocimiento local", "tradiciones ecológicas"],
+    articleIds: [2, 62]
+  },
+  "territorios indígenas": {
+    explanation: "Tierras de pueblos indígenas y su relación con biodiversidad.",
+    keywords: ["tierras indígenas", "territorios ancestrales", "comunidades originarias"],
+    articleIds: [62]
+  },
+  "gestión indígena": {
+    explanation: "Manejo de recursos naturales por comunidades indígenas.",
+    keywords: ["manejo ancestral", "gestión tradicional", "administración indígena"],
+    articleIds: [62]
+  },
+  
+  // 63. TEMAS DE EDUCACIÓN AMBIENTAL
+  "currículo escolar": {
+    explanation: "Incorporación de biodiversidad en programas educativos formales.",
+    keywords: ["educación formal", "currículo ecológico", "enseñanza ambiental"],
+    articleIds: [5, 50]
+  },
+  "material didáctico": {
+    explanation: "Recursos para enseñanza sobre conservación de biodiversidad.",
+    keywords: ["recursos educativos", "material pedagógico", "herramientas didácticas"],
+    articleIds: [5, 50]
+  },
+  "formación docente": {
+    explanation: "Capacitación a profesores para enseñar sobre biodiversidad.",
+    keywords: ["capacitación docente", "formación de educadores", "actualización pedagógica"],
+    articleIds: [5, 50]
+  },
+  "programas escolares": {
+    explanation: "Iniciativas para incorporar educación ambiental en establecimientos educativos.",
+    keywords: ["programas educativos", "iniciativas escolares", "proyectos ecológicos"],
+    articleIds: [5, 50]
+  },
+  "educación no formal": {
+    explanation: "Actividades educativas fuera de sistema formal para concienciar sobre biodiversidad.",
+    keywords: ["educación informal", "divulgación ambiental", "sensibilización ecológica"],
+    articleIds: [5, 50, 76]
+  },
+  
+  // 64. TEMAS DE COMUNICACIÓN
+  "estrategias de comunicación": {
+    explanation: "Planes para difundir información sobre biodiversidad.",
+    keywords: ["comunicación ambiental", "difusión ecológica", "estrategias informativas"],
+    articleIds: [5, 50]
+  },
+  "periodismo ambiental": {
+    explanation: "Cobertura mediática de temas relacionados con biodiversidad.",
+    keywords: ["medios de comunicación", "periodismo ecológico", "información ambiental"],
+    articleIds: [5, 50]
+  },
+  "redes sociales": {
+    explanation: "Uso de plataformas digitales para difundir mensajes de conservación.",
+    keywords: ["comunicación digital", "redes sociales", "divulgación online"],
+    articleIds: [5, 50]
+  },
+  "campañas de sensibilización": {
+    explanation: "Iniciativas para concienciar a público sobre importancia de biodiversidad.",
+    keywords: ["campañas ecológicas", "sensibilización pública", "concientización masiva"],
+    articleIds: [5, 50]
+  },
+  "alianzas comunicacionales": {
+    explanation: "Colaboración con medios y comunicadores para difundir mensajes de conservación.",
+    keywords: ["alianzas estratégicas", "colaboración mediática", "redes de comunicación"],
+    articleIds: [5, 50]
+  },
+  
+  // 65. TEMAS DE SALUD Y BIENESTAR
+  "salud humana": {
+    explanation: "Relación entre conservación de biodiversidad y salud humana.",
+    keywords: ["salud ambiental", "bienestar humano", "salud ecosistémica"],
+    articleIds: [2]
+  },
+  "servicios de salud ecosistémicos": {
+    explanation: "Contribución de ecosistemas a prevención de enfermedades y bienestar.",
+    keywords: ["servicios de salud", "prevención de enfermedades", "bienestar ecológico"],
+    articleIds: [2]
+  },
+  "medicina tradicional": {
+    explanation: "Uso de recursos naturales con fines medicinales por comunidades locales.",
+    keywords: ["plantas medicinales", "conocimientos tradicionales", "remedios naturales"],
+    articleIds: [2, 62]
+  },
+  "seguridad alimentaria": {
+    explanation: "Relación entre biodiversidad y disponibilidad de alimentos.",
+    keywords: ["alimentación sostenible", "seguridad alimentaria", "diversidad de cultivos"],
+    articleIds: [2]
+  },
+  "bienestar humano": {
+    explanation: "Contribución de biodiversidad a calidad de vida de personas.",
+    keywords: ["calidad de vida", "bienestar social", "beneficios humanos"],
+    articleIds: [2]
+  },
+  
+  // 66. TEMAS DE CULTURA Y PATRIMONIO
+  "patrimonio cultural asociado": {
+    explanation: "Elementos culturales vinculados a áreas naturales y biodiversidad.",
+    keywords: ["patrimonio cultural", "legado cultural", "valores culturales"],
+    articleIds: [35, 53]
+  },
+  "conservación biocultural": {
+    explanation: "Enfoque que integra conservación de biodiversidad y cultura.",
+    keywords: ["enfoque biocultural", "conservación integral", "naturaleza y cultura"],
+    articleIds: [35, 62]
+  },
+  "identidad territorial": {
+    explanation: "Vínculo entre comunidades y su entorno natural.",
+    keywords: ["identidad local", "pertenencia territorial", "raíces ecológicas"],
+    articleIds: [35, 62]
+  },
+  "manifestaciones culturales": {
+    explanation: "Expresiones culturales relacionadas con biodiversidad.",
+    keywords: ["expresiones culturales", "manifestaciones tradicionales", "folklore ecológico"],
+    articleIds: [35, 62]
+  },
+  "turismo cultural": {
+    explanation: "Actividades turísticas que combinan naturaleza y cultura.",
+    keywords: ["turismo cultural", "visitas culturales", "patrimonio natural y cultural"],
+    articleIds: [35, 80]
+  },
+  
+  // 67. TEMAS DE DESARROLLO SOSTENIBLE
+  "desarrollo sostenible": {
+    explanation: "Modelo de desarrollo que integra conservación de biodiversidad.",
+    keywords: ["desarrollo sustentable", "progreso sostenible", "crecimiento verde"],
+    articleIds: [1, 36]
+  },
+  "economía verde": {
+    explanation: "Modelo económico que valora y conserva capital natural.",
+    keywords: ["economía ecológica", "crecimiento verde", "capital natural"],
+    articleIds: [50, 52]
+  },
+  "empleo verde": {
+    explanation: "Puestos de trabajo generados por actividades de conservación.",
+    keywords: ["trabajos verdes", "empleo ambiental", "ocupaciones ecológicas"],
+    articleIds: [50]
+  },
+  "desarrollo local": {
+    explanation: "Proyectos de desarrollo que involucran a comunidades locales.",
+    keywords: ["desarrollo comunitario", "progresos locales", "iniciativas territoriales"],
+    articleIds: [35, 50]
+  },
+  "inversión sostenible": {
+    explanation: "Asignación de recursos a proyectos que generan beneficios ambientales y sociales.",
+    keywords: ["inversión responsable", "financiamiento sostenible", "capital consciente"],
+    articleIds: [46, 50]
+  },
+  
+  // 68. TEMAS DE GOBERNANZA
+  "gobernanza ambiental": {
+    explanation: "Sistema de toma de decisiones en gestión de biodiversidad.",
+    keywords: ["gobierno ambiental", "toma de decisiones", "gestión pública"],
+    articleIds: [2, 54]
+  },
+  "descentralización": {
+    explanation: "Transferencia de competencias a nivel regional y local.",
+    keywords: ["descentralización política", "gestión regional", "competencias locales"],
+    articleIds: [8, 55]
+  },
+  "coordinación interinstitucional": {
+    explanation: "Trabajo conjunto entre diferentes organismos públicos.",
+    keywords: ["trabajo intersectorial", "coordinación pública", "gestión conjunta"],
+    articleIds: [2, 5]
+  },
+  "rendición de cuentas": {
+    explanation: "Mecanismos para que instituciones rindan cuenta sobre su gestión.",
+    keywords: ["transparencia", "responsabilidad pública", "informes de gestión"],
+    articleIds: [55]
+  },
+  "corresponsabilidad": {
+    explanation: "Compromiso compartido entre Estado, sociedad y sector privado en conservación.",
+    keywords: ["responsabilidad compartida", "compromiso conjunto", "alianzas multiactor"],
+    articleIds: [50, 54]
+  },
+  
+  // 69. TEMAS DE CONFLICTOS
+  "conflictos socioambientales": {
+    explanation: "Disputas relacionadas con uso de recursos naturales y conservación.",
+    keywords: ["conflictos ambientales", "disputas socioambientales", "tensiones territoriales"],
+    articleIds: [28, 63]
+  },
+  "resolución de conflictos": {
+    explanation: "Mecanismos para solucionar disputas relacionadas con biodiversidad.",
+    keywords: ["mediación ambiental", "solución de conflictos", "negociación ecológica"],
+    articleIds: [68]
+  },
+  "partes interesadas": {
+    explanation: "Actores involucrados o afectados por decisiones sobre biodiversidad.",
+    keywords: ["stakeholders", "actores relevantes", "grupos de interés"],
+    articleIds: [65, 74]
+  },
+  "consulta previa": {
+    explanation: "Proceso de consulta a comunidades antes de implementar proyectos.",
+    keywords: ["diálogo previo", "consulta comunitaria", "participación anticipada"],
+    articleIds: [65, 80]
+  },
+  "consentimiento libre informado": {
+    explanation: "Aprobación de comunidades después de recibir información completa.",
+    keywords: ["consentimiento informado", "aprobación comunitaria", "decisión autónoma"],
+    articleIds: [65, 80]
+  },
+  
+  // 70. TEMAS DE MONITOREO Y EVALUACIÓN
+  "monitoreo de la implementación": {
+    explanation: "Seguimiento de avances en aplicación de la ley y sus instrumentos.",
+    keywords: ["seguimiento de políticas", "evaluación de implementación", "monitoreo normativo"],
+    articleIds: [55]
+  },
+  "evaluación de impacto": {
+    explanation: "Análisis de efectos de proyectos y actividades sobre biodiversidad.",
+    keywords: ["evaluación ambiental", "análisis de impacto", "estudio de efectos"],
+    articleIds: [5, 38]
+  },
+  "auditorías ambientales": {
+    explanation: "Revisiones independientes de gestión ambiental del Servicio.",
+    keywords: ["evaluación externa", "auditoría ecológica", "revisión de gestión"],
+    articleIds: [55]
+  },
+  "indicadores de desempeño": {
+    explanation: "Parámetros para medir eficiencia y eficacia de gestión.",
+    keywords: ["métricas de gestión", "indicadores de eficiencia", "parámetros de evaluación"],
+    articleIds: [15, 55]
+  },
+  "sistemas de evaluación": {
+    explanation: "Metodologías para evaluar resultados de conservación.",
+    keywords: ["evaluación sistemática", "metodologías de evaluación", "análisis de resultados"],
+    articleIds: [15, 55]
+  },
+  
+  // 71. TEMAS DE TECNOLOGÍA
+  "tecnologías de información": {
+    explanation: "Uso de TIC en gestión de biodiversidad.",
+    keywords: ["TIC ambiental", "tecnología digital", "informática ecológica"],
+    articleIds: [24]
+  },
+  "sistemas de monitoreo remoto": {
+    explanation: "Uso de sensores y equipos remotos para recolectar datos ambientales.",
+    keywords: ["monitoreo remoto", "sensores ambientales", "teledetección"],
+    articleIds: [24, 25]
+  },
+  "plataformas digitales": {
+    explanation: "Herramientas online para gestión y difusión de información sobre biodiversidad.",
+    keywords: ["plataformas online", "herramientas digitales", "portales ambientales"],
+    articleIds: [24]
+  },
+  "modelos predictivos": {
+    explanation: "Herramientas para predecir cambios en ecosistemas y biodiversidad.",
+    keywords: ["modelos ecológicos", "simulación ambiental", "proyecciones ecosistémicas"],
+    articleIds: [25]
+  },
+  "big data ambiental": {
+    explanation: "Análisis de grandes volúmenes de datos ambientales.",
+    keywords: ["análisis de datos", "macrodatos ambientales", "data science ecológico"],
+    articleIds: [24]
+  },
+  
+  // 72. TEMAS DE RESILIENCIA
+  "resiliencia ecológica": {
+    explanation: "Capacidad de ecosistemas para recuperarse ante perturbaciones.",
+    keywords: ["resistencia ecológica", "recuperación de ecosistemas", "adaptación ecosistémica"],
+    articleIds: [33]
+  },
+  "resiliencia climática": {
+    explanation: "Capacidad de ecosistemas para adaptarse al cambio climático.",
+    keywords: ["adaptación climática", "resistencia al cambio", "resiliencia ecosistémica"],
+    articleIds: [54]
+  },
+  "recuperación de ecosistemas": {
+    explanation: "Procesos para restaurar funciones y estructura de ecosistemas degradados.",
+    keywords: ["restauración ecológica", "recuperación de hábitats", "rehabilitación ambiental"],
+    articleIds: [33]
+  },
+  "manejo adaptativo": {
+    explanation: "Enfoque de gestión que incorpora aprendizaje y ajustes continuos.",
+    keywords: ["gestión flexible", "aprendizaje organizacional", "manejo adaptativo"],
+    articleIds: [20, 71]
+  },
+  "conservación proactiva": {
+    explanation: "Medidas preventivas para evitar degradación de ecosistemas.",
+    keywords: ["prevención de daños", "conservación preventiva", "medidas proactivas"],
+    articleIds: [2, 45]
+  },
+  
+  // 73. TEMAS DE JUSTICIA AMBIENTAL
+  "justicia ambiental": {
+    explanation: "Distribución equitativa de beneficios y cargas ambientales.",
+    keywords: ["equidad ambiental", "justicia ecológica", "distribución justa"],
+    articleIds: [54]
+  },
+  "acceso a la información": {
+    explanation: "Derecho a obtener información sobre biodiversidad y gestión ambiental.",
+    keywords: ["transparencia", "acceso a datos", "información pública"],
+    articleIds: [2, 24]
+  },
+  "participación efectiva": {
+    explanation: "Involucramiento significativo de ciudadanos en decisiones ambientales.",
+    keywords: ["participación real", "inclusión efectiva", "decisión compartida"],
+    articleIds: [2, 54]
+  },
+  "acceso a la justicia": {
+    explanation: "Mecanismos para resolver disputas ambientales.",
+    keywords: ["justicia ambiental", "resolución de conflictos", "tribunales ambientales"],
+    articleIds: [134, 135, 136, 137, 138, 139]
+  },
+  "protección de defensores": {
+    explanation: "Medidas para proteger a personas que defienden biodiversidad.",
+    keywords: ["defensores ambientales", "protección de activistas", "seguridad ecológica"],
+    articleIds: [54]
+  },
+  
+  // 74. TEMAS DE COOPERACIÓN
+  "cooperación internacional": {
+    explanation: "Colaboración entre países para conservación de biodiversidad.",
+    keywords: ["colaboración global", "cooperación ambiental", "acuerdos internacionales"],
+    articleIds: [10, 49, 55]
+  },
+  "convenios internacionales": {
+    explanation: "Acuerdos con organismos internacionales para conservación.",
+    keywords: ["tratados ambientales", "acuerdos globales", "convenios internacionales"],
+    articleIds: [36, 37]
+  },
+  "proyectos binacionales": {
+    explanation: "Iniciativas de conservación entre países fronterizos.",
+    keywords: ["proyectos transfronterizos", "iniciativas binacionales", "cooperación regional"],
+    articleIds: [55]
+  },
+  "intercambio de experiencias": {
+    explanation: "Compartir conocimientos y buenas prácticas entre países.",
+    keywords: ["intercambio técnico", "buenas prácticas", "lecciones aprendidas"],
+    articleIds: [55]
+  },
+  "financiamiento internacional": {
+    explanation: "Recursos de organismos internacionales para proyectos de conservación.",
+    keywords: ["fondos globales", "financiamiento externo", "ayuda internacional"],
+    articleIds: [10, 49]
+  },
+  
+  // 75. TEMAS DE EMERGENCIAS
+  "contingencias ambientales": {
+    explanation: "Situaciones de emergencia que afectan a biodiversidad.",
+    keywords: ["emergencias ecológicas", "contingencias ambientales", "crisis ambientales"],
+    articleIds: [71]
+  },
+  "planes de contingencia": {
+    explanation: "Protocolos para responder a emergencias ambientales.",
+    keywords: ["protocolos de emergencia", "planes de respuesta", "contingencias ecológicas"],
+    articleIds: [71]
+  },
+  "incendios forestales": {
+    explanation: "Fuegos que afectan ecosistemas y medidas para prevenirlos y combatirlos.",
+    keywords: ["incendios", "prevención de incendios", "combate de fuego"],
+    articleIds: [1, 71]
+  },
+  "derrames químicos": {
+    explanation: "Liberación accidental de sustancias que afectan a biodiversidad.",
+    keywords: ["contaminación química", "derrames tóxicos", "emergencias químicas"],
+    articleIds: [108]
+  },
+  "invasiones biológicas": {
+    explanation: "Llegada masiva de especies exóticas que amenazan ecosistemas.",
+    keywords: ["invasiones biológicas", "plagas emergentes", "especies invasoras"],
+    articleIds: [45]
+  },
+  
+  // 76. TEMAS DE RESTAURACIÓN
+  "restauración de ecosistemas": {
+    explanation: "Procesos para recuperar ecosistemas degradados a condiciones originales.",
+    keywords: ["recuperación ecológica", "rehabilitación ambiental", "restauración de hábitats"],
+    articleIds: [24, 33, 38]
+  },
+  "técnicas de restauración": {
+    explanation: "Métodos utilizados para restaurar ecosistemas degradados.",
+    keywords: ["métodos de restauración", "técnicas de rehabilitación", "intervenciones ecológicas"],
+    articleIds: [33]
+  },
+  "monitoreo de restauración": {
+    explanation: "Seguimiento de avances en proyectos de restauración ecológica.",
+    keywords: ["evaluación de restauración", "seguimiento ecológico", "indicadores de recuperación"],
+    articleIds: [33]
+  },
+  "participación comunitaria en restauración": {
+    explanation: "Involucramiento de comunidades locales en proyectos de restauración.",
+    keywords: ["restauración participativa", "comunidades locales", "voluntariado ecológico"],
+    articleIds: [33]
+  },
+  "financiamiento de restauración": {
+    explanation: "Mecanismos económicos para proyectos de restauración ecológica.",
+    keywords: ["fondos de restauración", "inversión ecológica", "financiamiento ambiental"],
+    articleIds: [33, 46]
+  },
+  
+  // 77. TEMAS DE ESPECIES
+  "conservación de especies": {
+    explanation: "Medidas para proteger especies amenazadas y sus hábitats.",
+    keywords: ["protección de especies", "conservación de fauna", "conservación de flora"],
+    articleIds: [42, 43, 44]
+  },
+  "recuperación de poblaciones": {
+    explanation: "Acciones para aumentar poblaciones de especies amenazadas.",
+    keywords: ["repoblamiento", "recuperación de especies", "aumento poblacional"],
+    articleIds: [42, 43]
+  },
+  "manejo de hábitats": {
+    explanation: "Intervenciones para mejorar condiciones de hábitats de especies.",
+    keywords: ["mejora de hábitats", "manejo de ecosistemas", "gestión de ambientes"],
+    articleIds: [42, 43]
+  },
+  "control de amenazas": {
+    explanation: "Medidas para reducir factores que amenazan a especies.",
+    keywords: ["reducción de amenazas", "control de riesgos", "mitigación de peligros"],
+    articleIds: [42, 43, 45]
+  },
+  "monitoreo de especies": {
+    explanation: "Seguimiento de poblaciones y estado de conservación de especies.",
+    keywords: ["seguimiento de especies", "monitoreo poblacional", "evaluación de estado"],
+    articleIds: [25, 42]
+  },
+  
+  // 78. TEMAS DE ÁREAS PROTEGIDAS
+  "categorías de protección": {
+    explanation: "Clasificación de áreas protegidas según objetivos de conservación.",
+    keywords: ["tipos de protección", "categorías de áreas", "niveles de conservación"],
+    articleIds: [56]
+  },
+  "objetos de conservación": {
+    explanation: "Elementos específicos que se busca proteger en un área.",
+    keywords: ["objetivos de protección", "elementos a conservar", "valores a proteger"],
+    articleIds: [64, 72]
+  },
+  "límites de áreas protegidas": {
+    explanation: "Delimitación geográfica de áreas protegidas.",
+    keywords: ["deslindes", "límites geográficos", "perímetros protegidos"],
+    articleIds: [64, 65]
+  },
+  "declaratoria de áreas": {
+    explanation: "Proceso legal para establecer nuevas áreas protegidas.",
+    keywords: ["creación de áreas", "declaratoria oficial", "establecimiento de protección"],
+    articleIds: [64, 65]
+  },
+  "manejo de áreas protegidas": {
+    explanation: "Conjunto de acciones para administrar y conservar áreas protegidas.",
+    keywords: ["gestión de áreas", "administración de parques", "manejo de reservas"],
+    articleIds: [67, 71, 72]
+  },
+  
+  // 79. TEMAS DE PARTICIPACIÓN CIUDADANA
+  "voluntariado ambiental": {
+    explanation: "Participación de ciudadanos en actividades de conservación.",
+    keywords: ["voluntarios ecológicos", "participación ciudadana", "trabajo voluntario"],
+    articleIds: [54]
+  },
+  "ciudadanía ambiental": {
+    explanation: "Formación de ciudadanos comprometidos con conservación de biodiversidad.",
+    keywords: ["ciudadanos ecológicos", "conciencia cívica", "compromiso ambiental"],
+    articleIds: [2, 54]
+  },
+  "observadores ciudadanos": {
+    explanation: "Personas que reportan información sobre estado de biodiversidad.",
+    keywords: ["vigilancia ciudadana", "reportes ambientales", "observadores ecológicos"],
+    articleIds: [25]
+  },
+  "educación no formal": {
+    explanation: "Actividades educativas fuera de sistema formal para concienciar sobre biodiversidad.",
+    keywords: ["educación informal", "divulgación ambiental", "sensibilización ecológica"],
+    articleIds: [5, 50, 76]
+  },
+  "comités comunitarios": {
+    explanation: "Grupos de ciudadanos que participan en gestión de áreas protegidas.",
+    keywords: ["comités locales", "grupos comunitarios", "organizaciones vecinales"],
+    articleIds: [55, 68]
+  },
+  
+  // 80. TEMAS DE TURISMO SOSTENIBLE
+  "capacidad de carga": {
+    explanation: "Número máximo de visitantes que un área puede soportar sin deteriorarse.",
+    keywords: ["límite de visitantes", "capacidad de acogida", "tolerancia de uso"],
+    articleIds: [72]
+  },
+  "turismo de bajo impacto": {
+    explanation: "Turismo con mínimo impacto en áreas naturales protegidas.",
+    keywords: ["turismo mínimo impacto", "visitas controladas", "turismo no masivo"],
+    articleIds: [58]
+  },
+  "guías locales": {
+    explanation: "Personas de comunidades locales que guían a visitantes en áreas protegidas.",
+    keywords: ["guías comunitarios", "turismo local", "interpretación local"],
+    articleIds: [50, 80]
+  },
+  "infraestructura turística": {
+    explanation: "Instalaciones para recibir visitantes en áreas protegidas.",
+    keywords: ["instalaciones turísticas", "infraestructura de parques", "servicios para visitantes"],
+    articleIds: [79, 80]
+  },
+  "gestión de visitantes": {
+    explanation: "Conjunto de acciones para administrar flujo de turistas en áreas protegidas.",
+    keywords: ["manejo de turismo", "administración de visitantes", "gestión de público"],
+    articleIds: [67, 72]
+  },
+  
+  // 81. TEMAS DE INVESTIGACIÓN CIENTÍFICA
+  "líneas de investigación": {
+    explanation: "Temas prioritarios de investigación en biodiversidad.",
+    keywords: ["prioridades de investigación", "temas de estudio", "líneas científicas"],
+    articleIds: [5, 25]
+  },
+  "estudios de biodiversidad": {
+    explanation: "Investigaciones para conocer composición y estado de biodiversidad.",
+    keywords: ["inventarios biológicos", "estudios ecológicos", "investigación de biodiversidad"],
+    articleIds: [24, 25]
+  },
+  "monitoreo científico": {
+    explanation: "Seguimiento sistemático de variables ecológicas para evaluar estado de biodiversidad.",
+    keywords: ["seguimiento ecológico", "monitoreo ambiental", "evaluación científica"],
+    articleIds: [25]
+  },
+  "publicaciones científicas": {
+    explanation: "Difusión de resultados de investigaciones sobre biodiversidad.",
+    keywords: ["divulgación científica", "artículos técnicos", "publicaciones ambientales"],
+    articleIds: [5]
+  },
+  "cooperación científica": {
+    explanation: "Colaboración entre instituciones para investigación en biodiversidad.",
+    keywords: ["colaboración académica", "investigación conjunta", "cooperación técnica"],
+    articleIds: [5, 25]
+  },
+  
+  // 82. TEMAS DE GESTIÓN INTEGRAL
+  "manejo adaptativo": {
+    explanation: "Enfoque de gestión que incorpora aprendizaje y ajustes continuos.",
+    keywords: ["gestión flexible", "aprendizaje organizacional", "manejo adaptativo"],
+    articleIds: [20, 71]
+  },
+  "gestión ecosistémica": {
+    explanation: "Enfoque que considera ecosistemas completos en lugar de especies individuales.",
+    keywords: ["manejo ecosistémico", "gestión integral", "enfoque sistémico"],
+    articleIds: [23]
+  },
+  "planificación estratégica": {
+    explanation: "Definición de objetivos y estrategias a largo plazo para conservación.",
+    keywords: ["planificación a largo plazo", "estrategias de conservación", "visión de futuro"],
+    articleIds: [55]
+  },
+  "evaluación de gestión": {
+    explanation: "Medición de eficiencia y eficacia de acciones de conservación.",
+    keywords: ["evaluación de eficiencia", "medición de resultados", "análisis de gestión"],
+    articleIds: [55]
+  },
+  "retroalimentación de procesos": {
+    explanation: "Mecanismos para aprender de experiencias y mejorar gestión.",
+    keywords: ["aprendizaje organizacional", "mejora continua", "retroalimentación"],
+    articleIds: [55]
+  },
+  
+  // 83. TEMAS DE FINANCIAMIENTO
+  "fondo nacional de biodiversidad": {
+    explanation: "Fondo para financiar proyectos de conservación fuera de áreas protegidas.",
+    keywords: ["financiamiento ambiental", "fondos de conservación", "inversión ecológica"],
+    articleIds: [46, 47, 48, 49]
+  },
+  "incentivos fiscales": {
+    explanation: "Beneficios tributarios para promover conservación de biodiversidad.",
+    keywords: ["exenciones tributarias", "incentivos fiscales", "beneficios impositivos"],
+    articleIds: [105]
+  },
+  "pago por servicios ambientales": {
+    explanation: "Esquemas donde se paga a quienes conservan servicios ecosistémicos.",
+    keywords: ["compensación por servicios", "incentivos ecológicos", "valoración de servicios"],
+    articleIds: [52]
+  },
+  "mercados verdes": {
+    explanation: "Sistemas donde se comercializan productos de biodiversidad sostenible.",
+    keywords: ["comercio ecológico", "mercados sostenibles", "productos verdes"],
+    articleIds: [50]
+  },
+  "inversión privada": {
+    explanation: "Aportes de empresas y particulares a proyectos de conservación.",
+    keywords: ["financiamiento privado", "inversión empresarial", "aportes particulares"],
+    articleIds: [46, 50]
+  },
+  
+  // 84. TEMAS DE TECNOLOGÍA E INNOVACIÓN
+  "tecnologías limpias": {
+    explanation: "Tecnologías con mínimo impacto ambiental para gestión de biodiversidad.",
+    keywords: ["tecnologías verdes", "innovación limpia", "tecnologías sostenibles"],
+    articleIds: [24]
+  },
+  "aplicaciones móviles": {
+    explanation: "Herramientas digitales para monitoreo y educación sobre biodiversidad.",
+    keywords: ["apps ambientales", "aplicaciones móviles", "herramientas digitales"],
+    articleIds: [24]
+  },
+  "sensores ambientales": {
+    explanation: "Dispositivos para recolectar datos ambientales en tiempo real.",
+    keywords: ["monitoreo ambiental", "sensores ecológicos", "dispositivos de medición"],
+    articleIds: [24, 25]
+  },
+  "inteligencia artificial": {
+    explanation: "Aplicación de IA en análisis de datos de biodiversidad.",
+    keywords: ["IA ambiental", "análisis automatizado", "machine learning ecológico"],
+    articleIds: [24]
+  },
+  "blockchain ambiental": {
+    explanation: "Uso de tecnología blockchain para transparencia en gestión ambiental.",
+    keywords: ["cadena de bloques", "transparencia digital", "gestión blockchain"],
+    articleIds: [24]
+  },
+  
+  // 85. TEMAS DE CAMBIO CLIMÁTICO
+  "mitigación climática": {
+    explanation: "Medidas para reducir emisiones de gases de efecto invernadero.",
+    keywords: ["reducción de emisiones", "mitigación de cambio climático", "acciones climáticas"],
+    articleIds: [54]
+  },
+  "adaptación climática": {
+    explanation: "Medidas para adaptarse a impactos del cambio climático.",
+    keywords: ["adaptación al cambio", "resiliencia climática", "ajustes climáticos"],
+    articleIds: [54]
+  },
+  "servicios de regulación climática": {
+    explanation: "Funciones de ecosistemas que regulan clima.",
+    keywords: ["regulación climática", "servicios climáticos", "funciones ecosistémicas"],
+    articleIds: [2, 54]
+  },
+  "vulnerabilidad climática": {
+    explanation: "Evaluación de cómo afecta el cambio climático a ecosistemas y especies.",
+    keywords: ["impactos climáticos", "vulnerabilidad ecológica", "adaptación al cambio"],
+    articleIds: [25, 54]
+  },
+  "soluciones basadas en naturaleza": {
+    explanation: "Acciones que usan ecosistemas para enfrentar desafíos sociales.",
+    keywords: ["soluciones naturales", "enfoques ecosistémicos", "acciones basadas en naturaleza"],
+    articleIds: [54]
+  },
+  
+  // 86. TEMAS DE PARTICIPACIÓN INDÍGENA
+  "consulta indígena": {
+    explanation: "Proceso de consulta a pueblos indígenas para medidas que les afecten.",
+    keywords: ["participación indígena", "consulta previa", "diálogo intercultural"],
+    articleIds: [65, 80]
+  },
+  "consentimiento libre informado": {
+    explanation: "Aprobación de comunidades después de recibir información completa.",
+    keywords: ["consentimiento informado", "aprobación comunitaria", "decisión autónoma"],
+    articleIds: [65, 80]
+  },
+  "conocimientos tradicionales": {
+    explanation: "Saberes de comunidades indígenas relevantes para conservación.",
+    keywords: ["saberes ancestrales", "conocimiento local", "tradiciones ecológicas"],
+    articleIds: [2, 62]
+  },
+  "territorios indígenas": {
+    explanation: "Tierras de pueblos indígenas y su relación con biodiversidad.",
+    keywords: ["tierras indígenas", "territorios ancestrales", "comunidades originarias"],
+    articleIds: [62]
+  },
+  "gestión indígena": {
+    explanation: "Manejo de recursos naturales por comunidades indígenas.",
+    keywords: ["manejo ancestral", "gestión tradicional", "administración indígena"],
+    articleIds: [62]
+  },
+  
+  // 87. TEMAS DE EDUCACIÓN AMBIENTAL
+  "currículo escolar": {
+    explanation: "Incorporación de biodiversidad en programas educativos formales.",
+    keywords: ["educación formal", "currículo ecológico", "enseñanza ambiental"],
+    articleIds: [5, 50]
+  },
+  "material didáctico": {
+    explanation: "Recursos para enseñanza sobre conservación de biodiversidad.",
+    keywords: ["recursos educativos", "material pedagógico", "herramientas didácticas"],
+    articleIds: [5, 50]
+  },
+  "formación docente": {
+    explanation: "Capacitación a profesores para enseñar sobre biodiversidad.",
+    keywords: ["capacitación docente", "formación de educadores", "actualización pedagógica"],
+    articleIds: [5, 50]
+  },
+  "programas escolares": {
+    explanation: "Iniciativas para incorporar educación ambiental en establecimientos educativos.",
+    keywords: ["programas educativos", "iniciativas escolares", "proyectos ecológicos"],
+    articleIds: [5, 50]
+  },
+  "educación no formal": {
+    explanation: "Actividades educativas fuera de sistema formal para concienciar sobre biodiversidad.",
+    keywords: ["educación informal", "divulgación ambiental", "sensibilización ecológica"],
+    articleIds: [5, 50, 76]
+  },
+  
+  // 88. TEMAS DE COMUNICACIÓN
+  "estrategias de comunicación": {
+    explanation: "Planes para difundir información sobre biodiversidad.",
+    keywords: ["comunicación ambiental", "difusión ecológica", "estrategias informativas"],
+    articleIds: [5, 50]
+  },
+  "periodismo ambiental": {
+    explanation: "Cobertura mediática de temas relacionados con biodiversidad.",
+    keywords: ["medios de comunicación", "periodismo ecológico", "información ambiental"],
+    articleIds: [5, 50]
+  },
+  "redes sociales": {
+    explanation: "Uso de plataformas digitales para difundir mensajes de conservación.",
+    keywords: ["comunicación digital", "redes sociales", "divulgación online"],
+    articleIds: [5, 50]
+  },
+  "campañas de sensibilización": {
+    explanation: "Iniciativas para concienciar a público sobre importancia de biodiversidad.",
+    keywords: ["campañas ecológicas", "sensibilización pública", "concientización masiva"],
+    articleIds: [5, 50]
+  },
+  "alianzas comunicacionales": {
+    explanation: "Colaboración con medios y comunicadores para difundir mensajes de conservación.",
+    keywords: ["alianzas estratégicas", "colaboración mediática", "redes de comunicación"],
+    articleIds: [5, 50]
+  },
+  
+  // 89. TEMAS DE SALUD Y BIENESTAR
+  "salud humana": {
+    explanation: "Relación entre conservación de biodiversidad y salud humana.",
+    keywords: ["salud ambiental", "bienestar humano", "salud ecosistémica"],
+    articleIds: [2]
+  },
+  "servicios de salud ecosistémicos": {
+    explanation: "Contribución de ecosistemas a prevención de enfermedades y bienestar.",
+    keywords: ["servicios de salud", "prevención de enfermedades", "bienestar ecológico"],
+    articleIds: [2]
+  },
+  "medicina tradicional": {
+    explanation: "Uso de recursos naturales con fines medicinales por comunidades locales.",
+    keywords: ["plantas medicinales", "conocimientos tradicionales", "remedios naturales"],
+    articleIds: [2, 62]
+  },
+  "seguridad alimentaria": {
+    explanation: "Relación entre biodiversidad y disponibilidad de alimentos.",
+    keywords: ["alimentación sostenible", "seguridad alimentaria", "diversidad de cultivos"],
+    articleIds: [2]
+  },
+  "bienestar humano": {
+    explanation: "Contribución de biodiversidad a calidad de vida de personas.",
+    keywords: ["calidad de vida", "bienestar social", "beneficios humanos"],
+    articleIds: [2]
+  },
+  
+  // 90. TEMAS DE CULTURA Y PATRIMONIO
+  "patrimonio cultural asociado": {
+    explanation: "Elementos culturales vinculados a áreas naturales y biodiversidad.",
+    keywords: ["patrimonio cultural", "legado cultural", "valores culturales"],
+    articleIds: [35, 53]
+  },
+  "conservación biocultural": {
+    explanation: "Enfoque que integra conservación de biodiversidad y cultura.",
+    keywords: ["enfoque biocultural", "conservación integral", "naturaleza y cultura"],
+    articleIds: [35, 62]
+  },
+  "identidad territorial": {
+    explanation: "Vínculo entre comunidades y su entorno natural.",
+    keywords: ["identidad local", "pertenencia territorial", "raíces ecológicas"],
+    articleIds: [35, 62]
+  },
+  "manifestaciones culturales": {
+    explanation: "Expresiones culturales relacionadas con biodiversidad.",
+    keywords: ["expresiones culturales", "manifestaciones tradicionales", "folklore ecológico"],
+    articleIds: [35, 62]
+  },
+  "turismo cultural": {
+    explanation: "Actividades turísticas que combinan naturaleza y cultura.",
+    keywords: ["turismo cultural", "visitas culturales", "patrimonio natural y cultural"],
+    articleIds: [35, 80]
+  },
+  
+  // 91. TEMAS DE DESARROLLO SOSTENIBLE
+  "desarrollo sostenible": {
+    explanation: "Modelo de desarrollo que integra conservación de biodiversidad.",
+    keywords: ["desarrollo sustentable", "progreso sostenible", "crecimiento verde"],
+    articleIds: [1, 36]
+  },
+  "economía verde": {
+    explanation: "Modelo económico que valora y conserva capital natural.",
+    keywords: ["economía ecológica", "crecimiento verde", "capital natural"],
+    articleIds: [50, 52]
+  },
+  "empleo verde": {
+    explanation: "Puestos de trabajo generados por actividades de conservación.",
+    keywords: ["trabajos verdes", "empleo ambiental", "ocupaciones ecológicas"],
+    articleIds: [50]
+  },
+  "desarrollo local": {
+    explanation: "Proyectos de desarrollo que involucran a comunidades locales.",
+    keywords: ["desarrollo comunitario", "progresos locales", "iniciativas territoriales"],
+    articleIds: [35, 50]
+  },
+  "inversión sostenible": {
+    explanation: "Asignación de recursos a proyectos que generan beneficios ambientales y sociales.",
+    keywords: ["inversión responsable", "financiamiento sostenible", "capital consciente"],
+    articleIds: [46, 50]
+  },
+  
+  // 92. TEMAS DE GOBERNANZA
+  "gobernanza ambiental": {
+    explanation: "Sistema de toma de decisiones en gestión de biodiversidad.",
+    keywords: ["gobierno ambiental", "toma de decisiones", "gestión pública"],
+    articleIds: [2, 54]
+  },
+  "descentralización": {
+    explanation: "Transferencia de competencias a nivel regional y local.",
+    keywords: ["descentralización política", "gestión regional", "competencias locales"],
+    articleIds: [8, 55]
+  },
+  "coordinación interinstitucional": {
+    explanation: "Trabajo conjunto entre diferentes organismos públicos.",
+    keywords: ["trabajo intersectorial", "coordinación pública", "gestión conjunta"],
+    articleIds: [2, 5]
+  },
+  "rendición de cuentas": {
+    explanation: "Mecanismos para que instituciones rindan cuenta sobre su gestión.",
+    keywords: ["transparencia", "responsabilidad pública", "informes de gestión"],
+    articleIds: [55]
+  },
+  "corresponsabilidad": {
+    explanation: "Compromiso compartido entre Estado, sociedad y sector privado en conservación.",
+    keywords: ["responsabilidad compartida", "compromiso conjunto", "alianzas multiactor"],
+    articleIds: [50, 54]
+  },
+  
+  // 93. TEMAS DE CONFLICTOS
+  "conflictos socioambientales": {
+    explanation: "Disputas relacionadas con uso de recursos naturales y conservación.",
+    keywords: ["conflictos ambientales", "disputas socioambientales", "tensiones territoriales"],
+    articleIds: [28, 63]
+  },
+  "resolución de conflictos": {
+    explanation: "Mecanismos para solucionar disputas relacionadas con biodiversidad.",
+    keywords: ["mediación ambiental", "solución de conflictos", "negociación ecológica"],
+    articleIds: [68]
+  },
+  "partes interesadas": {
+    explanation: "Actores involucrados o afectados por decisiones sobre biodiversidad.",
+    keywords: ["stakeholders", "actores relevantes", "grupos de interés"],
+    articleIds: [65, 74]
+  },
+  "consulta previa": {
+    explanation: "Proceso de consulta a comunidades antes de implementar proyectos.",
+    keywords: ["diálogo previo", "consulta comunitaria", "participación anticipada"],
+    articleIds: [65, 80]
+  },
+  "consentimiento libre informado": {
+    explanation: "Aprobación de comunidades después de recibir información completa.",
+    keywords: ["consentimiento informado", "aprobación comunitaria", "decisión autónoma"],
+    articleIds: [65, 80]
+  },
+  
+  // 94. TEMAS DE MONITOREO Y EVALUACIÓN
+  "monitoreo de la implementación": {
+    explanation: "Seguimiento de avances en aplicación de la ley y sus instrumentos.",
+    keywords: ["seguimiento de políticas", "evaluación de implementación", "monitoreo normativo"],
+    articleIds: [55]
+  },
+  "evaluación de impacto": {
+    explanation: "Análisis de efectos de proyectos y actividades sobre biodiversidad.",
+    keywords: ["evaluación ambiental", "análisis de impacto", "estudio de efectos"],
+    articleIds: [5, 38]
+  },
+  "auditorías ambientales": {
+    explanation: "Revisiones independientes de gestión ambiental del Servicio.",
+    keywords: ["evaluación externa", "auditoría ecológica", "revisión de gestión"],
+    articleIds: [55]
+  },
+  "indicadores de desempeño": {
+    explanation: "Parámetros para medir eficiencia y eficacia de gestión.",
+    keywords: ["métricas de gestión", "indicadores de eficiencia", "parámetros de evaluación"],
+    articleIds: [15, 55]
+  },
+  "sistemas de evaluación": {
+    explanation: "Metodologías para evaluar resultados de conservación.",
+    keywords: ["evaluación sistemática", "metodologías de evaluación", "análisis de resultados"],
+    articleIds: [15, 55]
+  },
+  
+  // 95. TEMAS DE TECNOLOGÍA
+  "tecnologías de información": {
+    explanation: "Uso de TIC en gestión de biodiversidad.",
+    keywords: ["TIC ambiental", "tecnología digital", "informática ecológica"],
+    articleIds: [24]
+  },
+  "sistemas de monitoreo remoto": {
+    explanation: "Uso de sensores y equipos remotos para recolectar datos ambientales.",
+    keywords: ["monitoreo remoto", "sensores ambientales", "teledetección"],
+    articleIds: [24, 25]
+  },
+  "plataformas digitales": {
+    explanation: "Herramientas online para gestión y difusión de información sobre biodiversidad.",
+    keywords: ["plataformas online", "herramientas digitales", "portales ambientales"],
+    articleIds: [24]
+  },
+  "modelos predictivos": {
+    explanation: "Herramientas para predecir cambios en ecosistemas y biodiversidad.",
+    keywords: ["modelos ecológicos", "simulación ambiental", "proyecciones ecosistémicas"],
+    articleIds: [25]
+  },
+  "big data ambiental": {
+    explanation: "Análisis de grandes volúmenes de datos ambientales.",
+    keywords: ["análisis de datos", "macrodatos ambientales", "data science ecológico"],
+    articleIds: [24]
+  },
+  
+  // 96. TEMAS DE RESILIENCIA
+  "resiliencia ecológica": {
+    explanation: "Capacidad de ecosistemas para recuperarse ante perturbaciones.",
+    keywords: ["resistencia ecológica", "recuperación de ecosistemas", "adaptación ecosistémica"],
+    articleIds: [33]
+  },
+  "resiliencia climática": {
+    explanation: "Capacidad de ecosistemas para adaptarse al cambio climático.",
+    keywords: ["adaptación climática", "resistencia al cambio", "resiliencia ecosistémica"],
+    articleIds: [54]
+  },
+  "recuperación de ecosistemas": {
+    explanation: "Procesos para restaurar funciones y estructura de ecosistemas degradados.",
+    keywords: ["restauración ecológica", "recuperación de hábitats", "rehabilitación ambiental"],
+    articleIds: [33]
+  },
+  "manejo adaptativo": {
+    explanation: "Enfoque de gestión que incorpora aprendizaje y ajustes continuos.",
+    keywords: ["gestión flexible", "aprendizaje organizacional", "manejo adaptativo"],
+    articleIds: [20, 71]
+  },
+  "conservación proactiva": {
+    explanation: "Medidas preventivas para evitar degradación de ecosistemas.",
+    keywords: ["prevención de daños", "conservación preventiva", "medidas proactivas"],
+    articleIds: [2, 45]
+  },
+  
+  // 97. TEMAS DE JUSTICIA AMBIENTAL
+  "justicia ambiental": {
+    explanation: "Distribución equitativa de beneficios y cargas ambientales.",
+    keywords: ["equidad ambiental", "justicia ecológica", "distribución justa"],
+    articleIds: [54]
+  },
+  "acceso a la información": {
+    explanation: "Derecho a obtener información sobre biodiversidad y gestión ambiental.",
+    keywords: ["transparencia", "acceso a datos", "información pública"],
+    articleIds: [2, 24]
+  },
+  "participación efectiva": {
+    explanation: "Involucramiento significativo de ciudadanos en decisiones ambientales.",
+    keywords: ["participación real", "inclusión efectiva", "decisión compartida"],
+    articleIds: [2, 54]
+  },
+  "acceso a la justicia": {
+    explanation: "Mecanismos para resolver disputas ambientales.",
+    keywords: ["justicia ambiental", "resolución de conflictos", "tribunales ambientales"],
+    articleIds: [134, 135, 136, 137, 138, 139]
+  },
+  "protección de defensores": {
+    explanation: "Medidas para proteger a personas que defienden biodiversidad.",
+    keywords: ["defensores ambientales", "protección de activistas", "seguridad ecológica"],
+    articleIds: [54]
+  },
+  
+  // 98. TEMAS DE COOPERACIÓN
+  "cooperación internacional": {
+    explanation: "Colaboración entre países para conservación de biodiversidad.",
+    keywords: ["colaboración global", "cooperación ambiental", "acuerdos internacionales"],
+    articleIds: [10, 49, 55]
+  },
+  "convenios internacionales": {
+    explanation: "Acuerdos con organismos internacionales para conservación.",
+    keywords: ["tratados ambientales", "acuerdos globales", "convenios internacionales"],
+    articleIds: [36, 37]
+  },
+  "proyectos binacionales": {
+    explanation: "Iniciativas de conservación entre países fronterizos.",
+    keywords: ["proyectos transfronterizos", "iniciativas binacionales", "cooperación regional"],
+    articleIds: [55]
+  },
+  "intercambio de experiencias": {
+    explanation: "Compartir conocimientos y buenas prácticas entre países.",
+    keywords: ["intercambio técnico", "buenas prácticas", "lecciones aprendidas"],
+    articleIds: [55]
+  },
+  "financiamiento internacional": {
+    explanation: "Recursos de organismos internacionales para proyectos de conservación.",
+    keywords: ["fondos globales", "financiamiento externo", "ayuda internacional"],
+    articleIds: [10, 49]
+  },
+  
+  // 99. TEMAS DE EMERGENCIAS
+  "contingencias ambientales": {
+    explanation: "Situaciones de emergencia que afectan a biodiversidad.",
+    keywords: ["emergencias ecológicas", "contingencias ambientales", "crisis ambientales"],
+    articleIds: [71]
+  },
+  "planes de contingencia": {
+    explanation: "Protocolos para responder a emergencias ambientales.",
+    keywords: ["protocolos de emergencia", "planes de respuesta", "contingencias ecológicas"],
+    articleIds: [71]
+  },
+  "incendios forestales": {
+    explanation: "Fuegos que afectan ecosistemas y medidas para prevenirlos y combatirlos.",
+    keywords: ["incendios", "prevención de incendios", "combate de fuego"],
+    articleIds: [1, 71]
+  },
+  "derrames químicos": {
+    explanation: "Liberación accidental de sustancias que afectan a biodiversidad.",
+    keywords: ["contaminación química", "derrames tóxicos", "emergencias químicas"],
+    articleIds: [108]
+  },
+  "invasiones biológicas": {
+    explanation: "Llegada masiva de especies exóticas que amenazan ecosistemas.",
+    keywords: ["invasiones biológicas", "plagas emergentes", "especies invasoras"],
+    articleIds: [45]
+  },
+  
+  // 100. TEMAS DE RESTAURACIÓN
+  "restauración de ecosistemas": {
+    explanation: "Procesos para recuperar ecosistemas degradados a condiciones originales.",
+    keywords: ["recuperación ecológica", "rehabilitación ambiental", "restauración de hábitats"],
+    articleIds: [24, 33, 38]
+  },
+  "técnicas de restauración": {
+    explanation: "Métodos utilizados para restaurar ecosistemas degradados.",
+    keywords: ["métodos de restauración", "técnicas de rehabilitación", "intervenciones ecológicas"],
+    articleIds: [33]
+  },
+  "monitoreo de restauración": {
+    explanation: "Seguimiento de avances en proyectos de restauración ecológica.",
+    keywords: ["evaluación de restauración", "seguimiento ecológico", "indicadores de recuperación"],
+    articleIds: [33]
+  },
+  "participación comunitaria en restauración": {
+    explanation: "Involucramiento de comunidades locales en proyectos de restauración.",
+    keywords: ["restauración participativa", "comunidades locales", "voluntariado ecológico"],
+    articleIds: [33]
+  },
+  "financiamiento de restauración": {
+    explanation: "Mecanismos económicos para proyectos de restauración ecológica.",
+    keywords: ["fondos de restauración", "inversión ecológica", "financiamiento ambiental"],
+    articleIds: [33, 46]
+  },
+  
+  // 101. TEMAS DE ESPECIES
+  "conservación de especies": {
+    explanation: "Medidas para proteger especies amenazadas y sus hábitats.",
+    keywords: ["protección de especies", "conservación de fauna", "conservación de flora"],
+    articleIds: [42, 43, 44]
+  },
+  "recuperación de poblaciones": {
+    explanation: "Acciones para aumentar poblaciones de especies amenazadas.",
+    keywords: ["repoblamiento", "recuperación de especies", "aumento poblacional"],
+    articleIds: [42, 43]
+  },
+  "manejo de hábitats": {
+    explanation: "Intervenciones para mejorar condiciones de hábitats de especies.",
+    keywords: ["mejora de hábitats", "manejo de ecosistemas", "gestión de ambientes"],
+    articleIds: [42, 43]
+  },
+  "control de amenazas": {
+    explanation: "Medidas para reducir factores que amenazan a especies.",
+    keywords: ["reducción de amenazas", "control de riesgos", "mitigación de peligros"],
+    articleIds: [42, 43, 45]
+  },
+  "monitoreo de especies": {
+    explanation: "Seguimiento de poblaciones y estado de conservación de especies.",
+    keywords: ["seguimiento de especies", "monitoreo poblacional", "evaluación de estado"],
+    articleIds: [25, 42]
+  },
+  
+  // 102. TEMAS DE ÁREAS PROTEGIDAS
+  "categorías de protección": {
+    explanation: "Clasificación de áreas protegidas según objetivos de conservación.",
+    keywords: ["tipos de protección", "categorías de áreas", "niveles de conservación"],
+    articleIds: [56]
+  },
+  "objetos de conservación": {
+    explanation: "Elementos específicos que se busca proteger en un área.",
+    keywords: ["objetivos de protección", "elementos a conservar", "valores a proteger"],
+    articleIds: [64, 72]
+  },
+  "límites de áreas protegidas": {
+    explanation: "Delimitación geográfica de áreas protegidas.",
+    keywords: ["deslindes", "límites geográficos", "perímetros protegidos"],
+    articleIds: [64, 65]
+  },
+  "declaratoria de áreas": {
+    explanation: "Proceso legal para establecer nuevas áreas protegidas.",
+    keywords: ["creación de áreas", "declaratoria oficial", "establecimiento de protección"],
+    articleIds: [64, 65]
+  },
+  "manejo de áreas protegidas": {
+    explanation: "Conjunto de acciones para administrar y conservar áreas protegidas.",
+    keywords: ["gestión de áreas", "administración de parques", "manejo de reservas"],
+    articleIds: [67, 71, 72]
+  },
+  
+  // 103. TEMAS DE PARTICIPACIÓN CIUDADANA
+  "voluntariado ambiental": {
+    explanation: "Participación de ciudadanos en actividades de conservación.",
+    keywords: ["voluntarios ecológicos", "participación ciudadana", "trabajo voluntario"],
+    articleIds: [54]
+  },
+  "ciudadanía ambiental": {
+    explanation: "Formación de ciudadanos comprometidos con conservación de biodiversidad.",
+    keywords: ["ciudadanos ecológicos", "conciencia cívica", "compromiso ambiental"],
+    articleIds: [2, 54]
+  },
+  "observadores ciudadanos": {
+    explanation: "Personas que reportan información sobre estado de biodiversidad.",
+    keywords: ["vigilancia ciudadana", "reportes ambientales", "observadores ecológicos"],
+    articleIds: [25]
+  },
+  "educación no formal": {
+    explanation: "Actividades educativas fuera de sistema formal para concienciar sobre biodiversidad.",
+    keywords: ["educación informal", "divulgación ambiental", "sensibilización ecológica"],
+    articleIds: [5, 50, 76]
+  },
+  "comités comunitarios": {
+    explanation: "Grupos de ciudadanos que participan en gestión de áreas protegidas.",
+    keywords: ["comités locales", "grupos comunitarios", "organizaciones vecinales"],
+    articleIds: [55, 68]
+  },
+  
+  // 104. TEMAS DE TURISMO SOSTENIBLE
+  "capacidad de carga": {
+    explanation: "Número máximo de visitantes que un área puede soportar sin deteriorarse.",
+    keywords: ["límite de visitantes", "capacidad de acogida", "tolerancia de uso"],
+    articleIds: [72]
+  },
+  "turismo de bajo impacto": {
+    explanation: "Turismo con mínimo impacto en áreas naturales protegidas.",
+    keywords: ["turismo mínimo impacto", "visitas controladas", "turismo no masivo"],
+    articleIds: [58]
+  },
+  "guías locales": {
+    explanation: "Personas de comunidades locales que guían a visitantes en áreas protegidas.",
+    keywords: ["guías comunitarios", "turismo local", "interpretación local"],
+    articleIds: [50, 80]
+  },
+  "infraestructura turística": {
+    explanation: "Instalaciones para recibir visitantes en áreas protegidas.",
+    keywords: ["instalaciones turísticas", "infraestructura de parques", "servicios para visitantes"],
+    articleIds: [79, 80]
+  },
+  "gestión de visitantes": {
+    explanation: "Conjunto de acciones para administrar flujo de turistas en áreas protegidas.",
+    keywords: ["manejo de turismo", "administración de visitantes", "gestión de público"],
+    articleIds: [67, 72]
+  },
+  
+  // 105. TEMAS DE INVESTIGACIÓN CIENTÍFICA
+  "líneas de investigación": {
+    explanation: "Temas prioritarios de investigación en biodiversidad.",
+    keywords: ["prioridades de investigación", "temas de estudio", "líneas científicas"],
+    articleIds: [5, 25]
+  },
+  "estudios de biodiversidad": {
+    explanation: "Investigaciones para conocer composición y estado de biodiversidad.",
+    keywords: ["inventarios biológicos", "estudios ecológicos", "investigación de biodiversidad"],
+    articleIds: [24, 25]
+  },
+  "monitoreo científico": {
+    explanation: "Seguimiento sistemático de variables ecológicas para evaluar estado de biodiversidad.",
+    keywords: ["seguimiento ecológico", "monitoreo ambiental", "evaluación científica"],
+    articleIds: [25]
+  },
+  "publicaciones científicas": {
+    explanation: "Difusión de resultados de investigaciones sobre biodiversidad.",
+    keywords: ["divulgación científica", "artículos técnicos", "publicaciones ambientales"],
+    articleIds: [5]
+  },
+  "cooperación científica": {
+    explanation: "Colaboración entre instituciones para investigación en biodiversidad.",
+    keywords: ["colaboración académica", "investigación conjunta", "cooperación técnica"],
+    articleIds: [5, 25]
+  },
+  
+  // 106. TEMAS DE GESTIÓN INTEGRAL
+  "manejo adaptativo": {
+    explanation: "Enfoque de gestión que incorpora aprendizaje y ajustes continuos.",
+    keywords: ["gestión flexible", "aprendizaje organizacional", "manejo adaptativo"],
+    articleIds: [20, 71]
+  },
+  "gestión ecosistémica": {
+    explanation: "Enfoque que considera ecosistemas completos en lugar de especies individuales.",
+    keywords: ["manejo ecosistémico", "gestión integral", "enfoque sistémico"],
+    articleIds: [23]
+  },
+  "planificación estratégica": {
+    explanation: "Definición de objetivos y estrategias a largo plazo para conservación.",
+    keywords: ["planificación a largo plazo", "estrategias de conservación", "visión de futuro"],
+    articleIds: [55]
+  },
+  "evaluación de gestión": {
+    explanation: "Medición de eficiencia y eficacia de acciones de conservación.",
+    keywords: ["evaluación de eficiencia", "medición de resultados", "análisis de gestión"],
+    articleIds: [55]
+  },
+  "retroalimentación de procesos": {
+    explanation: "Mecanismos para aprender de experiencias y mejorar gestión.",
+    keywords: ["aprendizaje organizacional", "mejora continua", "retroalimentación"],
+    articleIds: [55]
+  },
+  
+  // 107. TEMAS DE FINANCIAMIENTO
+  "fondo nacional de biodiversidad": {
+    explanation: "Fondo para financiar proyectos de conservación fuera de áreas protegidas.",
+    keywords: ["financiamiento ambiental", "fondos de conservación", "inversión ecológica"],
+    articleIds: [46, 47, 48, 49]
+  },
+  "incentivos fiscales": {
+    explanation: "Beneficios tributarios para promover conservación de biodiversidad.",
+    keywords: ["exenciones tributarias", "incentivos fiscales", "beneficios impositivos"],
+    articleIds: [105]
+  },
+  "pago por servicios ambientales": {
+    explanation: "Esquemas donde se paga a quienes conservan servicios ecosistémicos.",
+    keywords: ["compensación por servicios", "incentivos ecológicos", "valoración de servicios"],
+    articleIds: [52]
+  },
+  "mercados verdes": {
+    explanation: "Sistemas donde se comercializan productos de biodiversidad sostenible.",
+    keywords: ["comercio ecológico", "mercados sostenibles", "productos verdes"],
+    articleIds: [50]
+  },
+  "inversión privada": {
+    explanation: "Aportes de empresas y particulares a proyectos de conservación.",
+    keywords: ["financiamiento privado", "inversión empresarial", "aportes particulares"],
+    articleIds: [46, 50]
+  },
+}
