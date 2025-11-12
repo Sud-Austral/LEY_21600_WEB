@@ -5608,3 +5608,758 @@ const semanticMap = {
     articleIds: [46, 50]
   },
 }
+
+const scenariosData = {
+      "turismo": {
+        title: "Turismo en un Sitio Prioritario",
+        actor: "Operador de turismo",
+        scenario: "Imagina que eres un operador turístico que quiere ofrecer excursiones de observación de aves en un 'Sitio Prioritario' para la conservación, designado por el SBAP. Tu plan incluye llevar grupos de 10 personas dos veces por semana. Para operar legalmente bajo la Ley 21.600, debes considerar lo siguiente: Primero, necesitas evaluar si tu actividad se enmarca en el 'Uso Sustentable' y no causará un impacto significativo. Debes coordinarte con el SBAP para obtener los permisos correspondientes, ya que operas en un área sensible. Es fundamental aplicar el 'Principio de Precaución', asegurándote de no perturbar las especies nidificantes. Además, tu operación debe alinearse con la definición de 'Turismo ambientalmente responsable', promoviendo la conservación y educando a tus clientes. Si, a pesar de tus precauciones, se causa un daño, el 'Principio de Responsabilidad' te haría pasible de repararlo.",
+        keyPrinciples: [
+          { name: "Uso Sustentable", articleId: 3, definitionId: 32 },
+          { name: "Principio de Precaución", articleId: 2 },
+          { name: "Principio de Responsabilidad", articleId: 9 },
+          { name: "Turismo ambientalmente responsable", articleId: 3, definitionId: 34 }
+        ],
+        citations: [
+          { text: "Artículo 1° (Objeto de la ley)", articleId: 1 },
+          { text: "Artículo 3°, Definiciones", articleId: 3 },
+          { text: "Artículo 5° (Funciones del SBAP)", articleId: 5 }
+        ]
+      },
+      "investigacion": {
+        title: "Investigación Científica en un Área Protegida",
+        actor: "Investigador",
+        scenario: "Eres un biólogo que busca realizar un estudio sobre la diversidad de anfibios en un Parque Nacional. Para ello, necesitas instalar equipos de monitoreo y recolectar muestras de agua y suelo. Según la Ley 21.600, la investigación científica es una actividad fomentada, pero está regulada. Debes presentar tu proyecto al Servicio de Biodiversidad (SBAP) para su evaluación y aprobación, asegurando que tu metodología no comprometa la 'Preservación' del área. El SBAP, en su función de promover redes de monitoreo, podría apoyar tu iniciativa. Sin embargo, debes seguir estrictamente los principios de 'Uso Sustentable' y 'Precaución' para minimizar tu impacto. Cualquier descubrimiento relevante, especialmente sobre especies en peligro, debe ser comunicado para alimentar los 'Planes de Recuperación' que el SBAP elabora.",
+        keyPrinciples: [
+          { name: "Preservación", articleId: 3, definitionId: 26 },
+          { name: "Uso Sustentable", articleId: 3, definitionId: 32 },
+          { name: "Principio de Precaución", articleId: 2 }
+        ],
+        citations: [
+          { text: "Artículo 5°, letra c) y d)", articleId: 5 },
+          { text: "Artículo 5°, letra e)", articleId: 5 },
+          { text: "Artículo 3°, Definiciones", articleId: 3 }
+        ]
+      },
+      "proyecto-inmobiliario": {
+        title: "Proyecto Inmobiliario cerca de un Humedal",
+        actor: "Desarrollador inmobiliario",
+        scenario: "Una empresa inmobiliaria planea construir un complejo de departamentos en un terreno que colinda con un 'Humedal' urbano, reconocido por su importancia ecológica. Antes de iniciar cualquier obra, la Ley 21.600 obliga al desarrollador a realizar una evaluación de impacto. Se debe aplicar rigurosamente el 'Principio de Jerarquía': primero, se deben <strong>evitar</strong> los impactos (ej. rediseñar el proyecto para aumentar la distancia de construcción). Si no es posible, se deben <strong>mitigar</strong> (ej. crear barreras acústicas y visuales). Si el impacto ocurre, se debe <strong>reparar</strong> (ej. restaurar una zona degradada del humedal). Y como último recurso, <strong>compensar</strong> (ej. financiar la protección de otro humedal en la región). El SBAP tiene la facultad de pronunciarse sobre los impactos y fiscalizar el cumplimiento de estas medidas.",
+        keyPrinciples: [
+          { name: "Principio de Jerarquía", articleId: 2 },
+          { name: "Humedal", articleId: 3, definitionId: 18 },
+          { name: "Principio de Responsabilidad", articleId: 9 }
+        ],
+        citations: [
+          { text: "Artículo 2°, Principio de Jerarquía", articleId: 2 },
+          { text: "Artículo 3°, definición 18", articleId: 3 },
+          { text: "Artículo 5°, letra i)", articleId: 5 }
+        ]
+      },
+  // ... escenarios existentes ...
+  
+  "restauracion": {
+    title: "Restauración de un Área Degradada",
+    actor: "Organización ambiental",
+    scenario: "Eres una ONG ambiental que ha identificado un área degradada por actividades mineras históricas. Deseas presentar una propuesta al SBAP para su restauración ecológica. Según la Ley 21.600, primero debes solicitar al SBAP que declare formalmente el área como 'degradada' mediante resolución, fundamentando con evidencia científica la alteración significativa de sus componentes físicos, químicos o biológicos. Una vez declarada, debes elaborar un 'Plan de Restauración Ecológica' detallando las medidas activas o pasivas a implementar, las metas, el monitoreo y los costos asociados. El SBAP evaluará tu propuesta y, si es aprobada, coordinará su ejecución. Si el área incluye recursos regulados por la Ley de Bosque Nativo o Pesca, deberás trabajar conjuntamente con los servicios sectoriales competentes.",
+    keyPrinciples: [
+      { name: "Área degradada", articleId: 3, definitionId: 1 },
+      { name: "Plan de restauración ecológica", articleId: 3, definitionId: 24 },
+      { name: "Principio de Coordinación", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 32° (Áreas Degradadas)", articleId: 32 },
+      { text: "Artículo 33° (Planes de restauración ecológica)", articleId: 33 },
+      { text: "Artículo 5°, letra e)", articleId: 5 }
+    ]
+  },
+  
+  "especies-exoticas": {
+    title: "Control de Especies Exóticas Invasoras",
+    actor: "Agricultor",
+    scenario: "Eres un agricultor que ha detectado la presencia de una especie exótica invasora en tus cultivos que amenaza la biodiversidad local. Según la Ley 21.600, debes notificar inmediatamente al SBAP sobre esta presencia. El SBAP, en su función de control, podrá elaborar un 'Plan de Prevención, Control y Erradicación' para esta especie. Como propietario, estás obligado a facilitar las acciones que contemple dicho plan, lo que podría incluir permitir el ingreso de personal del SBAP a tu propiedad para realizar acciones de control. Si la especie se encuentra en la nómina oficial de especies exóticas invasoras, el SBAP podrá ejecutar acciones urgentes para evitar su propagación, incluso sin tu consentimiento previo, aunque siempre coordinando contigo. Si el daño ya es significativo, podrías enfrentar sanciones por no haber reportado oportunamente.",
+    keyPrinciples: [
+      { name: "Especie exótica invasora", articleId: 3, definitionId: 15 },
+      { name: "Plan de prevención, control y erradicación", articleId: 3, definitionId: 25 },
+      { name: "Principio de Responsabilidad", articleId: 9 }
+    ],
+    citations: [
+      { text: "Artículo 45° (Prevención, control y erradicación)", articleId: 45 },
+      { text: "Artículo 3°, definición 15", articleId: 3 },
+      { text: "Artículo 116°, letra c)", articleId: 116 }
+    ]
+  },
+  
+  "area-protegida-privada": {
+    title: "Creación de un Área Protegida Privada",
+    actor: "Propietario rural",
+    scenario: "Eres propietario de un terreno con alto valor ecológico y deseas protegerlo mediante su reconocimiento como 'Área Protegida Privada'. Según la Ley 21.600, debes presentar una solicitud voluntaria ante el Director Regional del SBAP, incluyendo información detallada sobre ubicación, superficie, características ecológicas, categoría de protección propuesta y objetos de protección. El SBAP evaluará tus antecedentes y, si son aprobados, emitirá un informe técnico. Luego, el Ministerio del Medio Ambiente dictará un decreto supremo que crea oficialmente el área protegida. Debes reducir este decreto a escritura pública e inscribirlo en el Registro de Hipotecas y Gravámenes. Como beneficio, obtendrás exención del impuesto territorial y de la herencia, entre otros incentivos, siempre que cumplas con el plan de manejo que deberás elaborar y que debe ser aprobado por el SBAP.",
+    keyPrinciples: [
+      { name: "Área protegida privada", articleId: 3, definitionId: 4 },
+      { name: "Plan de manejo", articleId: 3, definitionId: 20 },
+      { name: "Principio de Sustentabilidad", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 97° (Áreas protegidas privadas)", articleId: 97 },
+      { text: "Artículo 98° (Solicitud de creación)", articleId: 98 },
+      { text: "Artículo 105° (Incentivos)", articleId: 105 }
+    ]
+  },
+  
+  "concesion-turistica": {
+    title: "Concesión Turística en un Área Protegida",
+    actor: "Empresa de turismo",
+    scenario: "Eres una empresa de turismo especializada que desea obtener una concesión para operar un lodge ecológico dentro de un Parque Nacional. Según la Ley 21.600, primero debes verificar que el área cuente con un plan de manejo aprobado. Luego, debes participar en el proceso de licitación pública que convocará el SBAP. Tu propuesta debe ajustarse estrictamente a la categoría de protección (Parque Nacional), al objeto de protección y al plan de manejo del área. El Comité Técnico evaluará tu propuesta y fijará la renta concesional. Si eres adjudicado, deberás suscribir un contrato de concesión con el SBAP que establecerá tus derechos y obligaciones. Tu operación debe desarrollarse bajo la modalidad de 'turismo ambientalmente responsable', con bajo impacto y respetando los valores naturales y culturales del área. La concesión tendrá una duración máxima de 30 años.",
+    keyPrinciples: [
+      { name: "Concesiones en áreas protegidas", articleId: 79 },
+      { name: "Turismo ambientalmente responsable", articleId: 3, definitionId: 34 },
+      { name: "Principio de Sustentabilidad", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 79° (Concesiones en áreas protegidas)", articleId: 79 },
+      { text: "Artículo 80° (Criterios para el otorgamiento)", articleId: 80 },
+      { text: "Artículo 81° (Comité Técnico)", articleId: 81 }
+    ]
+  },
+  
+  "plan-manejo-ecosistema": {
+    title: "Plan de Manejo para un Ecosistema Amenazado",
+    actor: "Servicio público sectorial",
+    scenario: "Eres un servicio público con competencia en recursos naturales que ha identificado un ecosistema amenazado en tu jurisdicción. Según la Ley 21.600, el SBAP debe elaborar un 'Plan de Manejo para la Conservación' de este ecosistema. Como servicio sectorial, debes colaborar estrechamente con el SBAP en la elaboración e implementación de este plan. El plan establecerá requisitos para el otorgamiento de permisos sectoriales, condiciones para el uso del suelo, aplicación de sustancias químicas y explotación de especies, entre otras medidas. Si el plan afecta proyectos con Resolución de Calificación Ambiental favorable, se deberá seguir el procedimiento del artículo 25 quinquies de la ley 19.300. El plan será de cumplimiento obligatorio para tu servicio y deberás incorporar sus disposiciones en tus procedimientos administrativos y decisiones sectoriales.",
+    keyPrinciples: [
+      { name: "Ecosistema amenazado", articleId: 3, definitionId: 12 },
+      { name: "Plan de manejo para la conservación", articleId: 3, definitionId: 21 },
+      { name: "Principio de Coordinación", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 31° (Planes de manejo para ecosistemas amenazados)", articleId: 31 },
+      { text: "Artículo 30° (Clasificación de ecosistemas)", articleId: 30 },
+      { text: "Artículo 5°, letra e)", articleId: 5 }
+    ]
+  },
+  
+  "monitoreo-biodiversidad": {
+    title: "Monitoreo de Biodiversidad",
+    actor: "Investigador académico",
+    scenario: "Eres un investigador de una universidad que desea participar en el programa de monitoreo de biodiversidad que implementa el SBAP. Según la Ley 21.600, el SBAP define e implementa programas de monitoreo de ecosistemas y especies para generar información sistemática sobre su estado y servicios ecosistémicos. Puedes proponer al SBAP un convenio para realizar monitoreo en áreas específicas, siguiendo los protocolos que establezca el servicio. Tus datos deberán ser validados según los criterios del SBAP y alimentarán el 'Sistema de Información de la Biodiversidad'. El monitoreo debe considerar tanto el conocimiento científico como el conocimiento tradicional de comunidades indígenas y locales. Si tu propuesta es aceptada, podrás acceder a información del sistema para tus investigaciones, debiendo respetar las restricciones de publicación de datos sensibles que podrían poner en riesgo especies amenazadas.",
+    keyPrinciples: [
+      { name: "Monitoreo de la biodiversidad", articleId: 25 },
+      { name: "Sistema de Información de la Biodiversidad", articleId: 24 },
+      { name: "Principio de Información", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 25° (Monitoreo de la biodiversidad)", articleId: 25 },
+      { text: "Artículo 24° (Sistema de Información)", articleId: 24 },
+      { text: "Artículo 5°, letra d)", articleId: 5 }
+    ]
+  },
+  
+  "certificacion-sostenible": {
+    title: "Certificación de Prácticas Sostenibles",
+    actor: "Productor agrícola",
+    scenario: "Eres un productor agrícola que implementa prácticas sostenibles en tu predio y deseas obtener una certificación que lo reconozca. Según la Ley 21.600, puedes solicitar al SBAP la certificación del 'Sistema de Certificación de Biodiversidad y Servicios Ecosistémicos'. Para ello, debes demostrar que tus prácticas contribuyen efectivamente a la conservación de la biodiversidad y al mantenimiento de servicios ecosistémicos. El SBAP evaluará tu solicitud según los criterios establecidos en su reglamento. Si obtienes la certificación,这将 obligarte a cumplir con determinadas condiciones de manejo sostenible. La certificación es voluntaria y puede implicar obligaciones de hacer o no hacer, cuyo incumplimiento provocará la pérdida de la certificación. Esta certificación puede mejorar el posicionamiento de tus productos en el mercado y facilitar el acceso a incentivos económicos.",
+    keyPrinciples: [
+      { name: "Sistema de Certificación de Biodiversidad", articleId: 51 },
+      { name: "Servicios ecosistémicos", articleId: 3, definitionId: 30 },
+      { name: "Principio de Sustentabilidad", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 51° (Sistema de Certificación)", articleId: 51 },
+      { text: "Artículo 50° (Prácticas sustentables)", articleId: 50 },
+      { text: "Artículo 5°, letra k)", articleId: 5 }
+    ]
+  },
+  
+  "servicios-ecosistemicos": {
+    title: "Contrato de Retribución por Servicios Ecosistémicos",
+    actor: "Comunidad agrícola",
+    scenario: "Eres una comunidad agrícola que posee un bosque nativo que provee servicios ecosistémicos hídricos a una ciudad cercana. Según la Ley 21.600, puedes proponer a la empresa de agua potable local un 'Contrato de Retribución por Servicios Ecosistémicos'. Este contrato establecería que la empresa te pagará una contraprestación económica a cambio de que tu comunidad se comprometa a preservar, restaurar o hacer uso sustentable del bosque, manteniendo así los servicios hídricos que benefician a la ciudad. El contrato debe perfeccionarse por escrito y especificar los derechos y obligaciones de ambas partes. El SBAP llevará un registro de estos contratos que cumplan con los criterios mínimos establecidos en su reglamento. Este mecanismo permite valorar económicamente los servicios ambientales y crear incentivos para la conservación por parte de propietarios privados.",
+    keyPrinciples: [
+      { name: "Contrato de retribución por servicios ecosistémicos", articleId: 52 },
+      { name: "Servicios ecosistémicos", articleId: 3, definitionId: 30 },
+      { name: "Principio de Valoración de los servicios ecosistémicos", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 52° (Contrato de retribución)", articleId: 52 },
+      { text: "Artículo 50°, letra b)", articleId: 50 },
+      { text: "Artículo 2°, principio j)", articleId: 2 }
+    ]
+  },
+  
+  "fiscalizacion-area-protegida": {
+    title: "Fiscalización en un Área Protegida",
+    actor: "Guardaparque",
+    scenario: "Eres un guardaparque del SBAP que realiza labores de fiscalización en un área protegida estatal. Durante tu recorrido, detectas a visitantes realizando actividades prohibidas, como encender fogatas fuera de los lugares habilitados y extraer flora nativa. Según la Ley 21.600, como fiscalizador debes levantar un acta detallando objetivamente los hechos constitutivos de infracción e identificando a los presuntos infractores. Tienes la calidad de ministro de fe y tus constataciones constituyen presunción legal de haberse cometido la infracción. Debes entregar copia del acta a los presuntos infractores y remitir el expediente al Director Regional del SBAP para que inicie el procedimiento sancionatorio. También puedes aplicar medidas provisionales, como la retención de los elementos extraídos, si son indispensables para asegurar la instrucción del procedimiento o evitar daños inminentes al área protegida.",
+    keyPrinciples: [
+      { name: "Funciones de fiscalización", articleId: 109 },
+      { name: "Ministros de fe", articleId: 110 },
+      { name: "Prohibiciones en áreas protegidas", articleId: 108 }
+    ],
+    citations: [
+      { text: "Artículo 109° (Alcance de la fiscalización)", articleId: 109 },
+      { text: "Artículo 110° (Ministros de fe)", articleId: 110 },
+      { text: "Artículo 122° (Acta de fiscalización)", articleId: 122 }
+    ]
+  },
+  
+  "sitio-prioritario": {
+    title: "Infracción por Daño en un Sitio Prioritario",
+    actor: "Empresa constructora",
+    scenario: "Eres una empresa constructora que está realizando obras en un 'Sitio Prioritario' para la conservación. Durante la construcción, se ha producido una alteración significativa en las características ecológicas del sitio al destruir hábitats de especies nativas. Según la Ley 21.600, esta acción constituye una infracción grave fuera de áreas protegidas. El SBAP puede iniciar un procedimiento sancionatorio en tu contra, pudiendo aplicar multas de hasta 10.000 UTM y exigir un plan de corrección para restaurar el daño causado. Si la infracción afecta gravemente los servicios ecosistémicos, podría ser calificada como gravísima, con multas de hasta 15.000 UTM y la prohibición temporal de realizar actividades en áreas protegidas. Como medida correctiva, el SBAP puede ordenar el restablecimiento de la legalidad en un plazo no superior a cinco días, exigiendo la reparación inmediata de los daños causados.",
+    keyPrinciples: [
+      { name: "Sitio prioritario", articleId: 3, definitionId: 31 },
+      { name: "Infracciones fuera de las áreas protegidas", articleId: 116 },
+      { name: "Principio de Responsabilidad", articleId: 9 }
+    ],
+    citations: [
+      { text: "Artículo 116°, letra a)", articleId: 116 },
+      { text: "Artículo 29° (Sitios prioritarios)", articleId: 29 },
+      { text: "Artículo 127° (Medidas correctivas)", articleId: 127 }
+    ]
+  },
+  
+  "recuperacion-especies": {
+    title: "Plan de Recuperación de Especies",
+    actor: "SBAP",
+    scenario: "Eres un funcionario del SBAP encargado de elaborar un 'Plan de Recuperación, Conservación y Gestión' para una especie clasificada en peligro de extinción según el artículo 37 de la ley 19.300. Según la Ley 21.600, debes realizar un diagnóstico detallado del estado de la especie, determinar su hábitat y las amenazas que enfrenta. El plan debe incluir acciones específicas de recuperación, conservación o gestión, y establecer metas medibles. Durante su elaboración, debes consultar a los servicios públicos con competencia en la materia y considerar el conocimiento tradicional de comunidades indígenas y locales. Una vez aprobado, el plan será de cumplimiento obligatorio para los servicios públicos competentes y deberá ser revisado periódicamente para evaluar su efectividad. Si la especie se encuentra en un área protegida, las acciones del plan deben coordinarse con el plan de manejo del área.",
+    keyPrinciples: [
+      { name: "Plan de recuperación, conservación y gestión", articleId: 3, definitionId: 23 },
+      { name: "Conservación in situ", articleId: 3, definitionId: 7 },
+      { name: "Principio de Prevención", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 42° (Planes de recuperación)", articleId: 42 },
+      { text: "Artículo 43° (Contenido del plan)", articleId: 43 },
+      { text: "Artículo 5°, letra e)", articleId: 5 }
+    ]
+  },
+  
+  "corredor-biologico": {
+    title: "Creación de un Corredor Biológico",
+    actor: "Municipalidad",
+    scenario: "Eres una municipalidad que busca establecer un corredor biológico para conectar dos áreas protegidas fragmentadas por actividades humanas. Según la Ley 21.600, puedes proponer al SBAP la creación de este corredor como un instrumento de conservación. El corredor debe facilitar el desplazamiento de las poblaciones y el flujo genético, asegurando el mantenimiento de la biodiversidad y procesos ecológicos. Para su implementación, debes coordinarte con otros municipios, propietarios privados y servicios públicos relevantes. El SBAP puede apoyar técnicamente la iniciativa y promover la participación ciudadana en su diseño y gestión. El corredor puede incluir diversas medidas como la restauración de hábitats, la creación de puentes de fauna o la implementación de servidumbres ecológicas en propiedades privadas. Estas acciones pueden ser financiadas a través del Fondo Nacional de la Biodiversidad o mediante contratos de retribución por servicios ecosistémicos.",
+    keyPrinciples: [
+      { name: "Corredor biológico", articleId: 3, definitionId: 9 },
+      { name: "Principio de Coordinación", articleId: 2 },
+      { name: "Principio Participativo", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 3°, definición 9", articleId: 3 },
+      { text: "Artículo 54°, letra f)", articleId: 54 },
+      { text: "Artículo 46° (Fondo Nacional de la Biodiversidad)", articleId: 46 }
+    ]
+  },
+  
+  "comunidades-indigenas": {
+    title: "Participación de Comunidades Indígenas",
+    actor: "Comunidad indígena",
+    scenario: "Eres una comunidad indígena que habita en un territorio con alto valor de biodiversidad y deseas participar en su conservación. Según la Ley 21.600, el SBAP debe respetar, preservar y mantener vuestros conocimientos, innovaciones y prácticas tradicionales pertinentes para la conservación. Podéis proponer la creación de un 'Área de Conservación de Pueblos Indígenas' en vuestros territorios, que permitiría combinar la conservación de la biodiversidad con vuestros usos ancestrales o consuetudinarios. Para ello, debéis presentar una solicitud voluntaria al SBAP, demostrando la relevancia ecológica del área y la compatibilidad de vuestras prácticas con los objetivos de conservación. El SBAP evaluará vuestra propuesta y, si es aprobada, emitirá un decreto supremo que reconozca el área. También podéis participar en comités de gestión de áreas protegidas existentes o celebrar convenios de gestión con el SBAP para administrar zonas específicas.",
+    keyPrinciples: [
+      { name: "Área de Conservación de Pueblos Indígenas", articleId: 62 },
+      { name: "Principio Participativo", articleId: 2 },
+      { name: "Convenios de gestión", articleId: 68 }
+    ],
+    citations: [
+      { text: "Artículo 62° (Área de Conservación de Pueblos Indígenas)", articleId: 62 },
+      { text: "Artículo 2°, letra d)", articleId: 2 },
+      { text: "Artículo 68° (Participación en la gestión)", articleId: 68 }
+    ]
+  },
+  
+  "investigacion-area-protegida": {
+    title: "Investigación en un Área Protegida Estatal",
+    actor: "Científico",
+    scenario: "Eres un científico que desea realizar una investigación a largo plazo en un Monumento Natural que requiere la instalación de equipos permanentes. Según la Ley 21.600, necesitas obtener una concesión del SBAP, ya que tu investigación implica infraestructura con duración mayor a un año. Debes presentar una propuesta detallada que demuestre que tu investigación es compatible con la categoría de protección (Monumento Natural), el objeto de protección y el plan de manejo del área. El Comité Técnico evaluará tu propuesta y fijará la renta concesional. Si eres adjudicado, deberás suscribir un contrato de concesión que establecerá tus obligaciones, incluyendo compartir los resultados de tu investigación con el SBAP y difundirlos en establecimientos educacionales aledaños. Tu investigación debe colaborar como instrumento de apoyo para la gestión del área, cubriendo vacíos de información sobre biodiversidad o identificando amenazas.",
+    keyPrinciples: [
+      { name: "Concesiones en áreas protegidas", articleId: 79 },
+      { name: "Monumento Natural", articleId: 59 },
+      { name: "Principio de Información", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 79° (Concesiones)", articleId: 79 },
+      { text: "Artículo 80°, letra e)", articleId: 80 },
+      { text: "Artículo 59° (Monumento Natural)", articleId: 59 }
+    ]
+  },
+  
+  "recursos-geneticos": {
+    title: "Uso de Recursos Genéticos",
+    actor: "Laboratorio biotecnológico",
+    scenario: "Eres un laboratorio de biotecnología que desea acceder a recursos genéticos de una planta con propiedades medicinales que se encuentra en un área protegida estatal. Según la Ley 21.600, además del permiso general para actividades en áreas protegidas, necesitas una autorización específica del SBAP para el acceso a recursos genéticos. Debes presentar una solicitud detallando los objetivos de tu investigación, las especies o materiales que deseas recolectar, las metodologías a utilizar y los beneficios que se derivarán de su utilización. El SBAP evaluará tu solicitud y, si es aprobada, firmará un convenio contigo que regulará las condiciones de acceso y la distribución de beneficios, incluyendo posibles regalías para el Fondo Nacional de la Biodiversidad. Tu investigación debe respetar los derechos de comunidades indígenas si los recursos tienen importancia para ellas, y debe garantizar que no se afectará negativamente la conservación de las especies en su hábitat natural.",
+    keyPrinciples: [
+      { name: "Recurso genético", articleId: 3, definitionId: 27 },
+      { name: "Conservación in situ", articleId: 3, definitionId: 7 },
+      { name: "Principio de Responsabilidad", articleId: 9 }
+    ],
+    citations: [
+      { text: "Artículo 95° (Acceso a recursos genéticos)", articleId: 95 },
+      { text: "Artículo 3°, definición 27", articleId: 3 },
+      { text: "Artículo 94° (Permiso)", articleId: 94 }
+    ]
+  },
+  
+  "zona-amortiguamiento": {
+    title: "Zona de Amortiguamiento de un Área Protegida",
+    actor: "Propietario colindante",
+    scenario: "Eres propietario de un terreno colindante con un Parque Nacional que ha sido declarado como 'zona de amortiguamiento' según el plan de manejo del área. Según la Ley 21.600, esta zona tiene como objetivo absorber potenciales impactos negativos y fomentar efectos positivos para la conservación del área protegida. Como propietario, tus actividades en esta zona pueden estar parcialmente restringidas según lo establezcan los instrumentos de ordenamiento territorial pertinentes. Por ejemplo, podrías tener limitaciones para realizar actividades que generen contaminación lumínica o acústica que afecten al Parque Nacional. A cambio, podrías acceder a beneficios como asistencia técnica del SBAP para implementar prácticas sostenibles en tu propiedad o prioridad en la postulación al Fondo Nacional de la Biodiversidad para proyectos de conservación en tu terreno.",
+    keyPrinciples: [
+      { name: "Zona de amortiguación", articleId: 3, definitionId: 33 },
+      { name: "Plan de manejo", articleId: 3, definitionId: 20 },
+      { name: "Principio de Coordinación", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 3°, definición 33", articleId: 3 },
+      { text: "Artículo 72°, letra f)", articleId: 72 },
+      { text: "Artículo 50° (Prácticas sustentables)", articleId: 50 }
+    ]
+  },
+  
+  "humedal-ramsar": {
+    title: "Declaración de un Humedal Ramsar",
+    actor: "SBAP",
+    scenario: "Eres un funcionario del SBAP encargado de gestionar la declaración de un humedal como 'Sitio Ramsar' (Humedal de Importancia Internacional). Según la Ley 21.600, una vez que el humedal ha sido designado bajo la Convención Ramsar, el SBAP debe proponer al Ministerio del Medio Ambiente que lo acoga a una de las categorías de protección establecidas en la ley. Para ello, debes elaborar un informe técnico indicando la categoría correspondiente. Si el humedal es de propiedad privada, se requerirá el consentimiento del propietario para proceder a su afectación como área protegida. Una vez declarado, el SBAP promoverá su conservación y uso sustentable, considerando su dimensión ecológica, económica y social. El humedal será incorporado al Sistema Nacional de Áreas Protegidas y deberá contar con un plan de manejo que garantice la protección de sus valores ecológicos.",
+    keyPrinciples: [
+      { name: "Humedal", articleId: 3, definitionId: 18 },
+      { name: "Humedales de importancia internacional", articleId: 37 },
+      { name: "Sistema Nacional de Áreas Protegidas", articleId: 53 }
+    ],
+    citations: [
+      { text: "Artículo 37° (Humedales de importancia internacional)", articleId: 37 },
+      { text: "Artículo 39° (Inventario de humedales)", articleId: 39 },
+      { text: "Artículo 53° (Sistema Nacional de Áreas Protegidas)", articleId: 53 }
+    ]
+  },
+  
+  "modificacion-area-protegida": {
+    title: "Modificación de los Límites de un Área Protegida",
+    actor: "Ministerio del Medio Ambiente",
+    scenario: "Eres el Ministerio del Medio Ambiente y recibes una solicitud para modificar los límites de un área protegida estatal con el fin de incorporar un terreno adyacente con alto valor ecológico. Según la Ley 21.600, la modificación de una área protegida debe seguir un procedimiento específico. Debes solicitar al SBAP un informe técnico que justifique la modificación y obtener el pronunciamiento favorable del Comité Científico Asesor. El procedimiento debe incluir una etapa de participación ciudadana y consulta a las comunidades indígenas si correspondiera. Finalmente, se requiere el pronunciamiento favorable del Consejo de Ministros para la Sustentabilidad y el Cambio Climático. La modificación debe ser excepcional y no puede significar un detrimento a los objetivos del Sistema Nacional de Áreas Protegidas, debiendo mantener la superficie y representatividad ecológica del sistema. Para parques nacionales y reservas de región virgen, la modificación requiere una ley.",
+    keyPrinciples: [
+      { name: "Modificación de áreas protegidas", articleId: 66 },
+      { name: "Comité Científico Asesor", articleId: 9 },
+      { name: "Principio de No Regresión", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 66° (Modificación y desafectación)", articleId: 66 },
+      { text: "Artículo 65° (Procedimiento para creación)", articleId: 65 },
+      { text: "Artículo 2°, letra c)", articleId: 2 }
+    ]
+  },
+  
+  "convenio-gestion": {
+    title: "Convenio de Gestión con Comunidades Locales",
+    actor: "SBAP",
+    scenario: "Eres el SBAP y deseas celebrar un convenio de gestión con una organización local para la administración de un área protegida estatal. Según la Ley 21.600, puedes celebrar estos convenios con autoridades u organizaciones locales, asociaciones o comunidades indígenas si resulta más conveniente para la realización de tus funciones. Debes evaluar las características del área protegida, su contexto territorial y la presencia de organizaciones locales. El convenio debe especificar la estructura de gestión (integrada siempre por un representante del SBAP), normas de funcionamiento, derechos y obligaciones de cada parte, beneficios e incentivos, requerimientos de reporte y efectos en caso de incumplimiento. El convenio no puede exceder de cinco años, renovables previa evaluación fundada. Las materias que puede incluir el convenio son variadas: gestión del área, prevención de contingencias, capacitación, ejecución de programas de desarrollo comunitario y aprovechamiento sustentable de recursos.",
+    keyPrinciples: [
+      { name: "Convenios de gestión", articleId: 68 },
+      { name: "Principio Participativo", articleId: 2 },
+      { name: "Administración de áreas protegidas", articleId: 67 }
+    ],
+    citations: [
+      { text: "Artículo 68° (Participación en la gestión)", articleId: 68 },
+      { text: "Artículo 67° (Administración)", articleId: 67 },
+      { text: "Artículo 55°, letra h)", articleId: 55 }
+    ]
+  },
+  
+  "no-regresion": {
+    title: "Aplicación del Principio de No Regresión",
+    actor: "Autoridad ambiental",
+    scenario: "Eres una autoridad ambiental que debe evaluar una solicitud para modificar los estándares de protección de un área protegida que permitiría actividades anteriormente restringidas. Según la Ley 21.600, debes aplicar el 'Principio de No Regresión', que establece que los actos administrativos no admiten modificaciones que signifiquen una disminución en los niveles de protección de la biodiversidad alcanzados previamente. Esto significa que no puedes autorizar la modificación solicitada si implica reducir la protección existente. Si el proyecto requiere flexibilizar alguna restricción, debes buscar alternativas que mantengan o mejoren los niveles de protección actuales. Este principio es particularmente relevante para áreas protegidas sensibles o para especies en peligro de extinción, donde cualquier disminución en la protección podría tener consecuencias irreversibles para la biodiversidad.",
+    keyPrinciples: [
+      { name: "Principio de No Regresión", articleId: 2 },
+      { name: "Principio de Precaución", articleId: 2 },
+      { name: "Principio de Jerarquía", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 2°, letra c)", articleId: 2 },
+      { text: "Artículo 1° (Objeto de la ley)", articleId: 1 },
+      { text: "Artículo 66° (Modificación de áreas protegidas)", articleId: 66 }
+    ]
+  },
+  
+  "paisaje-conservacion": {
+    title: "Proyecto en un Paisaje de Conservación",
+    actor: "Municipio",
+    scenario: "Eres un municipio que ha promovido el reconocimiento de un 'Paisaje de Conservación' en su territorio. Según la Ley 21.600, este reconocimiento se efectúa a través de una resolución del SBAP, previa presentación de un informe técnico que dé cuenta de los valores naturales, culturales y paisajísticos asociados. Una vez reconocido, el municipio debe elaborar una propuesta de plan de manejo que será aprobado mediante resolución del SBAP. Este plan establecerá los lineamientos para la gestión sustentable del área por parte de quienes adscriban voluntariamente al paisaje de conservación. Como municipio, debes gestionar la adhesión de propietarios y comunidades locales, quienes se comprometerán a seguir las pautas del plan de manejo. Si el municipio no tiene recursos suficientes, puede solicitar al SBAP que designe un funcionario para acompañar el proceso de reconocimiento o elaboración del plan de manejo.",
+    keyPrinciples: [
+      { name: "Paisaje de conservación", articleId: 3, definitionId: 19 },
+      { name: "Plan de manejo", articleId: 3, definitionId: 20 },
+      { name: "Principio Participativo", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 35° (Paisajes de conservación)", articleId: 35 },
+      { text: "Artículo 3°, definición 19", articleId: 3 },
+      { text: "Artículo 2°, letra d)", articleId: 2 }
+    ]
+  },
+  
+  "comite-cientifico": {
+    title: "Funciones del Comité Científico Asesor",
+    actor: "Investigador",
+    scenario: "Eres un investigador designado como miembro del Comité Científico Asesor del SBAP. Según la Ley 21.600, este comité tiene carácter paritario y está integrado por nueve miembros de instituciones académicas, científicas y de investigación, con representación regional. Tu función es asesorar al SBAP en materias científicas y técnicas necesarias para el ejercicio de sus funciones. Por ejemplo, debes emitir informes sobre propuestas de clasificación de ecosistemas según su estado de conservación, evaluar proyectos de investigación en áreas protegidas, o pronunciarte sobre modificaciones a los límites de áreas protegidas. Debes actuar con probidad y inhabilitarte de intervenir en asuntos en que incurras en causales de abstención. Tu cargo es ad honorem, dura tres años y puedes ser designado por nuevos períodos. El comité debe sesionar regularmente y sus informes deben ser técnicamente fundamentados.",
+    keyPrinciples: [
+      { name: "Comité Científico Asesor", articleId: 9 },
+      { name: "Principio de Información", articleId: 2 },
+      { name: "Principio de Precaución", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 9° (Comité Científico Asesor)", articleId: 9 },
+      { text: "Artículo 30° (Clasificación de ecosistemas)", articleId: 30 },
+      { text: "Artículo 66° (Modificación de áreas protegidas)", articleId: 66 }
+    ]
+  },
+  
+  "incentivos-privados": {
+    title: "Incentivos para Áreas Protegidas Privadas",
+    actor: "Propietario",
+    scenario: "Eres propietario de un terreno con valores naturales que estás considerando declarar como área protegida privada. Según la Ley 21.600, esta decisión te haría acreedor a varios beneficios e incentivos. Obtendrías exención del impuesto territorial mientras cumplas con el plan de manejo del área. También estarías exento del impuesto a la herencia, lo que facilitaría la transmisión del patrimonio a tus herederos. Además, podrías participar gratuitamente en los programas de formación y capacitación para guardaparques según disponibilidad presupuestaria, y tendrías bonificaciones en la postulación al Fondo Nacional de la Biodiversidad. También estarías exento de pago de los derechos arancelarios correspondientes a notarios, conservadores de bienes raíces y archiveros para los trámites relacionados con el área protegida. Estos incentivos buscan fomentar la conservación privada como complemento a las áreas protegidas estatales.",
+    keyPrinciples: [
+      { name: "Área protegida privada", articleId: 3, definitionId: 4 },
+      { name: "Incentivos", articleId: 105 },
+      { name: "Plan de manejo", articleId: 3, definitionId: 20 }
+    ],
+    citations: [
+      { text: "Artículo 105° (Incentivos)", articleId: 105 },
+      { text: "Artículo 97° (Áreas protegidas privadas)", articleId: 97 },
+      { text: "Artículo 103° (Planes de manejo)", articleId: 103 }
+    ]
+  },
+  
+  "transferencia-dominio": {
+    title: "Transferencia de Dominio de un Área Protegida Privada",
+    actor: "Comprador",
+    scenario: "Eres un comprador interesado en adquirir un terreno que está declarado como área protegida privada. Según la Ley 21.600, la transferencia de dominio no altera el carácter de área protegida ni su regulación aplicable. El contrato de compraventa debe expresamente señalar que el terreno es un área protegida privada. Los conservadores de bienes raíces no inscribirán el acto si no cumple con este requisito, y cualquier contrato que omita esta información será absolutamente nulo. Como nuevo propietario, debes informar al SBAP sobre la transferencia y asumir todas las obligaciones asociadas al área protegida, incluyendo el cumplimiento del plan de manejo. Si deseas modificar el plan de manejo, deberás seguir el procedimiento establecido en la ley. En caso de desafectación del área, deberás restituir la totalidad de los beneficios obtenidos, como la exención del impuesto territorial.",
+    keyPrinciples: [
+      { name: "Transferencia de dominio", articleId: 101 },
+      { name: "Área protegida privada", articleId: 3, definitionId: 4 },
+      { name: "Desafectación", articleId: 100 }
+    ],
+    citations: [
+      { text: "Artículo 101° (Transferencia de dominio)", articleId: 101 },
+      { text: "Artículo 100° (Modificación y desafectación)", articleId: 100 },
+      { text: "Artículo 105° (Incentivos)", articleId: 105 }
+    ]
+  },
+  
+  "plan-uso-publico": {
+    title: "Plan de Uso Público en un Área Protegida",
+    actor: "Administrador de área protegida",
+    scenario: "Eres el administrador de un área protegida estatal y debes elaborar el 'Plan de Uso Público' para el área. Según la Ley 21.600, este instrumento está destinado a planificar y mejorar la calidad de atención del público en el ámbito del turismo, la educación y la investigación científica, de forma compatible con el plan de manejo del área protegida. El plan debe definir las zonas habilitadas para visitantes, las actividades permitidas y prohibidas, la capacidad de carga, los circuitos y senderos, la infraestructura necesaria, las medidas de seguridad, y los programas de educación e interpretación ambiental. Debes considerar las características específicas del área, su objeto de protección y las necesidades de los diferentes tipos de visitantes. El plan debe ser coherente con la categoría de protección del área y respetar los valores naturales y culturales que se busca proteger. Una vez aprobado, será la base para el otorgamiento de concesiones y permisos en el área.",
+    keyPrinciples: [
+      { name: "Plan de uso público", articleId: 67 },
+      { name: "Plan de manejo", articleId: 3, definitionId: 20 },
+      { name: "Turismo ambientalmente responsable", articleId: 3, definitionId: 34 }
+    ],
+    citations: [
+      { text: "Artículo 67° (Administración)", articleId: 67 },
+      { text: "Artículo 71° (Planes de manejo)", articleId: 71 },
+      { text: "Artículo 80°, letra d)", articleId: 80 }
+    ]
+  },
+  
+  "guardaparques": {
+    title: "Funciones de los Guardaparques",
+    actor: "Guardaparque",
+    scenario: "Eres un guardaparque del SBAP que trabaja en un área protegida estatal. Según la Ley 21.600, tus funciones incluyen velar por la conservación de la biodiversidad en el área. Debes apoyar el proceso de elaboración del plan de manejo y plan de uso público, y luego aplicar sus disposiciones. Entre tus tareas diarias están instruir a los visitantes sobre las normas del área, monitorear el estado de la biodiversidad, registrar datos, educar a los visitantes sobre los valores ecológicos y patrimoniales, gestionar el mantenimiento de infraestructuras no concesionadas, y fiscalizar las actividades que se desarrollan en el área. Si tienes más de dos años de experiencia y has aprobado los cursos de formación, puedes ser designado para funciones de fiscalización, lo que te permitirá levantar actas de infracción y tener la calidad de ministro de fe. También debes desarrollar acciones de vinculación con la comunidad local para facilitar el acceso a los beneficios del área protegida.",
+    keyPrinciples: [
+      { name: "Cuerpo de guardaparques", articleId: 75 },
+      { name: "Funciones de fiscalización", articleId: 77 },
+      { name: "Prohibiciones en áreas protegidas", articleId: 108 }
+    ],
+    citations: [
+      { text: "Artículo 76° (Funciones y atribuciones)", articleId: 76 },
+      { text: "Artículo 77° (Funciones de fiscalización)", articleId: 77 },
+      { text: "Artículo 78° (Formación y capacitación)", articleId: 78 }
+    ]
+  },
+  
+  "medidas-provisionales": {
+    title: "Medidas Provisionales en un Procedimiento Sancionatorio",
+    actor: "Director Regional del SBAP",
+    scenario: "Eres el Director Regional del SBAP y un fiscalizador te informa que ha detectado una actividad ilegal de extracción de recursos en un área protegida que está causando un daño inminente. Según la Ley 21.600, puedes ordenar medidas provisionales para evitar el daño mientras se instruye el procedimiento sancionatorio. Puedes disponer la retención temporal de los equipos utilizados en la extracción, la inmovilización de vehículos, la aposición de sellos sobre bienes, o incluso la clausura temporal de las instalaciones. Si se trata de medidas como la clausura o suspensión del funcionamiento, necesitas obtener autorización previa del Tribunal Ambiental, que puede otorgarse incluso vía telefónica por motivos de urgencia. Las medidas deben ser proporcionales al tipo de infracción y durar solo mientras sea necesario para asegurar la instrucción del procedimiento o evitar el daño. El afectado puede reclamar de estas medidas ante el Tribunal Ambiental dentro de quince días.",
+    keyPrinciples: [
+      { name: "Medidas provisionales", articleId: 125 },
+      { name: "Procedimiento sancionatorio", articleId: 129 },
+      { name: "Principio de Precaución", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 125° (Medidas provisionales)", articleId: 125 },
+      { text: "Artículo 126° (Cese de las medidas provisionales)", articleId: 126 },
+      { text: "Artículo 127° (Medidas correctivas)", articleId: 127 }
+    ]
+  },
+  
+  "plan-correccion": {
+    title: "Plan de Corrección de Daños Ambientales",
+    actor: "Infractor",
+    scenario: "Eres una empresa que ha cometido una infracción ambiental en un área protegida y deseas presentar voluntariamente un plan de corrección para reparar el daño causado. Según la Ley 21.600, puedes presentar una propuesta de plan de corrección al SBAP que detalle cómo restaurarás la pérdida o degradación causada a la biodiversidad. El SBAP emitirá un informe sobre la infracción y sus efectos, y remitirá tu propuesta al Ministerio del Medio Ambiente para su aprobación. Desde la aprobación del plan y mientras no concluya su ejecución, se suspende el plazo de prescripción de la infracción. La totalidad de los costos de implementación del plan será de tu cargo. Si existe daño ambiental y no presentas un plan o no lo ejecutas satisfactoriamente, el SBAP deberá ejercer la acción por daño ambiental ante el Tribunal Ambiental. La presentación de un plan de corrección puede ser considerada como atenuante en la determinación de la sanción.",
+    keyPrinciples: [
+      { name: "Plan de corrección", articleId: 141 },
+      { name: "Principio de Responsabilidad", articleId: 9 },
+      { name: "Restauración ecológica", articleId: 3, definitionId: 24 }
+    ],
+    citations: [
+      { text: "Artículo 141° (Plan de corrección)", articleId: 141 },
+      { text: "Artículo 120° (Sanciones)", articleId: 120 },
+      { text: "Artículo 119° (Prescripción)", articleId: 119 }
+    ]
+  },
+  
+  "reclamacion-tribunal": {
+    title: "Reclamación ante un Tribunal Ambiental",
+    actor: "Ciudadano afectado",
+    scenario: "Eres un ciudadano afectado por una resolución del SBAP que aprobó un plan de manejo para un ecosistema amenazado que limita tus actividades productivas. Según la Ley 21.600, puedes reclamar de esta resolución ante los Tribunales Ambientales. Tienes un plazo de treinta días hábiles contados desde la notificación de la resolución para interponer la reclamación. El Tribunal Ambiental competente será el del lugar donde se aplica el instrumento contenido en el acto administrativo. En tu reclamación, debes fundamentar por qué consideras que el plan de manejo no se ajusta a la ley o su reglamento y te causa perjuicio. El procedimiento se regirá por lo dispuesto en la ley 20.600 que crea los Tribunales Ambientales. Contra la resolución del Tribunal Ambiental sólo procederá el recurso de apelación en casos específicos, y contra la sentencia definitiva podrás interponer recurso de casación en el fondo.",
+    keyPrinciples: [
+      { name: "Reclamación", articleId: 134 },
+      { name: "Plan de manejo para la conservación", articleId: 3, definitionId: 21 },
+      { name: "Competencia", articleId: 135 }
+    ],
+    citations: [
+      { text: "Artículo 134° (Reclamación)", articleId: 134 },
+      { text: "Artículo 135° (Competencia)", articleId: 135 },
+      { text: "Artículo 136° (Legitimación activa)", articleId: 136 }
+    ]
+  },
+  
+  "reserva-biosfera": {
+    title: "Creación de una Reserva de la Biósfera",
+    actor: "SBAP",
+    scenario: "Eres un funcionario del SBAP encargado de promover la creación de una Reserva de la Biósfera en un territorio con alto valor ecológico y cultural. Según la Ley 21.600, las Reservas de la Biósfera son áreas reconocidas internacionalmente en el marco del Programa del Hombre y la Biósfera de la UNESCO. Debes elaborar un plan de gestión que establezca las medidas e instrumentos a aplicar para promover el uso sustentable de los recursos naturales y la conservación de la biodiversidad. Este plan debe actualizarse cada cinco años. Puedes conformar comités de gestión integrados por representantes de organizaciones públicas y de la comunidad existentes en la reserva, que colaboren en la elaboración y monitoreo del plan de gestión. Si la zona núcleo de la reserva constituye un área protegida, debes procurar integrar el manejo de dicha área con la gestión local de la reserva. También debes otorgar asesoramiento técnico en estas áreas conforme a los objetivos planteados por el Programa de la UNESCO.",
+    keyPrinciples: [
+      { name: "Reserva de la biósfera", articleId: 3, definitionId: 28 },
+      { name: "Plan de gestión", articleId: 36 },
+      { name: "Principio Participativo", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 36° (Reservas de la biósfera)", articleId: 36 },
+      { text: "Artículo 3°, definición 28", articleId: 3 },
+      { text: "Artículo 55°, letra g)", articleId: 55 }
+    ]
+  },
+  
+  "coordinacion": {
+    title: "Aplicación del Principio de Coordinación",
+    actor: "Servicio público",
+    scenario: "Eres un servicio público con competencias en gestión de recursos naturales que debe aprobar un proyecto que afecta un área con alta biodiversidad. Según la Ley 21.600, debes aplicar el 'Principio de Coordinación', que establece que la implementación de instrumentos de conservación debe realizarse de manera coordinada entre los distintos órganos competentes. Antes de aprobar el proyecto, debes consultar al SBAP para evaluar sus posibles impactos sobre la biodiversidad. Si el proyecto afecta un área protegida, un sitio prioritario o un ecosistema amenazado, debes solicitar un informe técnico al SBAP. También debes coordinar la implementación de medidas de mitigación o compensación con el SBAP. Esta coordinación es especialmente relevante cuando el proyecto afecta recursos regulados por múltiples sectores, como por ejemplo un proyecto que involucra recursos hídricos, forestales y pesqueros en una misma zona.",
+    keyPrinciples: [
+      { name: "Principio de Coordinación", articleId: 2 },
+      { name: "Principio de Jerarquía", articleId: 2 },
+      { name: "Principio de Información", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 2°, letra a)", articleId: 2 },
+      { text: "Artículo 5°, letra i)", articleId: 5 },
+      { text: "Artículo 31° (Planes de manejo para ecosistemas)", articleId: 31 }
+    ]
+  },
+  
+  "conservacion-marina": {
+    title: "Iniciativa Privada de Conservación Marina",
+    actor: "Organización no gubernamental",
+    scenario: "Eres una ONG ambiental que desea desarrollar una iniciativa de conservación en ecosistemas marinos costeros que son objeto de concesión por parte del Ministerio de Defensa Nacional. Según la Ley 21.600, puedes solicitar apoyo técnico al SBAP para tu iniciativa, siempre que en tus instrumentos de manejo establezcas la conservación de la biodiversidad como objetivo. El SBAP podrá prestar apoyo tanto en la elaboración como en la implementación de tus instrumentos de manejo, según su disponibilidad presupuestaria. Este apoyo puede incluir asesoría científica, capacitación de personal, diseño de programas de monitoreo, o ayuda en la elaboración de planes de manejo. Tu iniciativa debe ser compatible con los objetivos de conservación de la biodiversidad y no puede interferir con las funciones de defensa nacional. El SBAP evaluará tu propuesta y determinará el tipo y alcance del apoyo que puede proporcionar, priorizando aquellas iniciativas que contribuyan a la representatividad del Sistema Nacional de Áreas Protegidas.",
+    keyPrinciples: [
+      { name: "Iniciativas privadas de conservación marina", articleId: 34 },
+      { name: "Conservación de la biodiversidad", articleId: 3, definitionId: 6 },
+      { name: "Principio de Sustentabilidad", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 34° (Iniciativas privadas de conservación marina)", articleId: 34 },
+      { text: "Artículo 5°, letra f)", articleId: 5 },
+      { text: "Artículo 53° (Sistema Nacional de Áreas Protegidas)", articleId: 53 }
+    ]
+  },
+  
+  "area-indigena": {
+    title: "Proyecto en un Área de Conservación de Pueblos Indígenas",
+    actor: "Comunidad indígena",
+    scenario: "Eres una comunidad indígena que ha logrado que su territorio sea reconocido como 'Área de Conservación de Pueblos Indígenas'. Según la Ley 21.600, esta categoría de protección permite combinar la conservación de la biodiversidad con vuestros usos ancestrales o consuetudinarios, siempre que no pongan en riesgo los servicios ecosistémicos del área. Como comunidad, sois los administradores del área y debéis elaborar un plan de manejo que sea aprobado por el SBAP. Este plan debe considerar tanto los objetivos de conservación como vuestros conocimientos locales y prácticas tradicionales. Podéis desarrollar actividades de uso sustentable en el área, como recolección de plantas medicinales, caza subsistencia o turismo comunitario, siempre que sean compatibles con los objetivos de conservación. El SBAP debe respetar, preservar y mantener vuestros conocimientos tradicionales pertinentes para la conservación y utilización sostenible de la biodiversidad.",
+    keyPrinciples: [
+      { name: "Área de Conservación de Pueblos Indígenas", articleId: 62 },
+      { name: "Principio Participativo", articleId: 2 },
+      { name: "Uso sustentable", articleId: 3, definitionId: 32 }
+    ],
+    citations: [
+      { text: "Artículo 62° (Área de Conservación de Pueblos Indígenas)", articleId: 62 },
+      { text: "Artículo 2°, letra d)", articleId: 2 },
+      { text: "Artículo 2°, letra h)", articleId: 2 }
+    ]
+  },
+  
+  "acceso-informacion": {
+    title: "Acceso a Información de Biodiversidad",
+    actor: "Investigador",
+    scenario: "Eres un investigador que solicita información al SBAP sobre la distribución de especies amenazadas en una región específica. Según la Ley 21.600, el SBAP administra un 'Sistema de Información de la Biodiversidad' que almacena datos sobre ecosistemas, especies, servicios ecosistémicos y áreas protegidas. La información contenida en este sistema es de acceso público, excepto aquella cuya publicidad pudiera poner en riesgo la conservación de especies o sus poblaciones. En tu caso, el SBAP podrá proporcionarte la información general sobre distribución de especies, pero podrá mantener en reserva los datos precisos de localización si considera que su conocimiento podría facilitar la captura o colecta ilegal de especies amenazadas. El SBAP debe asegurar la interoperabilidad de su sistema con el Sistema Nacional de Información Ambiental para evitar duplicidades. Si la información que solicitas fue generada con fondos públicos por privados, el SBAP podrá requerirla a estos últimos.",
+    keyPrinciples: [
+      { name: "Sistema de Información de la Biodiversidad", articleId: 24 },
+      { name: "Principio de Información", articleId: 2 },
+      { name: "Requerimiento de información", articleId: 26 }
+    ],
+    citations: [
+      { text: "Artículo 24° (Sistema de Información)", articleId: 24 },
+      { text: "Artículo 26° (Requerimiento de información)", articleId: 26 },
+      { text: "Artículo 2°, letra i)", articleId: 2 }
+    ]
+  },
+  
+  "planificacion-ecologica": {
+    title: "Planificación Ecológica Territorial",
+    actor: "Ministerio del Medio Ambiente",
+    scenario: "Eres el Ministerio del Medio Ambiente y debes elaborar una planificación ecológica del país para definir prioridades de conservación de la biodiversidad. Según la Ley 21.600, esta planificación debe incluir la identificación de sitios prioritarios basada en inventarios de ecosistemas, la identificación de usos del territorio según la normativa vigente, la identificación de procesos y categorías de actividades con efectos perjudiciales para la biodiversidad, y buenas prácticas para la conservación. Debes considerar los antecedentes que proponga el Comité Científico Asesor. La planificación ecológica debe ser considerada para la elaboración o actualización de instrumentos de ordenamiento territorial. Para identificar los sitios prioritarios, puedes utilizar como referencia el Anexo I del Convenio sobre la Diversidad Biológica. Una vez elaborada, esta planificación servirá como base para la toma de decisiones en materia de conservación y ordenamiento territorial a nivel nacional, regional y local.",
+    keyPrinciples: [
+      { name: "Planificación ecológica", articleId: 28 },
+      { name: "Sitio prioritario", articleId: 3, definitionId: 31 },
+      { name: "Principio de Coordinación", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 28° (Planificación ecológica)", articleId: 28 },
+      { text: "Artículo 29° (Sitios prioritarios)", articleId: 29 },
+      { text: "Artículo 7° bis de la ley 19.300", articleId: 28 }
+    ]
+  },
+  
+  "fondo-biodiversidad": {
+    title: "Fondo Nacional de la Biodiversidad",
+    actor: "Organización sin fines de lucro",
+    scenario: "Eres una organización sin fines de lucro que desarrolla un proyecto de restauración ecológica fuera de áreas protegidas estatales y necesitas financiamiento. Según la Ley 21.600, puedes postular al 'Fondo Nacional de la Biodiversidad', que está destinado a financiar proyectos de conservación principalmente fuera de las áreas protegidas del Estado. El fondo es administrado por el SBAP y puede financiar actividades como investigación, capacitación, monitoreo, restauración, control de amenazas, acciones de conservación de especies fuera de sus hábitats, y prácticas productivas sustentables. Para postular, debes presentar una propuesta detallando los objetivos del proyecto, las actividades a realizar, los resultados esperados y un presupuesto. El SBAP evaluará tu propuesta según las prioridades de conservación que haya establecido. Si eres seleccionado, deberás presentar informes periódicos de avance y un informe final al término del proyecto.",
+    keyPrinciples: [
+      { name: "Fondo Nacional de la Biodiversidad", articleId: 46 },
+      { name: "Restauración ecológica", articleId: 3, definitionId: 24 },
+      { name: "Conservación de la biodiversidad", articleId: 3, definitionId: 6 }
+    ],
+    citations: [
+      { text: "Artículo 46° (Fondo Nacional de la Biodiversidad)", articleId: 46 },
+      { text: "Artículo 47° (Beneficiarios)", articleId: 47 },
+      { text: "Artículo 48° (Administración)", articleId: 48 }
+    ]
+  },
+  
+  "area-multiples-usos": {
+    title: "Proyecto en un Área de Conservación de Múltiples Usos",
+    actor: "Empresa pesquera",
+    scenario: "Eres una empresa pesquera artesanal que opera en un 'Área de Conservación de Múltiples Usos'. Según la Ley 21.600, esta categoría de protección se caracteriza por una interacción tradicional entre los seres humanos y la naturaleza, y permite el uso sustentable de recursos naturales y servicios ecosistémicos. Tu actividad pesquera puede continuar desarrollándose siempre que no ponga en riesgo los servicios ecosistémicos que el área provee. Debes ajustarte a las regulaciones establecidas en el plan de manejo del área, que puede incluir vedas temporales, restricciones a ciertas artes de pesca, o límites a las capturas. El SBAP fiscalizará el cumplimiento de estas normas y podrá sancionar las infracciones. Como beneficio, el área te proporciona un entorno marino más saludable que sostiene las poblaciones de especies comerciales a largo plazo. También puedes participar en los comités de gestión del área y acceder a programas de capacitación y asistencia técnica para mejorar tus prácticas pesqueras.",
+    keyPrinciples: [
+      { name: "Área de Conservación de Múltiples Usos", articleId: 61 },
+      { name: "Uso sustentable", articleId: 3, definitionId: 32 },
+      { name: "Plan de manejo", articleId: 3, definitionId: 20 }
+    ],
+    citations: [
+      { text: "Artículo 61° (Área de Conservación de Múltiples Usos)", articleId: 61 },
+      { text: "Artículo 63° (Proyectos o actividades)", articleId: 63 },
+      { text: "Artículo 71° (Planes de manejo)", articleId: 71 }
+    ]
+  },
+  
+  "principio-informacion": {
+    title: "Aplicación del Principio de Información",
+    actor: "SBAP",
+    scenario: "Eres el SBAP y debes aplicar el 'Principio de Información' que establece que es deber del Estado facilitar y promover el acceso a la información sobre biodiversidad. Según la Ley 21.600, debes administrar el Sistema de Información de la Biodiversidad y garantizar que la información sea de acceso público, excepto aquella cuya publicidad pudiera poner en riesgo la conservación de especies. Debes promover el conocimiento sobre los servicios ecosistémicos y su valoración, especialmente entre las comunidades locales y los tomadores de decisiones. Para ello, puedes desarrollar programas de educación, capacitación y comunicación sobre el valor de la biodiversidad, sus amenazas y su relación con el cambio climático. También debes colaborar con el Ministerio del Medio Ambiente en la elaboración del informe cuatrienal y el reporte anual sobre el estado de la biodiversidad. La información que generes debe ser clara, precisa y accesible a diferentes públicos, desde especialistas hasta ciudadanos comunes.",
+    keyPrinciples: [
+      { name: "Principio de Información", articleId: 2 },
+      { name: "Sistema de Información de la Biodiversidad", articleId: 24 },
+      { name: "Servicios ecosistémicos", articleId: 3, definitionId: 30 }
+    ],
+    citations: [
+      { text: "Artículo 2°, letra i)", articleId: 2 },
+      { text: "Artículo 24° (Sistema de Información)", articleId: 24 },
+      { text: "Artículo 27° (Informes sobre el estado de la biodiversidad)", articleId: 27 }
+    ]
+  },
+  
+  "region-virgen": {
+    title: "Proyecto en una Reserva de Región Virgen",
+    actor: "Investigador",
+    scenario: "Eres un investigador que desea realizar un estudio científico en una 'Reserva de Región Virgen'. Según la Ley 21.600, esta categoría de protección se caracteriza por condiciones primitivas naturales, no perturbadas significativamente por actividades humanas, y su objetivo es la preservación estricta de la integridad ecológica. En esta área está prohibida la explotación de recursos naturales con fines comerciales, y no puedes realizar ningún tipo de actividad, salvo aquellas autorizadas con propósitos de investigación científica. Para realizar tu estudio, debes presentar una solicitud detallada al SBAP que demuestre la relevancia científica de tu investigación y que tus métodos causarán el mínimo impacto posible. Si eres autorizado, deberás seguir estrictamente las condiciones establecidas por el SBAP, que pueden incluir restricciones a las zonas de acceso, limitaciones en la recolección de muestras, y obligaciones de compartir los resultados de tu investigación con el SBAP.",
+    keyPrinciples: [
+      { name: "Reserva de Región Virgen", articleId: 57 },
+      { name: "Preservación", articleId: 3, definitionId: 26 },
+      { name: "Principio de Precaución", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 57° (Reserva de Región Virgen)", articleId: 57 },
+      { text: "Artículo 63° (Proyectos o actividades)", articleId: 63 },
+      { text: "Artículo 79° (Concesiones)", articleId: 79 }
+    ]
+  },
+  
+  "monumento-natural": {
+    title: "Proyecto en un Monumento Natural",
+    actor: "Operador turístico",
+    scenario: "Eres un operador turístico que desea ofrecer visitas guiadas en un 'Monumento Natural'. Según la Ley 21.600, esta categoría de protección se caracteriza por la presencia de componentes naturales específicos o formaciones naturales de valor excepcional, y su objetivo es la preservación de estos elementos específicos y sus hábitats asociados. Para operar en el área, necesitas obtener un permiso del SBAP, ya que tu actividad es de carácter transitorio y no requiere la instalación de infraestructura permanente. El permiso sólo será otorgado si tu actividad se ajusta a la categoría, al objeto de protección y al plan de manejo del área. Debes seguir estrictamente las normas establecidas en el plan de manejo, que pueden incluir límites al número de visitantes, restricciones a las zonas de acceso, y obligaciones de contar con guías autorizados. Tu actividad debe desarrollarse como 'turismo ambientalmente responsable', con bajo impacto y respetando los valores naturales del monumento.",
+    keyPrinciples: [
+      { name: "Monumento Natural", articleId: 59 },
+      { name: "Turismo ambientalmente responsable", articleId: 3, definitionId: 34 },
+      { name: "Permiso", articleId: 94 }
+    ],
+    citations: [
+      { text: "Artículo 59° (Monumento Natural)", articleId: 59 },
+      { text: "Artículo 94° (Permiso)", articleId: 94 },
+      { text: "Artículo 63° (Proyectos o actividades)", articleId: 63 }
+    ]
+  },
+  
+  "reserva-nacional": {
+    title: "Proyecto en una Reserva Nacional",
+    actor: "Comunidad local",
+    scenario: "Eres una comunidad local que habita en los alrededores de una 'Reserva Nacional' y desea desarrollar actividades de uso sustentable en el área. Según la Ley 21.600, esta categoría de protección permite el desarrollo de actividades de uso sustentable, siempre que no pongan en riesgo los servicios ecosistémicos que el área provee. Puedes proponer al SBAP proyectos como recolección sostenible de productos forestales no maderables, turismo de base comunitaria, o actividades educativas. Estos proyectos deben ser compatibles con el plan de manejo del área y no pueden incluir la explotación de recursos naturales con fines comerciales. El SBAP evaluará tus propuestas y, si son aprobadas, podrá autorizarlas mediante permisos o convenios específicos. Como comunidad, también puedes participar en los comités de gestión del área y acceder a programas de capacitación y asistencia técnica para mejorar tus prácticas sostenibles. El SBAP promoverá la participación de las comunidades locales en la conservación y gestión de las áreas protegidas.",
+    keyPrinciples: [
+      { name: "Reserva Nacional", articleId: 60 },
+      { name: "Uso sustentable", articleId: 3, definitionId: 32 },
+      { name: "Principio Participativo", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo 60° (Reserva Nacional)", articleId: 60 },
+      { text: "Artículo 63° (Proyectos o actividades)", articleId: 63 },
+      { text: "Artículo 55°, letra g)", articleId: 55 }
+    ]
+  },
+  
+  "traslado-personal": {
+    title: "Traslado de Personal desde CONAF al SBAP",
+    actor: "Funcionario público",
+    scenario: "Eres un funcionario de CONAF que presta servicios exclusivamente para la administración y gestión de áreas silvestres protegidas. Según la Ley 21.600, serás trasladado al Servicio de Biodiversidad y Áreas Protegidas (SBAP) sin solución de continuidad. Este traslado se realizará dentro del tercer año contado desde la entrada en funcionamiento del SBAP, mediante decretos expedidos por el Ministerio del Medio Ambiente. Durante este proceso, no se te podrá aplicar el artículo 16 de la ley (sobre destinación y subrogación), debiendo regirte por las normas que estaban vigentes en CONAF al momento del traslado. Sin embargo, puedes someterte voluntariamente a la regulación de dicho artículo. El traslado no puede significar pérdida del empleo, disminución de remuneraciones o modificación de derechos previsionales, ni cambio de tu residencia habitual fuera de la región en que prestas servicios, salvo con tu consentimiento. Cualquier diferencia de remuneraciones será pagada mediante planilla suplementaria.",
+    keyPrinciples: [
+      { name: "Traslado de personal", articleId: 155 },
+      { name: "Régimen laboral", articleId: 11 },
+      { name: "De la destinación y la subrogación", articleId: 16 }
+    ],
+    citations: [
+      { text: "Artículo primero transitorio, numeral 3)", articleId: 155 },
+      { text: "Artículo primero transitorio, numeral 5)", articleId: 155 },
+      { text: "Artículo primero transitorio, numeral 8)", articleId: 155 }
+    ]
+  },
+  
+  "reclasificacion-areas": {
+    title: "Reclasificación de Áreas Protegidas Existentes",
+    actor: "Ministerio del Medio Ambiente",
+    scenario: "Eres el Ministerio del Medio Ambiente y debes reclasificar las reservas marinas, santuarios de la naturaleza y bienes nacionales protegidos existentes a la fecha de publicación de la Ley 21.600. Según las disposiciones transitorias, tienes un plazo de cinco años contado desde la entrada en funcionamiento del SBAP para realizar esta reclasificación. Para las reservas marinas, debes determinar en conjunto con el Ministerio de Economía si corresponden como 'Reserva de Interés Pesquero' o como 'Reserva Nacional', previo informe del SBAP y de la Subsecretaría de Pesca. Para los santuarios de la naturaleza, debes determinar a qué categoría deben adscribirse, previo informe del SBAP. Si el área es de propiedad privada, se requiere el consentimiento del propietario. Para los bienes nacionales protegidos, debes determinar la categoría aplicable en conjunto con el Ministerio de Bienes Nacionales. La reclasificación en ningún caso reducirá el grado de protección, jerarquía o superficie del área protegida.",
+    keyPrinciples: [
+      { name: "Reclasificación de áreas", articleId: 159 },
+      { name: "Categorías de áreas protegidas", articleId: 56 },
+      { name: "Principio de No Regresión", articleId: 2 }
+    ],
+    citations: [
+      { text: "Artículo quinto transitorio", articleId: 159 },
+      { text: "Artículo 56° (Categorías de áreas protegidas)", articleId: 56 },
+      { text: "Artículo 158° (Áreas protegidas existentes)", articleId: 158 }
+    ]
+  },
+  
+  "concesiones-preexistentes": {
+    title: "Concesiones Preexistentes en Áreas Protegidas",
+    actor: "Concesionario",
+    scenario: "Eres titular de una concesión o contrato que fue otorgado antes de la creación de un área protegida en espacios que ahora están comprendidos dentro de ella. Según las disposiciones transitorias de la Ley 21.600, tu concesión o contrato continuará vigente al interior del área protegida hasta el momento que se efectúe su relocalización, a menos que caigas en incumplimiento de las normas especiales que la rigen y se produzca con ello la caducidad de la concesión o término del contrato. Si tu concesión fue celebrada por CONAF sobre terrenos comprendidos en áreas silvestres protegidas, el SBAP se entenderá como su sucesor legal. La creación del área protegida tampoco obsta el desarrollo de actividades que cuenten con una resolución de calificación ambiental favorable. Sin embargo, debes ajustar tus actividades a las nuevas regulaciones del área protegida y respetar su objeto de protección y plan de manejo.",
+    keyPrinciples: [
+      { name: "Concesiones preexistentes", articleId: 160 },
+      { name: "Concesiones en áreas protegidas", articleId: 79 },
+      { name: "Plan de manejo", articleId: 3, definitionId: 20 }
+    ],
+    citations: [
+      { text: "Artículo sexto transitorio", articleId: 160 },
+      { text: "Artículo 79° (Concesiones en áreas protegidas)", articleId: 79 },
+      { text: "Artículo 71° (Planes de manejo)", articleId: 71 }
+    ]
+  }
+  };
+    

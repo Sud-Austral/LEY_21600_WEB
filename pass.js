@@ -268,3 +268,87 @@ async function obtenerExplicacionJSON(jsonLey) {
     }
   }
 
+
+
+async function obtenerRespuestaLey(pregunta) {
+  const promptBase = `
+  Actúa como un experto en análisis legislativo. Dada la siguiente base de datos de artículos de una ley chilena sobre biodiversidad y áreas protegidas, responde a la pregunta del usuario siguiendo estrictamente esta estructura:
+
+  1. **Artículos directamente relacionados con [tema específico]**:
+  - Lista los artículos que mencionan explícitamente el tema o modifican leyes directamente vinculadas.
+  - Para cada artículo, incluye:
+  - Número y nombre del artículo.
+  - Relevancia (por qué es importante para el tema).
+  - Contenido clave (fragmentos textuales relevantes entre comillas).
+
+  2. **Artículos indirectamente relacionados (contexto regulatorio)**:
+  - Lista artículos que establecen facultades, definiciones o procedimientos aplicables al tema, aunque no lo mencionen directamente.
+  - Incluye los mismos detalles que en la sección anterior.
+
+  3. **Artículos con menciones técnicas relevantes**:
+  - Si aplica, incluye artículos que definen conceptos o establecen criterios técnicos útiles para entender el tema.
+
+  4. **Conclusión**:
+  - Resume en 2-3 frases los artículos más importantes y su relación con el tema.
+  - Si el tema no está cubierto técnicamente, sugiere fuentes alternativas.
+
+  **Reglas adicionales**:
+  - Usa viñetas (•) para listas.
+  - Usa **negritas** para títulos de secciones y artículos.
+  - Incluye citas textuales breves entre comillas cuando sean esclarecedoras.
+  - Si un artículo no tiene relación clara con el tema, no lo incluyas.
+  - La base de datos es la siguiente: [pegar aquí la base de datos completa].
+
+  **Pregunta del usuario**:${pregunta} 
+
+  
+  📦 JSON a analizar:
+  ${JSON.stringify(mockDataResponse.articulos, null, 0)}
+  `;
+
+    const requestBody = {
+      model: "glm-4.5-flash",
+      messages: [
+        { role: "user", content: promptBase }
+      ],
+      temperature: 0.7,
+      max_tokens: 2000
+    };
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 300000000);
+
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Error en la petición: ${response.status} ${response.statusText}`);
+      }
+
+      const dataResp = await response.json();
+
+      if (dataResp?.choices?.[0]?.message?.content) {
+        console.log(dataResp.choices[0].message.content.trim());
+        return dataResp.choices[0].message.content.trim();
+      } else {
+        throw new Error("Respuesta inesperada de la API");
+      }
+    } catch (error) {
+      console.error("Error al obtener explicación:", error);
+      if (error.name === "AbortError") {
+        throw new Error("La solicitud ha excedido el tiempo de espera. Por favor, intenta nuevamente.");
+      }
+      throw error;
+    }
+  }
+
