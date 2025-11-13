@@ -1980,7 +1980,7 @@ const mockDataResponse = { /* ... (Mismo objeto de datos de la versión anterior
   {"id": 199, "articulo_id": 165, "termino": "Excepción para Guardaparques", "definicion": "Estarán exentos del requisito de licencia enseñanza media los guardaparques traspasados desde CONAF."},
   {"id": 200, "articulo_id": 166, "termino": "Plazo para Reglamentos", "definicion": "Los reglamentos referidos en la ley deberán dictarse dentro de 2 años desde publicación. En elaboración de reglamentos de artículos 15 y 22 se contemplará participación de trabajadores traspasados."}
 ],
-        articleSummaries:articleSummaries = {
+        articleSummaries: {
   1: { 
     title: "Objeto de la Ley", 
     summary: `<ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300"><li>La ley tiene por objeto la <strong>conservación de la biodiversidad</strong> y la protección del patrimonio natural de Chile.</li><li>Se enfoca en tres estrategias clave: <strong>preservación</strong>, <strong>restauración</strong> y <strong>uso sustentable</strong> de genes, especies y ecosistemas.</li><li>Excluye materias como sanidad vegetal/animal y prevención de incendios forestales.</li></ul>` 

@@ -177,8 +177,103 @@ async function obtenerRespuesta(pregunta) {
 //   .then(console.log)
 //   .catch(console.error);
 
-
 async function obtenerExplicacionJSON(jsonLey) {
+  console.log(jsonLey)
+   const promptBase = `
+  Rol: Actúa como un analista de políticas públicas y normativas ambientales con expertise en la Ley 21600. Tu objetivo es proporcionar una explicación completa, clara y, sobre todo, equilibrada y multifacética. Debes presentar tanto los objetivos y beneficios del concepto como sus implicaciones prácticas, restricciones y potenciales tensiones para los diferentes actores sociales, como propietarios privados, sectores productivos y proyectos de inversión.
+  Contexto: Una aplicación ha filtrado el texto de la Ley 21600 usando el término [TÉRMINO_DE_FILTRO]. Como resultado, ha generado un grafo de relaciones que conecta artículos de la ley, instituciones y otras normas. Los datos estructurados de este grafo se proporcionan a continuación en formato JSON. El texto completo de la ley también está disponible como referencia.
+  Inputs:
+  1.	Término de Filtro:[TÉRMINO_DE_FILTRO]
+  2.	Datos del Grafo (JSON):
+  3.	Texto Completo de la Ley (Referencia):[REFERENCIA_AL_TEXTO_COMPLETO_DE_LA_LEY]
+  Tarea: Genera una explicación analítica y equilibrada sobre el término [TÉRMINO_DE_FILTRO]. La explicación debe cubrir sus beneficios de conservación, pero también sus implicaciones prácticas, restricciones y el contexto de su implementación, basándote estrictamente en lo que se puede inferir del texto de la ley y sus conexiones.
+  Instrucciones Específicas para el Análisis:
+  •	Visión Equilibrada: Para cada punto, considera tanto la perspectiva de la conservación como la de los actores potencialmente afectados.
+  •	Análisis de Implicaciones: Infiera del texto de la ley las posibles restricciones o requisitos. Por ejemplo, si un artículo menciona "fiscalización", "condiciones", "exigencias" o "planes de manejo obligatorios", debes interpretarlos como potenciales limitaciones o costos para propietarios o proyectos.
+  •	Para las Instituciones: Explica su rol, pero también su poder de actuación. ¿Tiene facultades para restringir, fiscalizar o sancionar?
+  •	Para las Leyes: Explica si la relación es de modificación (que puede añadir o quitar restricciones) o de complementariedad.
+  Estructura de la Respuesta Esperada: Organiza tu respuesta en las siguientes secciones, usando los títulos correspondientes:
+  1.	Resumen Ejecutivo:
+  •	Define brevemente qué es [TÉRMINO_DE_FILTRO] y su doble cara: por un lado, su objetivo de conservación y, por otro, su naturaleza como instrumento legal que puede generar restricciones.
+  2.	Definición y Propósito de Conservación:
+  •	Presenta la definición oficial y su propósito ecológico, explicando por qué es una herramienta para la conservación.
+  3.	Análisis Detallado del Marco Legal:
+  •	Analiza los artículos clave, explicando su rol y sus conexiones con instituciones y leyes, pero siempre con un enfoque en las facultades y restricciones que establecen.
+  •	Artículo [Número]: "[Título del Artículo]".
+  •	Rol y Facultades:Explica qué hace este artículo y qué poderes otorga (ej: "Este artículo prohíbe...", "faculta al Servicio para establecer condiciones...", "exige la elaboración de un plan...").
+  •	Conexiones Clave:Menciona las instituciones y leyes vinculadas, enfocándote en cómo se distribuyen las responsabilidades y las potestades.
+  4.	Implicaciones Prácticas y Consideraciones Críticas:
+  Basado en el análisis anterior, detalla las consecuencias prácticas del concepto.
+  •	Para Propietarios Privados: ¿Cómo podría afectar este concepto el dominio, el uso del suelo o las actividades en terrenos privados? ¿Puede implicar limitaciones a la construcción, agricultura, minería, acuicultura,energía,  etc.?
+  •	Para Actividades Productivas y Proyectos de Inversión: ¿Qué barreras, costos o requisitos adicionales podría enfrentar un proyecto (agrícola, minero, inmobiliario, etc.)? (Ej: necesidad de permisos especiales, estudios de impacto ambiental más rigurosos, compensaciones, prohibiciones directas).
+  •	Mecanismos de Participación y Resolución: ¿La ley menciona vías para la participación ciudadana, acuerdos voluntarios o mecanismos para resolver conflictos o compensar a los afectados?
+  5.	Síntesis y Conclusión:
+  •	Resume el concepto como una herramienta de doble filo: un mecanismo esencial para la conservación que opera a través de un marco legal que impone restricciones y obligaciones, generando un balance entre el bien común ambiental y los derechos e intereses privados.
+  6.	Puntos Clave para el Usuario:
+  •	Presenta una lista equilibrada con las ideas más importantes.
+  •	Son herramientas vitales para conectar la naturaleza y proteger la biodiversidad.
+  •	Implican restricciones legales, como la prohibición de la caza.
+  •	Pueden afectar el uso de suelo privado y requerir permisos o condiciones para proyectos productivos.
+  •	El Servicio de Biodiversidad es la principal autoridad para su gestión y fiscalización.
+  Restricciones de Estilo:
+  1.	Tono Analítico y Neutral: Evita un lenguaje laudatorio o puramente promocional de la ley. Usa un tono objetivo, como el de un informe técnico.
+  2.	Claridad: Sé directo y preciso. Al describir restricciones, sé claro sobre qué establece la ley.
+  3.	Fidelidad: Basa todo tu análisis estrictamente en la información proporcionada. No inventes problemas, pero infiere las implicaciones lógicas de las facultades y restricciones descritas en el texto legal.
+  4.	Formato: Usa Markdown para mejorar la legibilidad.
+
+
+  
+  📦 JSON a analizar:
+  ${JSON.stringify(jsonLey, null, 0)}
+  `;
+
+    const requestBody = {
+      model: "glm-4.5-flash",
+      messages: [
+        { role: "user", content: promptBase }
+      ],
+      temperature: 0.7,
+      max_tokens: 4000
+    };
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 300000000);
+
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestBody),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Error en la petición: ${response.status} ${response.statusText}`);
+      }
+
+      const dataResp = await response.json();
+
+      if (dataResp?.choices?.[0]?.message?.content) {
+        return dataResp.choices[0].message.content.trim();
+      } else {
+        throw new Error("Respuesta inesperada de la API");
+      }
+    } catch (error) {
+      console.error("Error al obtener explicación:", error);
+      if (error.name === "AbortError") {
+        throw new Error("La solicitud ha excedido el tiempo de espera. Por favor, intenta nuevamente.");
+      }
+      throw error;
+    }
+  }
+
+
+async function obtenerExplicacionJSON2(jsonLey) {
   console.log(jsonLey)
   const promptBase = `
 
