@@ -1794,6 +1794,9 @@
     let termino_filtro = document.getElementById('search-input').value;
     if (termino_filtro == ""){
         termino_filtro = [...seleccionadosLeyes, ...seleccionadosInstituciones].join(', ');
+        if (termino_filtro == ""){
+            termino_filtro = "Ley 21.600";
+        }
     }
       
       
