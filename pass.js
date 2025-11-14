@@ -422,6 +422,21 @@ async function obtenerRespuesta(query) {
 📌 SOLO debes responder usando FileSearch.
 NO puedes usar conocimiento general del modelo.
 Si la información no está en FileSearch, debes indicarlo.
+Sé claro, preciso y cita en cada párrafo.
+Has 3 preguntas de seguimiento.
+Cada sección debe incluir **íconos** adecuados al contenido:
+   - 📘 Explicaciones
+   - 📜 Artículos citados
+   - ⚠️ Advertencias
+   - 🧩 Interpretaciones
+   - 🏛️ Instituciones
+   - ♻️ Biodiversidad
+   etc., según corresponda.
+Cada párrafo que escribas debe indicar exactamente de qué artículo(s) se obtiene la información**, citando explícitamente así:
+   - (Artículo 3)
+   - (Artículos 12 y 14)
+   - (Modificación del Artículo 38 de la Ley 19.xxx)
+   - etc.
 
 ${query}
 `;
