@@ -295,15 +295,19 @@ Reglas:
     return "⚠️ Hubo un error al procesar tu solicitud. Intenta nuevamente.";
   }
 }
-
-async function obtenerRespuesta(query) {
+// Con GEMINI
+async function obtenerRespuesta4(query) {
   const API_KEY = "AIzaSyDro4Ii6RJcoJO8do7vquamOXl9uh6uWIw";
 
   const body = {
     contents: [
       {
         role: "user",
-        parts: [{ text: query }]
+        parts: [{ text:  
+          `Eres un experto en la Ley 21600 de Chile. 
+          Para cada respuesta cita los articulos en cada parrafo que escribas de donde sacas la información.
+          Para cada respuesta agrega iconos.
+          Responde: ${query}` }]
       }
     ],
     tools: [
@@ -327,6 +331,182 @@ async function obtenerRespuesta(query) {
   const data = await response.json();
   return data.candidates?.[0]?.content?.parts?.[0]?.text ?? "";
 }
+
+async function obtenerRespuesta5(query) {
+  const API_KEY = "AIzaSyDro4Ii6RJcoJO8do7vquamOXl9uh6uWIw";
+
+  const instrucciones = `
+Eres un asistente experto en la Ley 21600 de Chile.
+
+📌 **Reglas obligatorias que SIEMPRE debes cumplir:**
+
+1. **Cada párrafo que escribas debe indicar exactamente de qué artículo(s) se obtiene la información**, citando explícitamente así:
+   - (Artículo 3)
+   - (Artículos 12 y 14)
+   - (Modificación del Artículo 38 de la Ley 19.xxx)
+   - etc.
+
+2. Solo puedes citar artículos que realmente existan en la base de datos proporcionada por FileSearch.
+
+3. Si una parte de la respuesta NO proviene de un artículo, declara explícitamente:
+   - “(Sin artículo — interpretación general)”
+
+4. Cada sección debe incluir **íconos** adecuados al contenido:
+   - 📘 Explicaciones
+   - 📜 Artículos citados
+   - ⚠️ Advertencias
+   - 🧩 Interpretaciones
+   - 🏛️ Instituciones
+   - ♻️ Biodiversidad
+   etc., según corresponda.
+
+5. Sé claro, preciso y cita en cada párrafo.
+6. Has 3 preguntas de seguimiento.
+
+---
+
+Ahora responde estrictamente siguiendo estas reglas:
+
+${query}
+`;
+
+  const body = {
+  contents: [
+    {
+      role: "user",
+      parts: [{ text: instrucciones }]
+    }
+  ],
+  tools: [
+    {
+      fileSearch: {
+        fileSearchStoreNames: [
+          "fileSearchStores/tutorial-gemini-file-search-3oi7j1dv8anb"
+        ]
+      }
+    }
+  ]
+};
+
+  try {
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + API_KEY,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data?.candidates?.[0]?.content?.parts?.[0]?.text 
+           || "⚠️ No se pudo generar respuesta.";
+  } catch (error) {
+    console.error("Error en obtenerRespuesta:", error);
+    return "❌ Error al obtener la respuesta del modelo.";
+  }
+}
+
+async function obtenerRespuesta(query) {
+  const API_KEY = "AIzaSyDro4Ii6RJcoJO8do7vquamOXl9uh6uWIw";
+
+  //
+  // 🔥 1) Construcción del prompt con instrucciones claras para forzar FileSearch
+  //
+  const instrucciones = `
+📌 SOLO debes responder usando FileSearch.
+NO puedes usar conocimiento general del modelo.
+Si la información no está en FileSearch, debes indicarlo.
+
+${query}
+`;
+
+  //
+  // 🔥 2) Request principal a Gemini
+  //
+  const body = {
+    contents: [
+      {
+        role: "user",
+        parts: [{ text: instrucciones }]
+      }
+    ],
+    tools: [
+      {
+        fileSearch: {
+          fileSearchStoreNames: [
+            "fileSearchStores/tutorial-gemini-file-search-3oi7j1dv8anb"
+          ]
+        }
+      }
+    ]
+  };
+
+  try {
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + API_KEY,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    const data = await response.json();
+    console.log("RAW GEMINI RESPONSE:", data);
+
+    //
+    // 🔥 3) EXTRAER TOOL CALLS Y RESPUESTAS
+    //
+    const parts = data?.candidates?.[0]?.content?.parts || [];
+
+    // Caso 1: El modelo devolvió directamente texto (sin tool calls)
+    const directText = parts.find(p => p.text)?.text;
+    if (directText) {
+      return directText;
+    }
+
+    // Caso 2: El modelo pide ejecutar FileSearch (tool call)
+    const toolCall = parts.find(p => p.fileSearchResult);
+    if (toolCall) {
+      const results = toolCall.fileSearchResult;
+      
+      if (!results || !results.results || results.results.length === 0) {
+        return "⚠️ No se encontraron resultados en FileSearch.";
+      }
+
+      // Construimos una respuesta usando los documentos encontrados
+      let textoFinal = "📄 **Resultados encontrados:**\n\n";
+
+      for (const r of results.results) {
+        textoFinal += `### ${r.fileName}\n`;
+        textoFinal += `${r.content}\n\n`;
+      }
+
+      return textoFinal;
+    }
+
+    //
+    // Caso 3: No hubo texto ni resultado → retorno seguro
+    //
+    return "⚠️ El modelo no entregó texto ni resultados de FileSearch.";
+
+  } catch (error) {
+    console.error("Error en obtenerRespuesta:", error);
+    return "❌ Error al obtener la respuesta del modelo.";
+  }
+}
+
+
+
+
 
 
 
@@ -521,6 +701,7 @@ Restricciones de Estilo:
       const dataResp = await response.json();
 
       if (dataResp?.choices?.[0]?.message?.content) {
+        console.log(dataResp.choices[0].message.content.trim())
         return dataResp.choices[0].message.content.trim();
       } else {
         throw new Error("Respuesta inesperada de la API");
