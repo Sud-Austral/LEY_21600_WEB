@@ -419,11 +419,11 @@ async function obtenerRespuesta(query) {
   // 🔥 1) Construcción del prompt con instrucciones claras para forzar FileSearch
   //
   const instrucciones = `
+📌 **Reglas obligatorias que SIEMPRE debes cumplir:**
 📌 SOLO debes responder usando FileSearch.
 NO puedes usar conocimiento general del modelo.
 Si la información no está en FileSearch, debes indicarlo.
 Sé claro, preciso y cita en cada párrafo.
-Has 3 preguntas de seguimiento.
 Cada sección debe incluir **íconos** adecuados al contenido:
    - 📘 Explicaciones
    - 📜 Artículos citados
@@ -437,6 +437,7 @@ Cada párrafo que escribas debe indicar exactamente de qué artículo(s) se obti
    - (Artículos 12 y 14)
    - (Modificación del Artículo 38 de la Ley 19.xxx)
    - etc.
+  Has 3 preguntas de seguimiento al final de la respuesta.
 
 ${query}
 `;
@@ -774,7 +775,7 @@ async function obtenerRespuestaLey(pregunta) {
         { role: "user", content: promptBase }
       ],
       temperature: 0.7,
-      max_tokens: 4000
+      max_tokens: 6000
     };
 
     try {
