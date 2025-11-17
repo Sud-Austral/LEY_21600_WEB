@@ -22,10 +22,6 @@
       --gray-300: #d1d5db;
       --amber: #f59e0b;
       --amber-light: #fbbf24;
-      --purple: #8b5cf6;
-      --purple-light: #a78bfa;
-      --indigo: #4f46e5;
-      --indigo-light: #818cf8;
     }
     
     button, a, input, select, textarea, .card-hover {
@@ -87,25 +83,12 @@
       cursor: pointer; 
       transition: all 0.2s ease;
       border: 2px solid transparent;
-      position: relative;
     }
     
     .filter-by-tag:hover { 
       transform: translateY(-2px);
       border-color: currentColor;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    
-    .filter-by-tag::after {
-      content: '\f0b0';
-      font-family: 'Font Awesome 6 Free';
-      margin-left: 0.5rem;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    
-    .filter-by-tag:hover::after {
-      opacity: 1;
     }
     
     .btn-transition { transition: all 0.3s ease; }
@@ -133,264 +116,6 @@
     
     .sidebar-tab:hover {
       background-color: rgba(16, 185, 129, 0.1);
-    }
-    
-    .sidebar-header {
-      text-align: center;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      background: rgba(16, 185, 129, 0.05);
-      border-radius: 0.75rem;
-      border-left: 4px solid var(--emerald);
-    }
-
-    .sidebar-header h2 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--emerald);
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-    
-    #back-to-top { 
-      position: fixed; 
-      bottom: 20px; 
-      right: 20px; 
-      z-index: 40; 
-      opacity: 0; 
-      visibility: hidden; 
-      transition: all 0.3s ease; 
-    }
-    
-    #back-to-top.show { 
-      opacity: 1; 
-      visibility: visible; 
-    }
-    
-    .breadcrumb-item { 
-      display: inline-flex; 
-      align-items: center; 
-      color: var(--gray-400); 
-    }
-    
-    .breadcrumb-item:not(:last-child)::after { 
-      content: '/'; 
-      margin: 0 0.75rem; 
-      color: #6b7280;
-      font-weight: 300;
-    }
-    
-    .breadcrumb-item.active { 
-      color: var(--emerald); 
-      font-weight: 500; 
-    }
-    
-    .active-filters { 
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.5rem; 
-      margin-top: 0.5rem; 
-    }
-    
-    .active-filter { 
-      display: inline-flex; 
-      align-items: center; 
-      padding: 0.25rem 0.5rem; 
-      background-color: var(--emerald); 
-      color: white; 
-      border-radius: 9999px; 
-      font-size: 0.75rem; 
-    }
-    
-    .active-filter button { 
-      margin-left: 0.25rem; 
-      background: none; 
-      border: none; 
-      color: white; 
-      cursor: pointer; 
-    }
-    
-    @media (max-width: 1024px) {
-      .sidebar-mobile { 
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        z-index: 50; 
-        height: 100vh; 
-        width: 80%; 
-        max-width: 320px; 
-        transform: translateX(-100%); 
-        transition: transform 0.3s ease; 
-      }
-      
-      .sidebar-mobile.open { 
-        transform: translateX(0); 
-      }
-      
-      .sidebar-overlay { 
-        position: fixed; 
-        top: 0; 
-        left: 0; 
-        right: 0; 
-        bottom: 0; 
-        background-color: rgba(0, 0, 0, 0.5); 
-        z-index: 40; 
-        opacity: 0; 
-        visibility: hidden; 
-        transition: all 0.3s ease; 
-      }
-      
-      .sidebar-overlay.show { 
-        opacity: 1; 
-        visibility: visible; 
-      }
-      
-      .sidebar-tabs-container {
-        display: flex;
-        flex-direction: row !important;
-        overflow-x: auto;
-      }
-      
-      .sidebar-tab {
-        padding: 1rem 0.75rem;
-        font-size: 0.875rem;
-        flex: 1;
-        min-width: 80px;
-      }
-      
-      .sidebar-tab i {
-        display: block;
-        margin-bottom: 0.25rem;
-        font-size: 1.25rem;
-      }
-    }
-    
-    .article-content { 
-      line-height: 1.7; 
-    }
-    
-    .article-content p { 
-      margin-bottom: 1rem; 
-    }
-    
-    .article-content p:last-child { 
-      margin-bottom: 0; 
-    }
-    
-    .article-content ol, .article-content ul { 
-      margin: 1rem 0; 
-      padding-left: 1.5rem; 
-    }
-    
-    .article-content ol li, .article-content ul li { 
-      margin-bottom: 0.5rem; 
-      position: relative; 
-    }
-    
-    .article-content ol li:last-child, .article-content ul li:last-child { 
-      margin-bottom: 0; 
-    }
-    
-    .article-content ol { 
-      list-style-type: decimal; 
-    }
-    
-    .article-content ul { 
-      list-style-type: lower-alpha; 
-    }
-    
-    article {
-      border-left: 3px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-
-    article:hover {
-      border-left-color: var(--emerald);
-      background-color: rgba(16, 185, 129, 0.02);
-    }
-
-    article + article {
-      margin-top: 2rem;
-    }
-    
-    .term-def, .term-def-alt {
-      position: relative; 
-      cursor: help; 
-      text-decoration: underline dotted; 
-      text-underline-offset: 2px; 
-      font-weight: 500;
-    }
-    
-    .term-def { 
-      text-decoration-color: var(--emerald); 
-    }
-    
-    .term-def-alt { 
-      text-decoration-color: var(--amber); 
-    }
-    
-    .definition-tooltip {
-      position: absolute; 
-      background-color: rgba(31, 41, 55, 0.95); 
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(75, 85, 99, 0.5); 
-      border-radius: 0.5rem; 
-      padding: 1rem;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
-      z-index: 50; 
-      max-width: 320px; 
-      opacity: 0; 
-      visibility: hidden;
-      transition: opacity 0.2s ease 0.3s, visibility 0.2s ease 0.3s, transform 0.2s; 
-      transform: translateY(5px);
-    }
-    
-    .definition-tooltip.alt {
-      background-color: rgba(180, 83, 9, 0.95); 
-      border: 1px solid rgba(245, 158, 11, 0.5);
-    }
-    
-    .definition-tooltip.show { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0); 
-    }
-    
-    .definition-tooltip h4 { 
-      font-weight: 600; 
-      margin-bottom: 0.5rem; 
-      color: var(--emerald); 
-      font-size: 1rem; 
-    }
-    
-    .definition-tooltip.alt h4 { 
-      color: var(--amber-light); 
-    }
-    
-    .definition-tooltip p { 
-      font-size: 0.875rem; 
-      line-height: 1.5; 
-      color: #f3f4f6; 
-      margin: 0; 
-    }
-    
-    .definition-tooltip::before {
-      content: ''; 
-      position: absolute; 
-      top: -8px; 
-      left: 20px; 
-      width: 0; 
-      height: 0;
-      border-left: 8px solid transparent; 
-      border-right: 8px solid transparent;
-      border-bottom: 8px solid rgba(31, 41, 55, 0.95);
-    }
-    
-    .definition-tooltip.alt::before { 
-      border-bottom-color: rgba(180, 83, 9, 0.95); 
     }
     
     #chatbot-toggle {
@@ -608,61 +333,6 @@
       color: var(--gray-500); 
     }
     
-    #typing-indicator {
-      display: none; 
-      align-self: flex-start; 
-      padding: 0.75rem 1rem; 
-      color: var(--gray-600);
-    }
-    
-    .typing-indicator-dot {
-      display: inline-block; 
-      width: 8px; 
-      height: 8px; 
-      border-radius: 50%;
-      background-color: var(--gray-400); 
-      animation: typing 1.4s infinite;
-    }
-    
-    .typing-indicator-dot:nth-child(2) { 
-      animation-delay: 0.2s; 
-    }
-    
-    .typing-indicator-dot:nth-child(3) { 
-      animation-delay: 0.4s; 
-    }
-    
-    @keyframes typing {
-      0%, 60%, 100% { 
-        transform: translateY(0); 
-      }
-      30% { 
-        transform: translateY(-10px); 
-      }
-    }
-    
-    #explainer-button {
-      position: absolute; 
-      z-index: 50; 
-      background-color: var(--amber-light);
-      color: #78350f; 
-      border: none; 
-      border-radius: 50%;
-      width: 36px; 
-      height: 36px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center;
-      cursor: pointer; 
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, background-color 0.2s;
-    }
-    
-    #explainer-button:hover { 
-      transform: scale(1.1); 
-      background-color: var(--amber); 
-    }
-    
     .tool-card {
       background: linear-gradient(135deg, #1e293b 0%, #334155 100%); 
       border-radius: 0.75rem;
@@ -754,30 +424,6 @@
     
     .tool-card button:disabled:hover {
       background: inherit;
-    }
-    
-    .tool-card.scenario-generator {
-      background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%);
-    }
-    
-    .tool-card.scenario-generator button {
-      background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
-    }
-    
-    .tool-card.scenario-generator button:hover {
-      background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-    }
-    
-    .tool-card.proactive-detection {
-      background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
-    }
-    
-    .tool-card.proactive-detection button {
-      background: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
-    }
-    
-    .tool-card.proactive-detection button:hover {
-      background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%);
     }
     
     .article-summary {
@@ -906,43 +552,10 @@
     }
     
     #filters-panel,
-    #tools-panel,
-    #semantic-panel {
+    #tools-panel {
       max-height: calc(100vh - 220px);
       overflow-y: auto;
       padding-right: 0.5rem;
-    }
-    
-    .semantic-examples {
-      display: flex; 
-      flex-wrap: wrap; 
-      gap: 0.5rem; 
-      margin-top: 1rem;
-    }
-    
-    .semantic-example {
-      background-color: rgba(99, 102, 241, 0.2); 
-      color: #a5b4fc;
-      border: 1px solid rgba(99, 102, 241, 0.3); 
-      border-radius: 9999px;
-      padding: 0.375rem 1rem; 
-      font-size: 0.8rem; 
-      cursor: pointer;
-      transition: all 0.2s ease;
-      position: relative;
-    }
-    
-    .semantic-example::before {
-      content: '\f002';
-      font-family: 'Font Awesome 6 Free';
-      margin-right: 0.5rem;
-      opacity: 0.7;
-    }
-    
-    .semantic-example:hover {
-      background-color: rgba(99, 102, 241, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(99, 102, 241, 0.3);
     }
     
     .api-response-container {
@@ -1162,23 +775,6 @@
       color: #e5e7eb;
     }
     
-    .cache-indicator {
-      position: sticky;
-      top: 0;
-      right: 0;
-      background-color: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      padding: 0.5rem 1rem;
-      border-radius: 0 0 0 0.5rem;
-      font-size: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      backdrop-filter: blur(10px);
-      z-index: 10;
-      margin-bottom: 1rem;
-    }
-    
     @media (min-width: 1024px) {
       .sidebar-tabs-container {
         display: flex;
@@ -1212,7 +808,6 @@
 
     #filters-panel,
     #tools-panel,
-    #semantic-panel,
     #content-panel {
       max-height: calc(100vh - 280px);
       overflow-y: auto;
@@ -1222,14 +817,12 @@
 
     #filters-panel::-webkit-scrollbar,
     #tools-panel::-webkit-scrollbar,
-    #semantic-panel::-webkit-scrollbar,
     #content-panel::-webkit-scrollbar {
       width: 8px;
     }
 
     #filters-panel::-webkit-scrollbar-track,
     #tools-panel::-webkit-scrollbar-track,
-    #semantic-panel::-webkit-scrollbar-track,
     #content-panel::-webkit-scrollbar-track {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 4px;
@@ -1238,7 +831,6 @@
 
     #filters-panel::-webkit-scrollbar-thumb,
     #tools-panel::-webkit-scrollbar-thumb,
-    #semantic-panel::-webkit-scrollbar-thumb,
     #content-panel::-webkit-scrollbar-thumb {
       background: rgba(16, 185, 129, 0.6);
       border-radius: 4px;
@@ -1248,7 +840,6 @@
 
     #filters-panel::-webkit-scrollbar-thumb:hover,
     #tools-panel::-webkit-scrollbar-thumb:hover,
-    #semantic-panel::-webkit-scrollbar-thumb:hover,
     #content-panel::-webkit-scrollbar-thumb:hover {
       background: rgba(16, 185, 129, 0.8);
       background-clip: padding-box;
@@ -1298,7 +889,6 @@
       
       #filters-panel,
       #tools-panel,
-      #semantic-panel,
       #content-panel {
         max-height: calc(100vh - 180px);
       }
@@ -1448,6 +1038,221 @@
     .skeleton-text.short {
       width: 60%;
     }
+    
+    .article-content { 
+      line-height: 1.7; 
+    }
+    
+    .article-content p { 
+      margin-bottom: 1rem; 
+    }
+    
+    .article-content p:last-child { 
+      margin-bottom: 0; 
+    }
+    
+    .article-content ol, .article-content ul { 
+      margin: 1rem 0; 
+      padding-left: 1.5rem; 
+    }
+    
+    .article-content ol li, .article-content ul li { 
+      margin-bottom: 0.5rem; 
+      position: relative; 
+    }
+    
+    .article-content ol li:last-child, .article-content ul li:last-child { 
+      margin-bottom: 0; 
+    }
+    
+    .article-content ol { 
+      list-style-type: decimal; 
+    }
+    
+    .article-content ul { 
+      list-style-type: lower-alpha; 
+    }
+    
+    article {
+      border-left: 3px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    article:hover {
+      border-left-color: var(--emerald);
+      background-color: rgba(16, 185, 129, 0.02);
+    }
+
+    article + article {
+      margin-top: 2rem;
+    }
+    
+    .term-def {
+      position: relative; 
+      cursor: help; 
+      text-decoration: underline dotted; 
+      text-underline-offset: 2px; 
+      font-weight: 500;
+      text-decoration-color: var(--emerald); 
+    }
+    
+    .definition-tooltip {
+      position: absolute; 
+      background-color: rgba(31, 41, 55, 0.95); 
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(75, 85, 99, 0.5); 
+      border-radius: 0.5rem; 
+      padding: 1rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+      z-index: 50; 
+      max-width: 320px; 
+      opacity: 0; 
+      visibility: hidden;
+      transition: opacity 0.2s ease 0.3s, visibility 0.2s ease 0.3s, transform 0.2s; 
+      transform: translateY(5px);
+    }
+    
+    .definition-tooltip.show { 
+      opacity: 1; 
+      visibility: visible; 
+      transform: translateY(0); 
+    }
+    
+    .definition-tooltip h4 { 
+      font-weight: 600; 
+      margin-bottom: 0.5rem; 
+      color: var(--emerald); 
+      font-size: 1rem; 
+    }
+    
+    .definition-tooltip p { 
+      font-size: 0.875rem; 
+      line-height: 1.5; 
+      color: #f3f4f6; 
+      margin: 0; 
+    }
+    
+    .definition-tooltip::before {
+      content: ''; 
+      position: absolute; 
+      top: -8px; 
+      left: 20px; 
+      width: 0; 
+      height: 0;
+      border-left: 8px solid transparent; 
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid rgba(31, 41, 55, 0.95);
+    }
+    
+    .breadcrumb-item { 
+      display: inline-flex; 
+      align-items: center; 
+      color: var(--gray-400); 
+    }
+    
+    .breadcrumb-item:not(:last-child)::after { 
+      content: '/'; 
+      margin: 0 0.75rem; 
+      color: #6b7280;
+      font-weight: 300;
+    }
+    
+    .breadcrumb-item.active { 
+      color: var(--emerald); 
+      font-weight: 500; 
+    }
+    
+    .filters-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--emerald);
+      color: white;
+      border-radius: 9999px;
+      width: 20px;
+      height: 20px;
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
+    }
+    
+    .article-actions {
+      position: relative;
+    }
+    
+    .article-actions-dropdown {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: #1f2937;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      z-index: 10;
+      min-width: 180px;
+      display: none;
+    }
+    
+    .article-actions-dropdown.show {
+      display: block;
+    }
+    
+    .article-actions-dropdown button {
+      width: 100%;
+      text-align: left;
+      padding: 0.5rem 1rem;
+      border-radius: 0;
+      border: none;
+      background: none;
+      color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .article-actions-dropdown button:hover {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--emerald);
+    }
+    
+    .search-toggle {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .search-toggle label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: #d1d5db;
+    }
+    
+    .search-toggle input {
+      margin-right: 0.5rem;
+    }
+    
+    .highlight-container {
+      position: relative;
+      display: inline;
+    }
+    
+    .highlight-note {
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      background-color: #374151;
+      color: #f3f4f6;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      z-index: 10;
+      display: none;
+    }
+    
+    .highlight-container:hover .highlight-note {
+      display: block;
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
@@ -1462,10 +1267,7 @@
         </h1>
       </div>
       <div class="flex items-center gap-4 mt-2 sm:mt-0">
-        <a href="graph35.html" class="p-2 rounded-lg hover:bg-emerald-700 transition btn-transition" aria-label="Vista de Red" title="Mapa conceptual relacional">
-          <i class="fas fa-sitemap"></i>
-        </a>
-        <button id="export-pdf" class="px-4 py-2 bg-white text-emerald-700 rounded-lg font-medium hover:bg-gray-100 transition btn-transition hidden">
+        <button id="export-pdf" class="px-4 py-2 bg-white text-emerald-700 rounded-lg font-medium hover:bg-gray-100 transition btn-transition">
           <i class="fas fa-file-pdf"></i> PDF
         </button>
       </div>
@@ -1496,9 +1298,7 @@
         </button>
         <button id="filters-tab" class="sidebar-tab" data-tab="filters">
           <i class="fas fa-filter"></i> Filtros
-        </button>
-        <button id="semantic-tab" class="sidebar-tab" data-tab="semantic">
-          <i class="fas fa-brain"></i> Semántica
+          <span id="filters-count" class="filters-count" style="display: none;">0</span>
         </button>
         <button id="tools-tab" class="sidebar-tab" data-tab="tools">
           <i class="fas fa-wrench"></i> Herramientas
@@ -1514,6 +1314,12 @@
             <i class="fas fa-search"></i>
             <input type="text" id="search-input" placeholder="Buscar en la ley..." />
           </div>
+          <div class="search-toggle">
+            <label>
+              <input type="checkbox" id="semantic-search-toggle">
+              Búsqueda semántica
+            </label>
+          </div>
         </div>
         <div class="sidebar-section">
           <div class="sidebar-section-title">
@@ -1521,16 +1327,6 @@
             <span id="clear-filters" class="clear-filters-btn">Limpiar</span>
           </div>
           <div id="filters" class="space-y-3 pr-2"></div>
-          <div id="active-filters-container" class="active-filters"></div>
-        </div>
-      </div>
-      <div id="semantic-panel" class="tab-panel hidden">
-        <div class="sidebar-section">
-          <div class="search-container">
-            <i class="fas fa-brain"></i>
-            <input type="text" id="semantic-search-input" placeholder="Buscar por conceptos relacionados..." />
-          </div>
-          <div id="semantic-results-info" class="mt-3 text-sm text-gray-400"></div>
         </div>
       </div>
       <div id="tools-panel" class="tab-panel hidden">
@@ -1542,7 +1338,7 @@
             <option value="">Selecciona un tema...</option>
           </select>
           <div id="scenario-error" class="error hidden"></div>
-          <button id="generate-scenario-btn" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition font-medium disabled:bg-gray-400" disabled>
+          <button id="generate-scenario-btn" class="w-full bg-emerald-600 text-white py-2 px-4 rounded-lg hover:bg-emerald-700 transition font-medium disabled:bg-gray-400" disabled>
             <i class="fas fa-magic mr-2"></i>Generar Escenario
           </button>
         </div>
@@ -1550,8 +1346,15 @@
           <h3><i class="fas fa-search mr-2"></i>Detección Proactiva de Obligaciones</h3>
           <p>Describe tu proyecto y descubre tus obligaciones y derechos.</p>
           <textarea id="proactive-input" rows="3" class="w-full p-2 border rounded-lg dark:bg-gray-700 mb-2 text-white bg-gray-800 border-gray-600" placeholder="Ej: Soy un científico que quiere monitorear una especie de anfibio en un humedal."></textarea>
-          <button id="analyze-proactive-btn" class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition font-medium">
+          <button id="analyze-proactive-btn" class="w-full bg-emerald-600 text-white py-2 px-4 rounded-lg hover:bg-emerald-700 transition font-medium">
             <i class="fas fa-search mr-2"></i>Analizar
+          </button>
+        </div>
+        <div class="tool-card">
+          <h3><i class="fas fa-sitemap mr-2"></i>Vista de Red</h3>
+          <p>Explora las relaciones entre los artículos de la ley.</p>
+          <button id="graph-view-btn" class="w-full bg-emerald-600 text-white py-2 px-4 rounded-lg hover:bg-emerald-700 transition font-medium">
+            <i class="fas fa-sitemap mr-2"></i>Abrir Vista de Red
           </button>
         </div>
       </div>
@@ -1565,9 +1368,6 @@
       </div>
     </main>
   </div>
-  <button id="back-to-top" class="bg-emerald-600 text-white p-3 rounded-full shadow-lg btn-transition" aria-label="Volver arriba">
-    <i class="fas fa-arrow-up"></i>
-  </button>
   <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
     <div id="modal-content" class="bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"></div>
   </div>
@@ -1575,9 +1375,6 @@
     <h4 id="tooltip-term"></h4>
     <p id="tooltip-definition"></p>
   </div>
-  <button id="explainer-button" class="hidden" aria-label="Explicar en lenguaje sencillo">
-    <i class="fas fa-lightbulb"></i>
-  </button>
   <button id="chatbot-toggle" aria-label="Abrir Asistente Legal IA">
     <i class="fas fa-comments text-2xl"></i>
   </button>
@@ -1589,11 +1386,6 @@
     <div id="chat-history">
       <div class="chat-message bot">
         ¡Hola! Soy tu asistente para la Ley 21.600. Pregúntame lo que necesites en lenguaje sencillo. Ej: "¿Qué pasa si introduzco una especie invasora?"
-      </div>
-      <div id="typing-indicator">
-        <span class="typing-indicator-dot"></span>
-        <span class="typing-indicator-dot"></span>
-        <span class="typing-indicator-dot"></span>
       </div>
     </div>
     <div id="chat-input-area">
@@ -1612,11 +1404,10 @@
     let selectedCategories = new Set();
     let currentSearch = "";
     let glossaryData = {};
-    let glossaryAltData = {};
-    let plainLanguageExplanations = {};
     let articleSummaries = {};
     let lastSemanticSearch = "";
-    let semanticSearchResults = []; // Para almacenar los IDs de artículos de la búsqueda semántica
+    let semanticSearchResults = [];
+    let isSemanticSearchEnabled = false;
     
     const CACHE_KEY = 'ley21600-api-responses';
     const CACHE_EXPIRY_DAYS = 7;
@@ -1651,8 +1442,13 @@
       const searchInput = document.getElementById("search-input");
       searchInput.addEventListener("input", debounce(handleSearch, 300));
       
-      const semanticSearchInput = document.getElementById("semantic-search-input");
-      semanticSearchInput.addEventListener("input", debounce(handleSemanticSearch, 300));
+      const semanticToggle = document.getElementById("semantic-search-toggle");
+      semanticToggle.addEventListener("change", (e) => {
+        isSemanticSearchEnabled = e.target.checked;
+        if (currentSearch) {
+          handleSearch();
+        }
+      });
     }
     
     async function loadData() {
@@ -1676,18 +1472,6 @@
         
         if (glossaryData['uso sustentable']) {
           glossaryData['uso sustentable'].contextualLinks.push({ text: 'Ver Objeto de la ley (Art. 1)', articleId: 1 });
-        }
-        
-        if (data.definicionesAlt) {
-          data.definicionesAlt.forEach(def => {
-            glossaryAltData[def.termino.toLowerCase()] = { 
-              definition: def.definicion, 
-              contextualLinks: [],
-              id: def.id,
-              articulo_id: def.articulo_id,
-              numero: def.numero
-            };
-          });
         }
         
         articleSummaries = data.articleSummaries;
@@ -1824,7 +1608,7 @@
       });
     }
     
-    function renderArticles(explanation = "") {
+    function renderArticles() {
       const articlesContainer = document.getElementById("articles-container");
       const resultsCount = document.getElementById("results-count");
       const noResults = document.getElementById("no-results");
@@ -1832,11 +1616,7 @@
       
       articlesContainer.innerHTML = "";
       
-      if (explanation) {
-        resultsCount.innerHTML = `<div class="mb-3 p-3 bg-indigo-900/30 border-l-4 border-indigo-500 rounded-r text-sm">${explanation}</div>`;
-      } else {
-        resultsCount.innerHTML = `${filteredArticles.length} artículo${filteredArticles.length !== 1 ? 's' : ''} encontrado${filteredArticles.length !== 1 ? 's' : ''}`;
-      }
+      resultsCount.innerHTML = `${filteredArticles.length} artículo${filteredArticles.length !== 1 ? 's' : ''} encontrado${filteredArticles.length !== 1 ? 's' : ''}`;
       
       if (filteredArticles.length === 0) {
         noResults.classList.remove("hidden");
@@ -1851,9 +1631,6 @@
         const articleEl = document.createElement("article");
         articleEl.className = "bg-gray-800 rounded-xl shadow-md p-6 fade-in relative card-hover";
         articleEl.id = `articulo-${art.id}`;
-        
-        const note = getNote(art.id);
-        if (note) articleEl.classList.add('has-note');
         
         const cats = data.articulos_categorias
           .filter(ac => ac.articulo_id === art.id)
@@ -1879,19 +1656,18 @@
         articleEl.innerHTML = `
           <div class="flex justify-between items-start mb-3">
             <h2 class="text-xl font-bold text-emerald-400">Artículo ${art.numero}</h2>
-            <div class="flex gap-2">
-              <button class="text-gray-400 hover:text-emerald-300 focus-mode btn-transition" data-id="${art.id}" aria-label="Modo de lectura">
-                <i class="fas fa-expand"></i>
+            <div class="article-actions">
+              <button class="text-gray-400 hover:text-emerald-300 article-actions-toggle btn-transition" data-id="${art.id}" aria-label="Más opciones">
+                <i class="fas fa-ellipsis-v"></i>
               </button>
-              <button class="text-gray-400 hover:text-emerald-300 add-note btn-transition" data-id="${art.id}" aria-label="Añadir nota">
-                <i class="fas fa-sticky-note ${note ? 'text-amber-500' : ''}"></i>
-              </button>
-              <button class="text-gray-400 hover:text-emerald-300 summarize-article btn-transition" data-id="${art.id}" aria-label="Resumir artículo">
-                <i class="fas fa-list-ul"></i>
-              </button>
-              <button class="text-gray-400 hover:text-emerald-300 export-article btn-transition" data-id="${art.id}" aria-label="Exportar artículo">
-                <i class="fas fa-download"></i>
-              </button>
+              <div class="article-actions-dropdown" id="actions-dropdown-${art.id}">
+                <button class="add-note" data-id="${art.id}">
+                  <i class="fas fa-highlighter"></i> Resaltar y comentar
+                </button>
+                <button class="summarize-article" data-id="${art.id}">
+                  <i class="fas fa-list-ul"></i> Resumir artículo
+                </button>
+              </div>
             </div>
           </div>
           ${art.nombre ? `<h3 class="text-lg font-semibold mb-2">${art.nombre}</h3>` : ""}
@@ -1902,7 +1678,7 @@
         articlesContainer.appendChild(articleEl);
       });
       
-      updateActiveFiltersIndicator();
+      updateFiltersCount();
       setupDefinitionTooltips();
     }
     
@@ -2025,18 +1801,6 @@
         });
       });
       
-      // Luego procesamos las definiciones alternativas
-      if (data.definicionesAlt && data.definicionesAlt.length > 0) {
-        const sortedDefsAlt = [...data.definicionesAlt].sort((a, b) => b.termino.length - a.termino.length);
-        sortedDefsAlt.forEach(def => {
-          const escapedTerm = def.termino.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          const regex = new RegExp(`\\b${escapedTerm}\\b`, 'gi');
-          processedText = processedText.replace(regex, (match) => {
-            return `<span class="term-def-alt" data-term-alt-id="${def.id}" data-term="${def.termino.toLowerCase()}">${match}</span>`;
-          });
-        });
-      }
-      
       return processedText;
     }
     
@@ -2046,7 +1810,6 @@
       
       document.getElementById('content-tab').addEventListener('click', () => switchTab('content'));
       document.getElementById('filters-tab').addEventListener('click', () => switchTab('filters'));
-      document.getElementById('semantic-tab').addEventListener('click', () => switchTab('semantic'));
       
       document.getElementById('sidebar-toggle').addEventListener('click', openSidebar);
       document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
@@ -2054,7 +1817,6 @@
       
       document.getElementById('clear-filters').addEventListener('click', clearAllFilters);
       
-      document.getElementById('back-to-top').addEventListener('click', scrollToTop);
       document.getElementById('tools-tab').addEventListener('click', () => switchTab('tools'));
       
       exportBtn.addEventListener("click", exportCurrentToPDF);
@@ -2066,12 +1828,20 @@
         const artId = target.dataset.id;
         const article = data.articulos.find(a => a.id == artId);
         
-        if (target.classList.contains('export-article')) {
-          exportArticleToPDF(article, document.getElementById(`articulo-${artId}`));
-        } else if (target.classList.contains('focus-mode')) {
-          openFocusMode(article);
+        if (target.classList.contains('article-actions-toggle')) {
+          e.preventDefault();
+          const dropdown = document.getElementById(`actions-dropdown-${artId}`);
+          
+          // Cerrar todos los demás dropdowns
+          document.querySelectorAll('.article-actions-dropdown').forEach(d => {
+            if (d !== dropdown) {
+              d.classList.remove('show');
+            }
+          });
+          
+          dropdown.classList.toggle('show');
         } else if (target.classList.contains('add-note')) {
-          openNoteMode(article);
+          openHighlightMode(article);
         } else if (target.classList.contains('summarize-article')) {
           showArticleSummary(artId);
         } else if (target.classList.contains('filter-by-tag')) {
@@ -2081,53 +1851,34 @@
         }
       });
       
-      document.querySelectorAll('.semantic-example').forEach(example => {
-        example.addEventListener('click', () => {
-          const term = example.dataset.term;
-          document.getElementById('semantic-search-input').value = term;
-          handleSemanticSearch();
-        });
-      });
-      
       const modalOverlay = document.getElementById('modal-overlay');
       modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) closeModal();
       });
       
-      window.addEventListener('scroll', handleScroll);
-      articlesContainer.addEventListener('mouseup', handleTextSelection);
-      document.addEventListener('mouseup', hideExplainerButtonIfOutside);
-      document.getElementById('explainer-button').addEventListener('click', handleExplainRequest);
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.article-actions')) {
+          document.querySelectorAll('.article-actions-dropdown').forEach(d => {
+            d.classList.remove('show');
+          });
+        }
+      });
+      
+      // Evento para el botón de vista de red
+      document.getElementById('graph-view-btn').addEventListener('click', () => {
+        window.location.href = 'graph35.html';
+      });
     }
     
     function handleSearch() {
       const searchInput = document.getElementById("search-input");
       currentSearch = searchInput.value.toLowerCase().trim();
       
-      let explanation = "";
-      let semanticMatch = null;
-      
-      for (const query in semanticMap) {
-        if (currentSearch.includes(query)) {
-          semanticMatch = semanticMap[query];
-          break;
-        }
-      }
-      
-      if (semanticMatch) {
-        explanation = semanticMatch.explanation;
-        if (semanticMatch.articleIds && semanticMatch.articleIds.length > 0) {
-          filteredArticles = data.articulos.filter(art => semanticMatch.articleIds.includes(art.id));
-        } else if (semanticMap.keywords && semanticMap.keywords.length > 0) {
-          filteredArticles = data.articulos.filter(art => 
-            semanticMap.keywords.some(kw => art.texto_completo.toLowerCase().includes(kw))
-          );
-        }
+      if (isSemanticSearchEnabled && currentSearch) {
+        handleSemanticSearch();
       } else {
         filterArticles();
       }
-      
-      renderArticles(explanation);
     }
     
     function filterArticles() {
@@ -2138,7 +1889,8 @@
           const articleCategories = data.articulos_categorias
             .filter(ac => ac.articulo_id === art.id)
             .map(ac => ac.categoria_id);
-          return Array.from(selectedCategories).every(catId => articleCategories.includes(catId));
+          // Cambiamos la lógica de AND a OR para que sea más intuitiva
+          return Array.from(selectedCategories).some(catId => articleCategories.includes(catId));
         });
       }
       
@@ -2164,56 +1916,27 @@
     
     // Modificamos la función handleSemanticSearch para usar la función busquedaSemantica de pass.js
     async function handleSemanticSearch() {
-      const semanticInput = document.getElementById("semantic-search-input");
-      const searchTerm = semanticInput.value.toLowerCase().trim();
+      const searchTerm = currentSearch;
       lastSemanticSearch = searchTerm;
-      
-      // Mostrar indicador de carga
-      const resultsInfo = document.getElementById('semantic-results-info');
-      resultsInfo.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Buscando conceptos relacionados...';
       
       try {
         // Llamar a la función busquedaSemantica de pass.js
         semanticSearchResults = await busquedaSemantica(searchTerm);
         
-        let explanation = "";
-        
         if (semanticSearchResults && semanticSearchResults.length > 0) {
           // Filtrar artículos por los IDs devueltos por la búsqueda semántica
           filteredArticles = data.articulos.filter(art => semanticSearchResults.includes(art.id));
-          explanation = `Se encontraron ${semanticSearchResults.length} artículos relacionados con "${searchTerm}" mediante búsqueda semántica.`;
         } else {
           // Si no hay resultados de la búsqueda semántica, hacer una búsqueda normal
-          filteredArticles = data.articulos.filter(art => {
-            const normalizedText = normalizeText(art.texto_completo);
-            const normalizedNumber = normalizeText(art.numero);
-            const normalizedName = art.nombre ? normalizeText(art.nombre) : '';
-            
-            return normalizedText.includes(normalizeText(searchTerm)) || 
-                   normalizedNumber.includes(normalizeText(searchTerm)) || 
-                   normalizedName.includes(normalizeText(searchTerm));
-          });
-          explanation = `No se encontraron resultados semánticos para "${searchTerm}". Mostrando resultados de búsqueda textual.`;
+          filterArticles();
         }
         
-        resultsInfo.textContent = `${filteredArticles.length} resultados encontrados`;
-        renderArticles(explanation);
+        renderArticles();
       } catch (error) {
         console.error('Error en la búsqueda semántica:', error);
-        resultsInfo.textContent = 'Error en la búsqueda semántica';
         
         // En caso de error, hacer una búsqueda normal
-        filteredArticles = data.articulos.filter(art => {
-          const normalizedText = normalizeText(art.texto_completo);
-          const normalizedNumber = normalizeText(art.numero);
-          const normalizedName = art.nombre ? normalizeText(art.nombre) : '';
-          
-          return normalizedText.includes(normalizeText(searchTerm)) || 
-                 normalizedNumber.includes(normalizeText(searchTerm)) || 
-                 normalizedName.includes(normalizeText(searchTerm));
-        });
-        
-        renderArticles(`Error en la búsqueda semántica. Mostrando resultados de búsqueda textual para "${searchTerm}".`);
+        filterArticles();
       }
     }
     
@@ -2249,13 +1972,6 @@
         renderArticles();
       } else if (tabName === 'filters') {
         filterArticles();
-      } else if (tabName === 'semantic') {
-        if (lastSemanticSearch) {
-          handleSemanticSearch();
-        } else {
-          filteredArticles = [...data.articulos];
-          renderArticles();
-        }
       }
     }
     
@@ -2277,52 +1993,16 @@
       filterArticles();
     }
     
-    function updateActiveFiltersIndicator() {
-      const container = document.getElementById('active-filters-container');
-      container.innerHTML = '';
+    function updateFiltersCount() {
+      const filtersCount = document.getElementById('filters-count');
+      const count = selectedCategories.size + (currentSearch ? 1 : 0);
       
-      selectedCategories.forEach(catId => {
-        const category = data.categorias.find(c => c.id === catId);
-        if (category) {
-          const filterEl = document.createElement('div');
-          filterEl.className = 'active-filter';
-          filterEl.innerHTML = `${category.nombre} <button data-category-id="${catId}"><i class="fas fa-times"></i></button>`;
-          filterEl.querySelector('button').addEventListener('click', () => {
-            selectedCategories.delete(catId);
-            updateFilterCheckboxes();
-            filterArticles();
-          });
-          container.appendChild(filterEl);
-        }
-      });
-      
-      if (currentSearch) {
-        const filterEl = document.createElement('div');
-        filterEl.className = 'active-filter';
-        filterEl.innerHTML = `Búsqueda: "${currentSearch}" <button data-search="true"><i class="fas fa-times"></i></button>`;
-        filterEl.querySelector('button').addEventListener('click', () => {
-          currentSearch = "";
-          document.getElementById("search-input").value = "";
-          filterArticles();
-        });
-        container.appendChild(filterEl);
-      }
-    }
-    
-    function handleScroll() {
-      const backToTopBtn = document.getElementById('back-to-top');
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
+      if (count > 0) {
+        filtersCount.textContent = count;
+        filtersCount.style.display = 'inline-flex';
       } else {
-        backToTopBtn.classList.remove('show');
+        filtersCount.style.display = 'none';
       }
-    }
-    
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
     }
     
     function updateBreadcrumbs(items) {
@@ -2369,7 +2049,7 @@
       allContainers.forEach(container => {
         if (!container) return;
         
-        const termElements = container.querySelectorAll('.term-def, .term-def-alt');
+        const termElements = container.querySelectorAll('.term-def');
         
         termElements.forEach(term => {
           // Eliminar eventos anteriores para evitar duplicados
@@ -2385,30 +2065,15 @@
     
     function showDefinitionTooltip(e) {
       const termElement = e.target;
-      let definition, tooltipTitle;
+      let definition;
       
-      if (termElement.classList.contains('term-def')) {
-        const termId = termElement.dataset.termId;
-        const termText = termElement.dataset.term;
-        definition = data.definiciones.find(d => d.id == termId);
-        
-        // Si no encontramos por ID, intentamos por el texto del término
-        if (!definition && termText) {
-          definition = data.definiciones.find(d => d.termino.toLowerCase() === termText);
-        }
-        
-        tooltipTitle = "Definición";
-      } else if (termElement.classList.contains('term-def-alt')) {
-        const termId = termElement.dataset.termAltId;
-        const termText = termElement.dataset.term;
-        definition = data.definicionesAlt.find(d => d.id == termId);
-        
-        // Si no encontramos por ID, intentamos por el texto del término
-        if (!definition && termText) {
-          definition = data.definicionesAlt.find(d => d.termino.toLowerCase() === termText);
-        }
-        
-        tooltipTitle = "Definición Alternativa";
+      const termId = termElement.dataset.termId;
+      const termText = termElement.dataset.term;
+      definition = data.definiciones.find(d => d.id == termId);
+      
+      // Si no encontramos por ID, intentamos por el texto del término
+      if (!definition && termText) {
+        definition = data.definiciones.find(d => d.termino.toLowerCase() === termText);
       }
       
       if (definition) {
@@ -2418,12 +2083,6 @@
         
         termElementTooltip.textContent = definition.termino;
         definitionElement.textContent = definition.definicion;
-        
-        if (termElement.classList.contains('term-def-alt')) {
-          tooltip.classList.add('alt');
-        } else {
-          tooltip.classList.remove('alt');
-        }
         
         const rect = termElement.getBoundingClientRect();
         const tooltipWidth = 320;
@@ -2447,7 +2106,7 @@
     
     function hideDefinitionTooltip() {
       const tooltip = document.getElementById('definition-tooltip');
-      tooltip.classList.remove('show', 'alt');
+      tooltip.classList.remove('show');
     }
     
     function showArticleSummary(articleId) {
@@ -2483,151 +2142,169 @@
       document.getElementById('modal-overlay').classList.remove('hidden');
     }
     
-    function handleTextSelection() {
-      const selection = window.getSelection();
-      const selectedText = selection.toString().trim();
-      
-      if (selectedText.length > 10) {
-        const range = selection.getRangeAt(0);
-        const rect = range.getBoundingClientRect();
-        showExplainerButton(rect);
-      } else {
-        hideExplainerButton();
-      }
-    }
-    
-    function hideExplainerButtonIfOutside(e) {
-      const articlesContainer = document.getElementById('articles-container');
-      if (!articlesContainer.contains(e.target)) {
-        hideExplainerButton();
-      }
-    }
-    
-    function showExplainerButton(rect) {
-      const button = document.getElementById('explainer-button');
-      button.style.left = `${rect.left + window.scrollX - 45}px`;
-      button.style.top = `${rect.top + window.scrollY - 45}px`;
-      button.classList.remove('hidden');
-      button.dataset.selectedText = window.getSelection().toString().trim();
-    }
-    
-    function hideExplainerButton() {
-      document.getElementById('explainer-button').classList.add('hidden');
-    }
-    
-    function handleExplainRequest() {
-      const button = document.getElementById('explainer-button');
-      const selectedText = button.dataset.selectedText;
-      hideExplainerButton();
-      window.getSelection().removeAllRanges();
-      showPlainLanguageExplanation(selectedText);
-    }
-    
-    function showPlainLanguageExplanation(originalText) {
+    function openHighlightMode(article) {
       const modalContent = document.getElementById('modal-content');
-      const explanation = plainLanguageExplanations[originalText.toLowerCase()];
       
-      let explanationHTML = '';
-      if (explanation) {
-        explanationHTML = `
-          <div class="p-6">
-            <div class="modal-header">
-              <h1 class="modal-title"><i class="fas fa-lightbulb mr-2"></i>Explicación en Lenguaje Sencillo</h1>
-              <button onclick="closeModal()" class="modal-close" aria-label="Cerrar modal">&times;</button>
-            </div>
-            <div class="query-container">
-              <p class="query-label">Texto original seleccionado:</p>
-              <p class="query-text">"${originalText}"</p>
-            </div>
-            <div class="prose dark:prose-invert max-w-none">
-              <p>${explanation}</p>
-            </div>
-          </div>
-        `;
-      } else {
-        explanationHTML = `
-          <div class="p-6">
-            <div class="modal-header">
-              <h1 class="modal-title"><i class="fas fa-lightbulb mr-2"></i>Explicación no disponible</h1>
-              <button onclick="closeModal()" class="modal-close" aria-label="Cerrar modal">&times;</button>
-            </div>
-            <div class="query-container">
-              <p class="query-label">Texto original seleccionado:</p>
-              <p class="query-text">"${originalText}"</p>
-            </div>
-            <p class="text-gray-400">Lo siento, aún no tengo una explicación preparada para este fragmento específico.</p>
-          </div>
-        `;
-      }
-      
-      modalContent.innerHTML = explanationHTML;
-      document.getElementById('modal-overlay').classList.remove('hidden');
-    }
-    
-    function openFocusMode(article) {
-      let processedText = processArticleText(article.texto_completo);
-      
-      const modalContent = document.getElementById('modal-content');
       modalContent.innerHTML = `
         <div class="p-6">
           <div class="modal-header">
-            <h1 class="modal-title">Artículo ${article.numero}</h1>
+            <h1 class="modal-title"><i class="fas fa-highlighter mr-2"></i>Resaltar y Comentar: Artículo ${article.numero}</h1>
             <button onclick="closeModal()" class="modal-close" aria-label="Cerrar modal">&times;</button>
           </div>
-          ${article.nombre ? `<h2 class="text-xl font-semibold mb-4 text-gray-200">${article.nombre}</h2>` : ""}
-          <div class="article-content leading-relaxed text-gray-300">${processedText}</div>
+          <div class="bg-gray-700 p-4 rounded-lg mb-4">
+            <p class="text-sm text-gray-300 mb-2">Selecciona texto para resaltar y añadir comentarios:</p>
+            <div class="article-content leading-relaxed text-gray-300" id="highlight-content">${processArticleText(article.texto_completo)}</div>
+          </div>
+          <div class="flex justify-end gap-2">
+            <button onclick="closeModal()" class="px-4 py-2 bg-gray-600 rounded-lg">Cancelar</button>
+            <button onclick="saveHighlights()" class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">Guardar</button>
+          </div>
         </div>
       `;
       
       document.getElementById('modal-overlay').classList.remove('hidden');
       
-      // Usar requestAnimationFrame para asegurar que el DOM se ha renderizado completamente
-      requestAnimationFrame(() => {
-        setupDefinitionTooltips();
+      // Configurar el resaltado de texto
+      setupTextHighlighting();
+    }
+    
+    function setupTextHighlighting() {
+      const content = document.getElementById('highlight-content');
+      let highlights = JSON.parse(localStorage.getItem('ley21600-highlights') || '{}');
+      
+      // Restaurar resaltados existentes
+      Object.keys(highlights).forEach(key => {
+        const highlight = highlights[key];
+        const textNodes = getTextNodes(content);
+        
+        textNodes.forEach(node => {
+          const text = node.textContent;
+          if (text.includes(highlight.text)) {
+            const span = document.createElement('span');
+            span.className = 'highlight-container';
+            span.style.backgroundColor = highlight.color;
+            
+            const beforeText = text.substring(0, text.indexOf(highlight.text));
+            const highlightedText = text.substring(text.indexOf(highlight.text), text.indexOf(highlight.text) + highlight.text.length);
+            const afterText = text.substring(text.indexOf(highlight.text) + highlight.text.length);
+            
+            const beforeNode = document.createTextNode(beforeText);
+            const highlightNode = document.createElement('span');
+            highlightNode.className = 'highlight';
+            highlightNode.textContent = highlightedText;
+            
+            const afterNode = document.createTextNode(afterText);
+            
+            const noteNode = document.createElement('div');
+            noteNode.className = 'highlight-note';
+            noteNode.textContent = highlight.note;
+            
+            span.appendChild(highlightNode);
+            span.appendChild(noteNode);
+            
+            node.parentNode.insertBefore(beforeNode, node);
+            node.parentNode.insertBefore(span, node);
+            node.parentNode.insertBefore(afterNode, node);
+            node.parentNode.removeChild(node);
+          }
+        });
+      });
+      
+      // Configurar selección de texto
+      content.addEventListener('mouseup', function() {
+        const selection = window.getSelection();
+        const selectedText = selection.toString().trim();
+        
+        if (selectedText.length > 5) {
+          showHighlightDialog(selectedText);
+        }
       });
     }
     
-    function openNoteMode(article) {
-      const modalContent = document.getElementById('modal-content');
-      const currentNote = getNote(article.id);
+    function getTextNodes(element) {
+      let textNodes = [];
       
-      modalContent.innerHTML = `
-        <div class="p-6">
-          <div class="modal-header">
-            <h1 class="modal-title">Anotación: Artículo ${article.numero}</h1>
-            <button onclick="closeModal()" class="modal-close" aria-label="Cerrar modal">&times;</button>
+      function getTextNodesRecursive(node) {
+        if (node.nodeType === 3) { // Text node
+          textNodes.push(node);
+        } else if (node.nodeType === 1) { // Element node
+          for (let i = 0; i < node.childNodes.length; i++) {
+            getTextNodesRecursive(node.childNodes[i]);
+          }
+        }
+      }
+      
+      getTextNodesRecursive(element);
+      return textNodes;
+    }
+    
+    function showHighlightDialog(selectedText) {
+      const dialog = document.createElement('div');
+      dialog.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
+      dialog.innerHTML = `
+        <div class="bg-gray-800 rounded-lg p-6 max-w-md w-full">
+          <h3 class="text-lg font-semibold mb-4">Resaltar Texto</h3>
+          <p class="text-sm text-gray-300 mb-4">Texto seleccionado: "${selectedText.substring(0, 50)}${selectedText.length > 50 ? '...' : ''}"</p>
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-2">Color de resaltado:</label>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 rounded" style="background-color: rgba(251, 191, 36, 0.3)" data-color="rgba(251, 191, 36, 0.3)"></button>
+              <button class="w-8 h-8 rounded" style="background-color: rgba(16, 185, 129, 0.3)" data-color="rgba(16, 185, 129, 0.3)"></button>
+              <button class="w-8 h-8 rounded" style="background-color: rgba(139, 92, 246, 0.3)" data-color="rgba(139, 92, 246, 0.3)"></button>
+              <button class="w-8 h-8 rounded" style="background-color: rgba(239, 68, 68, 0.3)" data-color="rgba(239, 68, 68, 0.3)"></button>
+            </div>
           </div>
-          <textarea id="note-textarea" class="w-full h-64 p-3 border rounded-lg bg-gray-700 border-gray-600 text-white" placeholder="Escribe tu nota aquí...">${currentNote}</textarea>
-          <div class="flex justify-end gap-2 mt-4">
-            <button onclick="closeModal()" class="px-4 py-2 bg-gray-600 rounded-lg">Cancelar</button>
-            <button onclick="saveNoteFromModal(${article.id})" class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700">Guardar Nota</button>
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-2">Comentario (opcional):</label>
+            <textarea class="w-full p-2 border rounded bg-gray-700 border-gray-600 text-white" rows="3" id="highlight-note"></textarea>
+          </div>
+          <div class="flex justify-end gap-2">
+            <button class="px-4 py-2 bg-gray-600 rounded-lg" onclick="this.closest('.fixed').remove()">Cancelar</button>
+            <button class="px-4 py-2 bg-emerald-600 text-white rounded-lg" onclick="saveHighlight('${selectedText.replace(/'/g, "\\'")}', this)">Guardar</button>
           </div>
         </div>
       `;
       
-      document.getElementById('modal-overlay').classList.remove('hidden');
+      document.body.appendChild(dialog);
+      
+      // Configurar selección de color
+      dialog.querySelectorAll('[data-color]').forEach(btn => {
+        btn.addEventListener('click', function() {
+          dialog.querySelectorAll('[data-color]').forEach(b => b.classList.remove('ring-2', 'ring-white'));
+          this.classList.add('ring-2', 'ring-white');
+          dialog.dataset.selectedColor = this.dataset.color;
+        });
+      });
+      
+      // Seleccionar el primer color por defecto
+      dialog.querySelector('[data-color]').click();
     }
     
-    function saveNoteFromModal(articleId) {
-      const noteText = document.getElementById('note-textarea').value;
-      saveNote(articleId, noteText);
+    function saveHighlight(text, button) {
+      const dialog = button.closest('.fixed');
+      const color = dialog.dataset.selectedColor;
+      const note = document.getElementById('highlight-note').value;
+      
+      let highlights = JSON.parse(localStorage.getItem('ley21600-highlights') || '{}');
+      const id = Date.now().toString();
+      
+      highlights[id] = {
+        text,
+        color,
+        note
+      };
+      
+      localStorage.setItem('ley21600-highlights', JSON.stringify(highlights));
+      
+      dialog.remove();
+      
+      // Recargar el contenido para mostrar el resaltado
+      setupTextHighlighting();
+    }
+    
+    function saveHighlights() {
       closeModal();
       renderArticles();
-    }
-    
-    function saveNote(articleId, noteText) {
-      const notes = JSON.parse(localStorage.getItem('ley21600-notas') || '{}');
-      if (noteText.trim()) {
-        notes[articleId] = noteText;
-      } else {
-        delete notes[articleId];
-      }
-      localStorage.setItem('ley21600-notas', JSON.stringify(notes));
-    }
-    
-    function getNote(articleId) {
-      const notes = JSON.parse(localStorage.getItem('ley21600-notas') || '{}');
-      return notes[articleId] || '';
     }
     
     function closeModal() {
@@ -2650,7 +2327,6 @@
     }
     
     window.addEventListener('hashchange', handleHashNavigation);
-    
     
     function debounce(func, wait) {
       let timeout;
@@ -2709,6 +2385,40 @@
       }
     }
     
+    const knowledgeBase = [
+      {
+        keywords: ["área protegida privada", "requisitos", "declarar", "cómo"],
+        answer: "Para declarar un área como protegida privada, primero debes entender que se trata de un predio de tu propiedad que el Estado reconoce por su valor en conservación de ecosistemas. La ley establece el marco, pero el proceso detallado se regula en el Título III sobre instrumentos de conservación. El Servicio de Biodiversidad (SBAP) es la entidad encargada de gestionar y reconocer estas áreas.",
+        citations: [
+          { text: "Artículo 3°, definición 4", articleId: 3 },
+          { text: "Artículo 23° (Instrumentos)", articleId: 6 },
+          { text: "Artículo 4° (Creación del SBAP)", articleId: 4 }
+        ]
+      },
+      {
+        keywords: ["especie invasora", "introduzco", "planta", "animal", "qué pasa"],
+        answer: "Introducir una especie exótica invasora es un tema muy serio. Si una especie se considera 'invasora', significa que amenaza los ecosistemas, hábitats o especies nativas. El Servicio de Biodiversidad (SBAP) tiene la facultad de elaborar y ejecutar planes de prevención, control y erradicación. Además, el Principio de Responsabilidad establece que quien cause daño a la biodiversidad será responsable de ello.",
+        citations: [
+          { text: "Artículo 3°, definición 15", articleId: 3 },
+          { text: "Artículo 5° (Funciones SBAP)", articleId: 5 },
+          { text: "Artículo 2° (Principio de Responsabilidad)", articleId: 9 }
+        ]
+      },
+      {
+        keywords: ["caza", "permiso", "quién fiscaliza", "autorización"],
+        answer: "La autorización para la caza es una de las atribuciones del Servicio de Biodiversidad (SBAP). Esto significa que ellos son quienes autorizan, regulan y fiscalizan la actividad cinegética en el país, siempre en línea con los objetivos de conservación de la ley.",
+        citations: [
+          { text: "Artículo 5°, letra ñ)", articleId: 5 }
+        ]
+      },
+      {
+        keywords: ["objeto de la ley", "para qué sirve", "de qué trata"],
+        answer: "El objeto principal de la Ley 21.600 es conservar la biodiversidad y el patrimonio natural de Chile. Lo hace a través de tres grandes estrategias: la preservación (dejar los ecosistemas intactos), la restauración (recuperar áreas dañadas) y el uso sustentable (aprovechar los recursos naturales sin agotarlos). Es importante notar que temas específicos como sanidad vegetal o incendios forestales tienen sus propias leyes.",
+        citations: [
+          { text: "Artículo 1°", articleId: 1 }
+        ]
+      }
+    ];
     
     function setupChatbot() {
       const chatbotToggle = document.getElementById('chatbot-toggle');
@@ -2746,19 +2456,15 @@
       renderMessage('user', userMessage);
       chatInput.value = '';
       
-      showTypingIndicator();
-      
       setTimeout(async () => {
         try {
           const botResponse = await obtenerRespuesta(userMessage);
-          hideTypingIndicator();
           renderMessage('bot', botResponse, "");
         } catch (error) {
-          hideTypingIndicator();
           console.error('Error al obtener respuesta:', error);
           renderMessage('bot', 'Ocurrió un error al obtener la respuesta.', "");
         }
-      }, 1000 + Math.random() * 1000);
+      }, 500 + Math.random() * 500);
     }
     
     function generateBotResponse(query) {
@@ -2808,16 +2514,6 @@
       messageDiv.innerHTML = processedText + citationsHtml;
       chatHistory.appendChild(messageDiv);
       chatHistory.scrollTop = chatHistory.scrollHeight;
-    }
-    
-    function showTypingIndicator() {
-      document.getElementById('typing-indicator').style.display = 'block';
-      const chatHistory = document.getElementById('chat-history');
-      chatHistory.scrollTop = chatHistory.scrollHeight;
-    }
-    
-    function hideTypingIndicator() {
-      document.getElementById('typing-indicator').style.display = 'none';
     }
     
     function closeChatbotAndNavigate(articleId) {
@@ -2904,11 +2600,11 @@
         if (definition) {
           linkText += `, ${definition.numero}`;
         }
-        return `<li><strong>${p.name}:</strong> Ver <a href="#articulo-${p.articleId}" class="text-indigo-400 hover:underline font-semibold">${linkText}</a>.</li>`;
+        return `<li><strong>${p.name}:</strong> Ver <a href="#articulo-${p.articleId}" class="text-emerald-400 hover:underline font-semibold">${linkText}</a>.</li>`;
       }).join('');
       
       const citationsHtml = scenario.citations.map(cit => 
-        `<li><a href="#articulo-${cit.articleId}" class="text-indigo-400 hover:underline font-semibold">${cit.text}</a></li>`
+        `<li><a href="#articulo-${cit.articleId}" class="text-emerald-400 hover:underline font-semibold">${cit.text}</a></li>`
       ).join('');
       
       modalContent.innerHTML = `
@@ -2924,8 +2620,8 @@
           <div class="prose dark:prose-invert max-w-none">
             <p>${scenario.scenario}</p>
           </div>
-          <div class="mt-6 p-4 bg-indigo-900/30 rounded-lg">
-            <h3 class="text-lg font-semibold text-indigo-300 mb-3">
+          <div class="mt-6 p-4 bg-emerald-900/30 rounded-lg">
+            <h3 class="text-lg font-semibold text-emerald-300 mb-3">
               <i class="fas fa-lightbulb mr-2"></i>Principios y Definiciones Clave de la Ley
             </h3>
             <ul class="list-disc list-inside space-y-2 text-gray-300">
@@ -2961,9 +2657,6 @@
       if (cachedResponse) {
         modalContent.innerHTML = `
           <div class="p-6">
-            <div class="cache-indicator">
-              <i class="fas fa-clock"></i> Respuesta cacheada
-            </div>
             <div class="modal-header">
               <h1 class="modal-title"><i class="fas fa-clipboard-check mr-2"></i>Análisis Basado en la Ley</h1>
               <button onclick="closeModal()" class="modal-close" aria-label="Cerrar modal">&times;</button>
@@ -2976,7 +2669,7 @@
               ${marked.parse(cachedResponse)}
             </div>
             <div class="mt-4 text-center">
-              <button onclick="closeModal()" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+              <button onclick="closeModal()" class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
                 Cerrar Análisis
               </button>
             </div>
@@ -3040,7 +2733,7 @@
             ${htmlContent}
           </div>
           <div class="mt-4 text-center">
-            <button onclick="closeModal()" class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
+            <button onclick="closeModal()" class="px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
               Cerrar Análisis
             </button>
           </div>
@@ -3055,7 +2748,7 @@
         const rule = data.rule;
         const checklistHtml = rule.checklist.map(item => `<li class="mb-2">${item}</li>`).join('');
         const articlesHtml = rule.relevantArticles.map(cit => 
-          `<li><a href="#articulo-${cit.articleId}" class="text-purple-400 hover:underline font-semibold">${cit.text}</a></li>`
+          `<li><a href="#articulo-${cit.articleId}" class="text-emerald-400 hover:underline font-semibold">${cit.text}</a></li>`
         ).join('');
         
         modalContent.innerHTML = `
@@ -3064,8 +2757,8 @@
               <h1 class="modal-title"><i class="fas fa-clipboard-check mr-2"></i>${rule.title}</h1>
               <button onclick="closeModal()" class="modal-close" aria-label="Cerrar modal">&times;</button>
             </div>
-            <div class="bg-purple-900/30 p-4 rounded-lg mb-4">
-              <h3 class="text-lg font-semibold text-purple-300 mb-3">
+            <div class="bg-emerald-900/30 p-4 rounded-lg mb-4">
+              <h3 class="text-lg font-semibold text-emerald-300 mb-3">
                 <i class="fas fa-list-check mr-2"></i>Lista de Verificación de Obligaciones y Derechos
               </h3>
               <ul class="list-disc list-inside space-y-2 text-gray-300">
@@ -3087,7 +2780,7 @@
           <div class="p-6 text-center">
             <h1 class="modal-title"><i class="fas fa-exclamation-triangle mr-2"></i>No se encontró una coincidencia</h1>
             <p class="text-gray-400">No pude identificar una situación específica en tu descripción. Intenta usar palabras clave como 'investigación', 'turismo', 'construir' o 'municipio'.</p>
-            <button onclick="closeModal()" class="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">Cerrar</button>
+            <button onclick="closeModal()" class="mt-4 px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">Cerrar</button>
           </div>
         `;
       }

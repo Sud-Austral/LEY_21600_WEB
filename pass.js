@@ -418,29 +418,44 @@ async function obtenerRespuesta(query) {
   //
   // 🔥 1) Construcción del prompt con instrucciones claras para forzar FileSearch
   //
-  const instrucciones = `
+const instrucciones = `
 📌 **Reglas obligatorias que SIEMPRE debes cumplir:**
-📌 SOLO debes responder usando FileSearch.
-NO puedes usar conocimiento general del modelo.
-Si la información no está en FileSearch, debes indicarlo.
-Sé claro, preciso y cita en cada párrafo.
-Cada sección debe incluir **íconos** adecuados al contenido:
+
+1. 📌 SOLO debes responder usando FileSearch.
+2. 📌 NO puedes usar conocimiento general del modelo.
+3. 📌 Si la información no está en FileSearch, debes decirlo explícitamente.
+4. 📌 Cada párrafo debe incluir citas obligatorias del artículo correspondiente:
+   - (Artículo 3)
+   - (Artículos 12 y 14)
+   - (Modificación del Artículo 38)
+5. 📌 Usa íconos según el contenido:
    - 📘 Explicaciones
    - 📜 Artículos citados
    - ⚠️ Advertencias
    - 🧩 Interpretaciones
    - 🏛️ Instituciones
    - ♻️ Biodiversidad
-   etc., según corresponda.
-Cada párrafo que escribas debe indicar exactamente de qué artículo(s) se obtiene la información**, citando explícitamente así:
-   - (Artículo 3)
-   - (Artículos 12 y 14)
-   - (Modificación del Artículo 38 de la Ley 19.xxx)
-   - etc.
-  Has 3 preguntas de seguimiento al final de la respuesta.
+   etc.
+
+6. 🚫 **Prohibición estricta**:  
+   - NO generar contenido sobre ninguna ley distinta a la **Ley 21.600**.  
+   - NO hacer preguntas, referencias ni explicaciones que no se basen exclusivamente en **los artículos de la Ley 21.600 cargados en FileSearch**.
+
+7. 🧩 **Preguntas de seguimiento obligatorias**:
+   - Debes generar EXACTAMENTE 3 preguntas de seguimiento.
+   - TODAS deben referirse *únicamente* a la Ley 21.600.
+   - Ejemplos válidos:
+     - "¿Deseas profundizar en cómo la Ley 21.600 regula X según el Artículo Y?"
+     - "¿Quieres revisar otro artículo relacionado dentro de la Ley 21.600?"
+   - Ejemplos prohibidos:
+     - Preguntas generales sin referencia a la Ley 21.600.
+     - Preguntas sobre otras leyes o temas externos.
+
+-----
 
 ${query}
 `;
+
 
   //
   // 🔥 2) Request principal a Gemini
@@ -624,9 +639,29 @@ async function busquedaSemantica(query) {
   // ⚠️ NO dejes la API key en el código. Usa variables de entorno o un secreto seguro.
   const API_KEY = "AIzaSyDro4Ii6RJcoJO8do7vquamOXl9uh6uWIw";
 
-  const instrucciones = `
+  const instrucciones2 = `
   Dame el resultado solo con los id de los articulos. No agregues texto, solo numeros.
   Pregunta: En que articulos está el concepto de manera semantica o se puede asociar de alguna manera: ${query}.
+  `;
+  
+  const instrucciones = `
+  Instrucciones obligatorias (seguir al 100%):
+
+  0. Es tu obligación revisar la totalidad de los archivos antes de estructurar una respuesta.
+  1. Debes usar EXCLUSIVAMENTE FileSearch para encontrar la información, en particular dentro de TODOS los documentos existentes.
+  2. No puedes usar tu conocimiento general ni inferir nada fuera de los documentos indexados.
+  3. Debes analizar TODO el contenido del FileSearch, sin omitir secciones ni saltar documentos.
+  4. Tu tarea es identificar absolutamente TODOS los artículos donde aparezca el concepto consultado, 
+    ya sea de forma literal, semántica, relacionada, implícita o asociada de cualquier manera.
+  5. Debes revisar coincidencias directas, sinónimos, ideas equivalentes, conceptos cercanos, 
+    y relaciones contextuales dentro de los artículos.
+  6. Tu respuesta debe contener ÚNICAMENTE una lista de IDs de artículos, separados por comas o saltos de línea.
+  7. No debes agregar comentarios, texto explicativo, conclusiones ni palabras adicionales. Solo los IDs.
+
+  Pregunta del usuario:
+  ${query}
+
+  Devuelve únicamente los IDs de los artículos relevantes.
   `;
 
   const body = {
