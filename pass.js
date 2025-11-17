@@ -520,6 +520,242 @@ ${query}
   }
 }
 
+async function busquedaSemantica2(query) {
+  const API_KEY = "AIzaSyDro4Ii6RJcoJO8do7vquamOXl9uh6uWIw";
+
+  //
+  // 🔥 1) Construcción del prompt con instrucciones claras para forzar FileSearch
+  //
+  const instrucciones = `
+Reglas obligatorias (seguir SIEMPRE):
+Debes usar exclusivamente FileSearch para obtener la información.
+No puedes usar conocimiento general del modelo ni inventar información.
+Tu respuesta SIEMPRE debe ser únicamente un array JSON con los IDs de los artículos encontrados.
+No agregues texto adicional, explicaciones ni formato extra. Solo el array.
+Si no existe coincidencia, responde [].
+Tarea:
+Busca el concepto siguiente dentro de los artículos usando FileSearch de manera semantica:
+${query}
+`;
+//Formato esperado de respuesta:
+//Ejemplo: si el concepto aparece en los artículos 3, 5 y 6 →
+//[3, 5, 6]
+//`;
+
+  //
+  // 🔥 2) Request principal a Gemini
+  //
+  const body = {
+    contents: [
+      {
+        role: "user",
+        parts: [{ text: instrucciones }]
+      }
+    ],
+    tools: [
+      {
+        fileSearch: {
+          fileSearchStoreNames: [
+            "fileSearchStores/tutorial-gemini-file-search-3oi7j1dv8anb"
+          ]
+        }
+      }
+    ]
+  };
+
+  try {
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + API_KEY,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    const data = await response.json();
+    console.log("RAW GEMINI RESPONSE:", data);
+
+    //
+    // 🔥 3) EXTRAER TOOL CALLS Y RESPUESTAS
+    //
+    const parts = data?.candidates?.[0]?.content?.parts || [];
+
+    // Caso 1: El modelo devolvió directamente texto (sin tool calls)
+    const directText = parts.find(p => p.text)?.text;
+    if (directText) {
+      return directText;
+    }
+    console.log("prerespuesta",directText)
+    // Caso 2: El modelo pide ejecutar FileSearch (tool call)
+    const toolCall = parts.find(p => p.fileSearchResult);
+    if (toolCall) {
+      const results = toolCall.fileSearchResult;
+      
+      if (!results || !results.results || results.results.length === 0) {
+        return "⚠️ No se encontraron resultados en FileSearch.";
+      }
+
+      // Construimos una respuesta usando los documentos encontrados
+      let textoFinal = "📄 **Resultados encontrados:**\n\n";
+
+      for (const r of results.results) {
+        textoFinal += `### ${r.fileName}\n`;
+        textoFinal += `${r.content}\n\n`;
+      }
+      console.log("respuesta",textoFinal)
+      return textoFinal;
+    }
+
+    //
+    // Caso 3: No hubo texto ni resultado → retorno seguro
+    //
+    return "⚠️ El modelo no entregó texto ni resultados de FileSearch.";
+
+  } catch (error) {
+    console.error("Error en obtenerRespuesta:", error);
+    return "❌ Error al obtener la respuesta del modelo.";
+  }
+}
+
+async function busquedaSemantica(query) {
+  // ⚠️ NO dejes la API key en el código. Usa variables de entorno o un secreto seguro.
+  const API_KEY = "AIzaSyDro4Ii6RJcoJO8do7vquamOXl9uh6uWIw";
+
+  const instrucciones = `
+  Dame el resultado solo con los id de los articulos. No agregues texto, solo numeros.
+  Pregunta: En que articulos está el concepto de manera semantica o se puede asociar de alguna manera: ${query}.
+  `;
+
+  const body = {
+    contents: [
+      {
+        role: "user",
+        parts: [{ text: instrucciones }]
+      }
+    ],
+    tools: [
+      {
+        fileSearch: {
+          fileSearchStoreNames: [
+            "fileSearchStores/tutorial-gemini-file-search-3oi7j1dv8anb"
+          ]
+        }
+      }
+    ]
+  };
+
+  try {
+    const resp = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + API_KEY,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    if (!resp.ok) {
+      const text = await resp.text();
+      console.error("Error response from Gemini:", resp.status, text);
+      throw new Error(`Gemini API error ${resp.status}`);
+    }
+
+    const data = await resp.json();
+    console.log("RAW GEMINI RESPONSE:", data);
+
+    const parts = data?.candidates?.[0]?.content?.parts || [];
+
+    // -----------------------------------------
+    // 🔥 1) NORMALIZACIÓN DE RESPUESTA DE TEXTO 
+    // -----------------------------------------
+    const directPart = parts.find(
+      p => typeof p.text === "string" && p.text.trim().length > 0
+    );
+
+    if (directPart) {
+      const txt = directPart.text.trim();
+
+      // 🔥 LIMPIEZA del formato (maneja: {text:"1,2,3"}, "[1,2,3]", "IDs: 1 2 3", etc.)
+      const limpio = txt
+        .replace(/^[^{\[]*:/, "") // elimina "text:" o "IDs:" si existe
+        .replace(/[\{\}\[\]]/g, "") // elimina { } [ ]
+        .trim();
+
+      // 🔥 Extraer números aunque estén separados por comas, espacios o ambos
+      const nums = limpio
+        .split(/[\s,]+/)
+        .map(x => parseInt(x))
+        .filter(n => !isNaN(n));
+
+      if (nums.length > 0) {
+        const ordenados = Array.from(new Set(nums)).sort((a, b) => a - b);
+        console.log("RESPUESTA NORMALIZADA:", ordenados);
+        return ordenados;
+      }
+    }
+
+    // -----------------------------------------
+    // 🔥 2) RESULTADOS DEL FILE SEARCH (tool)
+    // -----------------------------------------
+    const toolPart = parts.find(p => p.fileSearchResult);
+
+    if (toolPart) {
+      const hits = toolPart.fileSearchResult?.results || [];
+      const ids = new Set();
+
+      for (const h of hits) {
+        if (typeof h.id === "number") ids.add(h.id);
+        if (typeof h.documentId === "number") ids.add(h.documentId);
+        if (typeof h.fileId === "number") ids.add(h.fileId);
+
+        if (typeof h.id === "string" && /^\d+$/.test(h.id)) ids.add(Number(h.id));
+        if (typeof h.documentId === "string" && /^\d+$/.test(h.documentId)) ids.add(Number(h.documentId));
+        if (typeof h.fileId === "string" && /^\d+$/.test(h.fileId)) ids.add(Number(h.fileId));
+
+        if (h.fileName) {
+          const m = h.fileName.match(/\b(\d{1,6})\b/);
+          if (m) ids.add(Number(m[1]));
+        }
+      }
+
+      return Array.from(ids).sort((a, b) => a - b);
+    }
+
+    // -----------------------------------------
+    // 🔥 3) toolCalls (otro formato de Gemini)
+    // -----------------------------------------
+    const toolCalls = data?.candidates?.[0]?.toolCalls || [];
+    for (const tc of toolCalls) {
+      const hits = tc?.fileSearchResult?.results;
+      if (!hits) continue;
+
+      const ids = new Set();
+      for (const h of hits) {
+        if (typeof h.id === "number") ids.add(h.id);
+        if (h.fileName) {
+          const m = h.fileName.match(/\b(\d{1,6})\b/);
+          if (m) ids.add(Number(m[1]));
+        }
+      }
+      return Array.from(ids).sort((a, b) => a - b);
+    }
+
+    // -----------------------------------------
+    // Si todo falla → array vacío
+    // -----------------------------------------
+    return [];
+
+  } catch (error) {
+    console.error("Error en busquedaSemantica:", error);
+    return [];
+  }
+}
+
 
 
 
