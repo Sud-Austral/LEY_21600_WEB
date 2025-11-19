@@ -1,4 +1,5 @@
 const mockDataResponse = { /* ... (Mismo objeto de datos de la versión anterior) ... */
+      leyesRelacionadas : {},
       titulos: [
         { "id": 1, "numero": "I", "nombre": "DISPOSICIONES GENERALES", "orden": 1 },
         { "id": 2, "numero": "II", "nombre": "DEL SERVICIO DE BIODIVERSIDAD Y ÁREAS PROTEGIDAS", "orden": 2 },

@@ -639,29 +639,9 @@ async function busquedaSemantica(query) {
   // ⚠️ NO dejes la API key en el código. Usa variables de entorno o un secreto seguro.
   const API_KEY = "AIzaSyDro4Ii6RJcoJO8do7vquamOXl9uh6uWIw";
 
-  const instrucciones2 = `
-  Dame el resultado solo con los id de los articulos. No agregues texto, solo numeros.
-  Pregunta: En que articulos está el concepto de manera semantica o se puede asociar de alguna manera: ${query}.
-  `;
-  
   const instrucciones = `
-  Instrucciones obligatorias (seguir al 100%):
+  Devuelve los numero de los artículos que tengan cualquier tipo de relación semántica, contextual, conceptual, temática o textual con: "${query}".
 
-  0. Es tu obligación revisar la totalidad de los archivos antes de estructurar una respuesta.
-  1. Debes usar EXCLUSIVAMENTE FileSearch para encontrar la información, en particular dentro de TODOS los documentos existentes.
-  2. No puedes usar tu conocimiento general ni inferir nada fuera de los documentos indexados.
-  3. Debes analizar TODO el contenido del FileSearch, sin omitir secciones ni saltar documentos.
-  4. Tu tarea es identificar absolutamente TODOS los artículos donde aparezca el concepto consultado, 
-    ya sea de forma literal, semántica, relacionada, implícita o asociada de cualquier manera.
-  5. Debes revisar coincidencias directas, sinónimos, ideas equivalentes, conceptos cercanos, 
-    y relaciones contextuales dentro de los artículos.
-  6. Tu respuesta debe contener ÚNICAMENTE una lista de IDs de artículos, separados por comas o saltos de línea.
-  7. No debes agregar comentarios, texto explicativo, conclusiones ni palabras adicionales. Solo los IDs.
-
-  Pregunta del usuario:
-  ${query}
-
-  Devuelve únicamente los IDs de los artículos relevantes.
   `;
 
   const body = {
@@ -1002,8 +982,6 @@ Restricciones de Estilo:
     }
   }
 
-
-
 async function obtenerRespuestaLey(pregunta) {
   const promptBase = `
   Actúa como un experto en análisis legislativo. Dada la siguiente base de datos de artículos de una ley chilena sobre biodiversidad y áreas protegidas, responde a la pregunta del usuario siguiendo estrictamente esta estructura:
@@ -1085,4 +1063,111 @@ async function obtenerRespuestaLey(pregunta) {
       throw error;
     }
   }
+
+
+
+// ============================================
+// BÚSQUEDA SEMÁNTICA REAL CON LLM
+// ============================================
+
+async function obtenerSemanticaZ(query) {
+  const baseDatos = mockDataResponse.articulos.map(articulo => ({
+    numero: articulo.id,
+    texto: `${articulo.nombre}: ${articulo.texto_completo.substring(0, 150)}`
+  }));
+
+  // Prompt blindado
+  const promptBase = `
+Devuelve solo los números de los artículos que tengan cualquier tipo de relación semántica, contextual, conceptual, temática o textual con: "${query}".
+
+De la siguiente Base de datos:
+${JSON.stringify(baseDatos)}
+  `;
+
+  const requestBody = {
+    model: "glm-4.5-flash",
+    messages: [{ role: "user", content: promptBase }],
+    temperature: 0.3,
+    max_tokens: 5000
+  };
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 1500000); // 15s
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(requestBody),
+      signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      throw new Error(`Error en la petición: ${response.status} ${response.statusText}`);
+    }
+
+    const dataResp = await response.json();
+    console.log("Todo",dataResp)
+    const content = dataResp?.choices?.[0]?.message?.content;
+
+    if (typeof content !== "string") {
+      console.error("Contenido inválido:", content);
+      return [];
+    }
+
+    console.log("Respuesta cruda del modelo:", content);
+
+    // Procesar
+    const ids = procesarRespuestaIds(content);
+    console.log("IDs procesados:", ids);
+
+    return ids;
+
+  } catch (error) {
+    console.error("Error en obtenerSemanticaZ:", error);
+    if (error.name === "AbortError") {
+      throw new Error("Tiempo de espera excedido.");
+    }
+    throw error;
+  }
+}
+
+
+// ⚙️ Procesador fortificado de IDs
+function procesarRespuestaIds(respuesta) {
+  try {
+    let clean = respuesta.trim();
+
+    // Si vino rodeado de backticks ```json ... ```
+    clean = clean.replace(/```json/gi, '').replace(/```/g, '').trim();
+
+    // Intentar encontrar el array JSON directo
+    const arrayMatch = clean.match(/\[[^\]]*\]/);
+    if (arrayMatch) {
+      try {
+        const arr = JSON.parse(arrayMatch[0]);
+        return arr.filter(n => Number.isInteger(n));
+      } catch (e) {
+        // Si el JSON viene casi-correcto, intentar rescatar números
+        console.warn("JSON malformado, intentando rescatar números...");
+      }
+    }
+
+    // Rescate final: extraer cualquier número
+    const nums = clean.match(/\d+/g);
+    if (nums) {
+      return nums.map(n => parseInt(n, 10));
+    }
+
+    return [];
+  } catch (e) {
+    console.error("Error procesando IDs:", respuesta);
+    return [];
+  }
+}
 
